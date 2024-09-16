@@ -1,20 +1,17 @@
 import { TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './admin/components/navbar/navbar.component';
-import { FilterComponent } from './admin/components/filter/filter.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormParkingComponent } from './admin/components/form-parking/form-parking.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { NavbarComponent } from "./admin/components/navbar/navbar.component";
+import { FilterComponent } from "./admin/components/filter/filter.component";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [
-        RouterTestingModule,
-        BrowserAnimationsModule,
-        NavbarComponent,
-        FilterComponent
-      ],
-      declarations: [AppComponent],
+      imports: [RouterTestingModule, ReactiveFormsModule, NavbarComponent, FilterComponent, BrowserAnimationsModule],
+      declarations: [AppComponent, FormParkingComponent],
     }).compileComponents();
   });
 
@@ -35,7 +32,7 @@ describe('AppComponent', () => {
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
     expect(compiled.querySelector('.content span')?.textContent).toContain(
-      'angular_Parking_Manager app is running!',
+      'angular_Parking_Manager app is running!'
     );
   });
 });

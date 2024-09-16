@@ -15,6 +15,7 @@ export class FormParkingComponent implements OnInit {
     this.form = this.formBuilder.group({
       name: ['', [Validators.required]],
       car: ['', Validators.required],
+      placa: ['', Validators.required],
       //dateTime: ['', Validators.required]
     });
   }
