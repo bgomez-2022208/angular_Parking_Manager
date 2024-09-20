@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 @Component({
   selector: 'app-form-parking',
   templateUrl: './form-parking.component.html',
-  styleUrls: ['./form-parking.component.sass']
+  styleUrls: ['./form-parking.component.scss']
 })
 export class FormParkingComponent implements OnInit {
   public form: FormGroup = this.formBuilder.group({});
