@@ -1,13 +1,22 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AuditoriaComponent} from './auditoria/auditoria.component';
+
 
 const routes: Routes = [
-  { path: 'audit', component: AuditoriaComponent },
+  {
+    path: 'auditory',
+    loadChildren: () =>
+      import('./auditoria/auditoria.module').then((m) => m.AuditoriaModule),
+  },
+  {
+    path: 'profiles',
+    loadChildren: () => import('./admin/profiles/profiles.module').then(m => m.ProfilesModule)
+  },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes),
+  ],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
