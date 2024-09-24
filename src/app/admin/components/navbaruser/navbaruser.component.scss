@@ -1,0 +1,17 @@
+.example {
+  width: 100%;
+  display: flex;
+  background-color: #76ABAE;
+  height: 80px;
+  font-size: 30px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+
+  .example-spacer {
+    flex: 1 1 auto;
+  }
+
+  .example-icon {
+    margin-right: 8px;
+  }
+}
