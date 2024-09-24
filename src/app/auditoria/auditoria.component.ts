@@ -9,6 +9,10 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatSelectChange } from '@angular/material/select';
+
+import { FormControl } from '@angular/forms';
+
 
 
 export interface AuditData {
@@ -24,15 +28,9 @@ export interface AuditData {
   styleUrls: ['./auditoria.component.scss'],
   standalone: true,
   imports: [
-    MatFormFieldModule,MatInputModule,MatTableModule,MatSortModule,MatPaginatorModule,
-    MatSidenavModule,
-    MatSelectModule,
-    MatButtonModule,
-    MatSidenavModule,
-    MatFormFieldModule,
-    MatSelectModule,
-    MatMenuModule,
-    MatDatepickerModule
+    MatFormFieldModule,MatInputModule,MatTableModule,MatSortModule,MatPaginatorModule,MatSidenavModule,
+    MatSelectModule,MatButtonModule,MatSidenavModule,MatFormFieldModule,MatSelectModule,
+    MatMenuModule,MatDatepickerModule
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -44,25 +42,20 @@ export class AuditoriaComponent implements AfterViewInit {
   readonly minDate = new Date(this._currentYear - 20, 0, 1);
   readonly maxDate = new Date();
 
+
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
   constructor() {
     const audit: AuditData[] = [
-      { id: '1', entity: 'User', change: 'Updated password', date: '2023-09-01' },
-      { id: '2', entity: 'User', change: 'Created account', date: '2023-09-02' },
-      { id: '3', entity: 'Order', change: 'Deleted order', date: '2023-09-03' },
-      { id: '4', entity: 'Product', change: 'Updated price', date: '2023-09-04' }
+      { id: '1', entity: 'User', change: 'Updated password', date: '2023/09/01' },
+      { id: '2', entity: 'User', change: 'Created account', date: '2023/09/02' },
+      { id: '3', entity: 'Order', change: 'Deleted order', date: '2023/09/03' },
+      { id: '4', entity: 'Product', change: 'Updated price', date: '2023/09/04' }
     ];
 
     this.dataSource = new MatTableDataSource(audit);
 
-    this.dataSource.filterPredicate = (data, filter) => {
-      const searchTerms = JSON.parse(filter);
-      const matchesEntity = data.entity.toLowerCase().includes(searchTerms.entity);
-      const matchesDate = !searchTerms.date || new Date(data.date).toDateString() === new Date(searchTerms.date).toDateString();
-      return matchesEntity && matchesDate;
-    };
   }
 
   ngAfterViewInit() {
@@ -70,13 +63,42 @@ export class AuditoriaComponent implements AfterViewInit {
     this.dataSource.sort = this.sort;
   }
 
-  applyFilter(event: Event) {
-    const filterValue = (event.target as HTMLInputElement).value;
+  applyFilter(event: Event | MatSelectChange | Date) {
+    let filterValue = '';
+
+    if (event instanceof Date) {
+      const selectedDate = event;
+      const day = String(selectedDate.getDate()).padStart(2, '0');
+      const month = String(selectedDate.getMonth() + 1).padStart(2, '0');
+      const year = selectedDate.getFullYear();
+
+      filterValue = `${year}-${month}-${day}`;
+    }
+    else if (event instanceof MatSelectChange) {
+      filterValue = event.value;
+    }
+    else if (event.target && (event.target as HTMLInputElement).value !== undefined) {
+      filterValue = (event.target as HTMLInputElement).value;
+    }
+
     this.dataSource.filter = filterValue.trim().toLowerCase();
 
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
+  }
+  ngOnInit() {
+    this.dataSource.filterPredicate = (data: AuditData, filter: string) => {
+      const transformedFilter = filter.trim().toLowerCase();
+
+      const matchFilter =
+        data.id.toLowerCase().includes(transformedFilter) ||
+        data.entity.toLowerCase().includes(transformedFilter) ||
+        data.change.toLowerCase().includes(transformedFilter) ||
+        data.date.includes(transformedFilter);
+
+      return matchFilter;
+    };
   }
 
 }
