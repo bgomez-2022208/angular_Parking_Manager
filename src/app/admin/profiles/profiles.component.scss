@@ -1,0 +1,39 @@
+.form-container{
+    border: 1px solid whitesmoke;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 70%;
+    padding: 2vh;
+    margin: 1vh;
+
+    .form-row{
+        display: flex;
+        align-items: center;
+    }
+
+    .save-button{
+        background-color: black;
+        border-radius: 0.5vh;
+        color: aliceblue;
+        width: 8vh;
+        height: 4vh;
+        margin-left: 1vh;
+    }
+
+    .input-form{
+        width: 60%;
+    }
+
+    .example-form {
+        height: 7vh;
+    }
+
+    .permissions-container{
+        margin: 4vh;
+        width: 80%;
+    }
+
+    .togle{
+        margin:2vh
+    }
+
+}
