@@ -10,7 +10,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatSelectChange } from '@angular/material/select';
-
+import { MatNativeDateModule } from '@angular/material/core';
 import { FormControl } from '@angular/forms';
 
 
@@ -26,12 +26,8 @@ export interface AuditData {
   selector: 'app-auditoria',
   templateUrl: './auditoria.component.html',
   styleUrls: ['./auditoria.component.scss'],
-  standalone: true,
-  imports: [
-    MatFormFieldModule,MatInputModule,MatTableModule,MatSortModule,MatPaginatorModule,MatSidenavModule,
-    MatSelectModule,MatButtonModule,MatSidenavModule,MatFormFieldModule,MatSelectModule,
-    MatMenuModule,MatDatepickerModule
-  ],
+  
+  providers: [MatDatepickerModule,MatButtonModule],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AuditoriaComponent implements AfterViewInit {

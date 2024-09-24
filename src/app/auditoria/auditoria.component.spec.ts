@@ -1,21 +1,16 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { TestBed } from '@angular/core/testing';
 import { AuditoriaComponent } from './auditoria.component';
 
 describe('AuditoriaComponent', () => {
-  let component: AuditoriaComponent;
-  let fixture: ComponentFixture<AuditoriaComponent>;
-
-  beforeEach(() => {
-    TestBed.configureTestingModule({
-      declarations: [AuditoriaComponent]
-    });
-    fixture = TestBed.createComponent(AuditoriaComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [AuditoriaComponent], // Asegúrate de agregarlo a imports
+    }).compileComponents();
   });
 
   it('should create', () => {
+    const fixture = TestBed.createComponent(AuditoriaComponent);
+    const component = fixture.componentInstance;
     expect(component).toBeTruthy();
   });
 });
