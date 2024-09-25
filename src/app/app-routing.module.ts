@@ -6,12 +6,14 @@ const routes: Routes = [
   {
     path: 'auditory',
     loadChildren: () =>
-      import('./auditoria/auditoria.module').then((m) => m.AuditoriaModule),
+      import('./admin/auditoria/auditoria.module').then((m) => m.AuditoriaModule),
   },
   {
     path: 'profiles',
     loadChildren: () => import('./admin/profiles/profiles.module').then(m => m.ProfilesModule)
   },
+ 
+
 ];
 
 @NgModule({

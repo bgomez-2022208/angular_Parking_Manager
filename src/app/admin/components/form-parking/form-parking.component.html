@@ -1,0 +1,23 @@
+<div class="formulario-parqueo">
+  <div class="titulo">Formulario Parqueo</div>
+  <form [formGroup]="form" (ngSubmit)="send()">
+    <div>
+      <label for="name">Nombre:</label>
+      <input type="text" id="name" formControlName="name">
+    </div>
+
+    <div>
+      <label for="car">Nombre del vehiculo:</label>
+      <input type="text" id="car" formControlName="car">
+    </div>
+
+    <div>
+      <label for="placa">Placa:</label>
+      <input type="text" id="placa" formControlName="placa">
+    </div>
+
+    <div>
+      <button type="submit">Send</button>
+    </div>
+  </form>
+</div>

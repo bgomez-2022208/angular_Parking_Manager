@@ -5,26 +5,45 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+// Angular Material Modules
 import { MatInputModule } from '@angular/material/input';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatOptionModule } from '@angular/material/core';
+import { MatSelectModule } from '@angular/material/select';
 
+// Admin Module
+import { AdminModule } from './admin/admin.module';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [
+    AppComponent // No declares AddUsersComponent aquí
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    ReactiveFormsModule,
     MatInputModule,
     MatTableModule,
     MatPaginatorModule,
     MatNativeDateModule,
-    ReactiveFormsModule
+    MatFormFieldModule,
+    MatButtonModule,
+    MatIconModule,
+    MatMenuModule,
+    MatToolbarModule,
+    MatOptionModule,
+    MatSelectModule,
+    AdminModule 
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
