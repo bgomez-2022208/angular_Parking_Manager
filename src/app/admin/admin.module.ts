@@ -28,12 +28,36 @@ import { AddUsersComponent } from './components/add-users/add-users.component';
 
 import { FormsModule } from '@angular/forms';
 import { ProfilesComponent } from './profiles/profiles.component';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Routes } from "@angular/router";
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { UsersComponent } from './users/users.component';
 
+
+import { MatSortModule } from '@angular/material/sort';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatOptionModule } from '@angular/material/core';
+import { AuditoriaComponent } from './auditoria/auditoria.component';
+
+const routes : Routes = [
+  {
+    path:'profiles',
+    component: ProfilesComponent
+  },
+  {
+    path:'users',
+    component: UsersComponent
+  },
+  {
+    path:'auditory',
+    component: AuditoriaComponent
+  }
+
+]
+
 @NgModule({
   declarations: [
+    AuditoriaComponent,
     SearchComponent,
     NavbarComponent,
     LogoutConfirmComponent,
@@ -62,7 +86,16 @@ import { UsersComponent } from './users/users.component';
     FormsModule,
     MatInputModule,
     MatSlideToggleModule,
-    MatFormFieldModule,FormsModule, MatFormFieldModule, MatInputModule,
+    MatFormFieldModule,FormsModule, MatFormFieldModule, MatInputModule,RouterModule.forChild(routes),FormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
+    MatOptionModule,
+    MatDatepickerModule,
+    MatPaginatorModule,
+    MatTableModule,
+    MatSortModule,
+    MatOptionModule,
   ],
   exports: [
     NavbarComponent,
