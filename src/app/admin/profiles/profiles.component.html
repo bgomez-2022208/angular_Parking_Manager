@@ -3,8 +3,9 @@
   <div class="main-container">
     <div class="table">
       <app-filter-user></app-filter-user>
-      <div class="container-list"><app-table-users></app-table-users></div>
-      
+      <div class="container-list"><app-table-users [users]="users" [itemsPerPage]="7" (pageChange)="onPageChange($event)"></app-table-users>
+      </div>
+
     </div>
     <div class="container">
       <div class="form-container">
@@ -31,24 +32,24 @@
         <h1>Configuration</h1>
         <div class="permissions-container">
           <h1>Manage Permissions</h1>
-        
+
           <mat-slide-toggle class="togle" [formControl]="usersControl">
             Users
           </mat-slide-toggle>
-          
+
           <mat-slide-toggle class="togle" [formControl]="profileControl">
             Profile
           </mat-slide-toggle>
-          
+
           <mat-slide-toggle class="togle" [formControl]="parkingControl">
             Parking
           </mat-slide-toggle>
         </div>
-        
-        
-        
+
+
+
       </div>
-      
+
     </div>
   </div>
 </div>

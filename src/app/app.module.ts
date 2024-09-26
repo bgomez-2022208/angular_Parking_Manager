@@ -18,13 +18,12 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatOptionModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
-
-// Admin Module
 import { AdminModule } from './admin/admin.module';
+import { TableUsersComponent } from "./shared/components/table-users/table-users.component";
 
 @NgModule({
   declarations: [
-    AppComponent // No declares AddUsersComponent aquí
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +41,7 @@ import { AdminModule } from './admin/admin.module';
     MatToolbarModule,
     MatOptionModule,
     MatSelectModule,
-    AdminModule 
+    AdminModule
   ],
   bootstrap: [AppComponent]
 })

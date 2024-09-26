@@ -26,7 +26,7 @@ export interface AuditData {
   selector: 'app-auditoria',
   templateUrl: './auditoria.component.html',
   styleUrls: ['./auditoria.component.scss'],
-  
+
   providers: [MatDatepickerModule,MatButtonModule],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

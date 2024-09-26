@@ -1,29 +1,47 @@
-<div class="container">
-  <h2>Agregar</h2>
-  <form class="form-container" [formGroup]="userForm">
-    <div class="form-group">
-      <mat-form-field appearance="outline" class="input-small">
-        <mat-label>Correo electrónico</mat-label>
-        <input class="escritos" matInput formControlName="email" required />
+<div class="main-container">
+  <div class="list-container">
+
+  </div>
+
+  <div class="container">
+    <h2>Agregar</h2>
+    <form class="form-container" [formGroup]="userForm">
+      <div class="form-group">
+        <mat-form-field appearance="outline" class="input-small">
+          <mat-label>Correo electrónico</mat-label>
+          <input class="escritos" matInput formControlName="email" required />
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="input-small">
+          <mat-label>Correo electrónico</mat-label>
+          <input class="escritos" matInput formControlName="email" required />
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="input-small">
+          <mat-label>Correo electrónico</mat-label>
+          <input class="escritos" matInput formControlName="email" required />
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="input-small">
+          <mat-label>Correo electrónico</mat-label>
+          <input class="escritos" matInput formControlName="email" required />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="input-small">
+          <mat-label>Nombre</mat-label>
+          <input class="escritos" matInput formControlName="name" required />
+        </mat-form-field>
+      </div>
+
+      <mat-form-field appearance="outline" class="profile-select">
+        <mat-label>Perfil</mat-label>
+        <mat-select formControlName="profile" required>
+          <mat-option value="admin">Admin</mat-option>
+          <mat-option value="user">Usuario</mat-option>
+          <mat-option value="guest">Invitado</mat-option>
+        </mat-select>
       </mat-form-field>
 
-      <mat-form-field appearance="outline" class="input-small">
-        <mat-label>Nombre</mat-label>
-        <input class="escritos" matInput formControlName="name" required />
-      </mat-form-field>
-    </div>
-
-    <mat-form-field appearance="outline" class="profile-select">
-      <mat-label>Perfil</mat-label>
-      <mat-select formControlName="profile" required>
-        <mat-option value="admin">Admin</mat-option>
-        <mat-option value="user">Usuario</mat-option>
-        <mat-option value="guest">Invitado</mat-option>
-      </mat-select>
-    </mat-form-field>
-
-    <button mat-raised-button  color="primary" class="guardar">
-      Guardar
-    </button>
-  </form>
+      <button mat-raised-button color="primary" class="guardar">
+        Guardar
+      </button>
+    </form>
+  </div>
 </div>

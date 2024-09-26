@@ -26,11 +26,12 @@ h2 {
 
 .mat-form-field {
   flex: 1;
-  width: 500px;
+  max-width: 300px; // Tamaño reducido para inputs
+  margin-bottom: 1rem; // Espacio en la parte inferior
 }
 
 .profile-select {
-  width: 150px;
+  max-width: 150px;
 }
 
 .full-width {
@@ -49,11 +50,6 @@ h2 {
 
 .guardar:hover {
   background-color: #272b33;
-}
-
-
-.reduced-width {
-  width: 100px;
 }
 
 @media only screen and (max-width: 980px) {
@@ -87,8 +83,6 @@ h2 {
   }
 }
 
-
-
 @media only screen and (max-width: 800px) {
   .container {
     width: 100%;
@@ -111,7 +105,6 @@ h2 {
   .guardar {
     width: 100%;
     float: none;
-    background-color: #31363F
   }
 }
 
@@ -135,5 +128,18 @@ h2 {
   .guardar {
     width: 100%;
     float: none;
+  }
+}
+@media only screen and (max-width: 568px) {
+  .mat-form-field {
+    max-width: 150px;
+  }
+
+  .profile-select {
+    max-width: 120px;
+  }
+
+  .guardar {
+    padding: 0.4rem 0.8rem;
   }
 }

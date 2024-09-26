@@ -4,16 +4,10 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'auditory',
+    path: 'admin',
     loadChildren: () =>
-      import('./admin/auditoria/auditoria.module').then((m) => m.AuditoriaModule),
+      import('./admin/admin.module').then((m) => m.AdminModule),
   },
-  {
-    path: 'profiles',
-    loadChildren: () => import('./admin/profiles/profiles.module').then(m => m.ProfilesModule)
-  },
- 
-
 ];
 
 @NgModule({

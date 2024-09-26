@@ -5,11 +5,8 @@ import { TableUsersComponent } from './components/table-users/table-users.compon
 
 
 @NgModule({
-  declarations: [
-    TableUsersComponent
-  ],
-  imports: [
-    CommonModule
-  ],
+  declarations: [TableUsersComponent],
+  imports: [CommonModule],
+  exports: [TableUsersComponent]
 })
-export class SharedModule { }
+export class SharedModule {}

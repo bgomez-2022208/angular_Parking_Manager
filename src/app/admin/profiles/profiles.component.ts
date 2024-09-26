@@ -1,18 +1,6 @@
-import {Component, inject} from '@angular/core';
-import {
-  FormControl,
-  FormGroupDirective,
-  NgForm,
-  Validators,
-  FormsModule,
-  ReactiveFormsModule,
-} from '@angular/forms';
-import {ErrorStateMatcher} from '@angular/material/core';
-import {MatInputModule} from '@angular/material/input';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatSlideToggleModule} from '@angular/material/slide-toggle';
-import { NavbaruserComponent } from '../components/navbaruser/navbaruser.component';
-
+import { Component, inject } from '@angular/core';
+import { FormControl, FormGroupDirective, NgForm, Validators } from '@angular/forms';
+import { ErrorStateMatcher } from '@angular/material/core';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -25,18 +13,22 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   selector: 'app-profiles',
   templateUrl: './profiles.component.html',
   styleUrls: ['./profiles.component.scss'],
-  /*standalone: true,
-  imports: [FormsModule, MatFormFieldModule, MatInputModule, ReactiveFormsModule, MatSlideToggleModule],
-  imports:[MatSlideToggleModule]*/
 })
 export class ProfilesComponent {
   emailFormControl = new FormControl('', [Validators.required, Validators.email]);
-
   matcher = new MyErrorStateMatcher();
 
+  // Control para las opciones
   usersControl = new FormControl(false);
   profileControl = new FormControl(false);
   parkingControl = new FormControl(false);
 
-  
+  users = [
+    { email: 'user1@example.com', name: 'User One' },
+    { email: 'user2@example.com', name: 'User Two' },
+  ];
+
+  onPageChange(newPage: number) {
+    console.log(`Página actual: ${newPage}`);
+  }
 }
