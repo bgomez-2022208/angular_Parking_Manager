@@ -26,6 +26,11 @@ import { NavbaruserComponent } from './components/navbaruser/navbaruser.componen
 import { FilterUserComponent } from './components/filter-user/filter-user.component';
 import { AddUsersComponent } from './components/add-users/add-users.component';
 
+import { FormsModule } from '@angular/forms';
+import { ProfilesComponent } from './profiles/profiles.component';
+import { RouterModule } from '@angular/router';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+
 @NgModule({
   declarations: [
     SearchComponent,
@@ -34,9 +39,10 @@ import { AddUsersComponent } from './components/add-users/add-users.component';
     FilterComponent,
     FormParkingComponent,
     TableUsersComponent,
-    NavbaruserComponent, // Asegúrate de declarar aquí
+    NavbaruserComponent, 
     FilterUserComponent,
-    AddUsersComponent 
+    AddUsersComponent,
+    ProfilesComponent
   ],
   imports: [
     CommonModule,
@@ -50,7 +56,11 @@ import { AddUsersComponent } from './components/add-users/add-users.component';
     MatInputModule,
     MatSelectModule,
     MatTableModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    FormsModule,
+    MatInputModule,
+    MatSlideToggleModule,
+    MatFormFieldModule,FormsModule, MatFormFieldModule, MatInputModule,
   ],
   exports: [
     NavbarComponent,
@@ -59,7 +69,7 @@ import { AddUsersComponent } from './components/add-users/add-users.component';
     TableUsersComponent,
     AddUsersComponent,
     FilterUserComponent,
-    NavbaruserComponent // Exporta si quieres usarlo en otros módulos
+    NavbaruserComponent 
   ]
 })
 export class AdminModule { }

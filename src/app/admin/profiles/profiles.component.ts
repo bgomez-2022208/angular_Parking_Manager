@@ -11,6 +11,7 @@ import {ErrorStateMatcher} from '@angular/material/core';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import { NavbaruserComponent } from '../components/navbaruser/navbaruser.component';
 
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
@@ -24,8 +25,9 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   selector: 'app-profiles',
   templateUrl: './profiles.component.html',
   styleUrls: ['./profiles.component.scss'],
-  standalone: true,
+  /*standalone: true,
   imports: [FormsModule, MatFormFieldModule, MatInputModule, ReactiveFormsModule, MatSlideToggleModule],
+  imports:[MatSlideToggleModule]*/
 })
 export class ProfilesComponent {
   emailFormControl = new FormControl('', [Validators.required, Validators.email]);

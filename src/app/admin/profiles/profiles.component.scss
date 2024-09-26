@@ -1,7 +1,13 @@
+.main-container{
+    display: flex;
+}
+.container{
+    width: 100%;
+}
 .form-container{
     border: 1px solid whitesmoke;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    width: 70%;
+    width: 80%;
     padding: 2vh;
     margin: 1vh;
 
@@ -29,7 +35,7 @@
 
     .permissions-container{
         margin: 4vh;
-        width: 80%;
+        width: 90%;
     }
 
     .togle{

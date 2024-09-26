@@ -1,41 +1,48 @@
-<div class="form-container">
-  <h1>Add Profile</h1>
-  <div class="form-row">
-    <form class="example-form">
-      <mat-form-field class="example-full-width">
-        <mat-label>Email</mat-label>
-        <input
-          type="email"
-          matInput
-          [formControl]="emailFormControl"
-          [errorStateMatcher]="matcher"
-          placeholder="Ex. pat@example.com"
-        />
-      </mat-form-field>
-    </form>
-    <button class="save-button">
-      Save
-    </button>
-  </div>
-</div>
-<div class="form-container">
-  <h1>Configuration</h1>
-  <div class="permissions-container">
-    <h1>Manage Permissions</h1>
-  
-    <mat-slide-toggle class="togle" [formControl]="usersControl">
-      Users
-    </mat-slide-toggle>
+<app-navbaruser></app-navbaruser>
+<div class="main-container">
+<app-filter-user></app-filter-user>
+  <div class="container">
+    <div class="form-container">
+      <h1>Add Profile</h1>
+      <div class="form-row">
+        <form class="example-form">
+          <mat-form-field class="example-full-width">
+            <mat-label>Email</mat-label>
+            <input
+              type="email"
+              matInput
+              [formControl]="emailFormControl"
+              [errorStateMatcher]="matcher"
+              placeholder="email"
+            />
+          </mat-form-field>
+        </form>
+        <button class="save-button">
+          Save
+        </button>
+      </div>
+    </div>
+    <div class="form-container">
+      <h1>Configuration</h1>
+      <div class="permissions-container">
+        <h1>Manage Permissions</h1>
+      
+        <mat-slide-toggle class="togle" [formControl]="usersControl">
+          Users
+        </mat-slide-toggle>
+        
+        <mat-slide-toggle class="togle" [formControl]="profileControl">
+          Profile
+        </mat-slide-toggle>
+        
+        <mat-slide-toggle class="togle" [formControl]="parkingControl">
+          Parking
+        </mat-slide-toggle>
+      </div>
+      
+      
+      
+    </div>
     
-    <mat-slide-toggle class="togle" [formControl]="profileControl">
-      Profile
-    </mat-slide-toggle>
-    
-    <mat-slide-toggle class="togle" [formControl]="parkingControl">
-      Parking
-    </mat-slide-toggle>
   </div>
-  
-  
-  
 </div>

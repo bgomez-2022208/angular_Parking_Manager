@@ -6,15 +6,13 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { ProfilesComponent } from './profiles.component';
 import { RouterModule } from '@angular/router';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 @NgModule({
   declarations: [],
   imports: [
     CommonModule,
-    FormsModule,
-    ReactiveFormsModule,
-    MatInputModule,
-    MatFormFieldModule,
+    
     RouterModule.forChild([{ path: '', component: ProfilesComponent }]),
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
