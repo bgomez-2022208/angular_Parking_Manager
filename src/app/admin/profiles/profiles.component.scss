@@ -4,10 +4,14 @@
 .container{
     width: 100%;
 }
+.container-list{
+    padding: 3vh;
+    width: 100%;
+}
 .form-container{
     border: 1px solid whitesmoke;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    width: 80%;
+    width: 90%;
     padding: 2vh;
     margin: 1vh;
 
@@ -43,3 +47,47 @@
     }
 
 }
+
+@media only screen and (max-width: 760px) {
+    .principal-container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+       /* align-items: center;*/
+       .table{
+        width: 100%;
+       }
+        .main-container{
+            display: flex;
+            flex-direction: column;
+            .form-container{
+                width: 98%;
+            }
+        }
+    }
+}
+
+
+
+@media only screen and (max-width: 300px) {
+    .principal-container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        .main-container{
+            display: flex;
+            flex-direction: column;
+            .form-container{
+                width: 98%;
+            }
+            .form-row{
+                display: flex;
+                flex-direction: column;
+            }
+            .save-button{
+                margin: 2vh;
+            }
+        }
+    }
+}
+

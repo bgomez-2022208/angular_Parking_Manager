@@ -21,7 +21,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { LogoutConfirmComponent } from './components/logout-confirm/logout-confirm.component';
 import { FilterComponent } from './components/filter/filter.component';
 import { FormParkingComponent } from './components/form-parking/form-parking.component';
-import { TableUsersComponent } from './components/table-users/table-users.component';
+import { TableUsersComponent } from '../shared/components/table-users/table-users.component';
 import { NavbaruserComponent } from './components/navbaruser/navbaruser.component';
 import { FilterUserComponent } from './components/filter-user/filter-user.component';
 import { AddUsersComponent } from './components/add-users/add-users.component';
