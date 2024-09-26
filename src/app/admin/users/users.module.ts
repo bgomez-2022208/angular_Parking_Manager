@@ -6,10 +6,9 @@ import { UsersComponent } from './users.component';
 
 
 @NgModule({
-  declarations: [UsersComponent],
+  declarations: [],
   imports: [ 
     CommonModule,
-    UsersComponent,
     RouterModule.forChild([{ path: '', component: UsersComponent }])
   ]
 })

@@ -30,6 +30,7 @@ import { FormsModule } from '@angular/forms';
 import { ProfilesComponent } from './profiles/profiles.component';
 import { RouterModule } from '@angular/router';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { UsersComponent } from './users/users.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
     NavbaruserComponent, 
     FilterUserComponent,
     AddUsersComponent,
-    ProfilesComponent
+    ProfilesComponent,
+    UsersComponent
   ],
   imports: [
     CommonModule,
