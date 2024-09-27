@@ -1,0 +1,250 @@
+:host {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-main {
+    width: 50%;
+}
+
+.container {
+    display: flex;
+    justify-content: left;
+}
+
+.container-icon-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #76ABAE;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 100%;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+
+    .icon-title {
+        color: #222831;
+        width: 5rem;
+        height: 5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 100%;
+        font-size: 50px;
+    }
+}
+
+form {
+    height: 45rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    flex-direction: column;
+    border: 1px solid lightgray;
+    box-shadow: 1rem 1rem .8rem .2rem #cccccc;
+
+    h1 {
+        font-size: 2.5rem;
+        color: #222831;
+        font-weight: bold;
+        font-family: "Cabin", 'Courier New', Courier, monospace;
+    }
+
+    h3 {
+        font-size: 1.3rem;
+        color: #76ABAE;
+        margin-bottom: 2rem;
+        font-weight: normal;
+        font-family: "Cabin", 'Courier New', Courier, monospace;
+    }
+
+    .body-container {
+        width: 70%;
+        margin-bottom: 1rem;
+
+    }
+
+    .btnSubmit {
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #222831;
+        padding: 1.2rem;
+        line-height: .5;
+        border-radius: 10px;
+        transition: padding 0.2s ease-in-out;
+        margin-bottom: 2rem;
+
+        label {
+            font-size: large;
+            color: #76ABAE;
+            font-weight: bolder;
+            font-family: "Cabin", 'Courier New', Courier, monospace;
+        }
+
+        label:hover {
+            cursor: pointer;
+        }
+
+        .icon-Submit {
+            color: #76ABAE;
+            margin-right: .5rem;
+        }
+    }
+
+    .btnSubmit:hover {
+        padding: 1.5rem;
+        cursor: pointer;
+    }
+}
+
+.container-inputs {
+    display: flex;
+    justify-content: space-between;
+    padding: .2rem;
+    margin-bottom: 2rem;
+    width: 85%;
+
+    mat-form-field {
+        width: 45%;
+        margin-bottom: 1.5rem;
+        font-family: "Cabin", 'Courier New', Courier, monospace;
+    }
+
+    .last{
+        width: 100%;
+    }
+
+    .icon-inputs {
+        font-size: 25px;
+        color: #76ABAE;
+    }
+}
+
+.btnBack {
+    background-color: transparent;
+    position: fixed;
+    margin: 1rem;
+    transition: transform 0.5s ease-in-out;
+
+    .icon-back {
+        width: auto;
+        height: auto;
+        font-size: 60px;
+        color: #222831;
+        transition: color 0.5s ease-in-out;
+    }
+}
+
+.btnBack:hover {
+    transform: translateX(-10px);
+
+    .icon-back {
+        color: #76ABAE;
+        text-shadow: 15px 5px 5px rgba(0, 0, 0, 0.3);
+    }
+}
+
+@media (max-width: 980px) {
+    .container-main {
+        width: 80%;
+    }
+
+    form {
+        height: 65rem;
+
+        h1 {
+            font-size: 3rem;
+        }
+
+        h3 {
+            font-size: 1.8rem;
+        }
+    }
+
+    .container-inputs {
+        margin-bottom: 3.5rem;
+
+        mat-form-field {
+            font-size: x-large;
+            width: 48%;
+        }
+
+        .icon-inputs {
+            font-size: 30px;
+        }
+    }
+
+    form .btnSubmit {
+        width: 80%;
+        margin-top: 5rem;
+
+        label {
+            font-size: xx-large;
+        }
+
+        .icon-Submit {
+            font-size: xx-large;
+            width: 2rem;
+            height: 2rem;
+        }
+
+    }
+}
+
+@media (max-width: 640px) {
+    .container-main {
+        width: 95%;
+        height: auto;
+        margin-bottom: .1rem;
+
+    }
+
+    .container-icon-title {
+        width: 3rem;
+        height: 3rem;
+        margin-top: 1.5rem;
+        margin-bottom: .5rem;
+    
+        .icon-title {
+            width: 3rem;
+            height: 3rem;
+            font-size: 30px;
+        }
+    }
+    
+    form h1{
+        font-size: 2rem;
+    }
+
+    form h3{
+        font-size: 1.5rem;
+    }
+
+    .container-inputs{
+        flex-direction: column;
+        margin-bottom: .1rem;
+
+        mat-form-field {
+            width: 100%;
+            margin-bottom: 1.6rem;
+            font-size: larger;
+            font-family: "Cabin", 'Courier New', Courier, monospace;
+        }
+    }
+
+    form .btnSubmit {
+        margin-top: 2rem;
+
+        label {
+            font-size: x-large;
+        }
+    }
+}

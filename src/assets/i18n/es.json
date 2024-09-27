@@ -1,0 +1,82 @@
+{
+    "LOGIN": {
+        "HEADER_TITLE": "Iniciar Sesión",
+        "SUBTITLE_ONE": "O puedes ",
+        "SUBTITLE_TWO": "registrarte ahora",
+        "LABEL_EMAIL": "Correo electrónico",
+        "LABEL_PASSWORD": "Contraseña",
+        "REMEMBER_BUTTON_TITLE": "Recordar este dispositivo",
+        "FORGOT_PASSWORD": "¿Olvidaste tu contraseña?",
+        "BTN_LOGIN": "Iniciar sesión"
+    },
+    "REGISTER":{
+        "TITLE": "Registro",
+        "SUBTITLE": "Por favor, complete todos los campos para crear su cuenta",
+        "LABEL_NAME": "Nombre",
+        "LABEL_SURNAME": "Apellido",
+        "LABEL_AGE": "Edad",
+        "LABEL_DPI": "DPI",
+        "LABEL_EMAIL": "Correo electrónico",
+        "LABEL_PASSWORD": "Contraseña",
+        "LABEL_CONFIRM_PASSWORD": "Confirmar contraseña",
+        "BTN_REGISTER": "Registrarse"
+    },
+    "ERRORS": {
+        "ERROR_NAME_REQUIRED": "El nombre de es obligatorio",
+        "ERROR_SURNAME_REQUIRED": "El apellido de es obligatorio",
+        "ERROR_PASSWORD_REQUIRED": "La contraseña es obligatoria",
+        "ERROR_INVALID_CREDENTIALS": "Nombre de usuario o contraseña incorrectos",
+        "ERROR_EMAIL_REQUIRED": "El correo electrónico es obligatorio",
+        "ERROR_INVALID_EMAIL": "El correo electrónico no es valido",
+        "ERROR_NEW_PASSWORD_REQUIRED": "La nueva contraseña es requerida",
+        "ERROR_CONFIRM_PASSWORD_REQUIRED": "Coloca la nueva contraseña de nuevo",
+        "ERROR_CODE_REQUIRED": "El código es obligatorio",
+        "ERROR_CODE_INVALID": "El código solo pueden ser números",
+        "ERROR_PASSWORD_NOT_SAME": "Las constraseñas no coinciden",
+        "ERROR_SEND_CODE": "Ha ocurrido un error al enviar el código de seguridad",
+        "ERROR_AGE_REQUIRED": "La edad es obligatoria",
+        "ERROR_DPI_REQUIRED": "El dpi es obligatorio",
+        "ERROR_INVALID_PASSWORD": "La contraseña debe de tener una mayúscula, minúscula, caracter especial, número y ser de 8 dígitos como mínimo",
+        "ERROR_INVALID_AGE": "La edad solo pueden ser números y tiene que ser mayor de edad",
+        "ERROR_INVALID_DPI": "El dpi solo pueden ser número y debe de tener 13 dígitos",
+        "ERROR_INVALID_NAME": "El nombre solo pueden ser letras",
+        "ERROR_INVALID_SURNAME": "El apellido solo pueden ser letras",
+        "ERROR_UPDATE_PASSWORD": "Ha ocurrido un error al actualizar su contraseña"
+    },
+    "FORGOT_PASSWORD_EMAIL": {
+        "HEADER_TITLE": "Recupera tu contraseña",
+        "SUBTITLE": "Ingresa el correo asociado a tu cuenta para poder continuar",
+        "LABEL_EMAIL": "Correo electrónico",
+        "BTN_SEND": "Continuar"
+    },
+    "FORGOT_PASSWORD": {
+        "HEADER_TITLE": "Cambiar contraseña",
+        "SUBTITLE": "Ingresa tu nueva contraseña",
+        "LABEL_CODE": "Código de seguridad",
+        "LABEL_NEW_PASSWORD": "Nueva contraseña",
+        "LABEL_CONFIRM_PASSWORD": "Confirmar contraseña",
+        "BTN_CHANGE": "Cambiar contraseña"
+    },
+    "ALERT_CHANGE_PASSWORD":{
+        "TITLE": "Contraseña actualizada con éxito",
+        "TITLE_BAD": "Error al actualizar tu contraseña",
+        "MESSAGE": "Ahora puedes iniciar sesión con tu nueva contraseña"
+    },
+    "ALERT_SEND_CODE":{
+        "TITLE": "Código enviado con éxito",
+        "TITLE_BAD": "Error al enviar el código",
+        "MESSAGE": "Te hemos enviado un código de seguridad a tu correo electrónico"
+    },
+    "PLACEHOLDER":{
+        "PASSWORD": "Ingresa tu contraseña",
+        "EMAIL": "Ingresa tu correo electrónico",
+        "NEW_PASSWORD": "Ingresa tu nueva contraseña",
+        "CONFIRM_PASSWORD": "Confirma tu nueva contraseña",
+        "CODE": "Ingresa tu código de seguridad",
+        "NAME": "Ingresa tu nombre",
+        "SURNAME": "Ingresa tu apellido",
+        "AGE": "Ingresa tu edad",
+        "DPI": "Ingresa tu DPI",
+        "OLD_PASSWORD": "Ingresa tu contraseña actual"
+    }
+}

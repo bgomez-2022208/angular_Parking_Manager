@@ -1,0 +1,31 @@
+<div class="container-main">
+    <div class="card">
+        <header>
+            <h1>{{ 'LOGIN.HEADER_TITLE' | translate}}</h1>
+            <h3>{{ 'LOGIN.SUBTITLE_ONE' | translate}}<strong routerLink="/register">{{ 'LOGIN.SUBTITLE_TWO' | translate}}</strong></h3>
+        </header>
+        <form class="container-body" [formGroup]="form" (ngSubmit)="onSubmit()">
+            <mat-form-field class="responsive-input">
+                <mat-label class="label-input-required">{{ 'LOGIN.LABEL_EMAIL' | translate}}</mat-label>
+                <mat-icon matPrefix class="icon-inputs">person</mat-icon>
+                <input type="email" matInput [placeholder]="'PLACEHOLDER.EMAIL' | translate" formControlName="email" required class="input-required">
+                <mat-error *ngIf="form.get('email')?.invalid">{{getErrorMessage('email')}}</mat-error>
+            </mat-form-field>
+            <mat-form-field class="responsive-input">
+                <mat-label class="label-input-required">{{ 'LOGIN.LABEL_PASSWORD' | translate}}</mat-label>
+                <mat-icon matPrefix class="icon-inputs">lock</mat-icon>
+                <input matInput [type]="passwordFieldType" [placeholder]="'PLACEHOLDER.PASSWORD' | translate" formControlName="password" required>
+                <mat-icon class="icon-inputs-security" matSuffix (click)="togglePasswordVisibility()">{{valueIcon}}</mat-icon>
+                <mat-error *ngIf="form.get('password')?.invalid">{{getErrorMessage('password')}}</mat-error>
+            </mat-form-field>
+            <div class="container-options">
+                <label (click)="toggleCheckBox()">
+                    <mat-icon class="check">{{valueIconChecked}}</mat-icon>
+                    {{ 'LOGIN.REMEMBER_BUTTON_TITLE' | translate }}
+                </label>
+                <a routerLink="/forgot-password-email">{{ 'LOGIN.FORGOT_PASSWORD' | translate}}</a>
+            </div>
+            <button type="submit">{{ 'LOGIN.BTN_LOGIN' | translate}}</button>
+        </form>
+    </div>
+</div>

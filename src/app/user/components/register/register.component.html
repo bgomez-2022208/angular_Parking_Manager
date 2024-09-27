@@ -1,0 +1,57 @@
+<div class="container-main">
+    <div class="container">
+        <a routerLink="/login" class="btnBack">
+            <mat-icon class="icon-back">arrow_back</mat-icon>
+        </a>
+        <form class="body-container" [formGroup]="form" (ngSubmit)="onSubmit()">
+            <div class="container-icon-title"><mat-icon class="icon-title">person_add</mat-icon></div>
+            <h1 class="modal-title">{{ 'REGISTER.TITLE' | translate}}</h1>
+            <h3>{{ 'REGISTER.SUBTITLE' | translate}}</h3>
+            <div class="container-inputs">
+                <mat-form-field class="input-container">
+                    <mat-label class="label-input-required">{{ 'REGISTER.LABEL_NAME' | translate}}</mat-label>
+                    <mat-icon matPrefix class="icon-inputs">person</mat-icon>
+                    <input matInput type="text" [placeholder]="'PLACEHOLDER.NAME' | translate" class="input-required"
+                        formControlName="name" required>
+                    <mat-error *ngIf="form.get('name')?.invalid">{{getErrorMessage('name')}}</mat-error>
+                </mat-form-field>
+                <mat-form-field class="input-container">
+                    <mat-label class="label-input-required">{{ 'REGISTER.LABEL_SURNAME' | translate}}</mat-label>
+                    <mat-icon matPrefix class="icon-inputs">person</mat-icon>
+                    <input matInput type="text" [placeholder]="'PLACEHOLDER.SURNAME' | translate" class="input-required"
+                        formControlName="surname" required>
+                    <mat-error *ngIf="form.get('surname')?.invalid">{{getErrorMessage('surname')}}</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="container-inputs">
+                <mat-form-field class="input-container">
+                    <mat-label class="label-input-required">{{ 'REGISTER.LABEL_AGE' | translate}}</mat-label>
+                    <mat-icon matPrefix class="icon-inputs">calendar_month</mat-icon>
+                    <input matInput type="text" [placeholder]="'PLACEHOLDER.AGE' | translate" class="input-required"
+                        formControlName="age" required>
+                    <mat-error *ngIf="form.get('age')?.invalid">{{getErrorMessage('age')}}</mat-error>
+                </mat-form-field>
+                <mat-form-field class="input-container">
+                    <mat-label class="label-input-required">{{ 'REGISTER.LABEL_DPI' | translate}}</mat-label>
+                    <mat-icon matPrefix class="icon-inputs">credit_card</mat-icon>
+                    <input matInput type="text" [placeholder]="'PLACEHOLDER.DPI' | translate" class="input-required"
+                        formControlName="dpi" required>
+                    <mat-error *ngIf="form.get('dpi')?.invalid">{{getErrorMessage('dpi')}}</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="container-inputs last">
+                <mat-form-field class="input-container last">
+                    <mat-label class="label-input-required">{{ 'REGISTER.LABEL_EMAIL' | translate}}</mat-label>
+                    <mat-icon matPrefix class="icon-inputs">mail</mat-icon>
+                    <input matInput type="text" [placeholder]="'PLACEHOLDER.EMAIL' | translate" class="input-required"
+                        formControlName="email" required>
+                    <mat-error *ngIf="form.get('email')?.invalid">{{getErrorMessage('email')}}</mat-error>
+                </mat-form-field>
+            </div>
+            <button class="btnSubmit" type="submit">
+                <mat-icon class="icon-Submit">person_add</mat-icon>
+                <label for="">{{ 'REGISTER.BTN_REGISTER' | translate}}</label>
+            </button>
+        </form>
+    </div>
+</div>
