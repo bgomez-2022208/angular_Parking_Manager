@@ -1,55 +1,53 @@
 <div class="principal-container">
-  <app-navbaruser></app-navbaruser>
+  <app-navbaruser [title]="'PROFILES' | translate"></app-navbaruser>
   <div class="main-container">
     <div class="table">
       <app-filter-user></app-filter-user>
-      <div class="container-list"><app-table-users [users]="users" [itemsPerPage]="7" (pageChange)="onPageChange($event)"></app-table-users>
+      <div class="container-list">
+        <app-table-users [users]="users" [itemsPerPage]="7" (pageChange)="onPageChange($event)"></app-table-users>
       </div>
-
     </div>
+
     <div class="container">
       <div class="form-container">
-        <h1>Add Profile</h1>
+        <h1>{{ 'ADD_PROFILE' | translate }}</h1>
         <div class="form-row">
           <form class="example-form">
             <mat-form-field class="example-full-width">
-              <mat-label>Email</mat-label>
+              <mat-label>{{ 'EMAIL' | translate }}</mat-label>
               <input
                 type="email"
                 matInput
                 [formControl]="emailFormControl"
                 [errorStateMatcher]="matcher"
-                placeholder="email"
+                placeholder="{{ 'EMAIL_PLACEHOLDER' | translate }}"
               />
             </mat-form-field>
           </form>
           <button class="save-button">
-            Save
+            {{ 'SAVE' | translate }}
           </button>
         </div>
       </div>
+
       <div class="form-container">
-        <h1>Configuration</h1>
+        <h1>{{ 'CONFIGURATION' | translate }}</h1>
         <div class="permissions-container">
-          <h1>Manage Permissions</h1>
+          <h1>{{ 'MANAGE_PERMISSIONS' | translate }}</h1>
 
-          <mat-slide-toggle class="togle" [formControl]="usersControl">
-            Users
+          <mat-slide-toggle class="toggle" [formControl]="usersControl">
+            {{ 'USERS' | translate }}
           </mat-slide-toggle>
 
-          <mat-slide-toggle class="togle" [formControl]="profileControl">
-            Profile
+          <mat-slide-toggle class="toggle" [formControl]="profileControl">
+            {{ 'PROFILE' | translate }}
           </mat-slide-toggle>
 
-          <mat-slide-toggle class="togle" [formControl]="parkingControl">
-            Parking
+          <mat-slide-toggle class="toggle" [formControl]="parkingControl">
+            {{ 'PARKING' | translate }}
           </mat-slide-toggle>
         </div>
-
-
-
       </div>
-
     </div>
   </div>
 </div>

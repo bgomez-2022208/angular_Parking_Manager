@@ -11,6 +11,8 @@ export interface User {
   styleUrls: ['./users.component.scss']
 })
 export class UsersComponent {
+  title: string = 'Profile';
+
   users: User[] = [
     { email: 'bgomez-2022208@kinal.edu.gt', name: 'Content for list item' },
     { email: 'bgomez-2022208@kinal.edu.gt', name: 'bgomez' },

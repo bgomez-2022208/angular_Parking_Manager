@@ -49,21 +49,21 @@
 }
 
 @media only screen and (max-width: 760px) {
-    .principal-container{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-       /* align-items: center;*/
-       .table{
+  .principal-container {
+    .main-container {
+      align-items: stretch;
+
+      .table {
         width: 100%;
-       }
-        .main-container{
-            display: flex;
-            flex-direction: column;
-            .form-container{
-                width: 98%;
-            }
+      }
+
+      .container {
+        flex-direction: column;
+        .form-container {
+          width: 100%;
         }
+      }
+      }
     }
 }
 

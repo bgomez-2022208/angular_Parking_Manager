@@ -2,16 +2,31 @@
   display: flex;
   padding: 0;
   margin: 0 20px;
+
+  .pruebaResponsiva {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    height: 70%;
+  }
+
+  .table-usuarios {
+    width: 70%;
+  }
 }
 
-.pruebaResponsiva {
-  display: flex;
-  flex-direction: column;
-  width: 30%;
-  height: 70%;
-}
+.Navbar-container {
+  width: 100%;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 
-.table-usuarios {
-  width: 70%;
+  app-navbaruser {
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
 
+  }
 }
