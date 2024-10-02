@@ -1,7 +1,8 @@
+
 .container {
   display: flex;
   padding: 0;
-  margin: 20px;
+  margin: 40px;
 
   .pruebaResponsiva {
     display: flex;
@@ -20,6 +21,7 @@
     padding: 4vh;
     width: 90%;
     height: 140%;
+    margin-top: 20px;
   }
   .filter{
     width: 100%;
