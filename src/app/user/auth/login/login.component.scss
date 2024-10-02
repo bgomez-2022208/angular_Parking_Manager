@@ -1,0 +1,198 @@
+@import "../../../../assets/sass/variables";
+
+:host {
+    height: $host-param-height;
+    width: $host-param-width;
+    display: $host-display;
+    justify-content: $host-justify-content;
+    align-items: $host-align-items;
+    flex-direction: $host-flex-direction;
+}
+
+.container-main {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: $font-primary;
+}
+
+header {
+    text-align: $text-position;
+
+    h1,
+    h3 {
+        color: $text-color-header;
+        margin: .5rem;
+    }
+
+    strong {
+        cursor: pointer;
+        color: $palette-color-one;
+    }
+}
+
+.container-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 2rem;
+    width: 100%;
+
+    mat-form-field {
+        width: 95%;
+        margin-bottom: 1.5rem;
+
+        .icon-inputs {
+            color: $palette-color-three;
+        }
+
+        mat-error {
+            margin-top: .5rem;
+        }
+    }
+}
+
+.container-options {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+
+    label {
+        display: flex;
+        align-items: center;
+        white-space: nowrap;
+        width: auto;
+        padding: .5rem;
+    }
+
+    label:hover {
+        cursor: pointer;
+    }
+
+    .check {
+        color: $palette-color-two;
+        margin-right: .5rem;
+    }
+
+    a {
+        text-decoration: none;
+        color: $palette-color-one;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+}
+
+.btnSubmit {
+    width: 100%;
+    display: $button-display;
+    justify-content: $button-justify;
+    align-items: $button-align;
+    background-color: $palette-color-one;
+    color: $palette-color-three;
+    border: $button-border;
+    font-weight: $font-weight-button;
+    font-size: $font-size-button;
+    padding: $button-padding;
+    line-height: $button-line-height;
+    border-radius: $button-radius;
+    transition: $button-transition;
+    margin-bottom: $button-mgb;
+    font-family: $font-primary;
+    margin-top: $button-mgt;
+
+    mat-icon {
+        margin-left: $button-icon-mgl;
+    }
+}
+
+.btnSubmit:hover {
+    padding: $button-padding-hover;
+    cursor: pointer;
+}
+
+.card {
+    width: 30%;
+    background-color: $color-white;
+    padding: 5rem;
+    border: $border-param;
+    border-radius: $card-border-radius;
+    box-shadow: $box-shadow-param;
+}
+
+@media (max-width: 980px) {
+    .card {
+        padding: 2rem;
+        width: 80%;
+    }
+
+    mat-form-field {
+        padding: .5rem;
+    }
+
+    .responsive-input input {
+        font-size: $font-size-input-responsive;
+    }
+
+    .responsive-input mat-label {
+        font-size: $font-size-input-responsive;
+    }
+
+    .responsive-input mat-error {
+        font-size: $font-size-input-responsive;
+    }
+
+    .icon-inputs {
+        font-size: $font-size-icon-responsive;
+    }
+
+    .icon-inputs-security {
+        font-size: $font-size-icon-responsive;
+    }
+
+    button {
+        margin-top: 2rem;
+        padding: 1rem;
+        font-size: $font-size-button-resposive;
+    }
+
+    .container-options {
+        margin-top: 1.5rem;
+
+        label {
+            font-size: $font-size-input-responsive;
+        }
+
+        a {
+            font-size: $font-size-input-responsive;
+        }
+
+    }
+
+    h1 {
+        font-size: $font-size-h1-resposive;
+    }
+
+    h3 {
+        font-size: $font-size-h3-responsive;
+    }
+}
+
+@media (max-width: 640px) {
+    .card {
+        padding: 1rem;
+        width: 100%;
+    }
+
+    button {
+        font-size: $font-size-button-resposive;
+    }
+}

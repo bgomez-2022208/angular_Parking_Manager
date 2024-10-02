@@ -1,0 +1,53 @@
+<div class="principal-container">
+  <app-navbaruser [title]="'PROFILES_SECTION.TITLE' | translate"></app-navbaruser>
+  <div class="main-container">
+    <div class="table">
+      <app-filter-user></app-filter-user>
+      <div class="container-list">
+        <app-table-users [users]="users" [itemsPerPage]="7" (pageChange)="onPageChange($event)"></app-table-users>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="form-container">
+        <h1>{{ 'PROFILES_SECTION.ADD_PROFILE' | translate }}</h1>
+        <div class="form-row">
+          <form class="example-form">
+            <mat-form-field class="example-full-width">
+              <mat-label>{{ 'FORM.LABEL_EMAIL' | translate }}</mat-label>
+              <input
+                type="email"
+                matInput
+                [formControl]="emailFormControl"
+                [errorStateMatcher]="matcher"
+                placeholder="{{ 'PLACEHOLDER.EMAIL' | translate }}"
+              />
+            </mat-form-field>
+          </form>
+          <button class="save-button">
+            {{ 'BUTTONS.BTN_SAVE' | translate }}
+          </button>
+        </div>
+      </div>
+
+      <div class="form-container">
+        <h1>{{ 'CONFIGURATION.TITLE' | translate }}</h1>
+        <div class="permissions-container">
+          <h1>{{ 'CONFIGURATION.MANAGE_PERMISSIONS' | translate }}</h1>
+
+          <mat-slide-toggle class="toggle" [formControl]="usersControl">
+            {{ 'PROFILES.PROFILE_USER' | translate }}
+          </mat-slide-toggle>
+
+          <mat-slide-toggle class="toggle" [formControl]="profileControl">
+            {{ 'PROFILES.PROFILE_ADMIN' | translate }}
+          </mat-slide-toggle>
+
+          <mat-slide-toggle class="toggle" [formControl]="parkingControl">
+            {{ 'FORM.TITLE_PARKING' | translate }}
+          </mat-slide-toggle>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
