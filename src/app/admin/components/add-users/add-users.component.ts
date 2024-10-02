@@ -1,5 +1,7 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Output, EventEmitter } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { ApiUserService } from "../../services/user.service";
+import { User } from "../../../shared/components/table-users/table-users.component";
 
 @Component({
   selector: 'app-add-users',
@@ -7,21 +9,48 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
   styleUrls: ['./add-users.component.scss']
 })
 export class AddUsersComponent implements OnInit {
+  @Output() userCreated = new EventEmitter<User>();
   userForm: FormGroup;
+  users: User[] = [];
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private apiUserService: ApiUserService) {
     this.userForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       name: ['', Validators.required],
+      surname: ['', Validators.required],
       profile: ['', Validators.required],
+      age: ['', Validators.required],
+      dpi: ['', Validators.required]
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.loadUsers();
+  }
+
+  loadUsers() {
+    this.apiUserService.getUsers().subscribe(
+      (data) => {
+        this.users = data;
+      },
+      (error) => {
+        console.error("Error loading users", error);
+      }
+    );
+  }
 
   onSubmit() {
     if (this.userForm.valid) {
-      console.log(this.userForm.value);
+      this.apiUserService.createUser(this.userForm.value).subscribe(
+        (newUser) => {
+          this.userCreated.emit(newUser);
+          this.loadUsers();
+          this.userForm.reset();
+        },
+        (error) => {
+          console.error("Error creating user", error);
+        }
+      );
     }
   }
 }

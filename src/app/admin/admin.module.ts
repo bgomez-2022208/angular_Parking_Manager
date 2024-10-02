@@ -39,6 +39,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatOptionModule } from '@angular/material/core';
 import { AuditoriaComponent } from './auditoria/auditoria.component';
+import { TranslateModule } from "@ngx-translate/core";
 
 const routes : Routes = [
   {
@@ -87,7 +88,12 @@ const routes : Routes = [
     FormsModule,
     MatInputModule,
     MatSlideToggleModule,
-    MatFormFieldModule,FormsModule, MatFormFieldModule, MatInputModule,RouterModule.forChild(routes),FormsModule,
+    MatFormFieldModule,
+    FormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    RouterModule.forChild(routes),
+    FormsModule,
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
@@ -97,6 +103,7 @@ const routes : Routes = [
     MatTableModule,
     MatSortModule,
     MatOptionModule,
+    TranslateModule
   ],
   exports: [
     NavbarComponent,
@@ -111,4 +118,4 @@ const routes : Routes = [
     DatePipe
   ],
 })
-export class AdminModule { }
+export class AdminModule {}

@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, Input} from '@angular/core';
 import { FormControl, FormGroupDirective, NgForm, Validators } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
 
@@ -15,10 +15,10 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   styleUrls: ['./profiles.component.scss'],
 })
 export class ProfilesComponent {
+  title: string = 'Profile';
   emailFormControl = new FormControl('', [Validators.required, Validators.email]);
   matcher = new MyErrorStateMatcher();
 
-  // Control para las opciones
   usersControl = new FormControl(false);
   profileControl = new FormControl(false);
   parkingControl = new FormControl(false);

@@ -1,23 +1,23 @@
 <div class="formulario-parqueo">
-  <div class="titulo">Formulario Parqueo</div>
+  <div class="titulo">{{ 'FORM_PARKING_TITLE' | translate }}</div>
   <form [formGroup]="form" (ngSubmit)="send()">
     <div>
-      <label for="name">Nombre:</label>
+      <label for="name">{{ 'FORM_NAME_PARKING' | translate }}:</label>
       <input type="text" id="name" formControlName="name">
     </div>
 
     <div>
-      <label for="car">Nombre del vehiculo:</label>
+      <label for="car">{{ 'FORM_CAR_PARKING' | translate }}:</label>
       <input type="text" id="car" formControlName="car">
     </div>
 
     <div>
-      <label for="placa">Placa:</label>
+      <label for="placa">{{ 'FORM_PLATE_PARKING' | translate }}:</label>
       <input type="text" id="placa" formControlName="placa">
     </div>
 
     <div>
-      <button type="submit">Send</button>
+      <button type="submit">{{ 'FORM_SEND_PARKING' | translate }}</button>
     </div>
   </form>
 </div>

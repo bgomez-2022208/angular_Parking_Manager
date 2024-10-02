@@ -1,46 +1,49 @@
 <div class="main-container">
-  <div class="list-container">
-
-  </div>
+  <div class="list-container"></div>
 
   <div class="container">
-    <h2>Agregar</h2>
-    <form class="form-container" [formGroup]="userForm">
+    <h2>{{ 'TITLE_ADD' | translate }}</h2>
+    <form class="form-container" [formGroup]="userForm" (ngSubmit)="onSubmit()">
       <div class="form-group">
         <mat-form-field appearance="outline" class="input-small">
-          <mat-label>Correo electrónico</mat-label>
-          <input class="escritos" matInput formControlName="email" required />
+          <mat-label>{{ 'FORM_NAME_LABEL' | translate }}</mat-label>
+          <input class="escritos" matInput formControlName="name" required />
         </mat-form-field>
+
         <mat-form-field appearance="outline" class="input-small">
-          <mat-label>Correo electrónico</mat-label>
-          <input class="escritos" matInput formControlName="email" required />
+          <mat-label>{{ 'FORM_SURNAME_LABEL' | translate }}</mat-label>
+          <input class="escritos" matInput formControlName="surname" required />
         </mat-form-field>
+
         <mat-form-field appearance="outline" class="input-small">
-          <mat-label>Correo electrónico</mat-label>
-          <input class="escritos" matInput formControlName="email" required />
+          <mat-label>{{ 'FORM_AGE_LABEL' | translate }}</mat-label>
+          <input type="number" class="escritos" matInput formControlName="age" required />
         </mat-form-field>
+
         <mat-form-field appearance="outline" class="input-small">
-          <mat-label>Correo electrónico</mat-label>
+          <mat-label>{{ 'FORM_EMAIL_LABEL' | translate }}</mat-label>
           <input class="escritos" matInput formControlName="email" required />
         </mat-form-field>
 
         <mat-form-field appearance="outline" class="input-small">
-          <mat-label>Nombre</mat-label>
-          <input class="escritos" matInput formControlName="name" required />
+          <mat-label>{{ 'FORM_DPI_LABEL' | translate }}</mat-label>
+          <input class="escritos" matInput formControlName="dpi" required />
         </mat-form-field>
+
+
       </div>
 
       <mat-form-field appearance="outline" class="profile-select">
-        <mat-label>Perfil</mat-label>
+        <mat-label>{{ 'FORM_PROFILE_LABEL' | translate }}</mat-label>
         <mat-select formControlName="profile" required>
-          <mat-option value="admin">Admin</mat-option>
-          <mat-option value="user">Usuario</mat-option>
-          <mat-option value="guest">Invitado</mat-option>
+          <mat-option value="admin">{{ 'PROFILE_ADMIN' | translate }}</mat-option>
+          <mat-option value="user">{{ 'PROFILE_USER' | translate }}</mat-option>
+          <mat-option value="guest">{{ 'PROFILE_GUEST' | translate }}</mat-option>
         </mat-select>
       </mat-form-field>
 
-      <button mat-raised-button color="primary" class="guardar">
-        Guardar
+      <button mat-raised-button color="primary" class="guardar" type="submit">
+        {{ 'BUTTON_SAVE' | translate }}
       </button>
     </form>
   </div>

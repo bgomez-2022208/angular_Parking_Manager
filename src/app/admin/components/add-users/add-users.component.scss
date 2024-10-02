@@ -3,9 +3,13 @@
   padding: 2rem;
   border-radius: 8px;
   max-width: 900px;
-  width: 75vh;
+  width: 70%;
   margin: 0 auto;
   margin-left: 70px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
 }
 
 h2 {
@@ -16,6 +20,7 @@ h2 {
 .form-container {
   display: flex;
   flex-direction: column;
+  flex-grow: 1;
 }
 
 .form-group {
@@ -26,12 +31,12 @@ h2 {
 
 .mat-form-field {
   flex: 1;
-  max-width: 300px; // Tamaño reducido para inputs
-  margin-bottom: 1rem; // Espacio en la parte inferior
+  max-width: 200px;
+  margin-bottom: 1rem;
 }
 
 .profile-select {
-  max-width: 150px;
+  max-width: 100px;
 }
 
 .full-width {
@@ -42,10 +47,13 @@ h2 {
   background-color: #31363F;
   color: #fff;
   border: none;
-  padding: 0.5rem 1rem;
+  padding: 0.4rem 0.8rem;
   border-radius: 5px;
   text-transform: uppercase;
-  width: 95%;
+  width: 70%;
+  margin-left: 0;
+  margin-right: auto;
+  align-self: flex-end;
 }
 
 .guardar:hover {
@@ -78,14 +86,16 @@ h2 {
   }
 
   .guardar {
-    width: 75%;
-    float: none;
+    width: 70%;
+    margin-left: 0;
+    margin-right: auto;
+    align-self: flex-end;
   }
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 850px) {
   .container {
-    width: 100%;
+    width: 80%;
     padding: 1rem;
   }
 
@@ -103,8 +113,10 @@ h2 {
   }
 
   .guardar {
-    width: 100%;
-    float: none;
+    width: 70%;
+    margin-left: 0;
+    margin-right: auto;
+    align-self: flex-end;
   }
 }
 
@@ -126,10 +138,13 @@ h2 {
   }
 
   .guardar {
-    width: 100%;
-    float: none;
+    width: 70%;
+    margin-left: 0;
+    margin-right: auto;
+    align-self: flex-end;
   }
 }
+
 @media only screen and (max-width: 568px) {
   .mat-form-field {
     max-width: 150px;
@@ -141,5 +156,15 @@ h2 {
 
   .guardar {
     padding: 0.4rem 0.8rem;
+  }
+}
+
+@media only screen and (max-width: 1300px) {
+  .mat-form-field {
+    max-width: 250px;
+  }
+
+  .profile-select {
+    max-width: 120px;
   }
 }
