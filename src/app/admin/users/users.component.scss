@@ -1,7 +1,7 @@
 .container {
   display: flex;
   padding: 0;
-  margin: 0 20px;
+  margin: 20px;
 
   .pruebaResponsiva {
     display: flex;
@@ -12,7 +12,18 @@
 
   .table-usuarios {
     width: 70%;
+    background-color: #FFFFFF;
   }
+
+  .table-register{
+    background-color: #FFFFFF;
+    padding: 4vh;
+    width: 90%;
+    height: 140%;
+  }
+  .filter{
+    width: 100%;
+  };
 }
 
 .Navbar-container {
