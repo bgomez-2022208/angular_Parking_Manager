@@ -17,6 +17,20 @@ export class TableUsersComponent {
 
   currentPage: number = 1;
 
+  get displayedPages(): number[] {
+    const pages: number[] = [];
+    const maxDisplayedPages = 3;
+    let startPage = Math.max(1, this.currentPage - 1);
+
+    for (let i = 0; i < maxDisplayedPages; i++) {
+      const page = startPage + i;
+      if (page <= this.totalPages) {
+        pages.push(page);
+      }
+    }
+    return pages;
+  }
+
   get paginatedUsers(): User[] {
     const startIndex = (this.currentPage - 1) * this.itemsPerPage;
     const endIndex = startIndex + this.itemsPerPage;

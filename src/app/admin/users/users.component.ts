@@ -13,11 +13,24 @@ export class UsersComponent implements OnInit {
   users: User[] = [];
   selectedUser: User | null = null;
   isEditing: boolean = false;
-  itemsPerPage: number = 8;
+  itemsPerPage: number = 3;
   currentPage: number = 1;
 
   defaultUsers: User[] = [
     { email: 'user1@example.com', name: 'User One' },
+    { email: 'user2@example.com', name: 'User Two' },
+    { email: 'user3@example.com', name: 'User Three' },
+
+    { email: 'user2@example.com', name: 'User Two' },
+    { email: 'user3@example.com', name: 'User Three' },
+    { email: 'user4@example.com', name: 'User Four' },
+    { email: 'user5@example.com', name: 'User Five' },
+    { email: 'user6@example.com', name: 'User Six' },
+    { email: 'user7@example.com', name: 'User Seven' },
+    { email: 'user1@example.com', name: 'User One' },
+    { email: 'user2@example.com', name: 'User Two' },
+    { email: 'user3@example.com', name: 'User Three' },
+
     { email: 'user2@example.com', name: 'User Two' },
     { email: 'user3@example.com', name: 'User Three' },
     { email: 'user4@example.com', name: 'User Four' },
