@@ -1,0 +1,108 @@
+//COLORS
+$palette-color-one: #222831;
+$palette-color-two: #31363F;
+$palette-color-three: #76ABAE;
+$palette-color-four: #EEEEEE;
+$text-color-header: #808080;
+$color-border: #E5E1DA;
+$shadow-color: #cccccc;
+$color-white: white;
+
+
+//HOST PARAMETERS
+$host-param-height: 100vh;
+$host-param-width: 100vw;
+$host-display: flex;
+$host-justify-content: center;
+$host-align-items: center;
+$host-flex-direction: column;
+
+//CONTAINER MAIN PARAMETERS
+$container-main-width: 50%;
+//CONTAINER MAIN PARAMETERS
+
+//CONTAINER
+$container-justify-content: left;
+//CONTAINER
+
+//ICONS
+$icon-size-responsive: xx-large;
+//ICONS
+
+//FONT
+$font-primary: "Cabin", "Courier New", Courier, monospace;
+$font-size-input-responsive: x-large;
+$font-size-icon-responsive: xx-large;
+$font-size-button-resposive: xx-large;
+//FONT
+
+//HEADER PARAMETERS
+$text-position: center;
+$font-size-h1-resposive: 50px;
+$font-size-h3-responsive: 30px;
+$font-size-h3-responsive-two: 25px;
+$header-mgb: 2rem;
+//HEADER PARAMETERS
+
+//BORDER
+$card-border-radius: 2rem;
+$border-param: .1rem solid $color-border;
+$box-shadow-param: 1rem 1rem .8rem .2rem $shadow-color;
+//BORDER
+
+//BUTTON
+$button-radius: .5rem;
+$button-padding: .8rem;
+$button-mgt: 1rem;
+$font-weight-button: bold;
+$font-size-button: x-large;
+$button-transition: padding .2s ease;
+$button-hover: 1rem;
+$button-display: flex;
+$button-align: center;
+$button-justify: center;
+$button-border: none;
+$button-line-height: .5;
+$button-mgb: 2rem;
+$button-icon-mgl: .5rem;
+$button-padding-hover: 1.2rem;
+//BUTTON 
+
+//ICON TITLE
+$icon-display: flex;
+$icon-justify: center;
+$icon-align: center;
+$icon-width: 5rem;
+$icon-height: 5rem;
+$icon-radius: 100%;
+$icon-mgt: 2rem;
+$icon-mgb: 1rem;
+$icon-size: 50px;
+$icon-input-size: 25px;
+//ICON TITLE
+
+//FORM
+$form-width: 100%;
+$form-display: flex;
+$form-align: center;
+$form-justify: center;
+$form-direction: column;
+$form-h1-size: 2.5rem;
+$form-h1-mgb: .5rem;
+$form-h3-size: large;
+$form-h1-weight: bold;
+$form-h3-weight: normal;
+//FORM
+
+//BUTTON BACK
+$button-back-bgc: transparent;
+$button-back-position: fixed;
+$button-back-margin: 1rem;
+$button-back-transition: transform 0.5s ease-in-out;
+$icon-back-width: auto;
+$icon-back-height: auto;
+$icon-back-size: 60px;
+$transition-button-back: color 0.5s ease-in-out;
+$button-back-transform: translateX(-10px);
+$text-shadow: 15px 5px 5px rgba(0, 0, 0, 0.3); 
+//BUTTON BACK

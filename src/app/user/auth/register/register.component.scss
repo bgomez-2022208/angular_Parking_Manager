@@ -1,0 +1,243 @@
+@import "../../../../assets/sass/variables";
+
+:host {
+    height: $host-param-height;
+    width: $host-param-width;
+    display: $host-display;
+    justify-content: $host-justify-content;
+    align-items: $host-align-items;
+}
+
+.container-main {
+    width: $container-main-width;
+}
+
+.container {
+    display: flex;
+    justify-content: $container-justify-content;
+}
+
+.container-icon-title {
+    display: $icon-display;
+    justify-content: $icon-justify;
+    align-items: $icon-align;
+    background-color: $palette-color-three;
+    width: $icon-width;
+    height: $icon-height;
+    border-radius: $icon-radius;
+    margin-top: $icon-mgt;
+    margin-bottom: $icon-mgb;
+
+    .icon-title {
+        color: $palette-color-one;
+        width: $icon-width;
+        height: $icon-height;
+        display: $icon-display;
+        align-items: $icon-align;
+        justify-content: $icon-justify;
+        border-radius: $icon-radius;
+        font-size: $icon-size;
+    }
+}
+
+form {
+    height: 45rem;
+    width: $form-width;
+    display: $form-display;
+    justify-content: $form-justify;
+    align-items: $form-align;
+    border-radius: $card-border-radius;
+    flex-direction: $form-direction;
+    border: $border-param;
+    box-shadow: $box-shadow-param;
+
+    h1 {
+        font-size: $form-h1-size;
+        color: $palette-color-one;
+        font-weight: $form-h1-weight;
+        font-family: $font-primary;
+    }
+
+    h3 {
+        font-size: $form-h3-size;
+        color: $palette-color-three;
+        margin-bottom: $header-mgb;
+        font-weight: $form-h3-weight;
+        font-family: $font-primary;
+    }
+
+    .body-container {
+        width: 70%;
+        margin-bottom: 1rem;
+
+    }
+
+    .btnSubmit {
+        width: 50%;
+        display: $button-display;
+        justify-content: $button-justify;
+        align-items: $button-align;
+        background-color: $palette-color-one;
+        color: $palette-color-three;
+        border: $button-border;
+        font-weight: $font-weight-button;
+        font-size: $font-size-button;
+        padding: $button-padding;
+        line-height: $button-line-height;
+        border-radius: $button-radius;
+        transition: $button-transition;
+        margin-bottom: $button-mgb;
+        font-family: $font-primary;
+
+        mat-icon {
+            margin-left: $button-icon-mgl;
+        }
+    }
+
+    .btnSubmit:hover {
+        padding: $button-padding-hover;
+        cursor: pointer;
+    }
+}
+
+.container-inputs {
+    display: flex;
+    justify-content: space-between;
+    padding: .2rem;
+    margin-bottom: 2rem;
+    width: 85%;
+
+    mat-form-field {
+        width: 45%;
+        margin-bottom: 1.5rem;
+        font-family: $font-primary;
+    }
+
+    .last {
+        width: 100%;
+    }
+
+    .icon-inputs {
+        font-size: $icon-input-size;
+        color: $palette-color-three;
+    }
+}
+
+.btnBack {
+    background-color: $button-back-bgc;
+    position: $button-back-position;
+    margin: $button-back-margin;
+    transition: $button-back-transition;
+
+    .icon-back {
+        width: $icon-back-width;
+        height: $icon-back-width;
+        font-size: $icon-back-size;
+        color: $palette-color-one;
+        transition: $transition-button-back;
+    }
+}
+
+.btnBack:hover {
+    transform: $button-back-transform;
+
+    .icon-back {
+        color: $palette-color-three;
+        text-shadow: $text-shadow;
+    }
+}
+
+@media (max-width: 980px) {
+    .container-main {
+        width: 80%;
+    }
+
+    form {
+        height: 65rem;
+
+        h1 {
+            font-size: $font-size-h1-resposive;
+        }
+
+        h3 {
+            font-size: $font-size-h3-responsive;
+        }
+    }
+
+    .container-inputs {
+        margin-bottom: 3.5rem;
+
+        mat-form-field {
+            font-size: $font-size-input-responsive;
+            width: 48%;
+        }
+
+        .icon-inputs {
+            font-size: $font-size-icon-responsive;
+        }
+    }
+
+    form .btnSubmit {
+        width: 80%;
+        margin-top: 4rem;
+
+        .icon-Submit {
+            font-size: $font-size-icon-responsive;
+            width: 2rem;
+            height: 2rem;
+        }
+
+    }
+}
+
+@media (max-width: 640px) {
+    .container-main {
+        width: 95%;
+        height: auto;
+        margin-bottom: .1rem;
+
+    }
+
+    .container-icon-title {
+        width: 3rem;
+        height: 3rem;
+        margin-top: 1.5rem;
+        margin-bottom: .5rem;
+
+        .icon-title {
+            width: 3rem;
+            height: 3rem;
+            font-size: 30px;
+        }
+    }
+
+    form h1 {
+        font-size: $font-size-h1-resposive;
+    }
+
+    form h3 {
+        text-align: $text-position;
+        font-size: $font-size-h3-responsive-two;
+    }
+
+    .container-inputs {
+        flex-direction: column;
+        margin-bottom: .1rem;
+
+        mat-form-field {
+            width: 100%;
+            margin-bottom: 1.6rem;
+            padding-bottom: 2rem;
+            font-size: larger;
+            font-family: $font-primary;
+        }
+    }
+
+    form .btnSubmit {
+        margin-top: .5rem;
+
+        label {
+            font-size: $font-size-input-responsive;
+        }
+    }
+}

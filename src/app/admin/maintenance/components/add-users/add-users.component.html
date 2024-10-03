@@ -1,0 +1,48 @@
+<div class="main-container">
+  <div class="list-container"></div>
+
+  <div class="container">
+    <h2>{{ 'REGISTER.TITLE_ADD' | translate }}</h2>
+    <form class="form-container" [formGroup]="userForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <mat-form-field appearance="outline" class="input-small">
+          <mat-label>{{ 'FORM.LABEL_NAME' | translate }}</mat-label>
+          <input class="escritos" matInput formControlName="name" required />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="input-small">
+          <mat-label>{{ 'FORM.LABEL_SURNAME' | translate }}</mat-label>
+          <input class="escritos" matInput formControlName="surname" required />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="input-small">
+          <mat-label>{{ 'FORM.LABEL_AGE' | translate }}</mat-label>
+          <input type="number" class="escritos" matInput formControlName="age" required />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="input-small">
+          <mat-label>{{ 'FORM.LABEL_EMAIL' | translate }}</mat-label>
+          <input class="escritos" matInput formControlName="email" required />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="input-small">
+          <mat-label>{{ 'FORM.LABEL_DPI' | translate }}</mat-label>
+          <input class="escritos" matInput formControlName="dpi" required />
+        </mat-form-field>
+      </div>
+
+      <mat-form-field appearance="outline" class="profile-select">
+        <mat-label>{{ 'FORM.LABEL_PROFILE' | translate }}</mat-label>
+        <mat-select formControlName="profile" required>
+          <mat-option value="admin">{{ 'PROFILES.PROFILE_ADMIN' | translate }}</mat-option>
+          <mat-option value="user">{{ 'PROFILES.PROFILE_USER' | translate }}</mat-option>
+          <mat-option value="guest">{{ 'PROFILES.PROFILE_GUEST' | translate }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" class="guardar" type="submit">
+        {{ 'BUTTONS.BTN_SAVE' | translate }}
+      </button>
+    </form>
+  </div>
+</div>

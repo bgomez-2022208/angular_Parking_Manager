@@ -1,15 +1,31 @@
 
+.Navbar-container {
+  width: 100%;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  margin-bottom: 2vh;
+
+  app-navbaruser {
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+
+  }
+}
+
 .principal-container{
-  flex-direction: column;
-  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  display: flex;
   width: 100%;
 }
 .table-container{
   width: 95%;
-  margin: 2vh;
+  margin-top: 2vh;
   .table-data{
     width: 80%;
   }
@@ -36,7 +52,6 @@
   align-items: center;
   justify-content: center;
   display: flex;
-  margin: 2vh;
   flex-direction: row
 }
 
@@ -69,7 +84,14 @@ mat-drawer-content {
   }
 }
 
-@media only screen and (max-width: 760px) {
+.input-search{
+  max-width: 80%;
+}
+@media only screen and (max-width: 900px) {
+  .principal-container{
+    align-items: center;
+    width: 200%;
+  }
   .nav {
     display: flex;
     flex-direction: column;
@@ -85,10 +107,5 @@ mat-drawer-content {
         height: 80px;
       }
     }
-  }
-  table {
-    margin: 0px;
-    margin-top: 4px;
-    font-size: 10px;
   }
 }

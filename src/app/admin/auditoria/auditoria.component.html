@@ -1,15 +1,16 @@
+<div class="Navbar-container">
+  <app-navbaruser class="app-nav" title="Auditory"></app-navbaruser>
+</div>
 <div class="principal-container">
-  <p>{{ 'AUDIT_WORKS' | translate }}</p>
-
   <div class="nav">
-    <div class="filter">
-      <mat-form-field class="example-container">
+    <div class="filter input-search">
+      <mat-form-field class="example-container input-search">
         <mat-label>{{ 'FILTER' | translate }}</mat-label>
         <input matInput (keyup)="applyFilter($event)" placeholder="{{ 'FILTER_BY_ENTITY' | translate }}" #input>
       </mat-form-field>
     </div>
     <div class="filter">
-      <mat-form-field class="example-container">
+      <mat-form-field class="example-container input-search">
         <mat-label>{{ 'SELECT_OPTION' | translate }}</mat-label>
         <mat-select [(value)]="selected" (selectionChange)="applyFilter($event)">
           <mat-option value="">None</mat-option>
@@ -20,7 +21,7 @@
       </mat-form-field>
     </div>
     <div class="filter">
-      <mat-form-field class="example-container">
+      <mat-form-field class="example-container input-search">
         <mat-label>Filter</mat-label>
         <input matInput [matDatepicker]="picker" 
               [min]="minDate" 

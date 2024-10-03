@@ -1,21 +1,10 @@
 import { Component } from '@angular/core';
-import { TranslateService } from "@ngx-translate/core";
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
-
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'angular_Parking_Manager';
-
-  constructor(private translate: TranslateService) {
-    this.translate.setDefaultLang('en');
-    this.translate.use('en');
-  }
-
-  changeLanguage(language: string) {
-    this.translate.use(language);
-  }
+  title = 'parkingIs4Tech';
 }

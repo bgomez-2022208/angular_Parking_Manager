@@ -1,62 +1,166 @@
 {
-  "TITLE_ADD": "Add User",
-  "FORM_NAME_LABEL": "Name",
-  "FORM_SURNAME_LABEL": "Surname",
-  "FORM_AGE_LABEL": "Age",
-  "FORM_EMAIL_LABEL": "Email",
-  "FORM_DPI_LABEL": "DPI",
-  "FORM_PASSWORD_LABEL": "Password",
-  "FORM_PROFILE_LABEL": "Profile",
-  "PROFILE_ADMIN": "Admin",
-  "PROFILE_USER": "User",
-  "PROFILE_GUEST": "Guest",
-  "BUTTON_SAVE": "Save",
-
-  "FORM_PARKING_TITLE": "Parking Form",
-  "FORM_NAME_PARKING": "Name",
-  "FORM_CAR_PARKING": "Vehicle Name",
-  "FORM_PLATE_PARKING": "Plate",
-  "FORM_SEND_PARKING": "Send",
-
-  "SEARCH": "Search...",
-
-  "CONFIRM_LOGOUT_TITLE": "Are you sure you want to log out?",
-  "CONFIRM_LOGOUT_YES": "YES",
-  "CONFIRM_LOGOUT_NO": "NO",
-
-  "TITLE_PARKING_LOGOUT": "Parking Car",
-  "MENU_AUDITORIA": "Audit",
-  "MENU_LOGOUT": "Logout",
-
-  "TITLE": "Title",
-  "AUDITORIA": "Audit",
-  "LOGOUT": "Logout",
-  "CHANGE_LANGUAGE": "Change Language",
-
-  "SEARCH_PLACEHOLDER": "Search...",
-  "AUDIT_WORKS": "Audit works!",
-  "FILTER": "Filter",
-  "FILTER_BY_ENTITY": "Filter by entity",
-  "SELECT_OPTION": "Select an option",
-  "NONE": "None",
-  "USER": "User",
-  "OPTION_2": "Option 2",
-  "OPTION_3": "Option 3",
-  "ID": "ID",
-  "ENTITY": "Entity",
-  "CHANGE": "Change",
-  "DATE": "Date",
-  "NO_DATA": "No data matching the filter",
-  "PAGINATOR_ARIA_LABEL": "Paginator",
-
-  "PROFILES": "Profiles",
-  "ADD_PROFILE": "Add Profile",
-  "EMAIL": "Email",
-  "EMAIL_PLACEHOLDER": "email@example.com",
-  "SAVE": "Save",
-  "CONFIGURATION": "Configuration",
-  "MANAGE_PERMISSIONS": "Manage Permissions",
-  "USERS": "Users",
-  "PROFILE": "Profile",
-  "PARKING": "Parking"
+    "LOGIN": {
+        "HEADER_TITLE": "Login",
+        "SUBTITLE_ONE": "Or you can ",
+        "SUBTITLE_TWO": "sign up now",
+        "LABEL_EMAIL": "Email",
+        "LABEL_PASSWORD": "Password",
+        "REMEMBER_BUTTON_TITLE": "Remember this device",
+        "FORGOT_PASSWORD": "Forgot your password?",
+        "BTN_LOGIN": "Login"
+    },
+    "REGISTER": {
+        "TITLE": "Register",
+        "SUBTITLE": "Please fill out all fields to create your account",
+        "LABEL_NAME": "First name",
+        "LABEL_SURNAME": "Last name",
+        "LABEL_AGE": "Age",
+        "LABEL_DPI": "DPI",
+        "LABEL_EMAIL": "Email",
+        "LABEL_PASSWORD": "Password",
+        "LABEL_CONFIRM_PASSWORD": "Confirm password",
+        "BTN_REGISTER": "Sign up",
+        "TITLE_ADD": "Add User",
+        "LABEL_PROFILE": "Profile"
+    },
+    "PROFILES": {
+        "PROFILE_ADMIN": "Admin",
+        "PROFILE_USER": "User",
+        "PROFILE_GUEST": "Guest"
+    },
+    "BUTTONS": {
+        "BTN_SAVE": "Save",
+        "BUTTON_SAVE": "Save"
+    },
+    "FORM": {
+        "TITLE_PARKING": "Parking Form",
+        "LABEL_NAME": "Name",
+        "LABEL_SURNAME": "Surname",
+        "LABEL_AGE": "Age",
+        "LABEL_DPI": "DPI",
+        "LABEL_EMAIL": "Email",
+        "LABEL_PASSWORD": "Password",
+        "LABEL_PROFILE": "Profile",
+        "LABEL_NAME_PARKING": "Name",
+        "LABEL_CAR_PARKING": "Vehicle Name",
+        "LABEL_PLATE_PARKING": "Plate",
+        "BTN_SEND_PARKING": "Send"
+    },
+    "SEARCH": {
+        "SEARCH_BUTTON": "Search...",
+        "SEARCH_PLACEHOLDER": "Search..."
+    },
+    "CONFIRM_LOGOUT": {
+        "TITLE": "Are you sure you want to log out?",
+        "YES": "YES",
+        "NO": "NO"
+    },
+    "ERRORS": {
+        "ERROR_NAME_REQUIRED": "First name is required",
+        "ERROR_SURNAME_REQUIRED": "Last name is required",
+        "ERROR_PASSWORD_REQUIRED": "Password is required",
+        "ERROR_INVALID_CREDENTIALS": "Incorrect username or password",
+        "ERROR_EMAIL_REQUIRED": "Email is required",
+        "ERROR_INVALID_EMAIL": "Email is not valid",
+        "ERROR_NEW_PASSWORD_REQUIRED": "New password is required",
+        "ERROR_CONFIRM_PASSWORD_REQUIRED": "Please re-enter the new password",
+        "ERROR_CODE_REQUIRED": "Code is required",
+        "ERROR_CODE_INVALID": "The code must be numbers only",
+        "ERROR_PASSWORD_NOT_SAME": "Passwords do not match",
+        "ERROR_SEND_CODE": "An error occurred while sending the security code",
+        "ERROR_AGE_REQUIRED": "Age is required",
+        "ERROR_DPI_REQUIRED": "DPI is required",
+        "ERROR_INVALID_PASSWORD": "Password must contain an uppercase letter, lowercase letter, special character, number, and be at least 8 digits long",
+        "ERROR_INVALID_AGE": "Age must be a number and you must be of legal age",
+        "ERROR_INVALID_DPI": "DPI must be a number and contain 13 digits",
+        "ERROR_INVALID_NAME": "First name must contain letters only",
+        "ERROR_INVALID_SURNAME": "Last name must contain letters only",
+        "ERROR_UPDATE_PASSWORD": "An error occurred while updating your password",
+        "ERROR_REGISTER": "An error occurred during registration, please try again later",
+        "ERROR_LOGIN": "Incorrect username or password"
+    },
+    "FORGOT_PASSWORD_EMAIL": {
+        "HEADER_TITLE": "Recover your password",
+        "SUBTITLE": "Enter the email associated with your account to continue",
+        "LABEL_EMAIL": "Email",
+        "BTN_SEND": "Continue"
+    },
+    "FORGOT_PASSWORD": {
+        "HEADER_TITLE": "Change password",
+        "SUBTITLE": "Enter your new password",
+        "LABEL_CODE": "Security code",
+        "LABEL_NEW_PASSWORD": "New password",
+        "LABEL_CONFIRM_PASSWORD": "Confirm password",
+        "BTN_CHANGE": "Change password"
+    },
+    "ALERT_CHANGE_PASSWORD": {
+        "TITLE": "Password successfully updated",
+        "TITLE_BAD": "Error updating your password",
+        "MESSAGE": "You can now log in with your new password"
+    },
+    "ALERT_SEND_CODE": {
+        "TITLE": "Code successfully sent",
+        "TITLE_BAD": "Error sending the code",
+        "MESSAGE": "We have sent you a security code to your email"
+    },
+    "ALERT_REGISTER": {
+        "TITLE": "Registration successful",
+        "TITLE_BAD": "Registration error",
+        "MESSAGE": "You have successfully registered. Use the credentials sent to your email to log in."
+    },
+    "ALERT_LOGIN": {
+        "TITLE": "Login successful",
+        "TITLE_BAD": "Incorrect credentials",
+        "MESSAGE": "You have successfully logged in."
+    },
+    "LANGUAGES": {
+        "SPANISH": "Spanish",
+        "ENGLISH": "English",
+        "CACHIQUEL": "Cachiquel"
+    },
+    "MENU": {
+        "AUDITORIA": "Audit",
+        "LOGOUT": "Logout",
+        "CHANGE_LANGUAGE": "Change Language"
+    },
+    "FILTERS": {
+        "FILTER": "Filter",
+        "FILTER_BY_ENTITY": "Filter by entity",
+        "SELECT_OPTION": "Select an option",
+        "NONE": "None"
+    },
+    "PAGINATOR": {
+        "ARIA_LABEL": "Paginator"
+    },
+    "AUDIT": {
+        "WORKS": "Audit works!",
+        "ID": "ID",
+        "ENTITY": "Entity",
+        "CHANGE": "Change",
+        "DATE": "Date",
+        "NO_DATA": "No data matching the filter"
+    },
+    "PLACEHOLDER": {
+        "PASSWORD": "Enter your password",
+        "EMAIL": "Enter your email",
+        "NEW_PASSWORD": "Enter your new password",
+        "CONFIRM_PASSWORD": "Confirm your new password",
+        "CODE": "Enter your security code",
+        "NAME": "Enter your first name",
+        "SURNAME": "Enter your last name",
+        "AGE": "Enter your age",
+        "DPI": "Enter your DPI",
+        "OLD_PASSWORD": "Enter your current password"
+    },
+    "PROFILES_SECTION": {
+        "TITLE": "Profiles",
+        "ADD_PROFILE": "Add Profile",
+        "EMAIL": "Email",
+        "EMAIL_PLACEHOLDER": "email@example.com",
+        "SAVE": "Save"
+    },
+    "CONFIGURATION": {
+        "TITLE": "Configuration",
+        "MANAGE_PERMISSIONS": "Manage Permissions"
+    }
 }
