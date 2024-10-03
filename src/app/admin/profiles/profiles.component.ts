@@ -19,7 +19,6 @@ export class ProfilesComponent {
   emailFormControl = new FormControl('', [Validators.required, Validators.email]);
   matcher = new MyErrorStateMatcher();
 
-  // Control para las opciones
   usersControl = new FormControl(false);
   profileControl = new FormControl(false);
   parkingControl = new FormControl(false);

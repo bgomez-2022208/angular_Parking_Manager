@@ -14,6 +14,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { DatePipe } from '@angular/common';
 
 // Components
 import { SearchComponent } from './search/search.component';
@@ -111,7 +112,10 @@ const routes : Routes = [
     TableUsersComponent,
     AddUsersComponent,
     FilterUserComponent,
-    NavbaruserComponent
-  ]
+    NavbaruserComponent,DatePipe
+  ],
+  providers: [
+    DatePipe
+  ],
 })
 export class AdminModule {}
