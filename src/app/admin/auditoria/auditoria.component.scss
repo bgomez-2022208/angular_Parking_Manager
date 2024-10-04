@@ -1,6 +1,7 @@
 
 .Navbar-container {
   width: 100%;
+  min-width: 400px;
   overflow: hidden;
   margin: 0;
   padding: 0;
@@ -90,7 +91,7 @@ mat-drawer-content {
 @media only screen and (max-width: 900px) {
   .principal-container{
     align-items: center;
-    width: 200%;
+    width: 100%;
   }
   .nav {
     display: flex;
@@ -107,5 +108,52 @@ mat-drawer-content {
         height: 80px;
       }
     }
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .principal-container {
+    align-items: center;
+    width: 100%;
+    padding: 0;
+  }
+
+  .nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0px;
+    width: 100%;
+    padding: 0;
+
+    .filter {
+      max-width: 100%;
+      margin: 1vh 0;
+      .example-container {
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+
+  .table-container {
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  .mat-elevation-z8 {
+    min-width: 300px;
+  }
+
+  .mat-column-id, .mat-column-entity {
+    display: none;
+  }
+
+  .mat-cell, .mat-header-cell {
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex-grow: 1;
   }
 }
