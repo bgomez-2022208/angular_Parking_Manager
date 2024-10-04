@@ -5,14 +5,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatSelectChange } from '@angular/material/select';
 import { FormControl } from '@angular/forms';
 import { DatePipe } from '@angular/common';
-
-export interface AuditData {
-  id: string;
-  entity: string;
-  change: string;
-  date: Date;
-  description: string;
-}
+import { AuditoryService, AuditData } from '../services/auditory.service';
 
 @Component({
   selector: 'app-auditoria',
@@ -22,7 +15,7 @@ export interface AuditData {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AuditoriaComponent implements AfterViewInit {
-  displayedColumns: string[] = ['id', 'entity', 'change', 'date','description'];
+  displayedColumns: string[] = ['entity', 'startDate', 'description', 'operation', 'result', 'request', 'response'];
   dataSource: MatTableDataSource<AuditData>;
   selected: string = ''; 
   private readonly _currentYear = new Date().getFullYear();
@@ -34,12 +27,10 @@ export class AuditoriaComponent implements AfterViewInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(private datePipe: DatePipe) {
+  constructor(private datePipe: DatePipe,private auditoryService: AuditoryService) {
     const audit: AuditData[] = [
-      { id: '1', entity: 'User', change: 'Updated password', date: new Date('2024-09-01'),description: 'Successfully loaded user by email: juangalicia@gmail.com'},
-      { id: '2', entity: 'User', change: 'Created account', date: new Date('2023-09-02'),description: 'Successfully loaded user by email: juangalicia@gmail.com'},
-      { id: '3', entity: 'Profile', change: 'Deleted order', date: new Date('2023-09-03'),description: 'Successfully loaded user by email: juangalicia@gmail.com'},
-      { id: '4', entity: 'Product', change: 'Updated price', date: new Date('2023-09-04'),description: 'Successfully loaded user by email: juangalicia@gmail.com'}
+      { id:'1', entity: 'User', startDate: new Date('2024-09-01'), description: 'Description 1', operation: 'Create', result: 'Success', request: 'Request data', response: 'Response data' },
+      { id:'1', entity: 'Product', startDate: new Date('2024-09-02'), description: 'Description 2', operation: 'Update', result: 'Failure', request: 'Request data', response: 'Response data' }
     ];
 
     this.dataSource = new MatTableDataSource(audit);
@@ -85,18 +76,25 @@ export class AuditoriaComponent implements AfterViewInit {
   
 
   ngOnInit() {
+    // Llama al servicio para obtener los datos
+    this.auditoryService.getAuditory().subscribe((data: AuditData[]) => {
+      this.dataSource.data = data;
+    });
+
     this.dataSource.filterPredicate = (data: AuditData, filter: string) => {
       const transformedFilter = filter.trim().toLowerCase();
-      const dateString = this.formatDate(data.date);
+      const dateString = this.formatDate(data.startDate);
 
-      const matchFilter =
-        data.id.toLowerCase().includes(transformedFilter) ||
-        data.entity.toLowerCase().includes(transformedFilter) ||
-        data.change.toLowerCase().includes(transformedFilter) ||
-        (dateString ? dateString.includes(transformedFilter) : false);
-
-      return matchFilter;
+      return data.entity.toLowerCase().includes(transformedFilter) ||
+             data.description.toLowerCase().includes(transformedFilter) ||
+             data.operation.toLowerCase().includes(transformedFilter) ||
+             data.result.toLowerCase().includes(transformedFilter) ||
+             (dateString ? dateString.includes(transformedFilter) : false);
     };
+
+    this.selectedDateControl.valueChanges.subscribe(value => {
+      this.applyFilter(value);
+    });
   }
   formatDate(date: Date | string): string | null {
     return this.datePipe.transform(date, 'yyyy-MM-dd');
