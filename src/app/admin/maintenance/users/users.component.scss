@@ -1,16 +1,19 @@
+
 .container {
   display: flex;
   padding: 0;
-  margin: 20px;
+  margin: 40px;
 
   .pruebaResponsiva {
     display: flex;
     flex-direction: column;
     width: 30%;
     height: 70%;
+    margin-right: 20px;
   }
 
   .table-usuarios {
+    border-radius: 10px;
     width: 70%;
     background-color: #FFFFFF;
   }
@@ -18,8 +21,10 @@
   .table-register{
     background-color: #FFFFFF;
     padding: 4vh;
-    width: 90%;
-    height: 140%;
+    width: 70%;
+    height: 600px;
+    margin-top: 20px;
+    border-radius: 10px;
   }
   .filter{
     width: 100%;
@@ -39,5 +44,13 @@
     display: flex;
     justify-content: space-between;
 
+  }
+
+  @media (max-width: 1180px) {
+    .container {
+      .pruebaResponsiva {
+        height: 10%;
+      }
+    }
   }
 }

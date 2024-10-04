@@ -20,13 +20,12 @@ import { NavbarComponent } from './maintenance/components/navbar/navbar.componen
 import { LogoutConfirmComponent } from './maintenance/components/logout-confirm/logout-confirm.component';
 import { FilterComponent } from './maintenance/components/filter/filter.component';
 import { FormParkingComponent } from './maintenance/components/form-parking/form-parking.component';
-import { TableUsersComponent } from '../shared/table/table-users.component';
+import { TableUsersComponent } from '../shared/table-users/table-users.component';
 import { NavbaruserComponent } from './maintenance/components/navbaruser/navbaruser.component';
 import { FilterUserComponent } from './maintenance/components/filter-user/filter-user.component';
 import { AddUsersComponent } from './maintenance/components/add-users/add-users.component';
 
 import { FormsModule } from '@angular/forms';
-import { ProfilesComponent } from './maintenance/profiles/profiles.component';
 import { RouterModule, Routes } from "@angular/router";
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { UsersComponent } from './maintenance/users/users.component';
@@ -37,6 +36,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatOptionModule } from '@angular/material/core';
 import { AuditoriaComponent } from './maintenance/audit/auditoria.component';
 import { TranslateModule } from "@ngx-translate/core";
+import {ProfilesComponent} from "./profiles/profiles.component";
 
 const routes : Routes = [
   {

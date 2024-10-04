@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TableUsersComponent } from './components/table-users/table-users.component';
+import { TableUsersComponent } from './table-users/table-users.component';
+import {MatIconModule} from "@angular/material/icon";
 
 
 
 @NgModule({
   declarations: [TableUsersComponent],
-  imports: [CommonModule],
+    imports: [CommonModule, MatIconModule],
   exports: [TableUsersComponent]
 })
 export class SharedModule {}

@@ -1,5 +1,4 @@
 .container {
-  background-color: #FFFFFF;
   padding: 2rem;
   border-radius: 8px;
   max-width: 900px;
@@ -60,7 +59,7 @@ h2 {
   background-color: #272b33;
 }
 
-@media only screen and (max-width: 980px) {
+@media only screen and (max-width: 1180px) {
   .container {
     padding: 1rem;
     margin: 0 1rem;

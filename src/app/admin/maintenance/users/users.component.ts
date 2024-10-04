@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiUserService } from '../../../user/services/user.service';
-import { User } from "../../../shared/table/table-users.component";
+import {User} from "../../model/user.model";
+import {ApiUserService} from "../../services/user.service";
+
 
 @Component({
   selector: 'app-users',
@@ -16,39 +17,43 @@ export class UsersComponent implements OnInit {
   itemsPerPage: number = 8;
   currentPage: number = 1;
 
-  defaultUsers: User[] = [
-    { email: 'user1@example.com', name: 'User One'},
-    { email: 'user2@example.com', name: 'User Two',},
-    { email: 'user3@example.com', name: 'User Three'},
-    { email: 'user4@example.com', name: 'User Four',},
-    { email: 'user5@example.com', name: 'User Five',},
-  ];
+  totalUsers: number = 0;
+  totalPages: number = 0;
+  private pageChange: any;
+  searchQuery: string = "";
+
+
 
   constructor(private apiUserService: ApiUserService) {}
 
   ngOnInit(): void {
-    this.loadUsers();
+    this.loadUsers(1);
+
   }
 
-  loadUsers(): void {
-    this.apiUserService.getUsers().subscribe(
-      (data) => {
-        this.users = data;
+  loadUsers(page:number): void {
+    this.apiUserService.getUsers(this.itemsPerPage , page-1, this.searchQuery).subscribe(
+      (data: any) => {
+        this.users = data.users;
+        this.totalUsers = data.totalElements;
+        this.totalPages = data.totalPages;
+
         console.log(this.users);
       },
-      (error) => {
+      (error: any) => {
         console.error('Error al cargar usuarios:', error);
-        this.users = this.defaultUsers;
       }
     );
   }
 
   createUser(userData: User): void {
     this.apiUserService.createUser(userData).subscribe(
-      (newUser) => {
+      (newUser: any) => {
         this.users.push(newUser);
+        this.totalUsers = this.users.length;
+        this.totalPages = Math.ceil(this.totalUsers / this.itemsPerPage);
       },
-      (error) => {
+      (error: any) => {
         console.error('Error al crear usuario:', error);
       }
     );
@@ -56,11 +61,11 @@ export class UsersComponent implements OnInit {
 
   getUserById(userId: string): void {
     this.apiUserService.getUserById(userId).subscribe(
-      (user) => {
+      (user: any) => {
         this.selectedUser = user;
         this.isEditing = true;
       },
-      (error) => {
+      (error: any) => {
         console.error('Error al obtener usuario:', error);
       }
     );
@@ -68,7 +73,7 @@ export class UsersComponent implements OnInit {
 
   updateUser(userId: string, userData: User): void {
     this.apiUserService.updateUser(userId, userData).subscribe(
-      (updatedUser) => {
+      (updatedUser: any) => {
         const index = this.users.findIndex(user => user.email === userId);
         if (index !== -1) {
           this.users[index] = updatedUser;
@@ -76,28 +81,32 @@ export class UsersComponent implements OnInit {
         this.selectedUser = null;
         this.isEditing = false;
       },
-      (error) => {
+      (error: any) => {
         console.error('Error al actualizar usuario:', error);
       }
     );
   }
 
-  deleteUser(userId: string): void {
-    this.apiUserService.deleteUser(userId).subscribe(
-      () => {
-        this.users = this.users.filter(user => user.email !== userId);
-      },
-      (error) => {
-        console.error('Error al eliminar usuario:', error);
-      }
-    );
+
+
+  get paginatedUsers(): User[] {
+    const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+    const endIndex = startIndex + this.itemsPerPage;
+    return this.users.slice(startIndex, endIndex);
   }
 
-  onPageChange(page: number): void {
-    this.currentPage = page;
+  changePage(page: number): void {
+    this.loadUsers(page);
+  }
+
+  changeSearch(searchQuery: string): void {
+    this.searchQuery = searchQuery;
+    this.loadUsers(1);
   }
 
   onUserCreated(newUser: User): void {
     this.users.push(newUser);
+
   }
+
 }

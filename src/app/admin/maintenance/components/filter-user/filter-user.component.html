@@ -12,5 +12,7 @@
     type="search"
     [placeholder]="'SEARCH_PLACEHOLDER' | translate"
     name="searchbar"
+    [ngModel]="searchQuery"
+    (change)="onChange($event)"
   />
 </div>

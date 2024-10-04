@@ -1,0 +1,38 @@
+
+<div class="parent-container">
+  <ol class="list-group p-6 px-0 table-register">
+    <li *ngFor="let user of users" class="list-group-item d-flex justify-content-between align-items-center p-0 px-1 user-item">
+      <div class="ms-2 me-auto">
+        <div class="fw-bold">{{ user.email }}</div>
+        {{ user.name }}
+      </div>
+      <button class="delete-users" (click)="deleteUser(user.userId)">
+        <mat-icon class="example-icon" aria-label="Delete user">
+          delete
+        </mat-icon>
+      </button>
+    </li>
+  </ol>
+</div>
+
+<div class="parent-container-footer">
+  <nav aria-label="Page navigation example">
+    <ul class="pagination">
+      <li class="page-item" [class.disabled]="currentPage === 1">
+        <a class="page-link" href="#" aria-label="Previous" (click)="changePage($event, currentPage - 1)">
+          <span aria-hidden="true">&laquo;</span>
+        </a>
+      </li>
+
+      <li *ngFor="let page of displayedPages" class="page-item" [class.active]="currentPage === page">
+        <a class="page-link" href="#" (click)="changePage($event, page)">{{ page }}</a>
+      </li>
+
+      <li class="page-item" [class.disabled]="currentPage === totalPages">
+        <a class="page-link" href="#" aria-label="Next" (click)="changePage($event, currentPage + 1)">
+          <span aria-hidden="true">&raquo;</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+</div>

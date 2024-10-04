@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 
 @Component({
   selector: 'app-filter-user',
@@ -6,9 +6,20 @@ import { Component } from '@angular/core';
   styleUrls: ['./filter-user.component.scss']
 })
 export class FilterUserComponent {
-  searchQuery: string = '';
+  @Input() searchQuery: string = '';
+  @Output() searchChange = new EventEmitter<string>();
 
   clearSearch() {
     this.searchQuery = '';
   }
+
+  onChange(event: any) {
+    event.preventDefault();
+    console.log("texto de los querys", event.target.value)
+
+    this.searchChange.emit(event.target.value);
+  }
+
 }
+
+

@@ -42,7 +42,7 @@ export class ApiUserService {
     //ADMIN API - URL
 
     createUser(userData: any): Observable<any> {
-        const url = `${this.apiUrl}/auth/signup`;
+        const url = `${this.apiUrl}/users/signup`;
         return this.http.post<any>(url, userData);
     }
 
