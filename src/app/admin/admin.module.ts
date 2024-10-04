@@ -40,6 +40,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatOptionModule } from '@angular/material/core';
 import { AuditoriaComponent } from './auditoria/auditoria.component';
 import { TranslateModule } from "@ngx-translate/core";
+import { FareComponent } from './fare/fare.component';
 
 const routes : Routes = [
   {
@@ -53,6 +54,10 @@ const routes : Routes = [
   {
     path:'auditory',
     component: AuditoriaComponent
+  },
+  {
+    path: 'fares',
+    component: FareComponent
   }
 
 ]
@@ -70,7 +75,8 @@ const routes : Routes = [
     FilterUserComponent,
     AddUsersComponent,
     ProfilesComponent,
-    UsersComponent
+    UsersComponent,
+    FareComponent
   ],
   imports: [
     CommonModule,

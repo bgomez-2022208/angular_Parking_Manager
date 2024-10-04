@@ -1,0 +1,50 @@
+<app-navbaruser title="Fare"></app-navbaruser>
+<div class="container-principal">
+    <div class="table-fare">
+        <ol>
+            <li>
+                Dates
+            </li>
+            <ol>
+                <li>Pedro Marquez</li>
+                <li>2:00</li>
+                <li>12:00</li>
+                <li>500</li>
+            </ol>
+        </ol>
+    </div>
+    <div class="form-fare">
+        <div class="input-container">
+            <form class="example-form">
+                <mat-form-field class="input-fare">
+                    <mat-label>Name</mat-label>
+                    <input type="text" matInput placeholder="Enter name" class="input-fare">
+                </mat-form-field>
+            </form>
+            <form class="example-form">
+                <mat-form-field class="input-fare">
+                    <mat-label>Start Date</mat-label>
+                    <input type="text" matInput placeholder="Enter start date" class="input-fare">
+                </mat-form-field>
+            </form>
+        </div>
+        <div class="input-container">
+            <form class="example-form">
+                <mat-form-field class="input-fare">
+                    <mat-label>Price</mat-label>
+                    <input type="text" matInput placeholder="Enter price" class="input-fare">
+                </mat-form-field>
+            </form>
+            <form class="example-form">
+                <mat-form-field class="input-fare">
+                    <mat-label>End Date</mat-label>
+                    <input type="text" matInput placeholder="Enter end date" class="input-fare">
+                </mat-form-field>
+            </form>
+        </div>
+        <button mat-raised-button color="primary" class="guardar" type="submit">
+            {{ 'BUTTON_SAVE' | translate }}
+        </button>
+    </div>
+    
+</div>
