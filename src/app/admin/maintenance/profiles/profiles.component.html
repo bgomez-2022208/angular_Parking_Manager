@@ -1,0 +1,42 @@
+<div class="principal-container">
+  <app-navbaruser [title]="'PROFILES_SECTION.TITLE' | translate"></app-navbaruser>
+  <div class="main-container">
+    <div class="table">
+      <app-filter-user></app-filter-user>
+      <div class="container-list">
+        <app-table-users [profiles]="profiles" [totalPages]="totalPages" [currentPage]="currentPage"
+          [itemsPerPageOptions]="availableItemsPerPage" (pageChange)="onPageChange($event)"
+          (profileSelected)="getPerfil($event)" (profileDeleted)="onProfileDeleted($event)">
+        </app-table-users>
+      </div>
+    </div>
+
+    <div class="container-form">
+      <form [formGroup]="form" (ngSubmit)="newProfile()">
+        <h1>{{'PROFILES.TITLE_PROFILE' | translate}}</h1>
+        <mat-form-field>
+          <mat-label>{{valornameProfile}}</mat-label>
+          <input formControlName="description" matInput type="text" required>
+          <mat-error *ngIf="form.get('description')?.invalid">{{getErrorMessage('description')}}</mat-error>
+        </mat-form-field>
+        <button type="submit">{{'BUTTONS.BTN_SAVE_PROFILE' | translate}}</button>
+
+        <h1>{{'PROFILES.TITLE_ROLES' | translate}}</h1>
+        <div class="toggle-container">
+          <mat-slide-toggle (change)="onToggleRole(1, $event)"
+            formControlName="profileControl">{{'TOGGLE.PROFILE' | translate}}</mat-slide-toggle>
+          <mat-slide-toggle (change)="onToggleRole(2, $event)" formControlName="usersControl">{{'TOGGLE.USER' | translate}}</mat-slide-toggle>
+          <mat-slide-toggle (change)="onToggleRole(3, $event)"
+            formControlName="auditControl">{{'TOGGLE.AUDITH' | translate}}</mat-slide-toggle>
+          <mat-slide-toggle (change)="onToggleRole(4, $event)" formControlName="roleAndDetailsControl">{{'TOGGLE.ROLE_DETAIL' | translate}}</mat-slide-toggle>
+          <mat-slide-toggle (change)="onToggleRole(5, $event)"
+            formControlName="parkingControl">{{'TOGGLE.PARKING' | translate}}</mat-slide-toggle>
+          <mat-slide-toggle (change)="onToggleRole(6, $event)" formControlName="fareControl">{{'TOGGLE.FARE' | translate}}</mat-slide-toggle>
+          <mat-slide-toggle (change)="onToggleRole(7, $event)"
+            formControlName="registerControl">{{'TOGGLE.REGISTER' | translate}}</mat-slide-toggle>
+        </div>
+      </form>
+      <button (click)="updateProfile()" [disabled]="!rolesChanged" class="btnUpdate">{{'BUTTONS.BTN_UPDATE_PROFILE' | translate}}</button>
+    </div>
+  </div>
+</div>

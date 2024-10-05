@@ -1,57 +1,195 @@
 {
-  "TITLE_ADD": "Agregar Usuario",
-  "FORM_NAME_LABEL": "Nombre",
-  "FORM_SURNAME_LABEL": "Apellido",
-  "FORM_AGE_LABEL": "Edad",
-  "FORM_EMAIL_LABEL": "Correo Electrónico",
-  "FORM_DPI_LABEL": "DPI",
-  "FORM_PASSWORD_LABEL": "Contraseña",
-  "FORM_PROFILE_LABEL": "Perfil",
-  "PROFILE_ADMIN": "Administrador",
-  "PROFILE_USER": "Usuario",
-  "PROFILE_GUEST": "Invitado",
-  "BUTTON_SAVE": "Guardar",
-
-  "FORM_PARKING_TITLE": "Formulario Parqueo",
-  "FORM_NAME_PARKING": "Nombre",
-  "FORM_CAR_PARKING": "Nombre del vehiculo",
-  "FORM_PLATE_PARKING": "Placa",
-  "FORM_SEND_PARKING": "Enviar",
-
-  "SEARCH_PLACEHOLDER": "Buscar...",
-
-  "TITLE_PARKING_LOGOUT": "¿Estás seguro de cerrar sesión?",
-  "CONFIRM_LOGOUT_YES": "SI",
-  "CONFIRM_LOGOUT_NO": "NO",
-
-  "TITLE": "Título",
-  "AUDITORIA": "Auditoria",
-  "LOGOUT": "Cerrar sesión",
-  "CHANGE_LANGUAGE": "Cambiar idioma",
-  "AUDIT_WORKS": "¡Auditoría funciona!",
-  "FILTER": "Filtrar",
-  "FILTER_BY_ENTITY": "Filtrar por entidad",
-  "SELECT_OPTION": "Seleccionar una opción",
-  "NONE": "Ninguno",
-  "USER": "Usuario",
-  "OPTION_2": "Opción 2",
-  "OPTION_3": "Opción 3",
-  "ID": "ID",
-  "ENTITY": "Entidad",
-  "CHANGE": "Cambio",
-  "DATE": "Fecha",
-  "NO_DATA": "No hay datos coincidentes con el filtro",
-  "PAGINATOR_ARIA_LABEL": "Paginador",
-
-  "PROFILES": "Perfiles",
-  "ADD_PROFILE": "Agregar Perfil",
-  "EMAIL": "Correo Electrónico",
-  "EMAIL_PLACEHOLDER": "correo@example.com",
-  "SAVE": "Guardar",
-  "CONFIGURATION": "Configuración",
-  "MANAGE_PERMISSIONS": "Administrar Permisos",
-  "USERS": "Usuarios",
-  "PROFILE": "Perfil",
-  "PARKING": "Estacionamiento"
-
+    "LOGIN": {
+        "HEADER_TITLE": "Iniciar sesión",
+        "SUBTITLE_ONE": "O puedes ",
+        "SUBTITLE_TWO": "registrarte ahora",
+        "LABEL_EMAIL": "Correo electrónico",
+        "LABEL_PASSWORD": "Contraseña",
+        "REMEMBER_BUTTON_TITLE": "Recordar este dispositivo",
+        "FORGOT_PASSWORD": "¿Olvidaste tu contraseña?",
+        "BTN_LOGIN": "Iniciar sesión"
+    },
+    "REGISTER": {
+        "TITLE": "Registrarse",
+        "SUBTITLE": "Por favor, llena todos los campos para crear tu cuenta",
+        "LABEL_NAME": "Nombre",
+        "LABEL_SURNAME": "Apellido",
+        "LABEL_AGE": "Edad",
+        "LABEL_DPI": "DPI",
+        "LABEL_EMAIL": "Correo electrónico",
+        "LABEL_PASSWORD": "Contraseña",
+        "LABEL_CONFIRM_PASSWORD": "Confirmar contraseña",
+        "BTN_REGISTER": "Registrarse",
+        "TITLE_ADD": "Añadir Usuario",
+        "LABEL_PROFILE": "Perfil"
+    },
+    "PROFILES": {
+        "PROFILE_ADMIN": "Administrador",
+        "PROFILE_USER": "Usuario",
+        "PROFILE_GUEST": "Invitado",
+        "TITLE_PROFILE": "Perfil",
+        "TITLE_ROLES": "Roles"
+    },
+    "BUTTONS": {
+        "BTN_SAVE": "Guardar",
+        "BUTTON_SAVE": "Guardar",
+        "BTN_SAVE_PROFILE": "Guardar Perfil",
+        "BTN_UPDATE_PROFILE": "Actualizar Perfil"
+    },
+    "FORM": {
+        "TITLE_PARKING": "Formulario de Estacionamiento",
+        "LABEL_NAME": "Nombre",
+        "LABEL_SURNAME": "Apellido",
+        "LABEL_AGE": "Edad",
+        "LABEL_DPI": "DPI",
+        "LABEL_EMAIL": "Correo electrónico",
+        "LABEL_PASSWORD": "Contraseña",
+        "LABEL_PROFILE": "Perfil",
+        "LABEL_NAME_PARKING": "Nombre",
+        "LABEL_CAR_PARKING": "Nombre del Vehículo",
+        "LABEL_PLATE_PARKING": "Placa",
+        "BTN_SEND_PARKING": "Enviar"
+    },
+    "SEARCH": {
+        "SEARCH_BUTTON": "Buscar...",
+        "SEARCH_PLACEHOLDER": "Buscar..."
+    },
+    "CONFIRM_LOGOUT": {
+        "TITLE": "¿Estás seguro de que deseas cerrar sesión?",
+        "YES": "SÍ",
+        "NO": "NO"
+    },
+    "ERRORS": {
+        "ERROR_NAME_REQUIRED": "El nombre es obligatorio",
+        "ERROR_SURNAME_REQUIRED": "El apellido es obligatorio",
+        "ERROR_PASSWORD_REQUIRED": "La contraseña es obligatoria",
+        "ERROR_INVALID_CREDENTIALS": "Usuario o contraseña incorrectos",
+        "ERROR_EMAIL_REQUIRED": "El correo electrónico es obligatorio",
+        "ERROR_INVALID_EMAIL": "El correo electrónico no es válido",
+        "ERROR_NEW_PASSWORD_REQUIRED": "La nueva contraseña es obligatoria",
+        "ERROR_CONFIRM_PASSWORD_REQUIRED": "Por favor, vuelve a ingresar la nueva contraseña",
+        "ERROR_CODE_REQUIRED": "El código es obligatorio",
+        "ERROR_CODE_INVALID": "El código debe ser solo números",
+        "ERROR_PASSWORD_NOT_SAME": "Las contraseñas no coinciden",
+        "ERROR_SEND_CODE": "Ocurrió un error al enviar el código de seguridad",
+        "ERROR_AGE_REQUIRED": "La edad es obligatoria",
+        "ERROR_DPI_REQUIRED": "El DPI es obligatorio",
+        "ERROR_INVALID_PASSWORD": "La contraseña debe contener una letra mayúscula, una letra minúscula, un carácter especial, un número y tener al menos 8 dígitos",
+        "ERROR_INVALID_AGE": "La edad debe ser un número y debes ser mayor de edad",
+        "ERROR_INVALID_DPI": "El DPI debe ser un número y contener 13 dígitos",
+        "ERROR_INVALID_NAME": "El nombre debe contener solo letras",
+        "ERROR_INVALID_SURNAME": "El apellido debe contener solo letras",
+        "ERROR_UPDATE_PASSWORD": "Ocurrió un error al actualizar tu contraseña",
+        "ERROR_REGISTER": "Ocurrió un error durante el registro, por favor intenta más tarde",
+        "ERROR_LOGIN": "Usuario o contraseña incorrectos",
+        "ERROR_ADD_PROFILE": "El nombre del perfil es obligatorio"
+    },
+    "FORGOT_PASSWORD_EMAIL": {
+        "HEADER_TITLE": "Recupera tu contraseña",
+        "SUBTITLE": "Ingresa el correo electrónico asociado a tu cuenta para continuar",
+        "LABEL_EMAIL": "Correo electrónico",
+        "BTN_SEND": "Continuar"
+    },
+    "FORGOT_PASSWORD": {
+        "HEADER_TITLE": "Cambiar contraseña",
+        "SUBTITLE": "Ingresa tu nueva contraseña",
+        "LABEL_CODE": "Código de seguridad",
+        "LABEL_NEW_PASSWORD": "Nueva contraseña",
+        "LABEL_CONFIRM_PASSWORD": "Confirmar contraseña",
+        "BTN_CHANGE": "Cambiar contraseña"
+    },
+    "ALERT_CHANGE_PASSWORD": {
+        "TITLE": "Contraseña actualizada con éxito",
+        "TITLE_BAD": "Error al actualizar tu contraseña",
+        "MESSAGE": "Ahora puedes iniciar sesión con tu nueva contraseña"
+    },
+    "ALERT_SEND_CODE": {
+        "TITLE": "Código enviado con éxito",
+        "TITLE_BAD": "Error al enviar el código",
+        "MESSAGE": "Te hemos enviado un código de seguridad a tu correo"
+    },
+    "ALERT_REGISTER": {
+        "TITLE": "Registro exitoso",
+        "TITLE_BAD": "Error en el registro",
+        "MESSAGE": "Te has registrado con éxito. Usa las credenciales enviadas a tu correo para iniciar sesión."
+    },
+    "ALERT_LOGIN": {
+        "TITLE": "Inicio de sesión exitoso",
+        "TITLE_BAD": "Credenciales incorrectas",
+        "MESSAGE": "Has iniciado sesión con éxito."
+    },
+    "LANGUAGES": {
+        "SPANISH": "Español",
+        "ENGLISH": "Inglés",
+        "CACHIQUEL": "Cachiquel"
+    },
+    "MENU": {
+        "AUDITORIA": "Auditoría",
+        "LOGOUT": "Cerrar sesión",
+        "CHANGE_LANGUAGE": "Cambiar idioma"
+    },
+    "FILTERS": {
+        "FILTER": "Filtrar",
+        "FILTER_BY_ENTITY": "Filtrar por entidad",
+        "SELECT_OPTION": "Selecciona una opción",
+        "NONE": "Ninguno"
+    },
+    "PAGINATOR": {
+        "ARIA_LABEL": "Paginador"
+    },
+    "AUDIT": {
+        "WORKS": "¡La auditoría funciona!",
+        "ID": "ID",
+        "ENTITY": "Entidad",
+        "CHANGE": "Cambio",
+        "DATE": "Fecha",
+        "NO_DATA": "No hay datos que coincidan con el filtro"
+    },
+    "PLACEHOLDER": {
+        "PASSWORD": "Ingresa tu contraseña",
+        "EMAIL": "Ingresa tu correo electrónico",
+        "NEW_PASSWORD": "Ingresa tu nueva contraseña",
+        "CONFIRM_PASSWORD": "Confirma tu nueva contraseña",
+        "CODE": "Ingresa tu código de seguridad",
+        "NAME": "Ingresa tu nombre",
+        "SURNAME": "Ingresa tu apellido",
+        "AGE": "Ingresa tu edad",
+        "DPI": "Ingresa tu DPI",
+        "OLD_PASSWORD": "Ingresa tu contraseña actual"
+    },
+    "PROFILES_SECTION": {
+        "TITLE": "Perfiles",
+        "ADD_PROFILE": "Añadir perfil",
+        "EMAIL": "Correo electrónico",
+        "EMAIL_PLACEHOLDER": "correo@ejemplo.com",
+        "SAVE": "Guardar"
+    },
+    "CONFIGURATION": {
+        "TITLE": "Configuración",
+        "MANAGE_PERMISSIONS": "Administrar permisos"
+    },
+    "TOGGLE": {
+        "PROFILE": "Perfil",
+        "USER": "Usuario",
+        "AUDITH": "Auditoria",
+        "ROLE_DETAIL": "Roles y Detalles",
+        "PARKING": "Parqueo",
+        "FARE": "Tarifa",
+        "REGISTER": "Registro"
+    },
+    "ALERT_PROFILE": {
+        "TITLE_DELETE": "¿Estás seguro de eliminar el perfil?",
+        "TITLE_BAD": "Error al eliminar el perfil",
+        "MESSAGE_INFO": "Esta acción no se pordrá revertir.",
+        "MESSAGE_SUCCESS": "El perfil ha sido agregado con éxito.",
+        "BTN_YES": "Si, estoy seguro",
+        "BTN_NO": "No, cancelar",
+        "TITLE_ADD": "Perfil agregado",
+        "TITLE_DELETE_SUCCESS": "¡Eliminado!",
+        "MESSAGE_DELETE_SUCCESS": "El perfil ha sido eliminado con éxito.",
+        "TITLE_UPDATE": "¡Actualizado!",
+        "MESSAGE_UPDATE_SUCCESS": "El perfil ha sido actualizado con éxito.",
+        "TITLE_BAD_ADD": "Ha ocurrido un error al agregar el perfil.",
+        "TITLE_BAD_UPDATE": "Error al actualizar el perfil"
+    }
 }

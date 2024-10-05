@@ -1,0 +1,38 @@
+<ol class="list-group list-group-numbered p-3 px-0">
+  <li *ngFor="let profile of paginatedProfiles" class="list-group-item d-flex justify-content-between align-items-start p-0 px-3"
+    (click)="profileSelected.emit(profile.profileId)">
+    <div class="container-body ms-2 me-auto">
+      <div class="fw-bold">Name: {{ profile.description }}</div>
+      <div class="fw-bold">Status: {{ profile.status ? 'Active' : 'Inactive' }}</div>
+    </div>
+    <button class="btn btn-danger" (click)="deleteProfile(profile.profileId, $event)">Delete</button>
+  </li>
+</ol>
+
+<!-- Selector para la cantidad de ítems por página -->
+<div class="items-per-page-selector">
+  <label for="itemsPerPage">Items per page:</label>
+  <select id="itemsPerPage" (change)="onItemsPerPageChange($event)">
+    <option *ngFor="let option of itemsPerPageOptions" [value]="option">{{ option }}</option>
+  </select>
+</div>
+
+<nav aria-label="Page navigation example">
+  <ul class="pagination">
+    <li class="page-item" [class.disabled]="currentPage === 1">
+      <a class="page-link" href="#" aria-label="Previous" (click)="changePage($event, currentPage - 1)">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+
+    <li *ngFor="let page of [].constructor(totalPages); let i = index" class="page-item" [class.active]="currentPage === (i + 1)">
+      <a class="page-link" href="#" (click)="changePage($event, i + 1)">{{ i + 1 }}</a>
+    </li>
+
+    <li class="page-item" [class.disabled]="currentPage === totalPages">
+      <a class="page-link" href="#" aria-label="Next" (click)="changePage($event, currentPage + 1)">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+  </ul>
+</nav>

@@ -1,0 +1,127 @@
+@import "../../../../assets/sass/variables";
+
+:host {
+    height: $host-param-height;
+    width: $host-param-width;
+    display: $host-display;
+}
+
+.principal-container{
+    width: 100%;
+}
+
+.main-container{
+    display: flex;
+    flex-direction: row;
+}
+
+.table{
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-left: .5rem;
+
+    .container-list{
+        width: auto;
+        margin-top: 1rem;
+        padding: .5rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 1rem;
+    }
+}
+
+.container-form{
+    background-color: $palette-color-four;
+    width: 100%;
+    height: auto;
+    padding: 1rem;
+
+    mat-form-field{
+        width: 20%;
+        margin-bottom: 1rem;
+
+        mat-error{
+            margin-top:.5rem;
+        }
+    }
+
+    
+
+    .toggle-container{
+        display: flex;
+        flex-direction: row;
+
+        mat-slide-toggle{
+            margin: .8rem;
+        }
+    }
+
+    button{
+        width: 15%;
+        background-color: $palette-color-one;
+        color: $palette-color-three;
+        border: $button-border;
+        font-weight: $font-weight-button;
+        font-size: $font-size-button;
+        padding: $button-padding;
+        line-height: $button-line-height;
+        border-radius: $button-radius;
+        transition: $button-transition;
+        margin-bottom: $button-mgb;
+        margin-left: 1rem;
+        font-family: $font-primary;
+        margin-top: $button-mgt;
+    }
+    button:disabled{
+        background-color: red;
+        color: white;
+    }
+}
+
+
+@media only screen and (max-width: 760px) {
+  .principal-container {
+    .main-container {
+      align-items: stretch;
+
+      .table {
+        width: 100%;
+      }
+
+      .container {
+        flex-direction: column;
+        .form-container {
+          width: 100%;
+        }
+      }
+      }
+    }
+}
+
+
+
+@media only screen and (max-width: 300px) {
+    .principal-container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        .main-container{
+            display: flex;
+            flex-direction: column;
+            .form-container{
+                width: 98%;
+            }
+            .form-row{
+                display: flex;
+                flex-direction: column;
+            }
+            .save-button{
+                margin: 2vh;
+            }
+        }
+    }
+}
+

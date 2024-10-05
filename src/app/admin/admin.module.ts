@@ -4,7 +4,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 // Angular Material Modules
 import { MatInputModule } from '@angular/material/input';
-import { MatNativeDateModule } from '@angular/material/core';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
@@ -14,41 +13,33 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
-import { DatePipe } from '@angular/common';
 
 // Components
-import { SearchComponent } from './search/search.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
-import { LogoutConfirmComponent } from './components/logout-confirm/logout-confirm.component';
-import { FilterComponent } from './components/filter/filter.component';
-import { FormParkingComponent } from './components/form-parking/form-parking.component';
-import { TableUsersComponent } from '../shared/components/table-users/table-users.component';
-import { NavbaruserComponent } from './components/navbaruser/navbaruser.component';
-import { FilterUserComponent } from './components/filter-user/filter-user.component';
-import { AddUsersComponent } from './components/add-users/add-users.component';
+import { SearchComponent } from './maintenance/search/search.component';
+import { NavbarComponent } from './maintenance/components/navbar/navbar.component';
+import { LogoutConfirmComponent } from './maintenance/components/logout-confirm/logout-confirm.component';
+import { FilterComponent } from './maintenance/components/filter/filter.component';
+import { FormParkingComponent } from './maintenance/components/form-parking/form-parking.component';
+import { TableUsersComponent } from '../shared/table/table-users.component';
+import { NavbaruserComponent } from './maintenance/components/navbaruser/navbaruser.component';
+import { FilterUserComponent } from './maintenance/components/filter-user/filter-user.component';
 
 import { FormsModule } from '@angular/forms';
-import { ProfilesComponent } from './profiles/profiles.component';
+import { ProfilesComponent } from './maintenance/profiles/profiles.component';
 import { RouterModule, Routes } from "@angular/router";
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import { UsersComponent } from './users/users.component';
 
 
 import { MatSortModule } from '@angular/material/sort';
-import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatOptionModule } from '@angular/material/core';
-import { AuditoriaComponent } from './auditoria/auditoria.component';
+import { AuditoriaComponent } from './maintenance/audit/auditoria.component';
 import { TranslateModule } from "@ngx-translate/core";
 
 const routes : Routes = [
   {
     path:'profiles',
     component: ProfilesComponent
-  },
-  {
-    path:'users',
-    component: UsersComponent
   },
   {
     path:'auditory',
@@ -68,9 +59,7 @@ const routes : Routes = [
     TableUsersComponent,
     NavbaruserComponent,
     FilterUserComponent,
-    AddUsersComponent,
     ProfilesComponent,
-    UsersComponent
   ],
   imports: [
     CommonModule,
@@ -110,12 +99,8 @@ const routes : Routes = [
     FilterComponent,
     FormParkingComponent,
     TableUsersComponent,
-    AddUsersComponent,
     FilterUserComponent,
-    NavbaruserComponent,DatePipe
-  ],
-  providers: [
-    DatePipe
-  ],
+    NavbaruserComponent
+  ]
 })
 export class AdminModule {}

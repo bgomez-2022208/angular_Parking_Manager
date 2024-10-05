@@ -1,0 +1,89 @@
+@import "../../../assets/sass/variables";
+
+ol{
+  padding: 1rem;
+  margin-right: 2rem;
+  li{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    margin-bottom: .5rem;
+
+    .container-body{
+      width: 15rem;
+
+      .fw-bold{
+        display: flex;
+        background-color: $palette-color-four;
+        font-family: $font-primary;
+        padding: .5rem;
+        font-size: 1rem;
+      }
+    }
+
+    button{
+      background-color: $palette-color-one;
+      color: $palette-color-four;
+      width: 5rem;
+      border: 10px;
+      font-size: 1rem;
+      font-size: $font-primary;
+    }
+
+    button:hover{
+      cursor: pointer;
+    }
+  }
+}
+
+
+.items-per-page-selector{
+  display: flex;
+  justify-content: center;
+  height: 1.5rem;
+  font-size: 1.5rem;
+
+  select{
+    margin-left: .5rem;
+    font-size: 1.5rem;
+    border: none;
+    width: 3rem;
+    height: 2rem;
+  }
+
+  select:hover{
+    cursor: pointer;
+    background-color: lightgrey;
+  }
+}
+
+nav{
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+
+  .pagination{
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+
+    .page-item{
+      margin-top: 1rem;
+      display: flex;
+      align-items: center;
+      width: 5rem;
+      height: 2rem;
+
+      a{
+        width: 2rem;
+        height: 2rem;
+        font-size: 1.5rem;
+        border: $color-border;
+        background-color: $palette-color-one;
+        color: $palette-color-four;
+        text-align: center;
+        text-decoration: none;
+      }
+    }
+  }
+}
