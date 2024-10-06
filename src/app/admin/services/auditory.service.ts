@@ -4,14 +4,14 @@ import { Observable, tap } from 'rxjs';
 import { environment } from "../../environment";
 
 export interface AuditData {
-  id:string;
+  auditId:string;
   entity: string;
   startDate: Date;
   description: string;
   operation: string;
   result: string;
-  request: string;
-  response: string;
+  request: any;
+  response: any;
 }
 
 @Injectable({
@@ -28,8 +28,8 @@ export class AuditoryService {
     return this.http.get<any[]>(url);
   }
 
-  getAuditoryById(): Observable<any[]> {
-    const url = `${this.apiUrl}/audith`
-    return this.http.get<any[]>(url)
+  getAuditoryById(id: string): Observable<AuditData> {
+    const url = `${this.apiUrl}/audith/${id}`;
+    return this.http.get<AuditData>(url);
   }
 }
