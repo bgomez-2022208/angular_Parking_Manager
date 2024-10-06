@@ -15,12 +15,15 @@ import { AuditoryService, AuditData } from '../services/auditory.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AuditoriaComponent implements AfterViewInit {
-  displayedColumns: string[] = ['entity', 'startDate', 'description', 'operation', 'result', 'request', 'response'];
+  displayedColumns: string[] = ['entity', 'startDate', 'description', 'operation', 'result', 'more'];
+  expandedElement: any | null = null;
+  auditData: AuditData | null = null;
   dataSource: MatTableDataSource<AuditData>;
   selected: string = ''; 
   private readonly _currentYear = new Date().getFullYear();
   readonly minDate = new Date(this._currentYear - 20, 0, 1);
   readonly maxDate = new Date();
+  showCard: boolean = false;
 
   selectedDateControl = new FormControl();
 
@@ -28,10 +31,7 @@ export class AuditoriaComponent implements AfterViewInit {
   @ViewChild(MatSort) sort!: MatSort;
 
   constructor(private datePipe: DatePipe,private auditoryService: AuditoryService) {
-    const audit: AuditData[] = [
-      { id:'1', entity: 'User', startDate: new Date('2024-09-01'), description: 'Description 1', operation: 'Create', result: 'Success', request: 'Request data', response: 'Response data' },
-      { id:'1', entity: 'Product', startDate: new Date('2024-09-02'), description: 'Description 2', operation: 'Update', result: 'Failure', request: 'Request data', response: 'Response data' }
-    ];
+    const audit: AuditData[] = [];
 
     this.dataSource = new MatTableDataSource(audit);
     this.selectedDateControl.valueChanges.subscribe(value => {
@@ -76,7 +76,6 @@ export class AuditoriaComponent implements AfterViewInit {
   
 
   ngOnInit() {
-    // Llama al servicio para obtener los datos
     this.auditoryService.getAuditory().subscribe((data: AuditData[]) => {
       this.dataSource.data = data;
     });
@@ -98,5 +97,21 @@ export class AuditoriaComponent implements AfterViewInit {
   }
   formatDate(date: Date | string): string | null {
     return this.datePipe.transform(date, 'yyyy-MM-dd');
+  }
+  onMoreClick(id: string) {
+    console.log('ID received:', id);
+    this.auditoryService.getAuditoryById(id).subscribe({
+      next: (data: AuditData) => {
+        this.auditData = data;
+        this.showCard = true;
+        console.log('Audit Data:', this.auditData);
+      },
+      error: (err) => {
+        console.error('Error al obtener la auditoría:', id);
+      }
+    });
+  }
+  closeCard() {
+    this.showCard = false;
   }
 }
