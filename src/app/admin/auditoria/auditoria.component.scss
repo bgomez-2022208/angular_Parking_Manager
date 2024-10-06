@@ -44,26 +44,26 @@
   width: 100%;
 }
 .app-card-auditory {
-  position: fixed;        /* Posición fija para que flote sobre el resto */
-  top: 50%;               /* Centrado verticalmente */
-  left: 50%;              /* Centrado horizontalmente */
-  transform: translate(-50%, -50%);  /* Ajuste para centrado exacto */
-  z-index: 1000;          /* Asegura que la tarjeta esté por encima de otros elementos */
-  width: 80%;             /* Puedes ajustar el ancho de la tarjeta */
-  max-width: 600px;       /* Limita el ancho máximo */
-  background: white;      /* Fondo blanco para la tarjeta */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para destacar la tarjeta */
-  padding: 20px;          /* Espacio interno para el contenido de la tarjeta */
+  position: fixed;        
+  top: 50%;        
+  left: 50%;          
+  transform: translate(-50%, -50%);
+  z-index: 1000;      
+  width: 80%;       
+  max-width: 600px;  
+  background: white;  
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 20px;       
 }
 
 .overlay {
-  position: fixed;        /* Cubre toda la pantalla */
+  position: fixed; 
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.5);  /* Fondo oscuro semitransparente */
-  z-index: 999;           /* Asegura que esté debajo de la tarjeta */
+  background: rgba(0, 0, 0, 0.5); 
+  z-index: 999;  
 }
 .table-container{
   width: 95%;
