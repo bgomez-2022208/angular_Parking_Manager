@@ -40,6 +40,10 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatOptionModule } from '@angular/material/core';
 import { AuditoriaComponent } from './auditoria/auditoria.component';
 import { TranslateModule } from "@ngx-translate/core";
+import { CardAuditoryComponent } from './components/card-auditory/card-auditory.component';
+import { CdkTableModule } from '@angular/cdk/table';
+import { MatCardModule } from '@angular/material/card';
+
 
 const routes : Routes = [
   {
@@ -70,7 +74,8 @@ const routes : Routes = [
     FilterUserComponent,
     AddUsersComponent,
     ProfilesComponent,
-    UsersComponent
+    UsersComponent,
+    CardAuditoryComponent
   ],
   imports: [
     CommonModule,
@@ -103,7 +108,7 @@ const routes : Routes = [
     MatTableModule,
     MatSortModule,
     MatOptionModule,
-    TranslateModule
+    TranslateModule,CdkTableModule,MatCardModule
   ],
   exports: [
     NavbarComponent,
