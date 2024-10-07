@@ -7,7 +7,7 @@
   </button>
 
   <mat-menu #menu="matMenu">
-    <button mat-menu-item>
+    <button mat-menu-item (click)="goToAuditory()">
       <mat-icon>library_books</mat-icon>
       <span>{{ 'AUDITORIA' | translate }}</span>
     </button>

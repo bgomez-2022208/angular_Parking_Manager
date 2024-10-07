@@ -48,15 +48,6 @@ export class AddUsersComponent implements OnInit {
   }
 
   loadProfiles() {
-    this.profileService.getProfiles().subscribe(
-      (data: any) => {
-        this.profiles = data.profiles;
-        console.log(this.profiles);
-      },
-      (error: any) => {
-        console.error("Error loading profiles", error);
-      }
-    );
   }
 
   onSubmit() {

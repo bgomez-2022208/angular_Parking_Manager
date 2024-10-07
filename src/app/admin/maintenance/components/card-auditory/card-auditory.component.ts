@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { AuditData } from '../../services/auditory.service';
+import { AuditData } from '../../../services/auditory.service';
 
 @Component({
   selector: 'app-card-auditory',

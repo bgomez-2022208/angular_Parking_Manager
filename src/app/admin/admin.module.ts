@@ -37,9 +37,9 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatOptionModule } from '@angular/material/core';
-import { AuditoriaComponent } from './auditoria/auditoria.component';
+import { AuditoriaComponent } from './maintenance/auditoria/auditoria.component';
 import { TranslateModule } from "@ngx-translate/core";
-import { CardAuditoryComponent } from './components/card-auditory/card-auditory.component';
+import { CardAuditoryComponent } from './maintenance/components/card-auditory/card-auditory.component';
 import { CdkTableModule } from '@angular/cdk/table';
 import { MatCardModule } from '@angular/material/card';
 

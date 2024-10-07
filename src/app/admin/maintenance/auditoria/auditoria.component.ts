@@ -5,7 +5,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatSelectChange } from '@angular/material/select';
 import { FormControl } from '@angular/forms';
 import { DatePipe } from '@angular/common';
-import { AuditoryService, AuditData } from '../services/auditory.service';
+import { AuditoryService, AuditData } from '../../services/auditory.service';
 
 @Component({
   selector: 'app-auditoria',
