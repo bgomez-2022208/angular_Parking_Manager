@@ -2,12 +2,12 @@
   <app-navbaruser [title]="'PROFILES_SECTION.TITLE' | translate"></app-navbaruser>
   <div class="main-container">
     <div class="table">
-      <app-filter-user></app-filter-user>
+      <app-filter-profile></app-filter-profile>
       <div class="container-list">
-        <app-table-users [profiles]="profiles" [totalPages]="totalPages" [currentPage]="currentPage"
+        <app-table-profiles [profiles]="profiles" [totalPages]="totalPages" [currentPage]="currentPage"
                          [itemsPerPageOptions]="availableItemsPerPage" (pageChange)="onPageChange($event)"
                          (profileSelected)="getPerfil($event)" (profileDeleted)="onProfileDeleted($event)">
-        </app-table-users>
+        </app-table-profiles>
       </div>
     </div>
 
