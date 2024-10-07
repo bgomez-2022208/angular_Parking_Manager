@@ -89,4 +89,8 @@ export class ApiUserService {
     const url = `${this.apiUrl}/profiles/update/${profileId}/roles?roleIds=${roles}`
     return this.http.put<any>(url, null)
     }
+
+  logout() {
+    localStorage.removeItem('token')
+  }
 }
