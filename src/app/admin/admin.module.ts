@@ -35,12 +35,13 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import {MatNativeDateModule, MatOptionModule} from '@angular/material/core';
 import { TranslateModule } from "@ngx-translate/core";
-import {ProfilesComponent} from "./profiles/profiles.component";
+
 import {AuditoriaComponent} from "./maintenance/auditoria/auditoria.component";
 import {CardAuditoryComponent} from "./maintenance/components/card-auditory/card-auditory.component";
 import { SimpleNotificationsModule } from 'angular2-notifications';
 import { MatCardModule } from '@angular/material/card';
 import {DeleteUserConfirmComponent} from "./maintenance/components/delete-user-confirm/delete-user-confirm.component";
+import { ProfilesComponent } from './maintenance/profiles/profiles.component';
 
 const routes : Routes = [
   {
