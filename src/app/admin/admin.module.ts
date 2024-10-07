@@ -4,6 +4,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 // Angular Material Modules
 import { MatInputModule } from '@angular/material/input';
+import { MatNativeDateModule } from '@angular/material/core';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
@@ -13,6 +14,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { DatePipe } from '@angular/common';
 
 // Components
 import { SearchComponent } from './maintenance/search/search.component';
@@ -32,10 +34,15 @@ import { UsersComponent } from './maintenance/users/users.component';
 
 
 import { MatSortModule } from '@angular/material/sort';
+import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatOptionModule } from '@angular/material/core';
-import { AuditoriaComponent } from './maintenance/audit/auditoria.component';
+import { AuditoriaComponent } from './auditoria/auditoria.component';
 import { TranslateModule } from "@ngx-translate/core";
+import { CardAuditoryComponent } from './components/card-auditory/card-auditory.component';
+import { CdkTableModule } from '@angular/cdk/table';
+import { MatCardModule } from '@angular/material/card';
+
 import {ProfilesComponent} from "./profiles/profiles.component";
 
 const routes : Routes = [
@@ -67,7 +74,8 @@ const routes : Routes = [
     FilterUserComponent,
     AddUsersComponent,
     ProfilesComponent,
-    UsersComponent
+    UsersComponent,
+    CardAuditoryComponent
   ],
   imports: [
     CommonModule,
@@ -100,7 +108,7 @@ const routes : Routes = [
     MatTableModule,
     MatSortModule,
     MatOptionModule,
-    TranslateModule
+    TranslateModule,CdkTableModule,MatCardModule
   ],
   exports: [
     NavbarComponent,
@@ -109,7 +117,10 @@ const routes : Routes = [
     TableUsersComponent,
     AddUsersComponent,
     FilterUserComponent,
-    NavbaruserComponent
-  ]
+    NavbaruserComponent,DatePipe
+  ],
+  providers: [
+    DatePipe
+  ],
 })
 export class AdminModule {}

@@ -1,69 +1,110 @@
-<p>{{ 'AUDIT_WORKS' | translate }}</p>
-
-<div class="nav">
-  <div class="filter">
-    <mat-form-field class="example-container">
-      <mat-label>{{ 'FILTER' | translate }}</mat-label>
-      <input matInput (keyup)="applyFilter($event)" placeholder="{{ 'FILTER_BY_ENTITY' | translate }}" #input>
-    </mat-form-field>
-  </div>
-  <div class="filter">
-    <mat-form-field class="example-container">
-      <mat-label>{{ 'SELECT_OPTION' | translate }}</mat-label>
-      <mat-select [(value)]="selected" (selectionChange)="applyFilter($event)">
-        <mat-option value="">{{ 'NONE' | translate }}</mat-option>
-        <mat-option value="User">{{ 'USER' | translate }}</mat-option>
-        <mat-option value="option2">{{ 'OPTION_2' | translate }}</mat-option>
-        <mat-option value="option3">{{ 'OPTION_3' | translate }}</mat-option>
-      </mat-select>
-    </mat-form-field>
-  </div>
-  <div class="filter">
-    <mat-form-field class="example-container">
-      <mat-label>{{ 'FILTER' | translate }}</mat-label>
-      <input matInput (keyup)="applyFilter($event)" [matDatepicker]="picker" [min]="minDate" [max]="maxDate">
-      <mat-datepicker #picker></mat-datepicker>
-      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-    </mat-form-field>
-  </div>
+<div class="Navbar-container">
+  <app-navbaruser class="app-nav" title="Audit"></app-navbaruser>
 </div>
-
-<div class="">
-  <div class="mat-elevation-z8">
-    <table mat-table [dataSource]="dataSource" matSort>
-
-      <!-- Columna ID -->
-      <ng-container matColumnDef="id">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'ID' | translate }} </th>
-        <td mat-cell *matCellDef="let row"> {{row.id}} </td>
-      </ng-container>
-
-      <!-- Columna Entidad -->
-      <ng-container matColumnDef="entity">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'ENTITY' | translate }} </th>
-        <td mat-cell *matCellDef="let row"> {{row.entity}} </td>
-      </ng-container>
-
-      <!-- Columna Cambio -->
-      <ng-container matColumnDef="change">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'CHANGE' | translate }} </th>
-        <td mat-cell *matCellDef="let row"> {{row.change}} </td>
-      </ng-container>
-
-      <!-- Columna Fecha -->
-      <ng-container matColumnDef="date">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'DATE' | translate }} </th>
-        <td mat-cell *matCellDef="let row"> {{row.date}} </td>
-      </ng-container>
-
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-
-      <tr class="mat-row" *matNoDataRow>
-        <td class="mat-cell" colspan="4">{{ 'NO_DATA' | translate }} "{{input.value}}"</td>
-      </tr>
-    </table>
-
-    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" attr.aria-label="{{ 'PAGINATOR_ARIA_LABEL' | translate }}"></mat-paginator>
+<div class="principal-container">
+  <div class="nav">
+    <div class="filter input-search">
+      <mat-form-field class="example-container input-search">
+        <mat-label>{{ 'FILTER' | translate }}</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="{{ 'FILTER_BY_ENTITY' | translate }}" #input>
+      </mat-form-field>
+    </div>
+    <div class="filter">
+      <mat-form-field class="example-container input-search">
+        <mat-label>{{ 'Entity' | translate }}</mat-label>
+        <mat-select [(value)]="selected" (selectionChange)="applyFilter($event)">
+          <mat-option value="">None</mat-option>
+          <mat-option value="User">User</mat-option>
+          <mat-option value="Profile">Profile</mat-option>
+          <mat-option value="Fare">Fare</mat-option>
+          <mat-option value="Register">Register</mat-option>
+          <mat-option value="Parking">Parking</mat-option>
+          <mat-option value="Role">Role</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="filter">
+      <mat-form-field class="example-container input-search">
+        <mat-label>{{ 'Change' | translate }}</mat-label>
+        <mat-select [(value)]="selected" (selectionChange)="applyFilter($event)">
+          <mat-option value="">None</mat-option>
+          <mat-option value="GET">GET</mat-option>
+          <mat-option value="Read">READ</mat-option>
+          <mat-option value="CREATE">CREATE</mat-option>
+          <mat-option value="Delete	">DELETE	</mat-option>
+          <mat-option value="Update">UPDATE</mat-option>
+          <mat-option value="Role">Role</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="filter">
+      <mat-form-field class="example-container input-search">
+        <mat-label>Filter</mat-label>
+        <input matInput [matDatepicker]="picker" 
+              [min]="minDate" 
+              [max]="maxDate" 
+              (dateChange)="applyFilter($event.value)">
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </div>
+    
   </div>
+
+  <div class="table-container">
+    <div class="mat-elevation-z8">
+      <table mat-table [dataSource]="dataSource" matSort>
+
+        <!-- Columna Entidad -->
+        <ng-container matColumnDef="entity">
+          <th mat-header-cell *matHeaderCellDef>Entity</th>
+          <td mat-cell *matCellDef="let row"> {{row.entity}} </td>
+        </ng-container>
+
+        <!-- Columna Fecha de Inicio -->
+        <ng-container matColumnDef="startDate">
+          <th mat-header-cell *matHeaderCellDef>Start Date</th>
+          <td mat-cell *matCellDef="let row"> {{row.startDate | date:'yyyy-MM-dd'}} </td>
+        </ng-container>
+
+        <!-- Columna Descripción -->
+        <ng-container matColumnDef="description">
+          <th mat-header-cell *matHeaderCellDef>Description</th>
+          <td mat-cell *matCellDef="let row"> {{row.description}} </td>
+        </ng-container>
+
+        <!-- Columna Operación -->
+        <ng-container matColumnDef="operation">
+          <th mat-header-cell *matHeaderCellDef>Operation</th>
+          <td mat-cell *matCellDef="let row"> {{row.operation}} </td>
+        </ng-container>
+
+        <!-- Columna Resultado -->
+        <ng-container matColumnDef="result">
+          <th mat-header-cell *matHeaderCellDef>Result</th>
+          <td mat-cell *matCellDef="let row"> {{row.result}} </td>
+        </ng-container>
+
+        <!-- Columna Solicitud -->
+        <ng-container matColumnDef="more">
+          <th mat-header-cell *matHeaderCellDef>More</th>
+          <td mat-cell *matCellDef="let row"> 
+            <button mat-button mat-button (click)="onMoreClick(row.auditId)">More</button>
+          </td>
+
+        </ng-container>
+
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+        <tr class="mat-row" *matNoDataRow>
+          <td class="mat-cell" colspan="4">{{ 'NO_DATA' | translate }} "{{input.value}}"</td>
+        </tr>
+      </table>
+      <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" attr.aria-label="{{ 'PAGINATOR_ARIA_LABEL' | translate }}"></mat-paginator>
+    </div>
+  </div>
+
+  <app-card-auditory *ngIf="showCard" class="app-card-auditory" [data]="auditData" (closeCard)="closeCard()"></app-card-auditory>
 </div>

@@ -4,7 +4,7 @@ import { AuditoriaComponent } from './auditoria.component';
 describe('AuditoriaComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AuditoriaComponent], // Asegúrate de agregarlo a imports
+      imports: [AuditoriaComponent],
     }).compileComponents();
   });
 

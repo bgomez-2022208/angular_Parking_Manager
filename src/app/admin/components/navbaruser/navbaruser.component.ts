@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { LogoutConfirmComponent } from "../logout-confirm/logout-confirm.component";
 import { MatDialog } from "@angular/material/dialog";
 import { TranslateService } from '@ngx-translate/core'; // Asegúrate de importar el servicio de traducción
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbaruser',
@@ -13,7 +14,7 @@ export class NavbaruserComponent {
 
   currentLanguage: string = 'es';
 
-  constructor(private dialog: MatDialog, private translate: TranslateService) {}
+  constructor(private dialog: MatDialog, private translate: TranslateService,private router: Router) {}
 
   openLogoutDialog() {
     this.dialog.open(LogoutConfirmComponent, {
@@ -25,5 +26,14 @@ export class NavbaruserComponent {
     // Cambia entre 'es' y 'en'
     this.currentLanguage = this.currentLanguage === 'es' ? 'en' : 'es';
     this.translate.use(this.currentLanguage);
+  }
+  goToAuditory() {
+    this.router.navigate(['/admin/auditory']).then(success => {
+      if (success) {
+        console.log('Navigation successful!');
+      } else {
+        console.log('Navigation has failed!');
+      }
+    });
   }
 }
