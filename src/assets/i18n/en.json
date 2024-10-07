@@ -152,17 +152,6 @@
         "DPI": "Enter your DPI",
         "OLD_PASSWORD": "Enter your current password"
     },
-    "PROFILES_SECTION": {
-        "TITLE": "Profiles",
-        "ADD_PROFILE": "Add Profile",
-        "EMAIL": "Email",
-        "EMAIL_PLACEHOLDER": "email@example.com",
-        "SAVE": "Save"
-    },
-    "CONFIGURATION": {
-        "TITLE": "Configuration",
-        "MANAGE_PERMISSIONS": "Manage Permissions"
-    },
     "ADD_USERS": {
       "TITLE_ADD": "Add User",
       "FORM": {
@@ -206,6 +195,16 @@
     "AUDITORIA": "Audit",
     "LOGOUT": "Logout",
     "CHANGE_LANGUAGE": "Change Language"
+  },
+  "PROFILES_SECTION": {
+    "TITLE": "Profiles",
+    "ADD_PROFILE": "Add Profile",
+    "EMAIL": "Email",
+    "EMAIL_PLACEHOLDER": "email@example.com",
+    "SAVE": "Save"
+  },
+  "CONFIGURATION": {
+    "TITLE": "Configuration",
+    "MANAGE_PERMISSIONS": "Manage Permissions"
   }
-
 }

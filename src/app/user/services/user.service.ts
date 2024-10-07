@@ -65,9 +65,32 @@ export class ApiUserService {
         const url = `${this.apiUrl}/users/${userId}`;
         return this.http.delete<any>(url);
     }
+    getProfile(profileId: number): Observable<any> {
+    const url = `${this.apiUrl}/profiles/${profileId}`;
+    return this.http.get<any>(url)
+    }
 
-  getProfiles(): Observable<any> {
+    getProfiles(): Observable<any> {
     const url = `${this.apiUrl}/profiles`;
     return this.http.get<any>(url);
+    }
+
+    addProfile(profile: any, roles: string): Observable<any> {
+    const url = `${this.apiUrl}/profiles/addProfileRoles?roleIds=${roles}`
+    return this.http.post<any>(url, profile)
+    }
+
+    deleteProfile(profileId: number): Observable<any> {
+    const url = `${this.apiUrl}/profiles/detailProfile/${profileId}`;
+    return this.http.delete<any>(url);
+    }
+
+    updateProfile(profileId: number, roles: string): Observable<any>{
+    const url = `${this.apiUrl}/profiles/update/${profileId}/roles?roleIds=${roles}`
+    return this.http.put<any>(url, null)
+    }
+
+  logout() {
+    localStorage.removeItem('token')
   }
 }
