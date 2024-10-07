@@ -17,12 +17,12 @@ export class ApiUserService {
     return this.http.post<any>(url, userData);
   }
 
-  getUsers(size:number, page:number, searchQuery:string): Observable<User[]> {
+  getUsers(size:number, page:number, email:string): Observable<User[]> {
     const url = `${this.apiUrl}/users`;
     return this.http.get<User[]>(url, {params: {
         size: size,
         page: page,
-        searchQuery:searchQuery
+        searchQuery:email
       }}).pipe(
 
       tap(users => console.log('Usuarios recibidos:', users)),

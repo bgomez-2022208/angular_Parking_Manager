@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {CommonModule, DatePipe} from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
-import { SimpleNotificationsModule  } from 'angular2-notifications'; // Importa el módulo
-
 
 // Angular Material Modules
 import { MatInputModule } from '@angular/material/input';
@@ -35,10 +33,14 @@ import { UsersComponent } from './maintenance/users/users.component';
 
 import { MatSortModule } from '@angular/material/sort';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatOptionModule } from '@angular/material/core';
-import { AuditoriaComponent } from './maintenance/audit/auditoria.component';
+import {MatNativeDateModule, MatOptionModule} from '@angular/material/core';
 import { TranslateModule } from "@ngx-translate/core";
 import {ProfilesComponent} from "./profiles/profiles.component";
+import {AuditoriaComponent} from "./maintenance/auditoria/auditoria.component";
+import {CardAuditoryComponent} from "./maintenance/components/card-auditory/card-auditory.component";
+import { SimpleNotificationsModule } from 'angular2-notifications';
+import { MatCardModule } from '@angular/material/card';
+import {DeleteUserConfirmComponent} from "./maintenance/components/delete-user-confirm/delete-user-confirm.component";
 
 const routes : Routes = [
   {
@@ -69,13 +71,13 @@ const routes : Routes = [
     FilterUserComponent,
     AddUsersComponent,
     ProfilesComponent,
-    UsersComponent
+    UsersComponent,
+    CardAuditoryComponent,
+    DeleteUserConfirmComponent
   ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    SimpleNotificationsModule .forRoot(), // Agrega esta línea
-
     MatToolbarModule,
     MatButtonModule,
     MatIconModule,
@@ -100,11 +102,14 @@ const routes : Routes = [
     MatSelectModule,
     MatOptionModule,
     MatDatepickerModule,
+    MatNativeDateModule,
     MatPaginatorModule,
     MatTableModule,
     MatSortModule,
     MatOptionModule,
     TranslateModule,
+    SimpleNotificationsModule.forRoot(),
+    MatCardModule
   ],
   exports: [
     NavbarComponent,
@@ -114,6 +119,9 @@ const routes : Routes = [
     AddUsersComponent,
     FilterUserComponent,
     NavbaruserComponent
-  ]
+  ],
+  providers: [
+    DatePipe
+  ],
 })
 export class AdminModule {}

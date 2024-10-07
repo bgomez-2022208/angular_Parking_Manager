@@ -23,7 +23,7 @@ export class UsersComponent implements OnInit {
   totalUsers: number = 0;
   totalPages: number = 0;
   private pageChange: any;
-  searchQuery: string = "";
+  email: string = "";
   languages: string[] = []
   currentLanguage: string = ''
   @Output() searchChange = new EventEmitter<string>();
@@ -42,7 +42,7 @@ export class UsersComponent implements OnInit {
   }
 
   loadUsers(page:number): void {
-    this.apiUserService.getUsers(this.itemsPerPage , page-1, this.searchQuery).subscribe(
+    this.apiUserService.getUsers(this.itemsPerPage , page-1, this.email).subscribe(
       (data: any) => {
         this.users = data.users;
         this.totalUsers = data.totalElements;
@@ -56,49 +56,6 @@ export class UsersComponent implements OnInit {
     );
   }
 
-  createUser(userData: User): void {
-    this.apiUserService.createUser(userData).subscribe(
-      (newUser: any) => {
-        this.users.push(newUser);
-        this.totalUsers = this.users.length;
-        this.totalPages = Math.ceil(this.totalUsers / this.itemsPerPage);
-      },
-      (error: any) => {
-        console.error('Error al crear usuario:', error);
-      }
-    );
-  }
-
-  getUserById(userId: number): void {
-    this.apiUserService.getUserById(userId).subscribe(
-      (user: any) => {
-        this.selectedUser = user;
-        this.isEditing = true;
-      },
-      (error: any) => {
-        console.error('Error al obtener usuario:', error);
-      }
-    );
-  }
-
-  updateUser(userId: string, userData: User): void {
-    this.apiUserService.updateUser(userId, userData).subscribe(
-      (updatedUser: any) => {
-        const index = this.users.findIndex(user => user.email === userId);
-        if (index !== -1) {
-          this.users[index] = updatedUser;
-        }
-        this.selectedUser = null;
-        this.isEditing = false;
-      },
-      (error: any) => {
-        console.error('Error al actualizar usuario:', error);
-      }
-    );
-  }
-
-
-
   get paginatedUsers(): User[] {
     const startIndex = (this.currentPage - 1) * this.itemsPerPage;
     const endIndex = startIndex + this.itemsPerPage;
@@ -110,7 +67,7 @@ export class UsersComponent implements OnInit {
   }
 
   changeSearch(searchQuery: string): void {
-    this.searchQuery = searchQuery;
+    this.email = searchQuery;
     this.loadUsers(1);
   }
 

@@ -1,15 +1,15 @@
 import { TestBed } from '@angular/core/testing';
-import { NavbarComponent } from './navbar.component';
+import { AuditoriaComponent } from './auditoria.component';
 
-describe('NavbarComponent', () => {
+describe('AuditoriaComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [NavbarComponent],
+      imports: [AuditoriaComponent],
     }).compileComponents();
   });
 
   it('should create', () => {
-    const fixture = TestBed.createComponent(NavbarComponent);
+    const fixture = TestBed.createComponent(AuditoriaComponent);
     const component = fixture.componentInstance;
     expect(component).toBeTruthy();
   });
