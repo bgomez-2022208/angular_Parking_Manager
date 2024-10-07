@@ -8,6 +8,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { TokenInterceptor } from './user/services/interceptor';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import {SimpleNotificationsModule} from "angular2-notifications";
+import { DeleteUserConfirmComponent } from './admin/maintenance/components/delete-user-confirm/delete-user-confirm.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json')
@@ -15,7 +17,8 @@ export function HttpLoaderFactory(http: HttpClient) {
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DeleteUserConfirmComponent
   ],
   imports: [
     BrowserModule,
@@ -23,6 +26,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     HttpClientModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
+    SimpleNotificationsModule.forRoot(),
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

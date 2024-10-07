@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SimpleNotificationsModule  } from 'angular2-notifications'; // Importa el módulo
+
 
 // Angular Material Modules
 import { MatInputModule } from '@angular/material/input';
@@ -72,6 +74,8 @@ const routes : Routes = [
   imports: [
     CommonModule,
     ReactiveFormsModule,
+    SimpleNotificationsModule .forRoot(), // Agrega esta línea
+
     MatToolbarModule,
     MatButtonModule,
     MatIconModule,
@@ -100,7 +104,7 @@ const routes : Routes = [
     MatTableModule,
     MatSortModule,
     MatOptionModule,
-    TranslateModule
+    TranslateModule,
   ],
   exports: [
     NavbarComponent,

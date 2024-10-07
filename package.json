@@ -22,6 +22,7 @@
     "@angular/router": "16.2.0",
     "@ngx-translate/core": "15.0.0",
     "@ngx-translate/http-loader": "^8.0.0",
+    "angular2-notifications": "^16.0.1",
     "rxjs": "7.8.0",
     "swagger-client": "3.29.3",
     "sweetalert2": "11.14.0",

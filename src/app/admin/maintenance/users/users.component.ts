@@ -1,6 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {User} from "../../model/user.model";
 import {ApiUserService} from "../../services/user.service";
+import { TranslateService } from '@ngx-translate/core';
+import {LanguageService} from "../../../user/services/languaje.service";
+
 
 
 @Component({
@@ -21,13 +24,20 @@ export class UsersComponent implements OnInit {
   totalPages: number = 0;
   private pageChange: any;
   searchQuery: string = "";
+  languages: string[] = []
+  currentLanguage: string = ''
+  @Output() searchChange = new EventEmitter<string>();
 
 
 
-  constructor(private apiUserService: ApiUserService) {}
+  constructor(private apiUserService: ApiUserService, private translate: TranslateService) {
+    this.currentLanguage = this.currentLanguage === 'es' ? 'en' : 'es';
+    this.translate.use(this.currentLanguage);
+  }
 
   ngOnInit(): void {
     this.loadUsers(1);
+
 
   }
 
@@ -59,7 +69,7 @@ export class UsersComponent implements OnInit {
     );
   }
 
-  getUserById(userId: string): void {
+  getUserById(userId: number): void {
     this.apiUserService.getUserById(userId).subscribe(
       (user: any) => {
         this.selectedUser = user;
@@ -108,5 +118,7 @@ export class UsersComponent implements OnInit {
     this.users.push(newUser);
 
   }
+
+
 
 }

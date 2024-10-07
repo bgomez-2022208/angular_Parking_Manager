@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { LogoutConfirmComponent } from "../logout-confirm/logout-confirm.component";
 import { MatDialog } from "@angular/material/dialog";
-import { TranslateService } from '@ngx-translate/core'; // Asegúrate de importar el servicio de traducción
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-navbaruser',
@@ -22,7 +22,7 @@ export class NavbaruserComponent {
   }
 
   switchLanguage() {
-    // Cambia entre 'es' y 'en'
+
     this.currentLanguage = this.currentLanguage === 'es' ? 'en' : 'es';
     this.translate.use(this.currentLanguage);
   }

@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
-import {catchError, Observable, tap, throwError} from 'rxjs';
+import {BehaviorSubject, catchError, Observable, tap, throwError} from 'rxjs';
 import { environment } from "../../../enviroments/environment";
 import {User} from "../model/user.model";
 
@@ -8,8 +8,8 @@ import {User} from "../model/user.model";
   providedIn: 'root'
 })
 export class ApiUserService {
-  private apiUrl = environment.apiUsers;
 
+  private apiUrl = environment.apiUsers;
   constructor(private http: HttpClient) { }
 
   createUser(userData: any): Observable<any> {
@@ -33,8 +33,7 @@ export class ApiUserService {
     );
   }
 
-
-  getUserById(userId: string): Observable<any> {
+  getUserById(userId: number): Observable<any> {
     const url = `${this.apiUrl}/users/${userId}`;
     return this.http.get<any>(url);
   }

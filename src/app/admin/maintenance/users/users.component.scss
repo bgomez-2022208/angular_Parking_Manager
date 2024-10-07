@@ -2,19 +2,19 @@
 .container {
   display: flex;
   padding: 0;
-  margin: 40px;
+  margin: 20px;
 
   .pruebaResponsiva {
     display: flex;
     flex-direction: column;
     width: 30%;
     height: 70%;
-    margin-right: 20px;
   }
 
   .table-usuarios {
     border-radius: 10px;
-    width: 70%;
+    width: 60%;
+    margin-left: 50px;
     background-color: #FFFFFF;
   }
 
@@ -25,10 +25,11 @@
     height: 600px;
     margin-top: 20px;
     border-radius: 10px;
+
   }
   .filter{
     width: 100%;
-  };
+    display: flex;
 }
 
 .Navbar-container {
@@ -45,12 +46,5 @@
     justify-content: space-between;
 
   }
-
-  @media (max-width: 1180px) {
-    .container {
-      .pruebaResponsiva {
-        height: 10%;
-      }
-    }
-  }
+}
 }

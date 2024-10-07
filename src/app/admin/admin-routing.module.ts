@@ -3,7 +3,7 @@ import { Routes, RouterModule } from "@angular/router";
 import { SharedModule } from "../shared/shared.module";
 import { SearchComponent } from "./search/search.component";
 import { AuditoriaComponent } from "./auditoria/auditoria.component";
-import { UsersComponent } from "./users/users.component";
+import {UsersComponent} from "./maintenance/users/users.component";
 
 
 

@@ -1,6 +1,6 @@
 .table-register {
   background-color: #FFFFFF;
-  width: 90%;
+  width: 80%;
   margin-left: 10px;
 }
 
@@ -11,16 +11,35 @@
 .parent-container {
   height: 90%;
 }
+.user-item{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 .delete-users{
+  width: 10%;
   border: none;
 }
+.update-users{
+  width: 90%;
+  flex-grow: 1;
+  text-align: left;
+  border: none;
+  background: transparent;
+  padding: 0;
+}
+
+
 
 .list-group {
   width: calc(100% + 40px);
-  margin-left: -20px;.table-register {
+  margin-left: -25px;
+
+  .table-register {
   background-color: #FFFFFF;
   width: 90%;
   margin-left: 10px;
+
 }
 
   .parent-container-footer {
