@@ -136,6 +136,12 @@
         "LOGOUT": "Logout",
         "CHANGE_LANGUAGE": "Change Language"
     },
+    "LOGOUT": {
+    "TITLE": "Logout",
+    "MESSAGE": "Do you want to log out?",
+    "BTN_YES": "Yes",
+    "BTN_NO": "NO"
+   },
     "FILTERS": {
         "FILTER": "Filter",
         "FILTER_BY_ENTITY": "Filter by entity",

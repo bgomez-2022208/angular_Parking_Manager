@@ -128,6 +128,12 @@
         "LOGOUT": "Cerrar sesión",
         "CHANGE_LANGUAGE": "Cambiar idioma"
     },
+    "LOGOUT": {
+        "TITLE": "Cerrar sesión",
+        "MESSAGE": "¿Estás seguro de que deseas cerrar sesión?",
+        "BTN_YES": "Sí",
+        "BTN_NO": "NO"
+    },
     "FILTERS": {
         "FILTER": "Filtrar",
         "FILTER_BY_ENTITY": "Filtrar por entidad",

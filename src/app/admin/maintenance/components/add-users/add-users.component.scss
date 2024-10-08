@@ -51,7 +51,7 @@ h2 {
 }
 
 .guardar {
-  background-color: #31363F;
+  background-color: $palette-color-three;
   color: #fff;
   border: none;
   padding: 0.4rem 0.8rem;
@@ -76,13 +76,12 @@ h2 {
   align-self: flex-end;
 }
 
-
 .guardar:hover {
-  background-color: #272b33;
+  cursor: pointer;
 }
 
 .cancelar:hover {
-  background-color: #272b33;
+  cursor: pointer;
 }
 
 @media only screen and (max-width: 1180px) {
