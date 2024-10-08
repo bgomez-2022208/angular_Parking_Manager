@@ -8,18 +8,18 @@
 
   <mat-menu #menu="matMenu">
 
-    <button mat-menu-item>
-      <span routerLink="/admin/auditory"><mat-icon>library_books</mat-icon>
+    <button mat-menu-item routerLink="/admin/auditory">
+      <span><mat-icon>library_books</mat-icon>
          {{ 'NAVBAR_USER.AUDITORIA' | translate }}</span>
     </button>
 
-    <button mat-menu-item>
-      <span routerLink="/admin/profiles"><mat-icon>group</mat-icon>
+    <button mat-menu-item routerLink="/admin/profiles">
+      <span><mat-icon>group</mat-icon>
         {{ 'NAVBAR_USER.PROFILES' | translate }}</span>
     </button>
 
-    <button mat-menu-item>
-      <span routerLink="/admin/users"><mat-icon>person</mat-icon>
+    <button mat-menu-item routerLink="/admin/users">
+      <span><mat-icon>person</mat-icon>
         {{ 'NAVBAR_USER.USERS' | translate }}</span>
     </button>
 
