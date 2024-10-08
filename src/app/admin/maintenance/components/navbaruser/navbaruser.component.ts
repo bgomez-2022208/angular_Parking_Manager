@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { LogoutConfirmComponent } from "../logout-confirm/logout-confirm.component";
 import { MatDialog } from "@angular/material/dialog";
-import { TranslateService } from '@ngx-translate/core'; // Asegúrate de importar el servicio de traducción
+import { TranslateService } from '@ngx-translate/core';
 import { LanguageService } from 'src/app/user/services/languaje.service';
 import { MatSelectChange } from '@angular/material/select';
 import Swal from 'sweetalert2';

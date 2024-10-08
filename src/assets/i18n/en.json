@@ -26,12 +26,25 @@
     "PROFILES": {
         "PROFILE_ADMIN": "Admin",
         "PROFILE_USER": "User",
-        "PROFILE_GUEST": "Guest"
+        "PROFILE_GUEST": "Guest",
+      "TITLE_PROFILE": "Profile",
+      "TITLE_ROLES": "Roles"
     },
     "BUTTONS": {
         "BTN_SAVE": "Save",
-        "BUTTON_SAVE": "Save"
+        "BUTTON_SAVE": "Save",
+        "BTN_SAVE_PROFILE": "Save Profile",
+        "BTN_UPDATE_PROFILE": "Update Profile"
     },
+  "TOGGLE": {
+    "PROFILE": "Profile",
+    "USER": "User",
+    "AUDITH": "Audit",
+    "ROLE_DETAIL": "Roles y Detalles",
+    "PARKING": "Parking",
+    "FARE": "Fee",
+    "REGISTER": "Register"
+  },
     "FORM": {
         "TITLE_PARKING": "Parking Form",
         "LABEL_NAME": "Name",
@@ -165,7 +178,9 @@
       },
       "BUTTONS": {
         "BTN_SAVE": "Save",
-        "BTN_CANCELAR": "Cancelar"
+        "BTN_CANCELAR": "Cancelar",
+        "BTN_SAVE_PROFILE": "Guardar Perfil",
+        "BTN_UPDATE_PROFILE": "Actualizar Perfil"
       }
     },
     "FILTER_USER": {

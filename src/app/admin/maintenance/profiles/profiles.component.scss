@@ -15,6 +15,7 @@
   flex-direction: row;
 }
 
+
 .table{
   width: 20%;
   margin-top: 5vh;
@@ -53,7 +54,8 @@
     }
   }
   .btnUpdate{
-
+    background-color: $palette-color-three;
+    color: white;
     width: auto;
     font-size: 12px
 }
@@ -84,10 +86,6 @@
     margin-left: 1rem;
     font-family: $font-primary;
     margin-top: $button-mgt;
-  }
-  button:disabled{
-    background-color: red;
-    color: white;
   }
 }
 
