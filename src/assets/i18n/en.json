@@ -210,7 +210,8 @@
     "AUDITORIA": "Audit",
     "LOGOUT": "Logout",
     "CHANGE_LANGUAGE": "Change Language",
-    "USERS": "Users"
+    "USERS": "Users",
+    "PROFILES": "Profiles"
   },
   "PROFILES_SECTION": {
     "TITLE": "Profiles",

@@ -14,7 +14,12 @@
     </button>
 
     <button mat-menu-item>
-      <span routerLink="/admin/users"><mat-icon>group</mat-icon>
+      <span routerLink="/admin/profiles"><mat-icon>group</mat-icon>
+        {{ 'NAVBAR_USER.PROFILES' | translate }}</span>
+    </button>
+
+    <button mat-menu-item>
+      <span routerLink="/admin/users"><mat-icon>person</mat-icon>
         {{ 'NAVBAR_USER.USERS' | translate }}</span>
     </button>
 

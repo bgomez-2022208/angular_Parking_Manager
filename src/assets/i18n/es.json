@@ -236,6 +236,7 @@
     "AUDITORIA": "Auditoría",
     "LOGOUT": "Cerrar Sesión",
     "CHANGE_LANGUAGE": "Cambiar Idioma",
-    "USERS": "Usuarios"
+    "USERS": "Usuarios",
+    "PROFILES": "Perfiles"
   }
 }
