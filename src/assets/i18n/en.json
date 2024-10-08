@@ -209,7 +209,8 @@
   "NAVBAR_USER": {
     "AUDITORIA": "Audit",
     "LOGOUT": "Logout",
-    "CHANGE_LANGUAGE": "Change Language"
+    "CHANGE_LANGUAGE": "Change Language",
+    "USERS": "Users"
   },
   "PROFILES_SECTION": {
     "TITLE": "Profiles",

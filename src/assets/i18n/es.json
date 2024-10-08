@@ -235,6 +235,7 @@
   "NAVBAR_USER": {
     "AUDITORIA": "Auditoría",
     "LOGOUT": "Cerrar Sesión",
-    "CHANGE_LANGUAGE": "Cambiar Idioma"
+    "CHANGE_LANGUAGE": "Cambiar Idioma",
+    "USERS": "Usuarios"
   }
 }

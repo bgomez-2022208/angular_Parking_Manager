@@ -7,10 +7,17 @@
   </button>
 
   <mat-menu #menu="matMenu">
+
     <button mat-menu-item>
-      <mat-icon>library_books</mat-icon>
-      <span routerLink="/admin/auditory">{{ 'AUDITORIA' | translate }}</span>
+      <span routerLink="/admin/auditory"><mat-icon>library_books</mat-icon>
+         {{ 'NAVBAR_USER.AUDITORIA' | translate }}</span>
     </button>
+
+    <button mat-menu-item>
+      <span routerLink="/admin/users"><mat-icon>group</mat-icon>
+        {{ 'NAVBAR_USER.USERS' | translate }}</span>
+    </button>
+
     <button mat-menu-item (click)="openLogoutDialog()">
       <mat-icon>logout</mat-icon>
       <span>{{ 'MENU.LOGOUT' | translate }}</span>
