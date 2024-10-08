@@ -4,6 +4,7 @@ import { ApiUserService } from "../../../../user/services/user.service";
 import { User } from "../../../model/user.model";
 import { NotificationsService } from "angular2-notifications";
 import { ActivatedRoute, Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-add-users',
@@ -23,7 +24,9 @@ export class AddUsersComponent implements OnInit {
     private fb: FormBuilder,
     private apiUserService: ApiUserService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private translate: TranslateService,
+
   ) {
     this.userForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
@@ -34,6 +37,7 @@ export class AddUsersComponent implements OnInit {
       dpi: ['', Validators.required],
       password: ['', [Validators.required, Validators.minLength(6)]]
     });
+
   }
 
   ngOnInit(): void {
@@ -59,6 +63,36 @@ export class AddUsersComponent implements OnInit {
       }
     );
   }
+  getErrorMessage(controlName: string){
+    const control = this.userForm.get(controlName);
+
+    if (control?.hasError('required')) {
+      switch (controlName) {
+        case 'name':
+          return this.translate.instant('ERRORS.ERROR_NAME_REQUIRED');
+        case 'surname':
+          return this.translate.instant('ERRORS.ERROR_SURNAME_REQUIRED');
+        case 'age':
+          return this.translate.instant('ERRORS.ERROR_AGE_REQUIRED');
+        case 'email':
+          return this.translate.instant('ERRORS.ERROR_EMAIL_REQUIRED');
+        case 'dpi':
+          return this.translate.instant('ERRORS.ERROR_DPI_REQUIRED');
+        case 'password':
+          return this.translate.instant('ERRORS.ERROR_PASSWORD_REQUIRED');
+        default:
+          return '';
+      }
+    }
+
+    if (controlName === 'email' && control?.hasError('email')) {
+      return this.translate.instant('ERRORS.ERROR_INVALID_EMAIL');
+    }
+
+    return '';
+  }
+
+
 
   loadProfiles() {
     this.apiUserService.getProfiles().subscribe(
