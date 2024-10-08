@@ -1,6 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { ApiUserService } from '../../../user/services/user.service';
-import { User } from "../../../shared/table/table-users.component";
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {User} from "../../model/user.model";
+import {ApiUserService} from "../../services/user.service";
+import { TranslateService } from '@ngx-translate/core';
+import {LanguageService} from "../../../user/services/languaje.service";
+
+
 
 @Component({
   selector: 'app-users',
@@ -16,88 +20,62 @@ export class UsersComponent implements OnInit {
   itemsPerPage: number = 8;
   currentPage: number = 1;
 
-  defaultUsers: User[] = [
-    { email: 'user1@example.com', name: 'User One'},
-    { email: 'user2@example.com', name: 'User Two',},
-    { email: 'user3@example.com', name: 'User Three'},
-    { email: 'user4@example.com', name: 'User Four',},
-    { email: 'user5@example.com', name: 'User Five',},
-  ];
+  totalUsers: number = 0;
+  totalPages: number = 0;
+  private pageChange: any;
+  email: string = "";
+  languages: string[] = []
+  currentLanguage: string = ''
+  @Output() searchChange = new EventEmitter<string>();
 
-  constructor(private apiUserService: ApiUserService) {}
+
+
+  constructor(private apiUserService: ApiUserService, private translate: TranslateService) {
+    this.currentLanguage = this.currentLanguage === 'es' ? 'en' : 'es';
+    this.translate.use(this.currentLanguage);
+  }
 
   ngOnInit(): void {
-    this.loadUsers();
+    this.loadUsers(1);
+
+
   }
 
-  loadUsers(): void {
-    this.apiUserService.getUsers().subscribe(
-      (data) => {
-        this.users = data;
+  loadUsers(page:number): void {
+    this.apiUserService.getUsers(this.itemsPerPage , page-1, this.email).subscribe(
+      (data: any) => {
+        this.users = data.users;
+        this.totalUsers = data.totalElements;
+        this.totalPages = data.totalPages;
+
         console.log(this.users);
       },
-      (error) => {
+      (error: any) => {
         console.error('Error al cargar usuarios:', error);
-        this.users = this.defaultUsers;
       }
     );
   }
 
-  createUser(userData: User): void {
-    this.apiUserService.createUser(userData).subscribe(
-      (newUser) => {
-        this.users.push(newUser);
-      },
-      (error) => {
-        console.error('Error al crear usuario:', error);
-      }
-    );
+  get paginatedUsers(): User[] {
+    const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+    const endIndex = startIndex + this.itemsPerPage;
+    return this.users.slice(startIndex, endIndex);
   }
 
-  getUserById(userId: string): void {
-    this.apiUserService.getUserById(userId).subscribe(
-      (user) => {
-        this.selectedUser = user;
-        this.isEditing = true;
-      },
-      (error) => {
-        console.error('Error al obtener usuario:', error);
-      }
-    );
+  changePage(page: number): void {
+    this.loadUsers(page);
   }
 
-  updateUser(userId: string, userData: User): void {
-    this.apiUserService.updateUser(userId, userData).subscribe(
-      (updatedUser) => {
-        const index = this.users.findIndex(user => user.email === userId);
-        if (index !== -1) {
-          this.users[index] = updatedUser;
-        }
-        this.selectedUser = null;
-        this.isEditing = false;
-      },
-      (error) => {
-        console.error('Error al actualizar usuario:', error);
-      }
-    );
-  }
-
-  deleteUser(userId: string): void {
-    this.apiUserService.deleteUser(userId).subscribe(
-      () => {
-        this.users = this.users.filter(user => user.email !== userId);
-      },
-      (error) => {
-        console.error('Error al eliminar usuario:', error);
-      }
-    );
-  }
-
-  onPageChange(page: number): void {
-    this.currentPage = page;
+  changeSearch(searchQuery: string): void {
+    this.email = searchQuery;
+    this.loadUsers(1);
   }
 
   onUserCreated(newUser: User): void {
     this.users.push(newUser);
+
   }
+
+
+
 }

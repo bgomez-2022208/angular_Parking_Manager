@@ -1,3 +1,4 @@
+
 .container {
   display: flex;
   padding: 0;
@@ -11,19 +12,24 @@
   }
 
   .table-usuarios {
-    width: 70%;
+    border-radius: 10px;
+    width: 60%;
+    margin-left: 50px;
     background-color: #FFFFFF;
   }
 
   .table-register{
     background-color: #FFFFFF;
     padding: 4vh;
-    width: 90%;
-    height: 140%;
+    width: 70%;
+    height: 600px;
+    margin-top: 20px;
+    border-radius: 10px;
+
   }
   .filter{
     width: 100%;
-  };
+    display: flex;
 }
 
 .Navbar-container {
@@ -40,4 +46,5 @@
     justify-content: space-between;
 
   }
+}
 }

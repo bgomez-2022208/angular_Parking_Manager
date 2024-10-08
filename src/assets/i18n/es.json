@@ -162,5 +162,50 @@
     "CONFIGURATION": {
         "TITLE": "Configuración",
         "MANAGE_PERMISSIONS": "Administrar permisos"
+    },
+  "ADD_USERS": {
+    "TITLE_ADD": "Agregar Usuario",
+    "FORM": {
+      "LABEL_NAME": "Nombre",
+      "LABEL_SURNAME": "Apellido",
+      "LABEL_Año": "Edad",
+      "LABEL_EMAIL": "Correo Electrónico",
+      "LABEL_DPI": "DPI",
+      "LABEL_PASSWORD": "Contraseña",
+      "LABEL_PROFILE": "Perfil"
+    },
+    "BUTTONS": {
+      "BTN_SAVE": "Guardar",
+      "BTN_CANCELAR": "Cancelar"
     }
+
+  },
+  "FILTER_USER": {
+    "SEARCH_PLACEHOLDER": "Buscar"
+  },
+  "FORM_PARKING": {
+    "TITLE": "Formulario de Parqueo",
+    "NAME_PARKING": "Nombre",
+    "CAR_PARKING": "Coche",
+    "PLATE_PARKING": "Placa",
+    "SEND_PARKING": "Enviar"
+  },
+  "FILTER": {
+    "SEARCH": "Buscar"
+  },
+  "LOGOUT_CONFIRM": {
+    "TITLE": "Confirmar Cierre de Sesión",
+    "CONFIRM_YES": "Sí",
+    "CONFIRM_NO": "No"
+  },
+  "NAVBAR": {
+    "TITLE_PARKING_LOGOUT": "Salida de Estacionamiento",
+    "MENU_AUDITORIA": "Auditoría",
+    "MENU_LOGOUT": "Cerrar Sesión"
+  },
+  "NAVBAR_USER": {
+    "AUDITORIA": "Auditoría",
+    "LOGOUT": "Cerrar Sesión",
+    "CHANGE_LANGUAGE": "Cambiar Idioma"
+  }
 }

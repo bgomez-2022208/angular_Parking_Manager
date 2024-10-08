@@ -1,6 +1,6 @@
 <mat-toolbar class="example">
   <mat-icon mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">directions_car</mat-icon>
-  <span>{{ 'TITLE_PARKING_LOGOUT' | translate }}</span>
+  <span>{{ 'NAVBAR.TITLE_PARKING_LOGOUT' | translate }}</span>
   <span class="example-spacer"></span>
 
   <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with options">
@@ -10,11 +10,11 @@
   <mat-menu #menu="matMenu">
     <button mat-menu-item>
       <mat-icon>library_books</mat-icon>
-      <span>{{ 'MENU_AUDITORIA' | translate }}</span>
+      <span>{{ 'NAVBAR.MENU_AUDITORIA' | translate }}</span>
     </button>
     <button mat-menu-item (click)="openLogoutDialog()">
       <mat-icon>logout</mat-icon>
-      <span>{{ 'MENU_LOGOUT' | translate }}</span>
+      <span>{{ 'NAVBAR.MENU_LOGOUT' | translate }}</span>
     </button>
   </mat-menu>
 </mat-toolbar>

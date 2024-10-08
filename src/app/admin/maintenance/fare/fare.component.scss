@@ -1,0 +1,90 @@
+.container-principal{
+    width: 100%;
+    height: 40%;
+    padding: 1%;
+    display: flex;
+    justify-content: space-evenly;
+}
+.form-fare {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 70%;
+    margin: 10px auto;
+    background-color: white;
+    padding: 2vh;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 1vh;
+
+    .guardar {
+        background-color: #31363F;
+        color: #fff;
+        border: none;
+        padding: 0.4rem 0.8rem;
+        border-radius: 5px;
+        text-transform: uppercase;
+        width: 30%;
+        margin: 7vh auto; 
+        align-self: center;
+        align-self: flex-end;
+    }
+}
+
+.input-container {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    gap: 2px;
+}
+
+.input-fare {
+    width: 100%;
+}
+
+.mat-form-field {
+    width: 100%;
+}
+
+.table-fare{
+    width: 20%;
+    height: auto;
+    margin-right: 2vh;
+}
+
+@media (max-width: 760px) {
+    .table-fare{
+        max-height: 50%;
+    }
+    .guardar{
+        padding: 3vh;
+        font-size: 10px;
+    }
+    .form-fare{
+        width: 60%;
+        height: 120%;
+    }
+    .input-container{
+        flex-direction: column;
+    }
+    .product-row {
+        flex-direction: column;
+        align-items: flex-start;
+  
+        .product-price {
+            text-align: left;
+            margin-top: 5px;
+        }
+    }
+}
+
+@media (max-width: 760px) {
+    .guardar{
+        font-size: 5px;
+    }
+    .form-fare{
+        margin-left: 5vh;
+        width: 60%;
+        height: 119%;
+    }
+}
+  

@@ -162,5 +162,50 @@
     "CONFIGURATION": {
         "TITLE": "Configuration",
         "MANAGE_PERMISSIONS": "Manage Permissions"
-    }
+    },
+    "ADD_USERS": {
+      "TITLE_ADD": "Add User",
+      "FORM": {
+        "LABEL_NAME": "First Name",
+        "LABEL_SURNAME": "Last Name",
+        "LABEL_Año": "Age",
+        "LABEL_EMAIL": "Email",
+        "LABEL_DPI": "DPI",
+        "LABEL_PASSWORD": "Password",
+        "LABEL_PROFILE": "Profile"
+      },
+      "BUTTONS": {
+        "BTN_SAVE": "Save",
+        "BTN_CANCELAR": "Cancelar"
+      }
+    },
+    "FILTER_USER": {
+    "SEARCH_PLACEHOLDER": "Search"
+   },
+    "FORM_PARKING": {
+      "TITLE": "Parking Form",
+      "NAME_PARKING": "Name",
+      "CAR_PARKING": "Car",
+      "PLATE_PARKING": "License Plate",
+      "SEND_PARKING": "Submit"
+    },
+  "FILTER": {
+    "SEARCH": "Search"
+  },
+  "LOGOUT_CONFIRM": {
+    "TITLE": "Confirm Logout",
+    "CONFIRM_YES": "Yes",
+    "CONFIRM_NO": "No"
+  },
+  "NAVBAR": {
+    "TITLE_PARKING_LOGOUT": "Parking Logout",
+    "MENU_AUDITORIA": "Audit",
+    "MENU_LOGOUT": "Logout"
+  },
+  "NAVBAR_USER": {
+    "AUDITORIA": "Audit",
+    "LOGOUT": "Logout",
+    "CHANGE_LANGUAGE": "Change Language"
+  }
+
 }

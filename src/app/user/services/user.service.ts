@@ -42,7 +42,7 @@ export class ApiUserService {
     //ADMIN API - URL
 
     createUser(userData: any): Observable<any> {
-        const url = `${this.apiUrl}/auth/signup`;
+        const url = `${this.apiUrl}/users/signup`;
         return this.http.post<any>(url, userData);
     }
 
@@ -51,12 +51,12 @@ export class ApiUserService {
         return this.http.get<any[]>(url);
     }
 
-    getUserById(userId: string): Observable<any> {
+    getUserById(userId: number): Observable<any> {
         const url = `${this.apiUrl}/users/${userId}`;
         return this.http.get<any>(url);
     }
 
-    updateUser(userId: string, userData: any): Observable<any> {
+    updateUser(userId: number, userData: any): Observable<any> {
         const url = `${this.apiUrl}/users/${userId}`;
         return this.http.put<any>(url, userData);
     }
@@ -65,4 +65,9 @@ export class ApiUserService {
         const url = `${this.apiUrl}/users/${userId}`;
         return this.http.delete<any>(url);
     }
+
+  getProfiles(): Observable<any> {
+    const url = `${this.apiUrl}/profiles`;
+    return this.http.get<any>(url);
+  }
 }
