@@ -14,14 +14,12 @@
     <div class="container-form">
       <form [formGroup]="form" (ngSubmit)="newProfile()">
         <h1>{{'PROFILES.TITLE_PROFILE' | translate}}</h1>
-        <div class="container-info">
-          <mat-form-field class="input-profile">
-            <mat-label>{{valornameProfile}}</mat-label>
-            <input formControlName="description" matInput type="text" required>
-            <mat-error *ngIf="form.get('description')?.invalid">{{getErrorMessage('description')}}</mat-error>
-          </mat-form-field>
-          <button class="btnUpdate" type="submit">{{'BUTTONS.BTN_SAVE_PROFILE' | translate}}</button>
-        </div>
+        <mat-form-field>
+          <mat-label>{{valornameProfile}}</mat-label>
+          <input formControlName="description" matInput type="text" required>
+          <mat-error *ngIf="form.get('description')?.invalid">{{getErrorMessage('description')}}</mat-error>
+        </mat-form-field>
+        <button class="btnUpdate" type="submit">{{'BUTTONS.BTN_SAVE_PROFILE' | translate}}</button>
 
         <h1>{{'PROFILES.TITLE_ROLES' | translate}}</h1>
         <div class="toggle-container">
@@ -44,7 +42,8 @@
 
 
       </form>
-      <!--<button (click)="updateProfile()" [disabled]="!rolesChanged" class="btnUpdate">{{'BUTTONS.BTN_UPDATE_PROFILE' | translate}}</button>-->
+      <button (click)="updateProfile()" [disabled]="!rolesChanged" class="btnUpdate">{{'BUTTONS.BTN_UPDATE_PROFILE' | translate}}</button>
+
 
     </div>
   </div>
