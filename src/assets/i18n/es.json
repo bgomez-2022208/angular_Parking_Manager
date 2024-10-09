@@ -243,6 +243,8 @@
     "LOGOUT": "Cerrar Sesión",
     "CHANGE_LANGUAGE": "Cambiar Idioma",
     "USERS": "Usuarios",
-    "PROFILES": "Perfiles"
+    "PROFILES": "Perfiles",
+    "REGISTER": "Registro de parqueo"
+
   }
 }

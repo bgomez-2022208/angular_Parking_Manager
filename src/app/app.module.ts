@@ -13,6 +13,9 @@ import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatNativeDateModule} from "@angular/material/core";
 import { TableProfilesComponent } from './shared/table-profiles/table-profiles.component';
 import { FilterProfileComponent } from './admin/maintenance/components/filter-profile/filter-profile.component';
+import { RegisterComponent } from './admin/maintenance/register/register.component';
+import { AdminModule } from './admin/admin.module';
+import { MatCardModule } from '@angular/material/card';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json')
@@ -21,6 +24,7 @@ export function HttpLoaderFactory(http: HttpClient) {
 @NgModule({
   declarations: [
     AppComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
@@ -35,7 +39,9 @@ export function HttpLoaderFactory(http: HttpClient) {
         useFactory: HttpLoaderFactory,
         deps: [HttpClient]
       }
-    })
+    }),
+    AdminModule,
+    MatCardModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi:true}

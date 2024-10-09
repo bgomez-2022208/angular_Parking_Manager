@@ -217,7 +217,8 @@
     "LOGOUT": "Logout",
     "CHANGE_LANGUAGE": "Change Language",
     "USERS": "Users",
-    "PROFILES": "Profiles"
+    "PROFILES": "Profiles",
+    "REGISTER": "Parking registration"
   },
   "PROFILES_SECTION": {
     "TITLE": "Profiles",

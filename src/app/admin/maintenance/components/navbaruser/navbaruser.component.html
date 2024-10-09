@@ -2,15 +2,19 @@
   <span>{{ title }}</span>
   <span class="Nabvar"></span>
 
-  <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Nabvar icon-button with options">
+  <button mat-icon-button [matMenuTriggerFor]="menu" title="Nabvar icon-button with options">
     <mat-icon>menu</mat-icon>
   </button>
 
   <mat-menu #menu="matMenu">
-
     <button mat-menu-item routerLink="/admin/auditory">
       <span><mat-icon>library_books</mat-icon>
-         {{ 'NAVBAR_USER.AUDITORIA' | translate }}</span>
+        {{ 'NAVBAR_USER.AUDITORIA' | translate }}</span>
+    </button>
+
+    <button mat-menu-item routerLink="/admin/register">
+      <span><mat-icon>garage_home</mat-icon>
+        {{ 'NAVBAR_USER.REGISTER' | translate }}</span>
     </button>
 
     <button mat-menu-item routerLink="/admin/profiles">
@@ -27,13 +31,16 @@
       <mat-icon>logout</mat-icon>
       <span>{{ 'MENU.LOGOUT' | translate }}</span>
     </button>
-    <mat-form-field>
-      <mat-label>{{ 'LANGUAGE' | translate }}</mat-label>
-      <mat-select [(value)]="currentLanguage" (selectionChange)="onLanguageChange($event.value)">
-        <mat-option *ngFor="let option of languages" [value]="option">
-          {{ option }}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
+  </mat-menu>
+
+  <button mat-icon-button [matMenuTriggerFor]="languageMenu" title="Language options">
+    <mat-icon>language</mat-icon>
+  </button>
+
+  <mat-menu #languageMenu="matMenu">
+    <button mat-menu-item *ngFor="let option of languages" (click)="onLanguageChange(option)">
+      {{ option }}
+      <mat-icon *ngIf="currentLanguage === option" class="check-icon">check</mat-icon>
+    </button>
   </mat-menu>
 </mat-toolbar>
