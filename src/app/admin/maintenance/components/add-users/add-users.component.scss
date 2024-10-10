@@ -3,10 +3,10 @@
 .container {
   padding-top: 2rem;
   border-radius: 8px;
-  max-width: 700px;
-  width: 60%;
+  #max-width: 700px;
+  #width: 60%;
   margin: 0 auto;
-  margin-left: 70px;
+  #margin-left: 70px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -15,7 +15,7 @@
 }
 
 .input-small {
-  width: 48%;
+  #width: 48%;
 }
 
 h2 {
@@ -24,57 +24,61 @@ h2 {
 }
 
 .form-container {
-  display: flex;
-  flex-direction: column;
+  #display: flex;
+  #flex-direction: column;
   flex-grow: 1;
 }
 
 .form-group {
-  display: flex;
-  flex-wrap: wrap;
+  #display: flex;
+  #flex-wrap: wrap;
   gap: 1rem;
 }
 
 .mat-form-field {
   flex: 1;
-  max-width: 100%;
-  width: 98%;
+  #max-width: 100%;
+  #width: 98%;
   margin-bottom: 1rem;
 }
 
 .profile-select {
-  max-width: 100%;
-  width: 98%;
+  #max-width: 100%;
+  #width: 98%;
 }
 
 .full-width {
-  width: 100%;
+  #width: 100%;
 }
 
 .guardar {
   background-color: $palette-color-one;
   color: $palette-color-three;
-  border: none;
-  padding: 0.4rem 0.8rem;
-  border-radius: 5px;
+  #border: none;
+  #padding: 0.4rem 0.8rem;
+  #margin-right: 10px;
+  #border-radius: 5px;
   text-transform: uppercase;
-  width: 70%;
-  margin-left: 0;
-  margin-right: auto;
-  align-self: flex-end;
+  #width: 70%;
+  #margin-left: 0;
+  #margin-right: auto;
+  #align-self: flex-end;
+  #padding: 1rem;
 }
 .cancelar {
   background-color: $palette-color-one;
   color: $palette-color-three;
-  margin-top: 10px;
-  border: none;
-  padding: 0.4rem 0.8rem;
-  border-radius: 5px;
+  #margin-top: 10px;
+  #border: none;
+  #margin: 0.5rem;
+  #padding: 0.4rem 0.8rem;
+  #border-radius: 5px;
   text-transform: uppercase;
-  width: 70%;
-  margin-left: 0;
-  margin-right: auto;
-  align-self: flex-end;
+  #margin-left: 10px;
+  #width: 70%;
+  #margin-left: 0;
+  #margin-right: auto;
+  #align-self: flex-end;
 }
 
 .guardar:hover {
@@ -88,7 +92,7 @@ h2 {
 @media only screen and (max-width: 1180px) {
   .container {
     padding: 1rem;
-    margin: 0 1rem;
+    #margin: 0 1rem;
   }
 
   h2 {
@@ -96,69 +100,50 @@ h2 {
   }
 
   .form-group {
-    flex-direction: column;
+    #flex-direction: column;
     gap: 0.5rem;
-    width: 75%;
+    #width: 75%;
   }
 
   .mat-form-field {
-    max-width: 100%;
-    width: 98%;
+    #max-width: 100%;
+    #width: 98%;
     margin-bottom: 1rem;
   }
 
   .profile-select {
-    max-width: 100%;
-    width: 75%;
+    #max-width: 100%;
+    #width: 75%;
    }
 
   .guardar {
-    width: 70%;
-    margin-left: 0;
-    margin-right: auto;
-    align-self: flex-end;
+    #width: 70%;
+    #margin-left: 0;
+    #margin-right: auto;
+    #align-self: flex-end;
   }
 
-  .cancelar {
-    width: 70%;
-    margin-left: 0;
-    margin-right: auto;
-    align-self: flex-end;
-  }
 }
 
 @media only screen and (max-width: 850px) {
   .container {
-    width: 80%;
+    #width: 80%;
     padding: 1rem;
   }
 
   .form-group {
-    flex-direction: column;
+    #flex-direction: column;
   }
 
   .mat-form-field {
-    width: 98%;
+    #width: 98%;
     margin-bottom: 1rem;
   }
 
   .profile-select {
-    width: 75%;
+    #width: 75%;
   }
 
-  .guardar {
-    width: 70%;
-    margin-left: 0;
-    margin-right: auto;
-    align-self: flex-end;
-  }
-  .cancelar {
-    color: white;
-    width: 70%;
-    margin-left: 0;
-    margin-right: auto;
-    align-self: flex-end;
-  }
 }
 
 @media only screen and (max-width: 600px) {
@@ -171,50 +156,31 @@ h2 {
   }
 
   .mat-form-field {
-    width: 98%;
+    #width: 98%;
   }
 
   .profile-select {
-    width: 75%;
+    #width: 75%;
   }
 
-  .guardar {
-    width: 70%;
-    margin-left: 0;
-    margin-right: auto;
-    align-self: flex-end;
-  }
-  .cancelar {
-    width: 70%;
-    margin-left: 0;
-    margin-right: auto;
-    align-self: flex-end;
-  }
 }
 
 @media only screen and (max-width: 568px) {
   .mat-form-field {
-    max-width: 98%;
+    #max-width: 98%;
   }
 
   .profile-select {
-    max-width: 98%;
-  }
-
-  .guardar {
-    padding: 0.4rem 0.8rem;
-  }
-  .cancelar {
-    padding: 0.4rem 0.8rem;
+    #max-width: 98%;
   }
 }
 
 @media only screen and (max-width: 1300px) {
   .mat-form-field {
-    max-width: 90%;
+    #max-width: 90%;
   }
 
   .profile-select {
-    max-width: 90%;
+    #max-width: 90%;
   }
 }

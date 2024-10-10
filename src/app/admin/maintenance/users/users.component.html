@@ -11,25 +11,19 @@
   <div class="Navbar-container">
     <app-navbaruser title="Users"></app-navbaruser>
   </div>
-
-  <div class="container">
-    <div class="table">
+  <div class="container-custom">
+    <div class="table-custom">
       <app-filter-user class="filter" (searchChange)="changeSearch($event)"></app-filter-user>
       <app-table-users class="table-register"
         [users]="users"
         [itemsPerPage]="itemsPerPage"
                        [totalPages]="totalPages"
-        (pageChange)="changePage($event)"
-      ></app-table-users>
-
-
+        (pageChange)="changePage($event)"></app-table-users>
     </div>
-
     <div class="table-usuarios">
       <app-add-users (userCreated)="onUserCreated($event)"></app-add-users>
     </div>
   </div>
 </div>
-
 </body>
 </html>

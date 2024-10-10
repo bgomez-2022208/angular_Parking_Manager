@@ -1,40 +1,54 @@
 @import "../../../../assets/sass/variables";
 
-.container {
+body {
+  background-color: #DADADA;
+}
+
+.content{
+  width: 100%;
+}
+
+.container-custom {
+  height: 90%;
   display: flex;
   padding: 0;
   margin: 20px;
   font-family: $font-primary;
 
-  .table {
-    display: flex;
-    flex-direction: column;
-    width: 30%;
-    height: 70%;
-  }
-
-  .table-usuarios {
-    border-radius: 10px;
-    width: 60%;
-    margin-left: 50px;
-    background-color: $color-white;
+  .table-custom {
+    #display: flex;
+    #flex-direction: column;
+    #width: 100%;
+    #height: 70%;
+    padding-left: 5vh;
+    padding-right: 5vh;
   }
 
   .table-register{
     background-color: $color-white;
-    padding: 4vh;
-    width: 70%;
-    height: 600px;
+    #padding: 2vh;
+    width: 20%;
+    height: 90%;
     margin-top: 20px;
     border-radius: 10px;
 
   }
+
+  .table-usuarios {
+    border-radius: 10px;
+    width: 80%;
+    #margin-left: 50px;
+    background-color: $color-white;
+  }
+
+
   .filter{
-    width: 100%;
+    #width: 100%;
     display: flex;
+    margin-bottom: 20px;
 }
 
-.Navbar-container {
+.Navbar-container-custom {
   width: 100%;
   overflow: hidden;
   margin: 0;
@@ -50,3 +64,70 @@
   }
 }
 }
+
+@media only screen and (max-width: 768px) {
+
+  .container-custom {
+    display: flex;
+    padding: 0;
+    margin: 0;
+    font-family: $font-primary;
+
+    .table-custom {
+      #display: flex;
+      #flex-direction: column;
+      #width: 100%;
+      #height: 70%;
+      padding-left: 5vh;
+      padding-right: 5vh;
+    }
+  }
+}
+
+
+
+
+@media only screen and (max-width: 576px) {
+
+  .container-custom {
+    display: flex;
+    padding: 0;
+    margin: 0;
+    font-family: $font-primary;
+
+    .table-custom {
+      #display: flex;
+      #flex-direction: column;
+      width: 80%;
+      #height: 70%;
+      padding-left: 0.25vh;
+      padding-right: 0.25vh;
+    }
+  }
+}
+
+@media only screen and (max-width: 480px) {
+
+  .container-custom {
+    display: flex;
+    padding: 0;
+    margin: 0;
+    font-family: $font-primary;
+
+    .table-custom {
+      #display: flex;
+      #flex-direction: column;
+      width: 40%;
+      padding-left: 0;
+      padding-right: 0;
+
+    }
+
+    .table-register{
+      background-color: $color-white;
+      width: 1%;
+    }
+  }
+}
+
+

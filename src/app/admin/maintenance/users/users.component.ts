@@ -53,12 +53,15 @@ export class UsersComponent implements OnInit {
   }
 
   loadUsers(page:number): void {
-    console.log("user.component")
+    let status: number;
+
     this.apiUserService.getUsers(this.itemsPerPage , page-1, this.email).subscribe(
       (data: any) => {
         this.users = data.users;
         this.totalUsers = data.totalElements;
         this.totalPages = data.totalPages;
+        status = data.status;
+        console.log(status);
 
         console.log(this.users);
       },

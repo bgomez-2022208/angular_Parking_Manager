@@ -1,27 +1,29 @@
 .table-register {
   background-color: #FFFFFF;
-  width: 80%;
-  margin-left: 10px;
+  #width: 80%;
+  #margin-left: 10px;
 }
 
 .parent-container-footer {
-  height: 10%;
+  height: 16%;
 }
 
 .parent-container {
-  height: 90%;
+  background-color: #FFFFFF;
+  height: 84%;
 }
 .user-item{
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border: none;
 }
 .delete-users{
-  width: 10%;
+  #width: 10%;
   border: none;
 }
 .update-users{
-  width: 90%;
+  #width: 90%;
   flex-grow: 1;
   text-align: left;
   border: none;
@@ -32,13 +34,13 @@
 
 
 .list-group {
-  width: calc(100% + 40px);
-  margin-left: -25px;
+  #width: calc(100% + 40px);
+  #margin-left: -25px;
 
   .table-register {
   background-color: #FFFFFF;
-  width: 90%;
-  margin-left: 10px;
+  #width: 90%;
+  #margin-left: 10px;
 
 }
 
@@ -51,16 +53,16 @@
   }
 
   .list-group {
-    width: calc(100% + 40px);
-    margin-left: -20px;
+    #width: calc(100% + 40px);
+    #margin-left: -20px;
 
     .list-group-item {
-      font-size: 1rem;
+      #font-size: 1rem;
       margin: 0;
-      word-wrap: break-word;
-      overflow-wrap: break-word;
+      #word-wrap: break-word;
+      #overflow-wrap: break-word;
       white-space: normal;
-      max-height: 4rem;
+      #max-height: 4rem;
       overflow: hidden;
       text-overflow: ellipsis;
       cursor: pointer;
@@ -73,22 +75,22 @@
       }
 
       @media (max-width: 1300px) {
-        font-size: 0.95rem;
+        #font-size: 0.95rem;
         padding: 0.85rem 1rem;
       }
 
       @media (max-width: 900px) {
-        font-size: 0.675rem;
+        #font-size: 0.675rem;
         padding: 0.75rem 1rem;
       }
 
       @media (max-width: 768px) {
-        font-size: 0.575rem;
+        #font-size: 0.575rem;
         padding: 0.6rem 0.9rem;
       }
 
       @media (max-width: 648px) {
-        font-size: 0.45rem;
+        #font-size: 0.45rem;
         padding: 0.5rem 0.7rem;
         margin: 0.25rem 0;
       }
@@ -105,73 +107,13 @@
     }
   }
 
-  .pagination {
-    width: auto;
-    display: flex;
-    justify-content: center;
-    padding: 1rem 0;
-    list-style-type: none;
-    padding-left: 0;
-    margin: 0;
-
-    li {
-      height: auto;
-      width: auto;
-      font-size: smaller;
-    }
-
-    .page-item {
-      margin: 0 0.5rem;
-      display: inline;
-
-      .page-link {
-        padding: 0.5rem 1rem;
-        text-decoration: none;
-        color: #007bff;
-        border: 1px solid #dee2e6;
-        border-radius: 0.25rem;
-
-        &:hover {
-          background-color: #e9ecef;
-        }
-      }
-
-      @media (max-width: 1300px) {
-        margin: 0 0.25rem;
-
-        .page-link {
-          font-size: 0.60rem;
-          padding: 0.65rem 0.85rem;
-        }
-      }
-
-      @media (max-width: 768px) {
-        margin: 0 0.2rem;
-
-        .page-link {
-          font-size: 0.4rem;
-          padding: 0.5rem 0.50rem;
-        }
-      }
-
-      @media (max-width: 568px) {
-        margin: 0 0.1rem;
-
-        .page-link {
-          font-size: 0.4rem;
-          padding: 0.5rem 0.50rem;
-        }
-      }
-    }
-  }
-
   .list-group-item {
-    font-size: 1rem;
+    #font-size: 1rem;
     margin: 0;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
+    #word-wrap: break-word;
+    #overflow-wrap: break-word;
     white-space: normal;
-    max-height: 4rem;
+    #max-height: 4rem;
     overflow: hidden;
     text-overflow: ellipsis;
     cursor: pointer;
@@ -184,22 +126,22 @@
     }
 
     @media (max-width: 1300px) {
-      font-size: 0.95rem;
+      #font-size: 0.95rem;
       padding: 0.85rem 1rem;
     }
 
     @media (max-width: 900px) {
-      font-size: 0.675rem;
+      #font-size: 0.675rem;
       padding: 0.75rem 1rem;
     }
 
     @media (max-width: 768px) {
-      font-size: 0.575rem;
+      #font-size: 0.575rem;
       padding: 0.6rem 0.9rem;
     }
 
     @media (max-width: 648px) {
-      font-size: 0.45rem;
+      #font-size: 0.45rem;
       padding: 0.5rem 0.7rem;
       margin: 0.25rem 0;
     }
@@ -228,7 +170,7 @@
   li {
     height: auto;
     width: auto;
-    font-size: smaller;
+    #font-size: smaller;
   }
 
   .page-item {
@@ -237,21 +179,15 @@
 
     .page-link {
       padding: 0.5rem 1rem;
-      text-decoration: none;
-      color: #007bff;
       border: 1px solid #dee2e6;
       border-radius: 0.25rem;
-
-      &:hover {
-        background-color: #e9ecef;
-      }
     }
 
     @media (max-width: 1300px) {
       margin: 0 0.25rem;
 
       .page-link {
-        font-size: 0.60rem;
+        #font-size: 0.60rem;
         padding: 0.65rem 0.85rem;
       }
     }
@@ -260,16 +196,17 @@
       margin: 0 0.2rem;
 
       .page-link {
-        font-size: 0.4rem;
+        #font-size: 0.4rem;
         padding: 0.5rem 0.50rem;
       }
+
     }
 
     @media (max-width: 568px) {
       margin: 0 0.1rem;
 
       .page-link {
-        font-size: 0.4rem;
+        #font-size: 0.4rem;
         padding: 0.5rem 0.50rem;
       }
     }
