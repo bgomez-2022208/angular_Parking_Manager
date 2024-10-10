@@ -230,5 +230,23 @@
   "CONFIGURATION": {
     "TITLE": "Configuration",
     "MANAGE_PERMISSIONS": "Manage Permissions"
+  },
+  "ALERT_SUCCESS": {
+    "TITLE": "Success",
+    "MESSAGE": "User saved successfully"
+  },
+  "ALERT_WARNING": {
+    "EMAIL_IN_USE_TITLE": "Email in use",
+    "EMAIL_IN_USE_MESSAGE": "The email address is already registered. Please use another one."
+  },
+  "ALERT_ERROR": {
+    "TITLE": "Error",
+    "MESSAGE": "Could not update/save the user. Please try again."
+  },
+  "ALERT_DELETE": {
+    "TITLE": "User Deleted",
+    "MESSAGE": "The user has been deleted successfully.",
+    "TITLE_ERROR": "Delete Error",
+    "MESSAGE_ERROR": "There was an error deleting the user. Please try again."
   }
 }

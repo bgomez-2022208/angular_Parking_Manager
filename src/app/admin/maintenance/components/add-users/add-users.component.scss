@@ -1,7 +1,7 @@
 @import "../../../../../assets/sass/variables";
 
 .container {
-  padding: 2rem;
+  padding-top: 2rem;
   border-radius: 8px;
   max-width: 700px;
   width: 60%;
@@ -11,10 +11,11 @@
   flex-direction: column;
   justify-content: space-between;
   height: 80%;
+  font-family: $font-primary;
 }
 
 .input-small {
-  width: 98%;
+  width: 48%;
 }
 
 h2 {
@@ -51,8 +52,8 @@ h2 {
 }
 
 .guardar {
-  background-color: $palette-color-three;
-  color: #fff;
+  background-color: $palette-color-one;
+  color: $palette-color-three;
   border: none;
   padding: 0.4rem 0.8rem;
   border-radius: 5px;
@@ -63,9 +64,9 @@ h2 {
   align-self: flex-end;
 }
 .cancelar {
-  background-color: $palette-color-three;
+  background-color: $palette-color-one;
+  color: $palette-color-three;
   margin-top: 10px;
-  color: #fff;
   border: none;
   padding: 0.4rem 0.8rem;
   border-radius: 5px;
@@ -138,7 +139,6 @@ h2 {
 
   .mat-form-field {
     width: 98%;
-
     margin-bottom: 1rem;
   }
 
@@ -153,7 +153,6 @@ h2 {
     align-self: flex-end;
   }
   .cancelar {
-    background-color: $palette-color-three;
     color: white;
     width: 70%;
     margin-left: 0;

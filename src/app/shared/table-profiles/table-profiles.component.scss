@@ -1,28 +1,25 @@
 .table-profile{
   margin-left: 10%;
+  border-radius: 10px;
 }
 
 .table-register {
   background-color: #FFFFFF;
   width: 90%;
-  margin-left: 10px;
   border: 1px solid #ffffff;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  margin-right: 10%;
 }
 
 .btn-danger {
-  background-color: red;
-  color: white;
-  border: 1px solid darkred;
-  border-radius: 0.25rem;
-  padding: 0.5rem 1rem;
-  transition: background-color 0.3s, color 0.3s;
+  cursor: pointer;
+  color: #dc3545;
+  transition: color 0.3s;
+  border: none;
+  margin-left: 60px;
 
   &:hover {
-    background-color: darkred;
-    color: white;
+    color: #c82333;
   }
 }
 
@@ -36,32 +33,24 @@
 
 .list-group {
   width: calc(100% + 40px);
-  margin-left: -20px;
+  margin-left: -40px;
 
   .list-group-item {
-    font-size: 1rem;
-    margin: 0;
     word-wrap: break-word;
     overflow-wrap: break-word;
-    white-space: normal;
-    max-height: 4rem;
     overflow: hidden;
-    text-overflow: ellipsis;
     cursor: pointer;
     transition: background-color 0.3s;
     display: flex;
     justify-content: space-between;
-    border: 1px solid #dee2e6;
     border-radius: 4px;
-    padding: 0.5rem;
-    margin-bottom: 0.5rem;
 
     &:hover {
       background-color: #f8f9fa;
     }
 
     @media (max-width: 1300px) {
-      font-size: 0.95rem;
+      font-size: 0.70rem;
       padding: 0.85rem 1rem;
     }
 
@@ -98,7 +87,6 @@
   display: flex;
   justify-content: center;
   padding: 1rem 0;
-  list-style-type: none;
   padding-left: 0;
   margin: 0;
 

@@ -7,14 +7,27 @@ import {
   DeleteUserConfirmComponent
 } from "../../admin/maintenance/components/delete-user-confirm/delete-user-confirm.component";
 import {Router} from "@angular/router";
-import {Profile} from "../../admin/model/profile.model";
+import { animate, state, style, transition, trigger } from '@angular/animations';
+import Swal from 'sweetalert2';
+
 
 
 @Component({
   selector: 'app-table-users',
   templateUrl: './table-users.component.html',
   styleUrls: ['./table-users.component.scss'],
+  animations: [
+    trigger('scaleFadeAnimation', [
+      state('void', style({ opacity: 0, transform: 'scale(0.95)' })),
+      state('*', style({ opacity: 1, transform: 'scale(1)' })),
+
+      transition('void => *', [
+        animate('400ms ease-out')
+      ])
+    ])
+  ]
 })
+
 export class TableUsersComponent {
   @Input() users: User[] = [];
   @Input() itemsPerPage: number = 0;
@@ -97,6 +110,7 @@ export class TableUsersComponent {
   }
 
   loadUsers(page: number): void {
+    console.log("table-users");
     this.apiUserService.getUsers(this.itemsPerPage, page - 1, this.searchQuery).subscribe(
       (data: any) => {
         this.users = data.users;
@@ -111,17 +125,7 @@ export class TableUsersComponent {
 
 
 
-  updateUser(userId: number): void {
-    this.apiUserService.getUserById(userId).subscribe({
-      next: (data) => {
-        this.users = data.users;
-        console.log('mm:', this.users);
-      },
-      error: (err) => {
-        console.error('error:', err);
-      }
-    });
-  }
+
 
   getUserById(userId: number) {
       const queryParams = {

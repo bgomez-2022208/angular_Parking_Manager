@@ -1,4 +1,4 @@
 export const environment = {
     production: true,
-    USER_SERVICE_URL: "http://54.149.50.151:8080"
+    USER_SERVICE_URL: "http://3.142.42.17:8080"
 }

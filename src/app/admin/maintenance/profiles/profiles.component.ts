@@ -1,7 +1,7 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, FormGroupDirective, NgForm, Validators } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
-import { SequenceError } from 'rxjs';
+import { SequenceError, Subscription } from 'rxjs';
 import { ApiUserService } from 'src/app/user/services/user.service';
 import Swal from 'sweetalert2';
 
@@ -10,10 +10,12 @@ import Swal from 'sweetalert2';
   selector: 'app-profiles',
   templateUrl: './profiles.component.html',
   styleUrls: ['./profiles.component.scss'],
+
 })
 
 
 export class ProfilesComponent {
+  private perfilSubscription: Subscription | null = null;
   form: FormGroup;
   profiles: any[] = [];
   profilesPaginated: any[] = []
@@ -29,7 +31,8 @@ export class ProfilesComponent {
   rolesChanged: boolean = false;
   originalRoles: number[] = [];
   valornameProfile: string = 'Profile'
-
+  mostrarBoton = false;
+  mostrarBotonGuardar = true;
   constructor(private translate: TranslateService, private userService: ApiUserService, private cd: ChangeDetectorRef,
               private fb: FormBuilder) {
     this.translate.setDefaultLang('es');
@@ -52,6 +55,8 @@ export class ProfilesComponent {
   }
 
   resetForm() {
+    this.mostrarBotonGuardar = true;
+    this.mostrarBoton = false;
     this.form.reset({
       description: '',
       status: 'true',
@@ -100,8 +105,11 @@ export class ProfilesComponent {
   }
 
   getPerfil(profileId: number) {
+    this.mostrarBotonGuardar = false;
+    this.mostrarBoton = true;
     this.userService.getProfile(profileId).subscribe({
       next: (response) => {
+        this.profileIdSelected = profileId;
         console.log(response);
 
         const roleIds = response.roles.map((role: any) => role.id);
@@ -219,6 +227,8 @@ export class ProfilesComponent {
   }
 
   updateProfile() {
+    this.mostrarBotonGuardar = true;
+    this.mostrarBoton = false;
     const roles = this.selectRoles.join(',');
 
     if (this.profileIdSelected) {
@@ -242,4 +252,5 @@ export class ProfilesComponent {
       })
     }
   }
+
 }
