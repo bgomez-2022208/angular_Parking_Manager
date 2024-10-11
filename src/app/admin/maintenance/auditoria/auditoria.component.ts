@@ -1,11 +1,20 @@
-import { AfterViewInit, ChangeDetectionStrategy, Component, ViewChild } from '@angular/core';
-import { MatPaginator } from '@angular/material/paginator';
+import {
+  AfterViewInit,
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input, OnInit,
+  Output,
+  ViewChild
+} from '@angular/core';
+import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSelectChange } from '@angular/material/select';
 import { FormControl } from '@angular/forms';
 import { DatePipe } from '@angular/common';
 import { AuditoryService, AuditData } from '../../services/auditory.service';
+import { audit } from 'rxjs';
 
 @Component({
   selector: 'app-auditoria',
@@ -14,52 +23,72 @@ import { AuditoryService, AuditData } from '../../services/auditory.service';
   providers: [DatePipe],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AuditoriaComponent implements AfterViewInit {
+export class AuditoriaComponent implements OnInit{
   displayedColumns: string[] = ['entity', 'startDate', 'description', 'operation', 'result', 'more'];
   expandedElement: any | null = null;
   auditData: AuditData | null = null;
   dataSource: MatTableDataSource<AuditData>;
-  selected: string = ''; 
+  selected: string = '';
   private readonly _currentYear = new Date().getFullYear();
   readonly minDate = new Date(this._currentYear - 20, 0, 1);
   readonly maxDate = new Date();
   showCard: boolean = false;
+  @Input() audith: AuditData[] = [];
+  @Input() itemsPerPage: number = 10;
+  @Output() pageChange = new EventEmitter<number>();
+  @Input() totalPages: number = 1;
+  searchQuery: string = "";
+  currentPage: number = 0;
+  pageIndex=0;
+
 
   selectedDateControl = new FormControl();
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
+  @Input() totalElements: number = 0;
+  private totalAudits: number =0;
 
   constructor(private datePipe: DatePipe,private auditoryService: AuditoryService) {
     const audit: AuditData[] = [];
 
-    this.dataSource = new MatTableDataSource(audit);
+    this.dataSource = new MatTableDataSource<AuditData>(this.audith || []);
     this.selectedDateControl.valueChanges.subscribe(value => {
       this.applyFilter(value);
     });
   }
 
-  ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
-  }
+
+
 
   applyFilter(event: Event | MatSelectChange | Date) {
     let filterValue = '';
-
-    if (event instanceof Date) {
-      filterValue = this.datePipe.transform(event, 'yyyy-MM-dd') || '';
-    } else if (event instanceof MatSelectChange) {
-      filterValue = event.value;
-    } else if (event.target && (event.target as HTMLInputElement).value !== undefined) {
-      filterValue = (event.target as HTMLInputElement).value;
+    if (event instanceof Event) {
+      filterValue = (event.target as HTMLInputElement).value; // Asignar valor del input
     }
-
-    console.log('Filter Value:', filterValue);
     this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
 
-    if (this.dataSource.paginator) {
-      this.dataSource.paginator.firstPage();
+  applyEntityFilter(event: MatSelectChange): void {
+    const entity = event.value;
+    console.log('Entidad seleccionada:', entity);
+
+    if (entity) {
+      this.auditoryService.getAuditoryByEntity(entity).subscribe(
+        (data: any) => {
+          console.log('cantidad',data)
+          this.audith = data;
+          this.totalPages = data.totalPages;
+          this.currentPage = data.currentPage;
+          console.log('Auditorías filtradas por entidad:', this.audith);
+          this.dataSource.data = this.audith;
+        },
+        (error: any) => {
+          console.error('Error al cargar auditorías por entidad:', error);
+        }
+      );
+    } else {
+      this.loadAudits(8);
     }
   }
 
@@ -68,18 +97,44 @@ export class AuditoriaComponent implements AfterViewInit {
       const formattedDate = this.datePipe.transform(selectedDate, 'yyyy-MM-dd');
       this.dataSource.filter = formattedDate ? formattedDate.trim().toLowerCase() : '';
     }
-  
+
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
   }
-  
+
+
+  loadAudits(page: number): void {
+    this.auditoryService.getAuditory(this.itemsPerPage, page).subscribe(
+      (data: any) => {
+        this.dataSource.data = data.audiths || [];
+        this.totalElements = data.totalElements;
+
+        this.paginator.length = this.totalElements;
+        this.paginator.pageIndex = page; // Esto puede ser innecesario si ya está controlado por el paginador
+        this.currentPage = page;
+
+        // Depuración
+        console.log('Datos en la tabla:', page, this.dataSource.data);
+        console.log('Total Elements:', this.totalElements);
+        console.log('Paginator Length:', this.paginator.length);
+      },
+      (error: any) => {
+        console.error('Error al cargar auditorías:', error);
+      }
+    );
+  }
+
+
+
+
+
+
+
 
   ngOnInit() {
-    this.auditoryService.getAuditory().subscribe((data: AuditData[]) => {
-      this.dataSource.data = data;
-    });
 
+    this.loadAudits(0);
     this.dataSource.filterPredicate = (data: AuditData, filter: string) => {
       const transformedFilter = filter.trim().toLowerCase();
       const dateString = this.formatDate(data.startDate);
@@ -113,5 +168,8 @@ export class AuditoriaComponent implements AfterViewInit {
   }
   closeCard() {
     this.showCard = false;
+  }
+  changePage(event: PageEvent): void {
+    this.loadAudits(event.pageIndex);
   }
 }
