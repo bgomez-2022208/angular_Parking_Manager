@@ -13,7 +13,6 @@ import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatNativeDateModule} from "@angular/material/core";
 import { TableProfilesComponent } from './shared/table-profiles/table-profiles.component';
 import { FilterProfileComponent } from './admin/maintenance/components/filter-profile/filter-profile.component';
-import { RegisterComponent } from './admin/maintenance/register/register.component';
 import { AdminModule } from './admin/admin.module';
 import { MatCardModule } from '@angular/material/card';
 
@@ -24,7 +23,6 @@ export function HttpLoaderFactory(http: HttpClient) {
 @NgModule({
   declarations: [
     AppComponent,
-    RegisterComponent,
   ],
   imports: [
     BrowserModule,

@@ -46,7 +46,6 @@ import { TableProfilesComponent } from '../shared/table-profiles/table-profiles.
 import { HttpClient } from '@angular/common/http';
 import { HttpLoaderFactory } from '../app.module';
 import { FilterProfileComponent } from './maintenance/components/filter-profile/filter-profile.component';
-import { RegisterComponent } from './maintenance/register/register.component';
 
 const routes : Routes = [
   {
@@ -61,10 +60,7 @@ const routes : Routes = [
     path:'auditory',
     component: AuditoriaComponent
   },
-  {
-    path:'register',
-    component: RegisterComponent
-  }
+
 
 ]
 

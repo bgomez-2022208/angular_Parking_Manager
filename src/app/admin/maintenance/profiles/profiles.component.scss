@@ -23,25 +23,27 @@
   width: 90%;
 }
 
+.container-body {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  height: 100%;
+
+}
 
 .table{
-  width: 80%;
   display: flex;
   margin-top: 1vh;
   flex-direction: column;
-  margin-left: 3rem;
+  margin-left: 1rem;
   border-radius: 10px;
 
   .container-list{
-    width: 80%;
     height: 70%;
     margin-top: 1rem;
-    padding: .5rem;
     display: flex;
     flex-direction: column;
-    align-items: center;
     border-radius: 10px;
-    margin-bottom: 1rem;
   }
 }
 
@@ -71,6 +73,11 @@
     width: auto;
     font-size: 12px
 }
+  .buttom-container{
+    display: flex;
+    justify-content: 1vh;
+    margin-top: 1rem;
+  }
 
 
   .toggle-container{
@@ -162,18 +169,14 @@
   .table {
     display: flex;
     flex-direction: column;
-    width: 30%;
+    width: 50%;
     height: 70%;
-  }
-
-  .table-usuarios {
-
   }
 
   .table-register{
     background-color: $color-white;
-    padding: 4vh;
-    width: 70%;
+    padding-left: 3vh;
+    width: 80%;
     height: 55vh;
     margin-top: 20px;
     border-radius: 10px;
@@ -224,11 +227,25 @@
       #height:80%;
     width: 40%;
   }
+  .buttom-container{
+    display: flex;
+    flex-direction: column;
+    btnUpdate{
+      margin: 0;
+    }
+  }
 }
 
 @media only screen and (max-width: 350px) {
   .container-form {
     #height:80%;
     #width: 30%;
+    margin: 0;
+  }
+  .container{
+    margin: 0;
+  }
+  .table{
+    margin-left: 0px;
   }
 }
