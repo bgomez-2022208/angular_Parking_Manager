@@ -11,7 +11,7 @@
         <p><strong>Result:</strong> {{ data.result }}</p>
         <p><strong>Request:</strong></p>
       <ng-container *ngIf="data.request">
-        <p>Email: {{ data.request.email }}</p>
+        <p>Email: {{ data.request.entity }}</p>
       </ng-container>
 
       <p><strong>Response:</strong></p>
@@ -24,4 +24,3 @@
       </mat-card-actions>
     </mat-card>
   </div>
-  
