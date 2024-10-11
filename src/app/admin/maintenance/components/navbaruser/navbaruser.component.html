@@ -7,17 +7,33 @@
   </button>
 
   <mat-menu #menu="matMenu">
-    <button mat-menu-item (click)="goToAuditory()">
-      <mat-icon>library_books</mat-icon>
-      <span>{{ 'AUDITORIA' | translate }}</span>
+
+    <button mat-menu-item routerLink="/admin/auditory">
+      <span><mat-icon>library_books</mat-icon>
+         {{ 'NAVBAR_USER.AUDITORIA' | translate }}</span>
     </button>
+
+    <button mat-menu-item routerLink="/admin/profiles">
+      <span><mat-icon>group</mat-icon>
+        {{ 'NAVBAR_USER.PROFILES' | translate }}</span>
+    </button>
+
+    <button mat-menu-item routerLink="/admin/users">
+      <span><mat-icon>person</mat-icon>
+        {{ 'NAVBAR_USER.USERS' | translate }}</span>
+    </button>
+
     <button mat-menu-item (click)="openLogoutDialog()">
       <mat-icon>logout</mat-icon>
-      <span>{{ 'LOGOUT' | translate }}</span>
+      <span>{{ 'MENU.LOGOUT' | translate }}</span>
     </button>
-    <button mat-menu-item (click)="switchLanguage()">
-      <mat-icon>language</mat-icon>
-      <span>{{ 'CHANGE_LANGUAGE' | translate }}</span>
-    </button>
+    <mat-form-field>
+      <mat-label>{{ 'LANGUAGE' | translate }}</mat-label>
+      <mat-select [(value)]="currentLanguage" (selectionChange)="onLanguageChange($event.value)">
+        <mat-option *ngFor="let option of languages" [value]="option">
+          {{ option }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
   </mat-menu>
 </mat-toolbar>

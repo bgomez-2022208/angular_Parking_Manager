@@ -11,6 +11,8 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import {SimpleNotificationsModule} from "angular2-notifications";
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatNativeDateModule} from "@angular/material/core";
+import { TableProfilesComponent } from './shared/table-profiles/table-profiles.component';
+import { FilterProfileComponent } from './admin/maintenance/components/filter-profile/filter-profile.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json')

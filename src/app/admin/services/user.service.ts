@@ -22,7 +22,7 @@ export class ApiUserService {
     return this.http.get<User[]>(url, {params: {
         size: size,
         page: page,
-        searchQuery:email
+        email:email
       }}).pipe(
 
       tap(users => console.log('Usuarios recibidos:', users)),

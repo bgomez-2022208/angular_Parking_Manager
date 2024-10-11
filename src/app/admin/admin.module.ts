@@ -34,14 +34,18 @@ import { UsersComponent } from './maintenance/users/users.component';
 import { MatSortModule } from '@angular/material/sort';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import {MatNativeDateModule, MatOptionModule} from '@angular/material/core';
-import { TranslateModule } from "@ngx-translate/core";
-import { FareComponent } from './maintenance/fare/fare.component';
-import {ProfilesComponent} from "./profiles/profiles.component";
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { ProfilesComponent } from './maintenance/profiles/profiles.component';
 import {AuditoriaComponent} from "./maintenance/auditoria/auditoria.component";
 import {CardAuditoryComponent} from "./maintenance/components/card-auditory/card-auditory.component";
 import { SimpleNotificationsModule } from 'angular2-notifications';
 import { MatCardModule } from '@angular/material/card';
 import {DeleteUserConfirmComponent} from "./maintenance/components/delete-user-confirm/delete-user-confirm.component";
+import { FareComponent } from './maintenance/fare/fare.component';
+import { TableProfilesComponent } from '../shared/table-profiles/table-profiles.component';
+import { HttpClient } from '@angular/common/http';
+import { HttpLoaderFactory } from '../app.module';
+import { FilterProfileComponent } from './maintenance/components/filter-profile/filter-profile.component';
 import { FareTableComponent } from './maintenance/components/fare-table/fare-table.component';
 
 const routes : Routes = [
@@ -73,6 +77,7 @@ const routes : Routes = [
     FilterComponent,
     FormParkingComponent,
     TableUsersComponent,
+    TableProfilesComponent,
     NavbaruserComponent,
     FilterUserComponent,
     AddUsersComponent,
@@ -81,7 +86,8 @@ const routes : Routes = [
     FareComponent,
     CardAuditoryComponent,
     DeleteUserConfirmComponent,
-    FareTableComponent,
+    FilterProfileComponent,
+    FareTableComponent
   ],
   imports: [
     CommonModule,
@@ -118,6 +124,13 @@ const routes : Routes = [
     TranslateModule,
     SimpleNotificationsModule.forRoot(),
     MatCardModule,
+    TranslateModule.forChild({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    }),
   ],
   exports: [
     NavbarComponent,
@@ -126,7 +139,7 @@ const routes : Routes = [
     TableUsersComponent,
     AddUsersComponent,
     FilterUserComponent,
-    NavbaruserComponent,
+    NavbaruserComponent
   ],
   providers: [
     DatePipe

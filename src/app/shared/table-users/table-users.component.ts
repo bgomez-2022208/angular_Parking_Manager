@@ -28,7 +28,11 @@ export class TableUsersComponent {
 
 
 
-  currentPage: number = 1;
+  @Input() currentPage: number = 1;
+  @Input() profiles!: any[];
+  @Input() itemsPerPageOptions!: number[];
+  @Output() profileSelected = new EventEmitter<number>();
+  @Output() profileDeleted = new EventEmitter<number>();
 
   get displayedPages(): number[] {
     const maxDisplayedPages = 3;

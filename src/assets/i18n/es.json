@@ -26,11 +26,15 @@
     "PROFILES": {
         "PROFILE_ADMIN": "Administrador",
         "PROFILE_USER": "Usuario",
-        "PROFILE_GUEST": "Invitado"
+        "PROFILE_GUEST": "Invitado",
+        "TITLE_PROFILE": "Perfil",
+        "TITLE_ROLES": "Roles"
     },
     "BUTTONS": {
         "BTN_SAVE": "Guardar",
-        "BUTTON_SAVE": "Guardar"
+        "BUTTON_SAVE": "Guardar",
+        "BTN_SAVE_PROFILE": "Guardar Perfil",
+        "BTN_UPDATE_PROFILE": "Actualizar Perfil"
     },
     "FORM": {
         "TITLE_PARKING": "Formulario de Estacionamiento",
@@ -77,7 +81,8 @@
         "ERROR_INVALID_SURNAME": "El apellido debe contener solo letras",
         "ERROR_UPDATE_PASSWORD": "Ocurrió un error al actualizar tu contraseña",
         "ERROR_REGISTER": "Ocurrió un error durante el registro, por favor intenta más tarde",
-        "ERROR_LOGIN": "Usuario o contraseña incorrectos"
+        "ERROR_LOGIN": "Usuario o contraseña incorrectos",
+        "ERROR_ADD_PROFILE": "El nombre del perfil es obligatorio"
     },
     "FORGOT_PASSWORD_EMAIL": {
         "HEADER_TITLE": "Recupera tu contraseña",
@@ -123,6 +128,12 @@
         "LOGOUT": "Cerrar sesión",
         "CHANGE_LANGUAGE": "Cambiar idioma"
     },
+    "LOGOUT": {
+        "TITLE": "Cerrar sesión",
+        "MESSAGE": "¿Estás seguro de que deseas cerrar sesión?",
+        "BTN_YES": "Sí",
+        "BTN_NO": "NO"
+    },
     "FILTERS": {
         "FILTER": "Filtrar",
         "FILTER_BY_ENTITY": "Filtrar por entidad",
@@ -163,6 +174,30 @@
         "TITLE": "Configuración",
         "MANAGE_PERMISSIONS": "Administrar permisos"
     },
+  "TOGGLE": {
+    "PROFILE": "Perfil",
+    "USER": "Usuario",
+    "AUDITH": "Auditoria",
+    "ROLE_DETAIL": "Roles y Detalles",
+    "PARKING": "Parqueo",
+    "FARE": "Tarifa",
+    "REGISTER": "Registro"
+  },
+  "ALERT_PROFILE": {
+    "TITLE_DELETE": "¿Estás seguro de eliminar el perfil?",
+    "TITLE_BAD": "Error al eliminar el perfil",
+    "MESSAGE_INFO": "Esta acción no se pordrá revertir.",
+    "MESSAGE_SUCCESS": "El perfil ha sido agregado con éxito.",
+    "BTN_YES": "Si, estoy seguro",
+    "BTN_NO": "No, cancelar",
+    "TITLE_ADD": "Perfil agregado",
+    "TITLE_DELETE_SUCCESS": "¡Eliminado!",
+    "MESSAGE_DELETE_SUCCESS": "El perfil ha sido eliminado con éxito.",
+    "TITLE_UPDATE": "¡Actualizado!",
+    "MESSAGE_UPDATE_SUCCESS": "El perfil ha sido actualizado con éxito.",
+    "TITLE_BAD_ADD": "Ha ocurrido un error al agregar el perfil.",
+    "TITLE_BAD_UPDATE": "Error al actualizar el perfil"
+  },
   "ADD_USERS": {
     "TITLE_ADD": "Agregar Usuario",
     "FORM": {
@@ -206,6 +241,8 @@
   "NAVBAR_USER": {
     "AUDITORIA": "Auditoría",
     "LOGOUT": "Cerrar Sesión",
-    "CHANGE_LANGUAGE": "Cambiar Idioma"
+    "CHANGE_LANGUAGE": "Cambiar Idioma",
+    "USERS": "Usuarios",
+    "PROFILES": "Perfiles"
   }
 }
