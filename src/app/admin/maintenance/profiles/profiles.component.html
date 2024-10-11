@@ -8,7 +8,7 @@
       <div class="container-list">
         <app-table-profiles class="table-register" [profiles]="profiles" [totalPages]="totalPages" [currentPage]="currentPage"
                          [itemsPerPageOptions]="availableItemsPerPage" (pageChange)="onPageChange($event)"
-                         (profileSelected)="getPerfil($event)" (profileDeleted)="onProfileDeleted($event)"[mostrarBoton]="mostrarBoton">>
+                         (profileSelected)="getPerfil($event)" (profileDeleted)="onProfileDeleted($event)" [mostrarBoton]="mostrarBoton">>
         </app-table-profiles>
         </div>
       </div>
