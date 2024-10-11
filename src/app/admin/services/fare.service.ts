@@ -18,10 +18,16 @@ export interface FareData {
 export class FareService {
 
     constructor(private http: HttpClient) { }
-    private apiUrl = environment.USER_SERVICE_URL;
+    private apiUrl = environment.FARE_SERVICE_URL;
 
     getAllFare(): Observable<any[]> {
         const url = `${this.apiUrl}/fare`;
         return this.http.get<any[]>(url);
     }
+
+    createFare ( fareData: any) : Observable<any> {
+      const url = `${this.apiUrl}/fare/saveFare`;
+      return this.http.post<any>(url, fareData);
+    }
+
 }
