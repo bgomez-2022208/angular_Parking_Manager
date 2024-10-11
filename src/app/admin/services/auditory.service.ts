@@ -25,7 +25,6 @@ export class AuditoryService {
 
   getAuditory(size: number, page: number): Observable<any> {
     const url = `${this.apiUrl}/audith`;
-    console.log("problemas al traer auditoria");
     return this.http.get<any>(url, {
       params: {
         size: size.toString(),
