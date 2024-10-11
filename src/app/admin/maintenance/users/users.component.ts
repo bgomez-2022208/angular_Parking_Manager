@@ -3,13 +3,24 @@ import {User} from "../../model/user.model";
 import {ApiUserService} from "../../services/user.service";
 import { TranslateService } from '@ngx-translate/core';
 import {LanguageService} from "../../../user/services/languaje.service";
+import { animate, state, style, transition, trigger } from '@angular/animations';
 
 
 
 @Component({
   selector: 'app-users',
   templateUrl: './users.component.html',
-  styleUrls: ['./users.component.scss']
+  styleUrls: ['./users.component.scss'],
+  animations: [
+    trigger('scaleFadeAnimation', [
+      state('void', style({ opacity: 0, transform: 'scale(0.95)' })),
+      state('*', style({ opacity: 1, transform: 'scale(1)' })),
+
+      transition('void => *', [
+        animate('400ms ease-out')
+      ])
+    ])
+  ]
 })
 export class UsersComponent implements OnInit {
   title: string = 'Profile';
@@ -42,6 +53,7 @@ export class UsersComponent implements OnInit {
   }
 
   loadUsers(page:number): void {
+    console.log("user.component")
     this.apiUserService.getUsers(this.itemsPerPage , page-1, this.email).subscribe(
       (data: any) => {
         this.users = data.users;

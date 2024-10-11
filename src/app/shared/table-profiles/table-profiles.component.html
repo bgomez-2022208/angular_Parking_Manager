@@ -1,24 +1,23 @@
 <script src="table-profiles.component.ts"></script>
 <div class="table-profile">
 <ol class="list-group list-group-numbered p-3 px-0">
-  <li *ngFor="let profile of paginatedProfiles" class="list-group-item d-flex justify-content-between align-items-start p-0 px-3"
+  <li *ngFor="let profile of paginatedProfiles"   class="list-group-item d-flex justify-content-between align-items-start p-0 px-3"
       (click)="profileSelected.emit(profile.profileId)">
-    <div class="container-body ms-2 me-auto">
-      <div class="fw-bold">Name: {{ profile.description }}</div>
+    <div class="container-body ms-2 me-auto" *ngIf="mostrarBoton">
+      <div class="fw-bold"> {{ profile.description }}</div>
       <div class="fw-bold">Status: {{ profile.status ? 'Active' : 'Inactive' }}</div>
     </div>
-    <button class="btn btn-danger" (click)="deleteProfile(profile.profileId, $event)">Delete</button>
+    <button class=" btn-danger" (click)="deleteProfile(profile.profileId,$event)">
+      <mat-icon class="example-icon" aria-label="Delete user">
+        delete
+      </mat-icon>
+    </button>
   </li>
 </ol>
-
-<!-- Selector para la cantidad de ítems por página -->
-<div class="items-per-page-selector">
-  <label for="itemsPerPage">Items per page:</label>
-  <select id="itemsPerPage" (change)="onItemsPerPageChange($event)">
-    <option *ngFor="let option of itemsPerPageOptions" [value]="option">{{ option }}</option>
-  </select>
 </div>
 
+
+<div class="parent-container-footer">
 <nav aria-label="Page navigation example">
   <ul class="pagination">
     <li class="page-item" [class.disabled]="currentPage === 1">

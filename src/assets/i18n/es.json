@@ -243,6 +243,27 @@
     "LOGOUT": "Cerrar Sesión",
     "CHANGE_LANGUAGE": "Cambiar Idioma",
     "USERS": "Usuarios",
-    "PROFILES": "Perfiles"
+    "PROFILES": "Perfiles",
+    "REGISTER": "Registro de parqueo"
+
+  },
+
+  "ALERT_SUCCESS": {
+    "TITLE": "Éxito",
+    "MESSAGE": "Usuario guardado correctamente"
+  },
+  "ALERT_WARNING": {
+    "EMAIL_IN_USE_TITLE": "Correo en uso",
+    "EMAIL_IN_USE_MESSAGE": "El correo electrónico ya está registrado. Por favor, utiliza otro."
+  },
+  "ALERT_ERROR": {
+    "TITLE": "Error",
+    "MESSAGE": "No se pudo actualizar/guardar el usuario. Intenta nuevamente."
+  },
+  "ALERT_DELETE": {
+    "TITLE": "Usuario eliminado",
+    "MESSAGE": "El usuario ha sido eliminado correctamente.",
+    "TITLE_ERROR": "Error al eliminar",
+    "MESSAGE_ERROR": "Hubo un error al eliminar el usuario. Inténtelo de nuevo."
   }
 }

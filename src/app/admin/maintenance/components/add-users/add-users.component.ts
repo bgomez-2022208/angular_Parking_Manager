@@ -5,11 +5,24 @@ import { User } from "../../../model/user.model";
 import { NotificationsService } from "angular2-notifications";
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
+import { animate, state, style, transition, trigger } from '@angular/animations';
+import Swal from 'sweetalert2';
+
 
 @Component({
   selector: 'app-add-users',
   templateUrl: './add-users.component.html',
-  styleUrls: ['./add-users.component.scss']
+  styleUrls: ['./add-users.component.scss'],
+  animations: [
+    trigger('scaleFadeAnimation', [
+      state('void', style({ opacity: 0, transform: 'scale(0.95)' })),
+      state('*', style({ opacity: 1, transform: 'scale(1)' })),
+
+      transition('void => *', [
+        animate('400ms ease-out')
+      ])
+    ])
+  ]
 })
 export class AddUsersComponent implements OnInit {
   @Output() userCreated = new EventEmitter<User>();
@@ -41,7 +54,6 @@ export class AddUsersComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.loadUsers();
     this.loadProfiles();
 
     this.route.queryParams.subscribe(params => {
@@ -54,6 +66,7 @@ export class AddUsersComponent implements OnInit {
   }
 
   loadUsers() {
+    console.log("add-useers");
     this.apiUserService.getUsers().subscribe(
       (data) => {
         this.users = data;
@@ -136,12 +149,12 @@ export class AddUsersComponent implements OnInit {
       if (this.isEditing && this.userId) {
         this.apiUserService.updateUser(this.userId, userData).subscribe(
           (updatedUser) => {
-            this.notifications.success('Éxito', 'Usuario actualizado correctamente', {
-              timeOut: 3000,
-              showProgressBar: true,
-              pauseOnHover: true,
-              clickToClose: true,
-              animate: 'fade'
+            Swal.fire({
+              icon: 'success',
+              title: this.translate.instant('ALERT_SUCCESS.TITLE'),
+              text: this.translate.instant('ALERT_SUCCESS.MESSAGE'),
+              timer: 3000,
+              showConfirmButton: false
             });
             this.loadUsers();
             this.userForm.reset();
@@ -149,14 +162,24 @@ export class AddUsersComponent implements OnInit {
             this.userId = undefined;
           },
           (error) => {
-            console.error("Error updating user", error);
-            this.notifications.error('Error', 'No se pudo actualizar el usuario. Intenta nuevamente.', {
-              timeOut: 3000,
-              showProgressBar: true,
-              pauseOnHover: true,
-              clickToClose: true,
-              animate: 'fade'
-            });
+            if (error.status === 409) {
+              Swal.fire({
+                icon: 'warning',
+                title: this.translate.instant('ALERT_WARNING.EMAIL_IN_USE_TITLE'),
+                text: this.translate.instant('ALERT_WARNING.EMAIL_IN_USE_MESSAGE'),
+                timer: 3000,
+                showConfirmButton: false
+              });
+            } else {
+              console.error("Error updating user", error);
+              Swal.fire({
+                icon: 'error',
+                title: this.translate.instant('ALERT_ERROR.TITLE'),
+                text: this.translate.instant('ALERT_ERROR.MESSAGE'),
+                timer: 3000,
+                showConfirmButton: false
+              });
+            }
           }
         );
       } else {
@@ -165,28 +188,39 @@ export class AddUsersComponent implements OnInit {
             this.userCreated.emit(newUser);
             this.loadUsers();
             this.userForm.reset();
-            this.notifications.success('Éxito', 'Usuario guardado correctamente', {
-              timeOut: 3000,
-              showProgressBar: true,
-              pauseOnHover: true,
-              clickToClose: true,
-              animate: 'fade'
+            Swal.fire({
+              icon: 'success',
+              title: this.translate.instant('ALERT_SUCCESS.TITLE'),
+              text: this.translate.instant('ALERT_SUCCESS.MESSAGE'),
+              timer: 3000,
+              showConfirmButton: false
             });
           },
           (error) => {
-            console.error("Error creating user", error);
-            this.notifications.error('Error', 'No se pudo guardar el usuario. Intenta nuevamente.', {
-              timeOut: 3000,
-              showProgressBar: true,
-              pauseOnHover: true,
-              clickToClose: true,
-              animate: 'fade'
-            });
+            if (error.status === 409) {
+              Swal.fire({
+                icon: 'warning',
+                title: this.translate.instant('ALERT_WARNING.EMAIL_IN_USE_TITLE'),
+                text: this.translate.instant('ALERT_WARNING.EMAIL_IN_USE_MESSAGE'),
+                timer: 3000,
+                showConfirmButton: false
+              });
+            } else {
+              console.error("Error creating user", error);
+              Swal.fire({
+                icon: 'error',
+                title: this.translate.instant('ALERT_ERROR.TITLE'),
+                text: this.translate.instant('ALERT_ERROR.MESSAGE'),
+                timer: 3000,
+                showConfirmButton: false
+              });
+            }
           }
         );
       }
     }
   }
+
 
   CancelUpdate() {
     this.userForm.reset();

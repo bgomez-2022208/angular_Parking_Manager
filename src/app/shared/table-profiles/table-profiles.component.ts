@@ -22,8 +22,9 @@ export class TableProfilesComponent implements OnChanges {
   @Output() profileUpdated = new EventEmitter<number>()
   @Output() itemsPerPageChange = new EventEmitter<number>()
 
-  paginatedProfiles: Profile[] = []
 
+  paginatedProfiles: Profile[] = []
+  @Input() mostrarBoton: boolean = false;
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['profiles'] || changes['currentPage'] || changes['itemsPerPage']) {
       this.updatePagination()
@@ -31,6 +32,7 @@ export class TableProfilesComponent implements OnChanges {
   }
 
   updatePagination(){
+    this.mostrarBoton = true;
     const startIndex = (this.currentPage - 1) * this.itemsPerPage
     const endIndex = startIndex + this.itemsPerPage
     this.paginatedProfiles = this.profiles.slice(startIndex, endIndex)

@@ -5,7 +5,7 @@
 }
 
 .parent-container-footer {
-  height: 10%;
+  height: 5%;
 }
 
 .parent-container {
@@ -26,7 +26,6 @@
   text-align: left;
   border: none;
   background: transparent;
-  padding: 0;
 }
 
 
@@ -38,13 +37,8 @@
   .table-register {
   background-color: #FFFFFF;
   width: 90%;
-  margin-left: 10px;
 
 }
-
-  .parent-container-footer {
-    height: 5%;
-  }
 
   .parent-container {
     height: 90%;
@@ -89,6 +83,11 @@
 
       @media (max-width: 648px) {
         font-size: 0.45rem;
+        padding: 0.5rem 0.7rem;
+        margin: 0.25rem 0;
+      }
+      @media (max-width: 430px) {
+        font-size: 3rem;
         padding: 0.5rem 0.7rem;
         margin: 0.25rem 0;
       }

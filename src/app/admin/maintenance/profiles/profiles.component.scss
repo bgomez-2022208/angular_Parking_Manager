@@ -23,35 +23,41 @@
   width: 90%;
 }
 
+.container-body {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  height: 100%;
+
+}
 
 .table{
-  width: 20%;
-  margin-top: 5vh;
   display: flex;
-  justify-content: center;
+  margin-top: 1vh;
   flex-direction: column;
-  margin-left: 3rem;
+  margin-left: 1rem;
+  border-radius: 10px;
 
   .container-list{
-    width: auto;
+    height: 70%;
     margin-top: 1rem;
-    padding: .5rem;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    margin-bottom: 1rem;
+    border-radius: 10px;
   }
 }
 
 .container-form{
-  background-color: $palette-color-four;
+  border-radius: 10px;
+  width: 60%;
+  height: 90%;
+  background-color: $color-white;
+
   max-width: 90%;
-  height: 80%;
-  padding: 1rem;
-  margin-top: 40px;
+  padding: 1rem 1rem 0;
+  margin-top: 10px;
   margin-left: 10%;
   margin-right: 10%;
-  border-radius: 10px;
 
   mat-form-field{
     width: 95%;
@@ -62,11 +68,16 @@
     }
   }
   .btnUpdate{
-    background-color: $palette-color-three;
-    color: white;
+    background-color: $palette-color-one;
+    color: $palette-color-three;
     width: auto;
     font-size: 12px
 }
+  .buttom-container{
+    display: flex;
+    justify-content: 1vh;
+    margin-top: 1rem;
+  }
 
 
   .toggle-container{
@@ -101,11 +112,11 @@
 @media only screen and (max-width: 760px) {
   .principal-container {
     .main-container {
-      align-items: stretch;
+
 
       .table {
         width: 100%;
-        margin-top: 1vh;
+        margin-top: 5vh;
       }
 
       .container {
@@ -139,5 +150,102 @@
         margin: 2vh;
       }
     }
+  }
+}
+
+@import "../../../../assets/sass/variables";
+
+.content{
+  width: 100%;
+}
+
+.container {
+  display: flex;
+  padding: 0;
+  margin: 20px;
+  font-family: $font-primary;
+  width: 90%;
+
+  .table {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: 70%;
+  }
+
+  .table-register{
+    background-color: $color-white;
+    padding-left: 3vh;
+    width: 80%;
+    height: 55vh;
+    margin-top: 20px;
+    border-radius: 10px;
+
+  }
+  .filter{
+    width: 100%;
+    display: flex;
+  }
+
+  .Navbar-container {
+    width: 100%;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    app-navbaruser {
+      width: 100%;
+      box-sizing: border-box;
+      display: flex;
+      justify-content: space-between;
+
+    }
+  }
+}
+
+
+@media only screen and (max-width: 900px) {
+  .container-form {
+      #height: 80%;
+    }
+}
+@media only screen and (max-width: 800px) {
+  .container-form {
+      #height: 80%;
+    }
+}
+
+@media only screen and (max-width: 660px) {
+  .container-form {
+      border-radius: 10px;
+      #height: 80%;
+  }
+}
+@media only screen and (max-width: 647px) {
+  .container-form {
+      #height:80%;
+    width: 40%;
+  }
+  .buttom-container{
+    display: flex;
+    flex-direction: column;
+    btnUpdate{
+      margin: 0;
+    }
+  }
+}
+
+@media only screen and (max-width: 350px) {
+  .container-form {
+    #height:80%;
+    #width: 30%;
+    margin: 0;
+  }
+  .container{
+    margin: 0;
+  }
+  .table{
+    margin-left: 0px;
   }
 }
