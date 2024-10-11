@@ -1,16 +1,20 @@
 .container-principal{
     width: 100%;
-    height: 40%;
+    height: 90%;
     padding: 0%;
     display: flex;
     justify-content: space-evenly;
+}
+.paginator {
+  flex-direction: column;        /* Espacio entre los botones y otros elementos */
+  padding: 10px;
 }
 .form-fare {
     display: flex;
     flex-direction: column;
     gap: 20px;
     width: 65%;
-    height: 120%;
+    height: 90%;
     margin-top: 10px;
     background-color: white;
     padding: 2vh;
@@ -48,22 +52,29 @@
 
 .table-fare{
     max-width: 30%;
-    max-height: 146%;
+    max-height: 94%;
     height: auto;
     margin-right: 2vh;
 }
 @media (max-width: 950px) {
   .table-fare{
     max-width: 15%;
-    max-height: 146%;
     height: auto;
     margin-right: 2vh;
+  }
+  .paginator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    max-width: 50%;
   }
 }
 
 @media (max-width: 760px) {
     .table-fare{
-        max-height: 50%;
+      max-height: 94%;
         width: 30%;
     }
     .guardar{
@@ -72,7 +83,7 @@
     }
     .form-fare{
         width: 60%;
-      height: 160%;
+      height: 90%;
     }
     .input-container{
         flex-direction: column;
@@ -121,7 +132,7 @@
     }
     .form-fare{
         width: 60%;
-        height: 150%;
+        height: 90%;
         display: block;
     }
 }
@@ -129,7 +140,7 @@
 @media (max-width: 405px){
   .form-fare{
     width: 40%;
-    height: 170%;
+    height: 90%;
     display: block;
   }
 }

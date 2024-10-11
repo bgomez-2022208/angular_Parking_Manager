@@ -1,33 +1,19 @@
 <table class="table-bordered table-container">
-    <ul class="list-unstyled">
-        <li class="product-row" *ngFor="let far of fare">
-            <strong>{{ far.name }}</strong> {{ far.price }}
-        </li>
-        <li class="product-row">
-            <strong>Producto B</strong> $15.50
-        </li>
-        <li class="product-row">
-            <strong>Producto C</strong> $22.00
-        </li>
-        <li class="product-row">
-            <strong>Producto A</strong> $10.00
-        </li>
-    </ul>
-    <ul class="pagination">
-        <li class="page-item">
-            <a class="page-link" href="#" aria-label="Previous">
-              <span aria-hidden="true">&laquo;</span>
-            </a>
-        </li>
-
-        <li  class="page-item" >
-            <a class="page-link" href="#" ></a>
-        </li>
-
-        <li class="page-item">
-            <a class="page-link" href="#" aria-label="Next">
-              <span aria-hidden="true">&raquo;</span>
-            </a>
-        </li>
-    </ul>
+  <ul class="list-unstyled">
+    <li class="product-row" *ngFor="let far of fare">
+      <button class="update-users" (click)="getFareById(far.fareId)">
+        <strong>{{ far.name }}</strong>
+        <span>{{ far.price }}</span>
+      </button>
+    </li>
+  </ul>
+  <ul class="pagination">
+    <mat-paginator
+      class="paginator"
+      [length]="totalElements"
+      [pageSize]="itemsPerPage"
+      [pageIndex]="currentPage"
+      (page)="changePage($event)">
+    </mat-paginator>
+  </ul>
 </table>

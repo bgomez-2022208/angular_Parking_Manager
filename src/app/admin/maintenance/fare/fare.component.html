@@ -1,7 +1,7 @@
 <app-navbaruser title="Fare"></app-navbaruser>
 <div class="container-principal">
     <div class="table-fare">
-        <app-fare-table></app-fare-table>
+        <app-fare-table (fareSelected)="onFareSelected($event)"></app-fare-table>
     </div>
   <form class="form-fare" [formGroup]="fareForm" (ngSubmit)="onSubmit()">
     <h2>Agregar tarifa</h2>
@@ -13,7 +13,7 @@
 
       <mat-form-field appearance="outline" class="input-small">
         <mat-label>Start Time</mat-label>
-        <input type="text" matInput placeholder="Enter start date" formControlName="startTime" required class="input-">
+        <input type="time" matInput placeholder="Enter start date" formControlName="startTime" required class="input-">
       </mat-form-field>
     </div>
 
@@ -25,7 +25,7 @@
 
       <mat-form-field appearance="outline" class="input-small">
         <mat-label>End Time</mat-label>
-        <input type="text" matInput placeholder="Enter end date" formControlName="endTime" required class="escritos">
+        <input type="time" matInput placeholder="Enter end date" formControlName="endTime" required class="escritos">
       </mat-form-field>
     </div>
 

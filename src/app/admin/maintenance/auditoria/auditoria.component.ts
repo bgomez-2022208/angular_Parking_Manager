@@ -34,7 +34,7 @@ export class AuditoriaComponent implements OnInit{
   readonly maxDate = new Date();
   showCard: boolean = false;
   @Input() audith: AuditData[] = [];
-  @Input() itemsPerPage: number = 10;
+  @Input() itemsPerPage: number = 8;
   @Output() pageChange = new EventEmitter<number>();
   @Input() totalPages: number = 1;
   searchQuery: string = "";
@@ -111,7 +111,7 @@ export class AuditoriaComponent implements OnInit{
         this.totalElements = data.totalElements;
 
         this.paginator.length = this.totalElements;
-        this.paginator.pageIndex = page; // Esto puede ser innecesario si ya está controlado por el paginador
+        this.paginator.pageIndex = page;
         this.currentPage = page;
 
         // Depuración
