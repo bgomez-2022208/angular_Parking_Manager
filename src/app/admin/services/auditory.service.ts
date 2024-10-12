@@ -44,9 +44,42 @@ export class AuditoryService {
     return this.http.get<AuditData>(url);
   }
 
-  getAuditoryByEntity(entity:string): Observable<AuditData>{
+  getAuditoryByEntity(entity: string, size: number, page: number): Observable<any> {
     const url = `${this.apiUrl}/audith/entity/${entity}`;
-    return  this.http.get<AuditData>(url);
+    return this.http.get<any>(url, {
+      params: {
+        size: size.toString(),
+        page: page.toString(),
+      }
+    }).pipe(
+      tap(audits => console.log('Auditorías recibidas filtradas por entidad:', audits)),
+      catchError(error => {
+        console.error('Error al obtener auditorías filtradas por entidad:', error);
+        throw error;
+      })
+    );
   }
+
+  getAuditoryByDateRange(startDate: string, endDate: string, size: number, page: number): Observable<any> {
+    const url = `${this.apiUrl}/audith/date-range`;
+    const body = {
+      startDate: startDate,
+      endDate: endDate
+    };
+
+    return this.http.post<any>(url, body, {
+      params: {
+        size: size.toString(),
+        page: page.toString()
+      }
+    }).pipe(
+      tap(audits => console.log('Auditorías recibidas:', audits)),
+      catchError(error => {
+        console.error('Error al obtener las auditorías por rango de fechas:', error);
+        throw error;
+      })
+    );
+  }
+
 
 }

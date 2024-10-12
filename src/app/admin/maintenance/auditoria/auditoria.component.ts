@@ -24,7 +24,7 @@ import { audit } from 'rxjs';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AuditoriaComponent implements OnInit{
-  displayedColumns: string[] = ['entity', 'startDate', 'description', 'operation', 'result', 'more'];
+  displayedColumns: string[] = ['entity', 'startDate', 'operation', 'result', 'more'];
   expandedElement: any | null = null;
   auditData: AuditData | null = null;
   dataSource: MatTableDataSource<AuditData>;
@@ -40,6 +40,8 @@ export class AuditoriaComponent implements OnInit{
   searchQuery: string = "";
   currentPage: number = 0;
   pageIndex=0;
+  startDate: Date | null = null;
+  endDate: Date | null = null;
 
 
   selectedDateControl = new FormControl();
@@ -58,13 +60,44 @@ export class AuditoriaComponent implements OnInit{
     });
   }
 
+  applyDateRangeFilter(): void {
+    if (this.startDate && this.endDate) {
+      const formattedStartDate = this.datePipe.transform(this.startDate, 'yyyy-MM-ddTHH:mm:ss.SSSSSS');
+      const formattedEndDate = this.datePipe.transform(this.endDate, 'yyyy-MM-ddTHH:mm:ss.SSSSSS');
+
+      if (formattedStartDate && formattedEndDate) {
+        this.auditoryService.getAuditoryByDateRange(formattedStartDate, formattedEndDate, this.itemsPerPage, this.currentPage).subscribe(
+          (data: any) => {
+            console.log('Auditorías filtradas por rango de fechas:', data);
+            this.audith = data.audiths;
+            this.totalElements = data.totalElements;
+            this.totalPages = data.totalPages;
+
+            this.dataSource.data = this.audith;
+
+            if (this.paginator) {
+              this.paginator.length = this.totalElements;
+              this.paginator.pageIndex = this.currentPage;
+            }
+          },
+          (error: any) => {
+            console.error('Error al cargar auditorías por rango de fechas:', error);
+          }
+        );
+      } else {
+        console.error('Error al formatear las fechas');
+      }
+    } else {
+      console.error('Fechas de inicio o fin no válidas');
+    }
+  }
 
 
 
   applyFilter(event: Event | MatSelectChange | Date) {
     let filterValue = '';
     if (event instanceof Event) {
-      filterValue = (event.target as HTMLInputElement).value; // Asignar valor del input
+      filterValue = (event.target as HTMLInputElement).value;
     }
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
@@ -73,36 +106,33 @@ export class AuditoriaComponent implements OnInit{
     const entity = event.value;
     console.log('Entidad seleccionada:', entity);
 
+    const currentPage = this.currentPage;
+
     if (entity) {
-      this.auditoryService.getAuditoryByEntity(entity).subscribe(
+      this.auditoryService.getAuditoryByEntity(entity, this.itemsPerPage, currentPage).subscribe(
         (data: any) => {
-          console.log('cantidad',data)
-          this.audith = data;
+          console.log('Cantidad de auditorías filtradas por entidad:', data);
+          this.audith = data.audiths;
+          this.totalElements = data.totalElements;
           this.totalPages = data.totalPages;
-          this.currentPage = data.currentPage;
-          console.log('Auditorías filtradas por entidad:', this.audith);
+
           this.dataSource.data = this.audith;
+
+          console.log(this.audith)
+
+          if (this.paginator) {
+            this.paginator.length = this.totalElements;
+            this.paginator.pageIndex = currentPage;
+          }
         },
         (error: any) => {
           console.error('Error al cargar auditorías por entidad:', error);
         }
       );
     } else {
-      this.loadAudits(8);
+      this.loadAudits(this.currentPage);
     }
   }
-
-  applyDateFilter(selectedDate: Date) {
-    if (selectedDate) {
-      const formattedDate = this.datePipe.transform(selectedDate, 'yyyy-MM-dd');
-      this.dataSource.filter = formattedDate ? formattedDate.trim().toLowerCase() : '';
-    }
-
-    if (this.dataSource.paginator) {
-      this.dataSource.paginator.firstPage();
-    }
-  }
-
 
   loadAudits(page: number): void {
     this.auditoryService.getAuditory(this.itemsPerPage, page).subscribe(
@@ -114,7 +144,6 @@ export class AuditoriaComponent implements OnInit{
         this.paginator.pageIndex = page;
         this.currentPage = page;
 
-        // Depuración
         console.log('Datos en la tabla:', page, this.dataSource.data);
         console.log('Total Elements:', this.totalElements);
         console.log('Paginator Length:', this.paginator.length);
@@ -124,13 +153,6 @@ export class AuditoriaComponent implements OnInit{
       }
     );
   }
-
-
-
-
-
-
-
 
   ngOnInit() {
 
