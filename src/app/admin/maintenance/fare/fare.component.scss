@@ -1,3 +1,5 @@
+$palette-color-three: #76ABAEFF;
+$palette-color-four: #ffffff;
 .container-principal{
     width: 100%;
     height: 90%;
@@ -6,7 +8,7 @@
     justify-content: space-evenly;
 }
 .paginator {
-  flex-direction: column;        /* Espacio entre los botones y otros elementos */
+  flex-direction: column;
   padding: 10px;
 }
 .form-fare {
@@ -23,8 +25,19 @@
     margin-left: 3vh;
 
   .guardar {
-    background-color: #31363F;
-    color: #fff;
+    background-color: $palette-color-three;
+    color: $palette-color-four;
+    border: none;
+    padding: 0.4rem 0.8rem;
+    border-radius: 5px;
+    text-transform: uppercase;
+    width: 40%;
+    margin: 10px auto;
+    align-self: center;
+  }
+  .cancelar {
+    background-color: #a02334;
+    color: $palette-color-four;
     border: none;
     padding: 0.4rem 0.8rem;
     border-radius: 5px;
@@ -81,6 +94,10 @@
         font-size: 10px;
         width: 100%;
     }
+    .cancelar{
+      font-size: 10px;
+      width: 100%;
+    }
     .form-fare{
         width: 60%;
       height: 90%;
@@ -133,6 +150,11 @@
     margin-bottom: 0px;
   }
     .guardar{
+      font-size: 5px;
+      margin: 0px;
+      width: 100%;
+    }
+    .cancelar{
       font-size: 5px;
       margin: 0px;
       width: 100%;
