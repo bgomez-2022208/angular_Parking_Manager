@@ -20,7 +20,7 @@
     <div class="input-container">
       <mat-form-field appearance="outline" class="input-small">
         <mat-label>Price</mat-label>
-        <input type="text" matInput placeholder="Enter price" formControlName="price" required>
+        <input type="number" matInput placeholder="Enter price" formControlName="price" required>
       </mat-form-field>
 
       <mat-form-field appearance="outline" class="input-small">
@@ -28,10 +28,15 @@
         <input type="time" matInput placeholder="Enter end date" formControlName="endTime" required class="escritos">
       </mat-form-field>
     </div>
-
-    <button mat-raised-button color="primary" class="guardar" type="submit">
-      {{ 'BUTTON_SAVE' | translate }}
-    </button>
+   <!-- <mat-slide-toggle )>{{'SPAKING.LABEL_STATUS'|translate}}</mat-slide-toggle>-->
+    <div class="button-container" style="display: flex">
+      <button mat-raised-button color="primary" class="guardar" type="submit">
+        {{ 'BUTTON_SAVE' | translate }}
+      </button>
+      <button mat-raised-button color="primary" class="guardar" type="submit">
+        {{ 'BUTTON_UPDATE' | translate }}
+      </button>
+    </div>
   </form>
 
 
