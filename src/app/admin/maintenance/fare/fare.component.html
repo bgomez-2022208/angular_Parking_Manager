@@ -28,7 +28,8 @@
         <input type="time" matInput placeholder="Enter end date" formControlName="endTime" required class="escritos">
       </mat-form-field>
     </div>
-    <mat-slide-toggle (change)="onToggleChange($event, fareForm.value)"
+    <mat-slide-toggle *ngIf="fareSelected"
+                      (change)="onToggleChange($event, fareForm.value)"
                       [checked]="fareForm.value.status">
       {{ 'SPAKING.LABEL_STATUS' | translate }}
     </mat-slide-toggle>

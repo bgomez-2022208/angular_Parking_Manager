@@ -39,6 +39,7 @@ export class FareComponent {
   isEdit: boolean = false;
   selectedFareId: number | null = null;
   @Input() fare?: FareData[];
+  fareSelected: boolean = false;
 
   onSubmit() {
     if (this.fareForm.valid) {
@@ -89,13 +90,15 @@ export class FareComponent {
     this.fareForm.reset();
     this.fareId = 0;
     this.isEditing = false;
+    this.fareSelected = false;
   }
 
 
 
   onFareSelected(fare: FareData): void {
     console.log('Fare data received in FareComponent:', fare);
-    this.isEditing = true;  // Cambia el estado para indicar que estamos editando
+    this.isEditing = true;
+    this.fareSelected = true;
     this.fareId = fare.fareId;
     this.fareForm.patchValue({
       name: fare.name,
@@ -109,6 +112,7 @@ export class FareComponent {
 
   CancelUpdate() {
     this.fareForm.reset();
+    this.fareSelected=false;
     this.router.navigate([], {
       relativeTo: this.route,
       queryParams: {},
