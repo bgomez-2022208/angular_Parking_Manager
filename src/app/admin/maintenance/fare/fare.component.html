@@ -1,7 +1,7 @@
 <app-navbaruser title="Fare"></app-navbaruser>
 <div class="container-principal">
     <div class="table-fare">
-        <app-fare-table (fareSelected)="onFareSelected($event)"></app-fare-table>
+        <app-fare-table (fareSelected)="onFareSelected($event)" ></app-fare-table>
     </div>
   <form class="form-fare" [formGroup]="fareForm" (ngSubmit)="onSubmit()">
     <h2>Agregar tarifa</h2>
@@ -28,13 +28,16 @@
         <input type="time" matInput placeholder="Enter end date" formControlName="endTime" required class="escritos">
       </mat-form-field>
     </div>
-   <!-- <mat-slide-toggle )>{{'SPAKING.LABEL_STATUS'|translate}}</mat-slide-toggle>-->
+    <mat-slide-toggle (change)="onToggleChange($event, fareForm.value)"
+                      [checked]="fareForm.value.status">
+      {{ 'SPAKING.LABEL_STATUS' | translate }}
+    </mat-slide-toggle>
     <div class="button-container" style="display: flex">
       <button mat-raised-button color="primary" class="guardar" type="submit">
         {{ 'BUTTON_SAVE' | translate }}
       </button>
-      <button mat-raised-button color="primary" class="guardar" type="submit">
-        {{ 'BUTTON_UPDATE' | translate }}
+      <button mat-raised-button color="primary" class="guardar" (click)="CancelUpdate()">
+        {{ 'BUTTON_CANCEL' | translate }}
       </button>
     </div>
   </form>

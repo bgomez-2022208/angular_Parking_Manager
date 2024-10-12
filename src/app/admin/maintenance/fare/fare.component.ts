@@ -1,10 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { FareData, FareService } from '../../services/fare.service';
 import { DatePipe } from '@angular/common';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSlideToggleChange } from '@angular/material/slide-toggle';
 import Swal from 'sweetalert2';
+import { FareTableComponent } from '../components/fare-table/fare-table.component';
+import { ActivatedRoute, Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-fare',
@@ -16,8 +19,11 @@ export class FareComponent {
   fareForm: FormGroup;
   isEditing = false;
   private fareId: number = 0;
+  @Output() fareUpdated = new EventEmitter<void>();
+  @ViewChild(FareTableComponent) fareTable!: FareTableComponent;
 
-  constructor(private datePipe: DatePipe, private fareService: FareService, private fb: FormBuilder) {
+
+  constructor(private datePipe: DatePipe, private fareService: FareService, private fb: FormBuilder,private router: Router,private route: ActivatedRoute,private translate: TranslateService) {
     const fare: FareData[] = [];
     this.dataSource = new MatTableDataSource(fare);
 
@@ -32,6 +38,7 @@ export class FareComponent {
 
   isEdit: boolean = false;
   selectedFareId: number | null = null;
+  @Input() fare?: FareData[];
 
   onSubmit() {
     if (this.fareForm.valid) {
@@ -51,6 +58,7 @@ export class FareComponent {
           () => {
             Swal.fire('Success', 'Fare updated successfully', 'success');
             this.resetForm();
+            this.onFareUpdated();
           },
           (error) => {
             Swal.fire('Error', 'Failed to update fare', 'error');
@@ -62,6 +70,7 @@ export class FareComponent {
           () => {
             Swal.fire('Success', 'Fare created successfully', 'success');
             this.resetForm();
+            this.onFareUpdated();
           },
           (error) => {
             Swal.fire('Error', 'Failed to create fare', 'error');
@@ -70,6 +79,10 @@ export class FareComponent {
         );
       }
     }
+  }
+
+  onFareUpdated() {
+    this.fareTable.loadFares(this.fareTable.currentPage);
   }
 
   resetForm(): void {
@@ -89,8 +102,61 @@ export class FareComponent {
       startTime: fare.startTime,
       endTime: fare.endTime,
       price: fare.price,
+      status: fare.status
     });
     console.log('Fare data received in FareComponent:', fare);
+  }
+
+  CancelUpdate() {
+    this.fareForm.reset();
+    this.router.navigate([], {
+      relativeTo: this.route,
+      queryParams: {},
+    });
+  }
+
+  onToggleChange(event: MatSlideToggleChange, fare: FareData){
+    const newStatus = event.checked;
+    const updatedFareData: FareData = { ...fare, status: newStatus };
+    if(!newStatus){
+      Swal.fire({
+        icon:'warning',
+        title: this.translate.instant('FARE.ALERT_DISABLE_FARE_TITLE'),
+        text: this.translate.instant('FARE_ALERT_DISABLE_FARE_MESSAGE'),
+        confirmButtonText: this.translate.instant('FARE.ALERT_DISABLE_YES'),
+        cancelButtonText: this.translate.instant('FARE.ALERT_DISABLE_NO'),
+        showCancelButton: true,
+      }).then((result) => {
+        this.fareService.updateFare(this.fareId ,updatedFareData).subscribe({
+          next: (response) => {
+            Swal.fire({
+              icon:'success',
+              title: this.translate.instant('FARE.ALERT_DISABLED_FARE')
+            })
+            this.resetForm()
+            this.onFareUpdated()
+          },
+          error: (error) => {
+            console.log('Error al desactivar la tarifa:',error)
+          }
+        })
+        this.resetForm()
+      })
+    } else {
+      this.fareService.updateFare(this.fareId,updatedFareData).subscribe({
+        next: (response) => {
+          Swal.fire({
+            icon: 'success',
+            title: this.translate.instant('FARE.ALERT_ENABLED_FARE')
+          })
+          this.resetForm()
+          this.onFareUpdated()
+        },
+        error: (error) => {
+          console.log('Error al activar el registro:',error)
+        }
+      })
+    }
   }
 
 

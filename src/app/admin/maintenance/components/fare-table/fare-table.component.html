@@ -2,8 +2,16 @@
   <ul class="list-unstyled">
     <li class="product-row" *ngFor="let far of fare">
       <button class="update-users" (click)="getFareById(far.fareId)">
-        <strong>{{ far.name }}</strong>
-        <span>{{ far.price }}</span>
+        <span>
+          <mat-icon [ngClass]="{'active-icon': far.status, 'inactive-icon': !far.status}">
+            circle
+          </mat-icon>
+        </span>
+        <div class="fare-detail">
+
+          <strong>{{ far.name }}</strong>
+          <span>{{ far.price }}</span>
+        </div>
       </button>
     </li>
   </ul>
