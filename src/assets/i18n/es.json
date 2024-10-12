@@ -265,5 +265,14 @@
     "MESSAGE": "El usuario ha sido eliminado correctamente.",
     "TITLE_ERROR": "Error al eliminar",
     "MESSAGE_ERROR": "Hubo un error al eliminar el usuario. Inténtelo de nuevo."
+  },
+  "USER": {
+    "ALERT_DISABLE_USER_TITLE": "Deshabilitar Usuario",
+    "ALERT_DISABLE_USER_MESSAGE": "¿Estás seguro de que deseas deshabilitar a este usuario?",
+    "ALERT_DISABLE_USER_BUTTON_YES": "Sí",
+    "ALERT_DISABLE_USER_BUTTON_NO": "No",
+    "ALERT_DISABLE_USER_SUCCESS_TITLE": "Usuario Deshabilitado",
+    "ALERT_DISABLE_USER_SUCCESS_MESSAGE": "El usuario ha sido deshabilitado exitosamente.",
+    "LABEL_STATUS": "Status"
   }
 }

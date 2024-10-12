@@ -48,24 +48,27 @@
           <mat-error *ngIf="userForm.get('password')?.invalid">{{getErrorMessage('password')}}</mat-error>
         </mat-form-field>
       </div>
+
+        <mat-form-field class="profile-select">
+          <mat-label>{{ 'ADD_USERS.FORM.LABEL_PROFILE' | translate }}</mat-label>
+          <mat-select formControlName="profile" required>
+            <mat-option *ngFor="let profile of profiles" [value]="profile.profileId">
+              {{ profile.description | translate }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
       </div>
 
-      <mat-form-field class="profile-select">
-        <mat-label>{{ 'ADD_USERS.FORM.LABEL_PROFILE' | translate }}</mat-label>
-        <mat-select formControlName="profile" required>
-          <mat-option *ngFor="let profile of profiles" [value]="profile.profileId">
-            {{ profile.description | translate }}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-
+      <div class="container-inputs">
+      <button class="cancelar" type="button" (click)="CancelUpdate()">
+        {{ 'ADD_USERS.BUTTONS.BTN_CANCELAR' | translate }}
+      </button>
       <button class="guardar" type="submit">
         {{ 'ADD_USERS.BUTTONS.BTN_SAVE' | translate }}
       </button>
+        <mat-slide-toggle  *ngIf="userIdSelected" (change)="onToggleChange($event)" formControlName="status">{{ 'USER.LABEL_STATUS' | translate }}</mat-slide-toggle>
 
+      </div>
     </form>
-    <button class="cancelar" type="button" (click)="CancelUpdate()">
-      {{ 'ADD_USERS.BUTTONS.BTN_CANCELAR' | translate }}
-    </button>
   </div>
 </div>

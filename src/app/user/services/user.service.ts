@@ -90,6 +90,17 @@ export class ApiUserService {
     return this.http.put<any>(url, null)
     }
 
+  userDeleteStatus(status: boolean, userId: number | undefined, dpi: number, profileId: number): Observable<any> {
+    if (userId === undefined) {
+      throw new Error('El userId es requerido para actualizar el estado del usuario');
+    }
+    const body = { status, dpi, profileId};
+    const url = `${this.apiUrl}/users/${userId}`;
+
+    return this.http.patch<any>(url, body);
+  }
+
+
   logout() {
     localStorage.removeItem('token')
   }

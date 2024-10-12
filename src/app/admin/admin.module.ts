@@ -46,6 +46,7 @@ import { TableProfilesComponent } from '../shared/table-profiles/table-profiles.
 import { HttpClient } from '@angular/common/http';
 import { HttpLoaderFactory } from '../app.module';
 import { FilterProfileComponent } from './maintenance/components/filter-profile/filter-profile.component';
+import { ReporteComponent } from './maintenance/reporte/reporte.component';
 
 const routes : Routes = [
   {
@@ -59,6 +60,10 @@ const routes : Routes = [
   {
     path:'auditory',
     component: AuditoriaComponent
+  },
+  {
+    path:'reporte',
+    component: ReporteComponent
   },
 
 
@@ -133,7 +138,8 @@ const routes : Routes = [
     AddUsersComponent,
     FilterUserComponent,
     NavbaruserComponent,
-    FilterProfileComponent
+    FilterProfileComponent,
+    CardAuditoryComponent
   ],
   providers: [
     DatePipe

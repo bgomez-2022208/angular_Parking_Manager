@@ -28,7 +28,7 @@ export class UsersComponent implements OnInit {
   users: User[] = [];
   selectedUser: User | null = null;
   isEditing: boolean = false;
-  itemsPerPage: number = 8;
+  itemsPerPage: number = 10;
   currentPage: number = 1;
 
   totalUsers: number = 0;

@@ -47,5 +47,9 @@ export class ApiUserService {
     const url = `${this.apiUrl}/users/${userId}`;
     return this.http.delete<any>(url);
   }
-
+  userDeleteStatus(userId: number, status: boolean): Observable<any> {
+    const body ={status}
+    const url = `${this.apiUrl}/users/${userId}`;
+    return this.http.patch<any>(url, body);
+  }
 }

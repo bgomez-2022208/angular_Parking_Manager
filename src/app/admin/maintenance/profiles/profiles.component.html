@@ -44,7 +44,7 @@
             <button *ngIf="mostrarBoton" (click)="updateProfile()" [disabled]="!rolesChanged" class="btnUpdate">{{'BUTTONS.BTN_UPDATE_PROFILE' | translate}}</button>
 
             <button *ngIf="mostrarBotonGuardar" class="btnUpdate" type="submit">{{'BUTTONS.BTN_SAVE_PROFILE' | translate}}</button>
-            <button (click)="resetForm()" class="btnUpdate">Cancelar</button>
+            <button (click)="resetForm()" class="btnUpdate" type="button">Cancelar</button>
           </div>
         </form>
     </div>
