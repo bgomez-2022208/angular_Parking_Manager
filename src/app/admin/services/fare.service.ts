@@ -48,5 +48,16 @@ export class FareService {
       map(response => response.message) // Extraemos el 'message' que contiene FareData
     );
   }
-
+  updateFare(fareId: number, fareData: any): Observable<any> {
+    console.log('fareData for updeta',fareData)
+    const url = `${this.apiUrl}/fare/updateFare/${fareId}`;
+    return this.http.put<any>(url, fareData);
+  }
+/*
+  disabledFare(status: boolean, fareId: number) {
+    const body = { status }
+    const url = `${this.apiUrl}/fare/updateFare/${fareId}`
+    return this.http.patch<any>(url,body)
+  }
+*/
 }

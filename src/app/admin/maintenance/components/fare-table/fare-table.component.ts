@@ -6,6 +6,10 @@ import { Router } from '@angular/router';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { AuditData } from '../../../services/auditory.service';
+import { DeleteFareComponent } from '../delete-fare/delete-fare.component';
+import { MatSlideToggleChange } from '@angular/material/slide-toggle';
+import Swal from 'sweetalert2';
+import { error } from '@angular/compiler-cli/src/transformers/util';
 
 @Component({
   selector: 'app-fare-table',
@@ -82,7 +86,7 @@ export class FareTableComponent {
   getFareById(fareId: number) {
     this.fareService.getFareById(fareId).subscribe({
       next: (fare: FareData) => {
-        this.fareSelected.emit(fare); // Emitir FareData directamente
+        this.fareSelected.emit(fare);
       },
       error: (err) => {
         console.error('Error fetching fare data', err);
@@ -90,4 +94,58 @@ export class FareTableComponent {
     });
   }
 
+  openDeletetDialog(userId: number): void {
+    const dialogRef = this.dialog.open(DeleteFareComponent, {
+      width: '300px',
+      data: { userId: userId }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.loadFares(this.currentPage);
+      }
+    });
+  }
+  /*onToggleChange(event: MatSlideToggleChange){
+    const status = event.checked;
+    if(!status){
+      Swal.fire({
+        icon:'warning',
+        title: this.translate.instant('FARE.ALERT_DISABLE_FARE_TITLE'),
+        text: this.translate.instant('FARE_ALERT_DISABLE_FARE_MESSAGE'),
+        confirmButtonText: this.translate.instant('FARE.ALERT_DISABLE_YES'),
+        cancelButtonText: this.translate.instant('FARE.ALERT_DISABLE_NO'),
+        showCancelButton: true,
+      }).then((result) => {
+        this.fareService.disabledFare(status, this.fareSelected).subscribe({
+          next: (response) => {
+            Swal.fire({
+              icon:'success',
+              title: this.translate.instant('FARE.ALERT_DISABLED_FARE')
+            })
+            //this.resetForm()
+            this.loadFares(this.currentPage)
+          },
+          error: (error) => {
+            console.log('Error al desactivar la tarifa:',error)
+          }
+        })
+        //this.resetForm()
+      })
+    } else {
+      this.fareService.disabledFare(status, this.fareId).subscribe({
+        next: (response) => {
+          Swal.fire({
+            icon: 'success',
+            title: this.translate.instant('FARE.ALERT_ENABLED_FARE')
+          })
+          //this.resetForm()
+          this.loadFares(this.currentPage)
+        },
+        error: (error) => {
+          console.log('Error al activar el registro:',error)
+        }
+      })
+    }
+  }*/
 }
