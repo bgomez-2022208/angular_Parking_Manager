@@ -59,28 +59,27 @@ h2 {
 }
 
 .guardar {
-  background-color: $palette-color-one;
-  color: $palette-color-three;
+  background-color: $palette-color-three;
+  color: $palette-color-four;
   border: none;
   padding: 0.4rem 0.8rem;
   border-radius: 5px;
   text-transform: uppercase;
-  width: 70%;
-  margin-left: 0;
+  width: 20%;
   margin-right: auto;
   align-self: flex-end;
 }
 .cancelar {
-  background-color: $palette-color-one;
-  color: $palette-color-three;
+  background-color: #a02334;
+  color: $palette-color-four;
   margin-top: 10px;
   border: none;
   padding: 0.4rem 0.8rem;
   border-radius: 5px;
   text-transform: uppercase;
-  width: 70%;
+  width: 20%;
   margin-left: 0;
-  margin-right: auto;
+  margin-right: 10px;
   align-self: flex-end;
 }
 
@@ -120,16 +119,16 @@ h2 {
    }
 
   .guardar {
-    width: 70%;
+    width: 35%;
     margin-left: 0;
     margin-right: auto;
     align-self: flex-end;
   }
 
   .cancelar {
-    width: 70%;
+    width: 35%;
     margin-left: 0;
-    margin-right: auto;
+    margin-right: 10px;
     align-self: flex-end;
   }
 }
@@ -164,17 +163,17 @@ h2 {
   }
 
   .guardar {
-    width: 70%;
+    width: 50%;
     margin-left: 0;
     margin-right: auto;
     align-self: flex-end;
   }
   .cancelar {
-    color: white;
-    width: 70%;
+    width: 50%;
     margin-left: 0;
     margin-right: auto;
     align-self: flex-end;
+    margin-bottom: 10px;
   }
 }
 
@@ -196,16 +195,18 @@ h2 {
   }
 
   .guardar {
-    width: 70%;
+    width: 50%;
     margin-left: 0;
     margin-right: auto;
     align-self: flex-end;
   }
   .cancelar {
-    width: 70%;
+    width: 50%;
     margin-left: 0;
     margin-right: auto;
     align-self: flex-end;
+    margin-bottom: 10px;
+
   }
 }
 

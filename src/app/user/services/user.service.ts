@@ -71,7 +71,7 @@ export class ApiUserService {
     }
 
     getProfiles(): Observable<any> {
-    const url = `${this.apiUrl}/profiles`;
+    const url = `${this.apiUrl}/users/profiles`;
     return this.http.get<any>(url);
     }
 
@@ -89,6 +89,17 @@ export class ApiUserService {
     const url = `${this.apiUrl}/profiles/update/${profileId}/roles?roleIds=${roles}`
     return this.http.put<any>(url, null)
     }
+
+  userDeleteStatus(status: boolean, userId: number | undefined, dpi: number, profileId: number): Observable<any> {
+    if (userId === undefined) {
+      throw new Error('El userId es requerido para actualizar el estado del usuario');
+    }
+    const body = { status, dpi, profileId};
+    const url = `${this.apiUrl}/users/${userId}`;
+
+    return this.http.patch<any>(url, body);
+  }
+
 
   logout() {
     localStorage.removeItem('token')

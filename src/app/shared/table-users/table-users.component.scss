@@ -1,15 +1,21 @@
 .table-register {
   background-color: #FFFFFF;
-  width: 80%;
   margin-left: 10px;
+  width: 100%;
+  height: auto;
 }
 
 .parent-container-footer {
   height: 5%;
 }
-
 .parent-container {
   height: 90%;
+}
+.active-icon{
+  color: green;
+}
+.inactive-icon{
+  color: red;
 }
 .user-item{
   display: flex;
@@ -34,11 +40,6 @@
   width: calc(100% + 40px);
   margin-left: -25px;
 
-  .table-register {
-  background-color: #FFFFFF;
-  width: 90%;
-
-}
 
   .parent-container {
     height: 90%;
@@ -104,14 +105,7 @@
     }
   }
 
-  .pagination {
-    width: auto;
-    display: flex;
-    justify-content: center;
-    padding: 1rem 0;
-    list-style-type: none;
-    padding-left: 0;
-    margin: 0;
+
 
     li {
       height: auto;
@@ -203,7 +197,7 @@
       margin: 0.25rem 0;
     }
   }
-}
+
 
 .example-icon {
   cursor: pointer;
@@ -219,7 +213,7 @@
   width: auto;
   display: flex;
   justify-content: center;
-  padding: 1rem 0;
+  padding: 4rem 0;
   list-style-type: none;
   padding-left: 0;
   margin: 0;

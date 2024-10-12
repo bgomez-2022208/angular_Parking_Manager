@@ -248,5 +248,14 @@
     "MESSAGE": "The user has been deleted successfully.",
     "TITLE_ERROR": "Delete Error",
     "MESSAGE_ERROR": "There was an error deleting the user. Please try again."
+  },
+  "USER": {
+    "ALERT_DISABLE_USER_TITLE": "Disable User",
+    "ALERT_DISABLE_USER_MESSAGE": "Are you sure you want to disable this user?",
+    "ALERT_DISABLE_USER_BUTTON_YES": "Yes",
+    "ALERT_DISABLE_USER_BUTTON_NO": "No",
+    "ALERT_DISABLE_USER_SUCCESS_TITLE": "User Disabled",
+    "ALERT_DISABLE_USER_SUCCESS_MESSAGE": "The user has been disabled successfully.",
+    "LABEL_STATUS": "Status"
   }
 }

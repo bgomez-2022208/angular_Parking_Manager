@@ -1,0 +1,94 @@
+<div class="Navbar-container">
+  <app-navbaruser class="app-nav" title="Audit"></app-navbaruser>
+</div>
+<div class="principal-container">
+  <div class="nav">
+    <div class="filter input-search">
+
+    </div>
+    <div class="filter">
+      <mat-form-field class="example-container input-search">
+        <mat-label>{{ 'Entity' | translate }}</mat-label>
+        <mat-select [(value)]="selected" (selectionChange)="applyFilter($event)">
+          <mat-option value="">None</mat-option>
+          <mat-option value="User">User</mat-option>
+          <mat-option value="Profile">Profile</mat-option>
+          <mat-option value="Fare">Fare</mat-option>
+          <mat-option value="Register">Register</mat-option>
+          <mat-option value="Parking">Parking</mat-option>
+          <mat-option value="Role">Role</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="filter">
+      <mat-form-field class="example-container input-search">
+        <mat-label>{{ 'Change' | translate }}</mat-label>
+        <mat-select [(value)]="selected" (selectionChange)="applyFilter($event)">
+          <mat-option value="">None</mat-option>
+          <mat-option value="GET">GET</mat-option>
+          <mat-option value="Read">READ</mat-option>
+          <mat-option value="CREATE">CREATE</mat-option>
+          <mat-option value="Delete	">DELETE	</mat-option>
+          <mat-option value="Update">UPDATE</mat-option>
+          <mat-option value="Role">Role</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="filter">
+      <mat-form-field class="example-container input-search">
+        <mat-label>Filter</mat-label>
+        <input matInput [matDatepicker]="picker"
+               [min]="minDate"
+               [max]="maxDate"
+               (dateChange)="applyFilter($event.value)">
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </div>
+
+  </div>
+
+  <div class="table-container">
+    <div class="mat-elevation-z8">
+      <table mat-table [dataSource]="dataSource" matSort>
+
+        <!-- Columna Entidad -->
+        <ng-container matColumnDef="placa">
+          <th mat-header-cell *matHeaderCellDef>Placa</th>
+          <td mat-cell *matCellDef="let row"> {{row.placa}} </td>
+        </ng-container>
+
+        <!-- Columna Fecha de Inicio -->
+        <ng-container matColumnDef="startDate">
+          <th mat-header-cell *matHeaderCellDef>Start Date</th>
+          <td mat-cell *matCellDef="let row"> {{row.startDate | date:'yyyy-MM-dd'}} </td>
+        </ng-container>
+        <!-- Columna Fecha de Final -->
+        <ng-container matColumnDef="endDate">
+          <th mat-header-cell *matHeaderCellDef>Start Date</th>
+          <td mat-cell *matCellDef="let row"> {{row.startDate | date:'yyyy-MM-dd'}} </td>
+        </ng-container>
+
+
+        <!-- Columna Descripción -->
+        <ng-container matColumnDef="monto">
+          <th mat-header-cell *matHeaderCellDef>Monto</th>
+          <td mat-cell *matCellDef="let row"> {{row.monto}} </td>
+        </ng-container>
+
+
+
+
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+        <tr class="mat-row" *matNoDataRow>
+        </tr>
+      </table>
+      <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" attr.aria-label="{{ 'PAGINATOR_ARIA_LABEL' | translate }}"></mat-paginator>
+    </div>
+  </div>
+
+  <app-card-auditory *ngIf="showCard" class="app-card-auditory" [data]="auditData" (closeCard)="closeCard()"></app-card-auditory>
+</div>

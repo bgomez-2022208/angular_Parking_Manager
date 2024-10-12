@@ -2,42 +2,45 @@
 <div class="parent-container">
   <ol class="list-group px-0 table-register">
     <li *ngFor="let user of users" class="list-group-item d-flex align-items-center p-0 px-1 user-item">
-      <button class="update-users" (click)="getUserById(user.userId)">
-        <div class="ms-2 me-auto">
-          <div class="fw-bold">{{ user.email }}</div>
-          {{ user.name }}
-        </div>
-      </button>
       <div class="ms-auto d-flex align-items-center">
-        <button class="delete-users" (click)="openDeletetDialog(user.userId)">
-          <mat-icon class="example-icon" aria-label="Delete user">
-            delete
-          </mat-icon>
-        </button>
-      </div>
-    </li>
-  </ol>
-</div>
+        <!--<button class="delete-users" (click)="openDeletetDialog(user.userId)">
+             <mat-icon class="example-icon" aria-label="Delete user">
+               delete
+             </mat-icon>
+           </button>-->
+          <mat-icon [ngClass]="{'active-icon': user.status, 'inactive-icon': !user.status}">circle</mat-icon>
+
+         </div>
+         <button class="update-users" (click)="getUserById(user.userId)">
+           <div class="ms-2 me-auto">
+             <div class="fw-bold">{{ user.email }}</div>
+             {{ user.name }}
+           </div>
+         </button>
+
+       </li>
+     </ol>
+   </div>
 
 
-<div class="parent-container-footer">
-  <nav aria-label="Page navigation example">
-    <ul class="pagination">
-      <li class="page-item" [class.disabled]="currentPage === 1">
-        <a class="page-link" href="#" aria-label="Previous" (click)="changePage($event, currentPage - 1)">
-          <span aria-hidden="true">&laquo;</span>
-        </a>
-      </li>
+   <div class="parent-container-footer">
+     <nav aria-label="Page navigation example">
+       <ul class="pagination">
+         <li class="page-item" [class.disabled]="currentPage === 1">
+           <a class="page-link" href="#" aria-label="Previous" (click)="changePage($event, currentPage - 1)">
+             <span aria-hidden="true">&laquo;</span>
+           </a>
+         </li>
 
-      <li *ngFor="let page of displayedPages" class="page-item" [class.active]="currentPage === page">
-        <a class="page-link" href="#" (click)="changePage($event, page)">{{ page }}</a>
-      </li>
+         <li *ngFor="let page of displayedPages" class="page-item" [class.active]="currentPage === page">
+           <a class="page-link" href="#" (click)="changePage($event, page)">{{ page }}</a>
+         </li>
 
-      <li class="page-item" [class.disabled]="currentPage === totalPages">
-        <a class="page-link" href="#" aria-label="Next" (click)="changePage($event, currentPage + 1)">
-          <span aria-hidden="true">&raquo;</span>
-        </a>
-      </li>
-    </ul>
-  </nav>
-</div>
+         <li class="page-item" [class.disabled]="currentPage === totalPages">
+           <a class="page-link" href="#" aria-label="Next" (click)="changePage($event, currentPage + 1)">
+             <span aria-hidden="true">&raquo;</span>
+           </a>
+         </li>
+       </ul>
+     </nav>
+   </div>

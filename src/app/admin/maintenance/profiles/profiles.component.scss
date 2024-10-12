@@ -176,7 +176,7 @@
   .table-register{
     background-color: $color-white;
     padding-left: 3vh;
-    width: 80%;
+    width: 50%;
     height: 55vh;
     margin-top: 20px;
     border-radius: 10px;
@@ -203,7 +203,14 @@
     }
   }
 }
+@media only screen and (max-width: 1600px) {
+  .table-register{
 
+  }
+  .container-form {
+    #height: 60%;
+  }
+}
 
 @media only screen and (max-width: 900px) {
   .container-form {

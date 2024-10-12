@@ -97,16 +97,9 @@ export class TableUsersComponent {
   }
 
   openDeletetDialog(userId: number): void {
-    const dialogRef = this.dialog.open(DeleteUserConfirmComponent, {
-      width: '300px',
-      data: { userId: userId }
-    });
 
-    dialogRef.afterClosed().subscribe(result => {
-      if (result) {
-        this.loadUsers(this.currentPage);
-      }
-    });
+
+
   }
 
   loadUsers(page: number): void {

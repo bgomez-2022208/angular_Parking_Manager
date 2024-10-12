@@ -7,7 +7,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import Swal from 'sweetalert2';
-
+import { MatSlideToggleChange } from '@angular/material/slide-toggle';
 
 @Component({
   selector: 'app-add-users',
@@ -31,6 +31,7 @@ export class AddUsersComponent implements OnInit {
   profiles: any[] = [];
   isEditing = false;
   userId?: number;
+  userIdSelected = false;
 
   constructor(
     private notifications: NotificationsService,
@@ -47,26 +48,29 @@ export class AddUsersComponent implements OnInit {
       surname: ['', Validators.required],
       profile: ['', Validators.required],
       age: ['', [Validators.required, Validators.min(0)]],
-      dpi: ['', Validators.required],
-      password: ['', [Validators.required, Validators.minLength(6)]]
+      dpi: ['', [Validators.required, Validators.pattern(/^\d+$/)]],
+      password: ['', [Validators.required, Validators.minLength(10)]],
+      status: [false, Validators.required]
     });
-
   }
 
   ngOnInit(): void {
     this.loadProfiles();
+
+
 
     this.route.queryParams.subscribe(params => {
       if (params['userId']) {
         this.isEditing = true;
         this.userId = +params['userId'];
         this.loadUserData(this.userId);
+        this.userIdSelected = true;
       }
     });
   }
 
   loadUsers() {
-    console.log("add-useers");
+    this.userIdSelected = false;
     this.apiUserService.getUsers().subscribe(
       (data) => {
         this.users = data;
@@ -108,9 +112,11 @@ export class AddUsersComponent implements OnInit {
 
 
   loadProfiles() {
+
     this.apiUserService.getProfiles().subscribe(
       (data: any) => {
-        this.profiles = data.profiles;
+        this.profiles = data.message;
+        console.log(this.profiles)
       },
       (error: any) => {
         console.error("Error loading profiles", error);
@@ -185,7 +191,6 @@ export class AddUsersComponent implements OnInit {
       } else {
         this.apiUserService.createUser(userData).subscribe(
           (newUser) => {
-            this.userCreated.emit(newUser);
             this.loadUsers();
             this.userForm.reset();
             Swal.fire({
@@ -223,10 +228,61 @@ export class AddUsersComponent implements OnInit {
 
 
   CancelUpdate() {
+    this.userIdSelected = false;
     this.userForm.reset();
     this.router.navigate([], {
       relativeTo: this.route,
       queryParams: {},
     });
   }
+
+  onToggleChange(event: MatSlideToggleChange) {
+    this.userIdSelected = false;
+    const status = event.checked;
+    if (!status) {
+      Swal.fire({
+        icon: 'warning',
+        title: this.translate.instant('USER.ALERT_DISABLE_USER_TITLE'),
+        text: this.translate.instant('USER.ALERT_DISABLE_USER_MESSAGE'),
+        confirmButtonText: this.translate.instant('USER.ALERT_DISABLE_YES'),
+        cancelButtonText: this.translate.instant('USER.ALERT_DISABLE_NO'),
+        showCancelButton: true,
+      }).then((result) => {
+        if (result.isConfirmed) {
+          this.userIdSelected = false;
+          this.apiUserService.userDeleteStatus(status, this.userId, this.userForm.value.dpi, this.userForm.value.profile).subscribe({
+            next: (response) => {
+              Swal.fire({
+                icon: 'success',
+                title: this.translate.instant('USER.ALERT_DISABLED_PARKING')
+              });
+              this.userForm.reset();
+              this.loadUsers();
+            },
+            error: (error) => {
+              console.error('Error al desactivar usuario:', error);
+            }
+          });
+          this.loadUsers();
+        }
+        this.userForm.reset();
+      });
+    } else {
+      this.userIdSelected = false;
+      this.apiUserService.userDeleteStatus(status, this.userId, this.userForm.value.dpi, this.userForm.value.profile).subscribe({
+        next: (response) => {
+          Swal.fire({
+            icon: 'success',
+            title: this.translate.instant('USER.ALERT_ENABLED_USER')
+          });
+          this.userForm.reset();
+          this.loadUsers();
+        },
+        error: (error) => {
+          console.error('Error al activar usuario:', error);
+        }
+      });
+    }
+  }
+
 }
