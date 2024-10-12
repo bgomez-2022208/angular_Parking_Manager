@@ -112,9 +112,11 @@ export class AddUsersComponent implements OnInit {
 
 
   loadProfiles() {
+
     this.apiUserService.getProfiles().subscribe(
       (data: any) => {
-        this.profiles = data.profiles;
+        this.profiles = data.message;
+        console.log(this.profiles)
       },
       (error: any) => {
         console.error("Error loading profiles", error);

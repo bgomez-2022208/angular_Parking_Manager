@@ -71,7 +71,7 @@ export class ApiUserService {
     }
 
     getProfiles(): Observable<any> {
-    const url = `${this.apiUrl}/profiles`;
+    const url = `${this.apiUrl}/users/profiles`;
     return this.http.get<any>(url);
     }
 

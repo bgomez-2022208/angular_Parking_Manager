@@ -59,8 +59,8 @@ h2 {
 }
 
 .guardar {
-  background-color: $palette-color-one;
-  color: $palette-color-three;
+  background-color: $palette-color-three;
+  color: $palette-color-four;
   border: none;
   padding: 0.4rem 0.8rem;
   border-radius: 5px;
@@ -70,8 +70,8 @@ h2 {
   align-self: flex-end;
 }
 .cancelar {
-  background-color: $palette-color-one;
-  color: $palette-color-three;
+  background-color: #a02334;
+  color: $palette-color-four;
   margin-top: 10px;
   border: none;
   padding: 0.4rem 0.8rem;

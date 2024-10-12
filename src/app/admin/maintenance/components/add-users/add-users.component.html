@@ -52,8 +52,8 @@
         <mat-form-field class="profile-select">
           <mat-label>{{ 'ADD_USERS.FORM.LABEL_PROFILE' | translate }}</mat-label>
           <mat-select formControlName="profile" required>
-            <mat-option *ngFor="let profile of profiles" [value]="profile.profileId">
-              {{ profile.description | translate }}
+            <mat-option *ngFor="let message of profiles" [value]="message.profileId">
+              {{ message.description | translate }}
             </mat-option>
           </mat-select>
         </mat-form-field>
