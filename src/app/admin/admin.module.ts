@@ -47,6 +47,7 @@ import { HttpClient } from '@angular/common/http';
 import { HttpLoaderFactory } from '../app.module';
 import { FilterProfileComponent } from './maintenance/components/filter-profile/filter-profile.component';
 import { FareTableComponent } from './maintenance/components/fare-table/fare-table.component';
+import { DeleteFareComponent } from './maintenance/components/delete-fare/delete-fare.component';
 
 const routes : Routes = [
   {
@@ -87,7 +88,8 @@ const routes : Routes = [
     CardAuditoryComponent,
     DeleteUserConfirmComponent,
     FilterProfileComponent,
-    FareTableComponent
+    FareTableComponent,
+    DeleteFareComponent
   ],
   imports: [
     CommonModule,
