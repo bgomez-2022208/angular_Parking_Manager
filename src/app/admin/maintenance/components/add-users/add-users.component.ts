@@ -105,7 +105,6 @@ export class AddUsersComponent implements OnInit {
     if (controlName === 'email' && control?.hasError('email')) {
       return this.translate.instant('ERRORS.ERROR_INVALID_EMAIL');
     }
-
     return '';
   }
 

@@ -47,6 +47,7 @@ import { HttpClient } from '@angular/common/http';
 import { HttpLoaderFactory } from '../app.module';
 import { FilterProfileComponent } from './maintenance/components/filter-profile/filter-profile.component';
 import { ReporteComponent } from './maintenance/reporte/reporte.component';
+import { RegisterParkingComponent } from './maintenance/register-parking/register-parking.component';
 
 const routes : Routes = [
   {
@@ -64,6 +65,10 @@ const routes : Routes = [
   {
     path:'reporte',
     component: ReporteComponent
+  },
+  {
+    path:'register',
+    component: RegisterParkingComponent
   },
 
 
