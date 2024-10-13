@@ -47,6 +47,7 @@ import { HttpClient } from '@angular/common/http';
 import { HttpLoaderFactory } from '../app.module';
 import { FilterProfileComponent } from './maintenance/components/filter-profile/filter-profile.component';
 import { ReporteComponent } from './maintenance/reporte/reporte.component';
+import { CardReporterComponent } from './maintenance/components/card-reporter/card-reporter.component';
 
 const routes : Routes = [
   {
@@ -86,7 +87,8 @@ const routes : Routes = [
     UsersComponent,
     CardAuditoryComponent,
     DeleteUserConfirmComponent,
-    FilterProfileComponent
+    FilterProfileComponent,
+    CardReporterComponent
   ],
   imports: [
     CommonModule,
@@ -139,7 +141,8 @@ const routes : Routes = [
     FilterUserComponent,
     NavbaruserComponent,
     FilterProfileComponent,
-    CardAuditoryComponent
+    CardAuditoryComponent,
+    CardReporterComponent
   ],
   providers: [
     DatePipe
