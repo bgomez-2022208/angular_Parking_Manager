@@ -1,0 +1,83 @@
+@import "../../../../assets/sass/variables";
+
+.content-register {
+  width: 60%;
+  height: 70vh;
+  display: $host-display;
+  align-items: $host-align-items;
+  flex-direction: $host-flex-direction;
+  font-family: $font-primary;
+  background-color: #FFFFFF;
+  border-radius: 15px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding-top: 2rem;
+}
+
+.container-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 6rem;
+  width: 100%;
+
+  mat-form-field {
+    width: 65%;
+    margin-bottom: 1.5rem;
+
+    .icon-inputs {
+      color: $palette-color-three;
+    }
+
+    mat-error {
+      margin-top: .5rem;
+    }
+  }
+
+  header {
+    width: 100%;
+    text-align: $text-position;
+
+    h1 {
+      align-self: flex-start;
+      margin: 0;
+      padding: 1rem;
+    }
+
+    h3 {
+      color: $text-color-header;
+      margin: 0.5rem;
+    }
+
+    strong {
+      cursor: pointer;
+      color: $palette-color-one;
+    }
+  }
+}
+.btnSubmit {
+  width: 100%;
+  display: $button-display;
+  justify-content: $button-justify;
+  align-items: $button-align;
+  background-color: $palette-color-one;
+  color: $palette-color-three;
+  border: $button-border;
+  padding: $button-padding;
+  border-radius: $button-radius;
+  transition: $button-transition;
+  margin-bottom: $button-mgb;
+  font-family: $font-primary;
+  margin-top: $button-mgt;
+
+  mat-icon {
+    margin-left: $button-icon-mgl;
+  }
+}
+.buttons{
+  display: flex;
+  width: 50%;
+}
