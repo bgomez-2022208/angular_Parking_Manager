@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { HttpClient } from "@angular/common/http";
 import { Observable, tap } from 'rxjs';
 import { environment } from "../../environment";
 
@@ -12,6 +12,7 @@ export class ApiUserService {
     constructor(private http: HttpClient) { }
 
     private apiUrl = environment.USER_SERVICE_URL
+  private apiUrlDATA = environment.FARE_SERVICE_URL
 
     forgotPassword(email: string): Observable<any> {
         const url = `${this.apiUrl}/auth/forgot-password/${email}`
@@ -103,5 +104,15 @@ export class ApiUserService {
 
   logout() {
     localStorage.removeItem('token')
+  }
+
+  //parkings
+  getParkings(): Observable<any> {
+    const url = `${this.apiUrlDATA}/parkings`;
+    return this.http.get<any>(url);
+  }
+
+  createParking(parkingData: { plate: string; parkingId: string }): Observable<any> {
+    return this.http.post<any>(`${this.apiUrlDATA}/registers/entrada`, parkingData);
   }
 }

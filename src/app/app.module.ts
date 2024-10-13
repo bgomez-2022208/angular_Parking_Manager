@@ -4,7 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TokenInterceptor } from './user/services/interceptor';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
@@ -20,6 +20,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
+import { RegisterParkingComponent } from './admin/maintenance/register-parking/register-parking.component';
+import { MatIconModule } from '@angular/material/icon';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json')
@@ -29,6 +31,7 @@ export function HttpLoaderFactory(http: HttpClient) {
   declarations: [
     AppComponent,
     ReporteComponent,
+    RegisterParkingComponent,
   ],
   imports: [
     BrowserModule,
@@ -54,7 +57,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     MatPaginatorModule,
     MatSelectModule,
     MatSortModule,
-    MatTableModule
+    MatTableModule,
+    MatIconModule,
+    FormsModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi:true}
