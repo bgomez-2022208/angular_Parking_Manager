@@ -14,6 +14,7 @@ import { MatSort } from '@angular/material/sort';
 import { DatePipe } from '@angular/common';
 import { MatSelectChange } from '@angular/material/select';
 import { ReportService, ReporteData} from '../../services/reporte.service';
+import jsPDF from 'jspdf';
 
 @Component({
   selector: 'app-reporte',
@@ -23,7 +24,7 @@ import { ReportService, ReporteData} from '../../services/reporte.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ReporteComponent implements AfterViewInit {
-  displayedColumns: string[] = ['plate', 'startDate','more'];
+  displayedColumns: string[] = ['plate', 'startDate','endDate','more'];
   expandedElement: any | null = null;
   reportData: ReporteData | null = null;
   dataSource: MatTableDataSource<ReporteData>;
@@ -39,14 +40,18 @@ export class ReporteComponent implements AfterViewInit {
   currentPage: number = 0;
   pageIndex=0;
   startDate: Date | null = null;
+  selectedParkingId: number | null = null;
   endDate: Date | null = null;
   @Input() totalElements: number = 0;
+
 
 
   selectedDateControl = new FormControl();
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
+  parking: any[] = [];
+  @Input() report: ReporteData[] = [];
 
   constructor(private datePipe: DatePipe,private reportService: ReportService) {
     const report: ReporteData[] = [];
@@ -81,13 +86,61 @@ export class ReporteComponent implements AfterViewInit {
     }
   }
 
-  loadAudits(page: number): void {
+  loadParkings() {
+    this.reportService.getParkings().subscribe(
+      (data: any) => {
+        this.parking = data.content;
+        console.log(this.parking)
+      },
+      (error: any) => {
+        console.error("Error loading parkings", error);
+      }
+    );
+  }
+
+
+
+  applyParkingAndDateRangeFilter(): void {
+    console.log('ID de Parqueo:', this.selectedParkingId);
+    console.log('Fecha de Inicio:', this.startDate);
+    console.log('Fecha de Fin:', this.endDate);
+
+    if (this.selectedParkingId !== null && this.selectedParkingId > 0 && this.startDate && this.endDate) {
+      const formattedStartDate = this.datePipe.transform(this.startDate, 'yyyy-MM-dd');
+      const formattedEndDate = this.datePipe.transform(this.endDate, 'yyyy-MM-dd');
+
+      console.log('Formatted Start Date:', formattedStartDate);
+      console.log('Formatted End Date:', formattedEndDate);
+
+      if (formattedStartDate && formattedEndDate) {
+        this.reportService.getReportsByParkingAndDateRange(this.selectedParkingId, formattedStartDate, formattedEndDate).subscribe(
+          (data: any) => {
+            console.log('Reportes filtrados por parqueo y rango de fechas:', data);
+            this.dataSource.data = data;
+          },
+          (error: any) => {
+            console.error('Error al cargar reportes por parqueo y rango de fechas:', error);
+          }
+        );
+      } else {
+        console.error('Error al formatear las fechas');
+      }
+    } else {
+      console.error('ID de parqueo o fechas no válidas');
+      console.log('id:', this.selectedParkingId, 'ID de Parqueo:', this.selectedParkingId, 'Fecha de Inicio:', this.startDate, 'Fecha de Fin:', this.endDate);
+    }
+  }
+
+
+
+
+
+
+  loadRegister(page: number): void {
     this.reportService.getReporters(this.itemsPerPage, page).subscribe(
       (data: any) => {
         this.dataSource.data = data.content || [];
         this.totalElements = data.totalElements;
-
-        console.log('date:',data.content)
 
         this.paginator.length = this.totalElements;
         this.paginator.pageIndex = page;
@@ -95,7 +148,7 @@ export class ReporteComponent implements AfterViewInit {
 
         console.log('Datos en la tabla:', page, this.dataSource.data);
         console.log('Total Elements:', this.totalElements);
-        console.log('Paginator Length:', this.paginator.length);
+        console.log('Paginator Length:', this.currentPage);
       },
       (error: any) => {
         console.error('Error al cargar auditorías:', error);
@@ -103,11 +156,28 @@ export class ReporteComponent implements AfterViewInit {
     );
   }
 
+  convertpdf(): void {
+    const doc = new jsPDF();
+    const data = this.reportData;
 
+    if (data) {
+      doc.text(`Details for ${data.plate}`, 10, 10);
+      doc.text(`ID: ${data.parkingId}`, 10, 20);
+      doc.text(`Id de tarifa: ${data.fareId}`, 10, 30);
+      doc.text(`Id de registro: ${data.registerId}`, 10, 40);
+      doc.text(`Id de parqueo: ${data.parkingId}`, 10, 50);
+      doc.text(`Total: ${data.total}`, 10, 60);
+      doc.text(`StartDate: ${data.startDate}`, 10, 70);
+      doc.text(`EndDate: ${data.endDate}`, 10, 80);
+
+      doc.save(`report-${data.plate}.pdf`);
+    }
+  }
 
 
   ngOnInit() {
-    this.loadAudits(0)
+    this.loadRegister(0)
+    this.loadParkings()
   }
   onMoreClick(id: string) {
     console.log('ID received:', id);
@@ -127,6 +197,6 @@ export class ReporteComponent implements AfterViewInit {
     this.showCard = false;
   }
   changePage(event: PageEvent): void {
-    this.loadAudits(event.pageIndex);
+    this.loadRegister(event.pageIndex);
   }
 }
