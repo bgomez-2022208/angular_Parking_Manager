@@ -269,5 +269,56 @@
     "START_TIME": "Start time",
     "END_TIME": "End time",
     "ADD_FARE": "Add fare"
+  },
+  "_comment_Register_Parking": "filter-salida traduccions",
+  "ADD_REGISTER_REGISTER": {
+    "FORM": {
+      "LABEL_Plate": "Enter the vehicle's plate",
+      "BUTTON_Cancel": "Cancel",
+      "BUTTON_Accept": "Accept",
+      "LABEL_PLATE_INPUT": "Plate"
+    }
+  },
+  "ERRORS_REGISTER": {
+    "ERROR_NAME_REQUIRED": "This field is required"
+  },
+  "ALERT_SUCCESS_REGISTER": {
+    "TITLE": "Success",
+    "MESSAGE": "The operation was completed successfully"
+  },
+  "ALERT_WARNING_REGISTER": {
+    "EMAIL_IN_USE_TITLE": "Warning",
+    "EMAIL_IN_USE_MESSAGE": "The email is already in use"
+  },
+  "ALERT_ERROR_REGISTER": {
+    "TITLE": "Error",
+    "MESSAGE": "An error occurred. Please try again"
+  },
+
+  "REGISTER_PARKING": {
+    "HEADER": {
+      "TITLE_REGISTER": "Register Parking"
+    },
+    "FORM": {
+      "LABEL_PLATE": "Plate",
+      "LABEL_PARKING_ID": "Parking ID",
+      "BUTTON_ENTRY": "Parking Entry",
+      "BUTTON_EXIT": "Parking Exit"
+    },
+    "ERRORS": {
+      "REQUIRED_FIELD": "This field is required"
+    },
+    "ALERT_SUCCESS": {
+      "TITLE": "Success",
+      "MESSAGE": "The operation was completed successfully"
+    },
+    "ALERT_WARNING": {
+      "EMAIL_IN_USE_TITLE": "Warning",
+      "EMAIL_IN_USE_MESSAGE": "The email is already in use"
+    },
+    "ALERT_ERROR": {
+      "TITLE": "Error",
+      "MESSAGE_EXIT": "An error occurred. Please try again"
+    }
   }
 }

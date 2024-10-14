@@ -47,6 +47,7 @@ import { HttpClient } from '@angular/common/http';
 import { HttpLoaderFactory } from '../app.module';
 import { FilterProfileComponent } from './maintenance/components/filter-profile/filter-profile.component';
 import { RegisterParkingComponent } from './maintenance/register-parking/register-parking.component';
+import { FilterSalidaComponent } from './maintenance/components/filter-salida/filter-salida.component';
 import { FareTableComponent } from './maintenance/components/fare-table/fare-table.component';
 import { DeleteFareComponent } from './maintenance/components/delete-fare/delete-fare.component';
 
@@ -64,14 +65,13 @@ const routes : Routes = [
     component: AuditoriaComponent
   },
   {
-    path:'register',
-    component: RegisterParkingComponent
-  },
-
-  {
     path: 'fares',
     component: FareComponent
-  }
+  },
+  {
+  path:'register',
+  component: RegisterParkingComponent
+  },
 
 ]
 
@@ -94,6 +94,8 @@ const routes : Routes = [
     CardAuditoryComponent,
     DeleteUserConfirmComponent,
     FilterProfileComponent,
+    FilterSalidaComponent,
+    RegisterParkingComponent,
     FareTableComponent,
     DeleteFareComponent
   ],
@@ -114,11 +116,9 @@ const routes : Routes = [
     MatInputModule,
     MatSlideToggleModule,
     MatFormFieldModule,
-    FormsModule,
     MatFormFieldModule,
     MatInputModule,
     RouterModule.forChild(routes),
-    FormsModule,
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,

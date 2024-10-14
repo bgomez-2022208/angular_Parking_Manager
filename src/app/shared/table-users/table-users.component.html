@@ -22,25 +22,10 @@
      </ol>
    </div>
 
-
-   <div class="parent-container-footer">
-     <nav aria-label="Page navigation example">
-       <ul class="pagination">
-         <li class="page-item" [class.disabled]="currentPage === 1">
-           <a class="page-link" href="#" aria-label="Previous" (click)="changePage($event, currentPage - 1)">
-             <span aria-hidden="true">&laquo;</span>
-           </a>
-         </li>
-
-         <li *ngFor="let page of displayedPages" class="page-item" [class.active]="currentPage === page">
-           <a class="page-link" href="#" (click)="changePage($event, page)">{{ page }}</a>
-         </li>
-
-         <li class="page-item" [class.disabled]="currentPage === totalPages">
-           <a class="page-link" href="#" aria-label="Next" (click)="changePage($event, currentPage + 1)">
-             <span aria-hidden="true">&raquo;</span>
-           </a>
-         </li>
-       </ul>
-     </nav>
-   </div>
+<mat-paginator
+  class="paginator"
+  [length]="totalElements"
+  [pageSize]="itemsPerPage"
+  [pageIndex]="currentPage"
+  (page)="changePage($event)">
+</mat-paginator>

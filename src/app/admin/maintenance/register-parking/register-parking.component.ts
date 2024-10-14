@@ -3,6 +3,8 @@ import { ApiUserService } from '../../../user/services/user.service';
 import { TranslateService } from '@ngx-translate/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
+import { MatDialog } from '@angular/material/dialog';
+import { FilterSalidaComponent } from '../components/filter-salida/filter-salida.component';
 
 @Component({
   selector: 'app-register-parking',
@@ -14,6 +16,7 @@ export class RegisterParkingComponent implements OnInit {
   parking: any[] = [];
 
   constructor(
+    public dialog: MatDialog,
     private apiUserService: ApiUserService,
     private translate: TranslateService,
     private fb: FormBuilder,
@@ -51,42 +54,35 @@ export class RegisterParkingComponent implements OnInit {
           this.parkingForm.reset();
           Swal.fire({
             icon: 'success',
-            title: 'Registro exitoso',
-            text: 'El parqueo ha sido registrado correctamente.',
+            title: this.translate.instant('REGISTER_PARKING.ALERT_SUCCESS.TITLE'),
+            text: this.translate.instant('REGISTER_PARKING.ALERT_SUCCESS.MESSAGE'),
             timer: 3000,
             showConfirmButton: false
           });
         },
-        (error) => {
-          if (error.status === 409) {
-            Swal.fire({
-              icon: 'warning',
-              title: 'Registro duplicado',
-              text: 'El parqueo ya está registrado.',
-              timer: 3000,
-              showConfirmButton: false
-            });
-          } else {
-            console.error("Error al crear el parqueo", error);
-            Swal.fire({
-              icon: 'error',
-              title: 'Error',
-              text: 'Hubo un problema al registrar el parqueo.',
-              timer: 3000,
-              showConfirmButton: false
-            });
-          }
-        }
       );
     } else {
       Swal.fire({
         icon: 'warning',
-        title: 'Formulario incompleto',
-        text: 'Por favor, complete todos los campos obligatorios.',
+        title: this.translate.instant('REGISTER_PARKING.ERRORS.REQUIRED_FIELD'),
+        text: this.translate.instant('REGISTER_PARKING.FORM.LABEL_PLATE'),
         timer: 3000,
         showConfirmButton: false
       });
     }
   }
 
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(FilterSalidaComponent, {
+      width: '500px',
+      height: '300px',
+      data: { message: 'Confirma la salida del parking' }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('El modal se cerró');
+      console.log('Resultado:', result);
+    });
+  }
 }

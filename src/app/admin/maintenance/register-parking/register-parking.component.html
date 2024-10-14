@@ -1,31 +1,29 @@
-  <app-navbaruser title="Register-Parking"></app-navbaruser>
-  <div class="content-register">
-      <header>
-        <h1>Register Parking</h1>
+<app-navbaruser title="Register-Parking"></app-navbaruser>
+<div class="content-register">
+  <header>
+    <h1>{{ 'REGISTER_PARKING.HEADER.TITLE_REGISTER' | translate }}</h1>
+  </header>
+  <form class="container-body" [formGroup]="parkingForm" (ngSubmit)="onSubmit()">
+    <mat-form-field class="responsive-input">
+      <mat-label>{{ 'REGISTER_PARKING.FORM.LABEL_PLATE' | translate }}</mat-label>
+      <mat-icon matPrefix class="icon-inputs">credit_card</mat-icon>
+      <input class="escritos" matInput formControlName="plate" required />
+      <mat-error></mat-error>
+    </mat-form-field>
 
-      </header>
-      <form class="container-body" [formGroup]="parkingForm" (ngSubmit)="onSubmit()">
-        <mat-form-field class="responsive-input">
-          <mat-label>Placa</mat-label>
-          <mat-icon matPrefix class="icon-inputs">credit_card</mat-icon>
-          <input class="escritos" matInput formControlName="plate" required />
-          <mat-error ></mat-error>
-        </mat-form-field>
+    <mat-form-field class="profile-select">
+      <mat-icon matPrefix class="icon-inputs">garage_home</mat-icon>
+      <mat-label>{{ 'REGISTER_PARKING.FORM.LABEL_PARKING_ID' | translate }}</mat-label>
+      <mat-select formControlName="parkingId" required>
+        <mat-option *ngFor="let content of parking" [value]="content.parkingId">
+          {{ content.name | translate }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
 
-        <mat-form-field class="profile-select">
-          <mat-icon matPrefix class="icon-inputs">garage_home</mat-icon>
-          <mat-label>Id Parking</mat-label>
-          <mat-select formControlName="parkingId" required>
-            <<mat-option *ngFor="let content of parking" [value]="content.parkingId">
-            {{ content.name | translate }}
-          </mat-option>
-          </mat-select>
-        </mat-form-field>
-
-        <div class="buttons">
-          <button class="btnSubmit" type="submit">Entrada Parking</button>
-
-        </div>
-      </form>
-  </div>
-
+    <div class="buttons">
+      <button class="btnSubmit" type="submit">{{ 'REGISTER_PARKING.FORM.BUTTON_ENTRY' | translate }}</button>
+      <button class="btnSubmit" type="button" (click)="openDialog()">{{ 'REGISTER_PARKING.FORM.BUTTON_EXIT' | translate }}</button>
+    </div>
+  </form>
+</div>

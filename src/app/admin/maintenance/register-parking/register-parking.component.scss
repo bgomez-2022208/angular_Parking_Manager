@@ -60,7 +60,6 @@
 }
 .btnSubmit {
   width: 100%;
-  display: $button-display;
   justify-content: $button-justify;
   align-items: $button-align;
   background-color: $palette-color-one;
@@ -69,9 +68,9 @@
   padding: $button-padding;
   border-radius: $button-radius;
   transition: $button-transition;
-  margin-bottom: $button-mgb;
   font-family: $font-primary;
   margin-top: $button-mgt;
+  display: flex;
 
   mat-icon {
     margin-left: $button-icon-mgl;
