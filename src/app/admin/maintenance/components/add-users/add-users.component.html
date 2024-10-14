@@ -58,15 +58,15 @@
           </mat-select>
         </mat-form-field>
       </div>
+      <mat-slide-toggle  class="toogle" *ngIf="userIdSelected" (change)="onToggleChange($event)" formControlName="status">{{ 'USER.LABEL_STATUS' | translate }}</mat-slide-toggle>
+      <div class="container-buttons">
 
-      <div class="container-inputs">
-      <button class="cancelar" type="button" (click)="CancelUpdate()">
+        <button class="cancelar" type="button" (click)="CancelUpdate()">
         {{ 'ADD_USERS.BUTTONS.BTN_CANCELAR' | translate }}
       </button>
       <button class="guardar" type="submit">
         {{ 'ADD_USERS.BUTTONS.BTN_SAVE' | translate }}
       </button>
-        <mat-slide-toggle  *ngIf="userIdSelected" (change)="onToggleChange($event)" formControlName="status">{{ 'USER.LABEL_STATUS' | translate }}</mat-slide-toggle>
 
       </div>
     </form>

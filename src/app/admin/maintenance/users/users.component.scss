@@ -10,7 +10,8 @@
     display: flex;
     flex-direction: column;
     width: 30%;
-    height: 90%;
+    height: 100%;
+    min-width: 20vh;
   }
 
   .table-usuarios {
@@ -26,7 +27,7 @@
     height: 80%;
     margin-top: 20px;
     border-radius: 10px;
-
+    min-height: 50vh;
   }
   .filter{
     width: 100%;
@@ -74,6 +75,22 @@
     padding: 0.75rem 1rem;
     .table-register {
       width: 11vh;
+
+    }
+    .table {
+      display: flex;
+      flex-direction: column;
+      width: 30%;
+      height: auto;
+    }
+    .container{
+      margin: 0;
+    }
+    .guardar{
+      margin: 0;
+    }
+    .able-usuarios{
+      height: auto;
     }
   }
   @media (max-width: 760px) {

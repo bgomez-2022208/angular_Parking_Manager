@@ -19,7 +19,7 @@ export class ApiUserService {
 
   getUsers(size:number, page:number, email:string): Observable<User[]> {
     const url = `${this.apiUrl}/users`;
-    return this.http.get<User[]>(url, {params: {
+    return this.http.get<any>(url, {params: {
         size: size,
         page: page,
         email:email

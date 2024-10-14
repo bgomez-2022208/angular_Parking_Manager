@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, ViewChild } from '@angular/core';
 import {User} from "../../admin/model/user.model";
 import {ApiUserService} from "../../admin/services/user.service";
 import {MatDialog} from "@angular/material/dialog";
@@ -9,7 +9,7 @@ import {
 import {Router} from "@angular/router";
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import Swal from 'sweetalert2';
-
+import { MatPaginator, PageEvent } from '@angular/material/paginator';
 
 
 @Component({
@@ -34,6 +34,8 @@ export class TableUsersComponent {
   @Output() pageChange = new EventEmitter<number>();
   @Input() totalPages: number = 0;
   searchQuery: string = "";
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+
 
 
 
@@ -46,7 +48,7 @@ export class TableUsersComponent {
   @Input() itemsPerPageOptions!: number[];
   @Output() profileSelected = new EventEmitter<number>();
   @Output() profileDeleted = new EventEmitter<number>();
-
+  @Input() totalElements: number = 0;
   get displayedPages(): number[] {
     const maxDisplayedPages = 3;
     let startPage: number, endPage: number;
@@ -71,12 +73,10 @@ export class TableUsersComponent {
   }
 
 
-  changePage(event: Event, page: number): void {
-    event.preventDefault();
-    if (page >= 1 && page <= this.totalPages) {
-      this.currentPage = page;
-      this.pageChange.emit(this.currentPage);
-    }
+  changePage(event: PageEvent): void {
+    this.currentPage = event.pageIndex;
+    console.log(event.pageIndex);
+    this.loadUsers(event.pageIndex);
   }
 
   deleteUser(userId: number): void {
@@ -103,11 +103,15 @@ export class TableUsersComponent {
   }
 
   loadUsers(page: number): void {
-    console.log("table-users");
-    this.apiUserService.getUsers(this.itemsPerPage, page - 1, this.searchQuery).subscribe(
+    this.apiUserService.getUsers(this.itemsPerPage, page, this.searchQuery).subscribe(
       (data: any) => {
         this.users = data.users;
+        this.totalElements = data.totalElements;
+
         this.totalPages = data.totalPages;
+        this.paginator.length = this.totalElements;
+        this.paginator.pageIndex = page;
+        this.currentPage = page;
         console.log(this.users);
       },
       (error: any) => {

@@ -163,8 +163,9 @@ export class AddUsersComponent implements OnInit {
             });
             this.loadUsers();
             this.userForm.reset();
-            this.isEditing = false;
             this.userId = undefined;
+            this.isEditing = false;
+
           },
           (error) => {
             if (error.status === 409) {
@@ -192,6 +193,8 @@ export class AddUsersComponent implements OnInit {
           (newUser) => {
             this.loadUsers();
             this.userForm.reset();
+            this.isEditing = false;
+
             Swal.fire({
               icon: 'success',
               title: this.translate.instant('ALERT_SUCCESS.TITLE'),
