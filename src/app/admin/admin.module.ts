@@ -50,6 +50,8 @@ import { RegisterParkingComponent } from './maintenance/register-parking/registe
 import { FilterSalidaComponent } from './maintenance/components/filter-salida/filter-salida.component';
 import { FareTableComponent } from './maintenance/components/fare-table/fare-table.component';
 import { DeleteFareComponent } from './maintenance/components/delete-fare/delete-fare.component';
+import { ReporteComponent } from './maintenance/reporte/reporte.component';
+import { CardReporterComponent } from './maintenance/components/card-reporter/card-reporter.component';
 
 const routes : Routes = [
   {
@@ -72,11 +74,16 @@ const routes : Routes = [
   path:'register',
   component: RegisterParkingComponent
   },
+  {
+    path:'reporte',
+    component: ReporteComponent
+  },
 
 ]
 
 @NgModule({
   declarations: [
+    ReporteComponent,
     AuditoriaComponent,
     SearchComponent,
     NavbarComponent,
@@ -97,7 +104,9 @@ const routes : Routes = [
     FilterSalidaComponent,
     RegisterParkingComponent,
     FareTableComponent,
-    DeleteFareComponent
+    DeleteFareComponent,
+    FilterProfileComponent,
+    CardReporterComponent
   ],
   imports: [
     CommonModule,
@@ -115,11 +124,8 @@ const routes : Routes = [
     FormsModule,
     MatInputModule,
     MatSlideToggleModule,
-    MatFormFieldModule,
-    MatFormFieldModule,
     MatInputModule,
     RouterModule.forChild(routes),
-    MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
     MatOptionModule,
@@ -150,7 +156,8 @@ const routes : Routes = [
     FilterUserComponent,
     NavbaruserComponent,
     FilterProfileComponent,
-    CardAuditoryComponent
+    CardAuditoryComponent,
+    CardReporterComponent
   ],
   providers: [
     DatePipe
