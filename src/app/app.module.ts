@@ -22,6 +22,7 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 import { RegisterParkingComponent } from './admin/maintenance/register-parking/register-parking.component';
 import { MatIconModule } from '@angular/material/icon';
+import { FilterSalidaComponent } from './admin/maintenance/components/filter-salida/filter-salida.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json')
@@ -32,6 +33,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     AppComponent,
     ReporteComponent,
     RegisterParkingComponent,
+    FilterSalidaComponent,
   ],
   imports: [
     BrowserModule,

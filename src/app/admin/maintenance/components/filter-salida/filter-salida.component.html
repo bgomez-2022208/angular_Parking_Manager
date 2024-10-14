@@ -1,0 +1,16 @@
+<h2 class="modal-title" mat-dialog-title>Ingresa la placa del vehículo</h2>
+
+
+<form [formGroup]="parkingForm" (ngSubmit)="onSubmit()" class="modal-form">
+  <div class="modal-content" mat-dialog-content>
+    <mat-form-field class="input-small">
+      <mat-label>{{ 'ADD_USERS.FORM.LABEL_Plate' | translate }}</mat-label>
+      <input class="escritos" matInput formControlName="plate" required />
+      <mat-error *ngIf="parkingForm.get('plate')?.invalid">{{getErrorMessage('plate')}}</mat-error>
+    </mat-form-field>
+  </div>
+  <div class="modal-actions" mat-dialog-actions>
+    <button mat-button (click)="onNoClick()" type="button">Cancelar</button>
+    <button mat-button cdkFocusInitial type="submit">Aceptar</button>
+  </div>
+</form>

@@ -108,11 +108,21 @@ export class ApiUserService {
 
   //parkings
   getParkings(): Observable<any> {
-    const url = `${this.apiUrlDATA}/parkings`;
+    const url = `${this.apiUrlDATA}/parkings/namesAndStatus`;
     return this.http.get<any>(url);
   }
 
   createParking(parkingData: { plate: string; parkingId: string }): Observable<any> {
     return this.http.post<any>(`${this.apiUrlDATA}/registers/entrada`, parkingData);
   }
+
+
+  salidaParking(placaData: { plate: string }): Observable<any> {
+    const plate = placaData.plate;
+    const url = `${this.apiUrlDATA}/registers/salida/${plate}`;
+    return this.http.put<any>(url, placaData);
+  }
+
+
+
 }

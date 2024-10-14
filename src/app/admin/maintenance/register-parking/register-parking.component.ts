@@ -3,6 +3,8 @@ import { ApiUserService } from '../../../user/services/user.service';
 import { TranslateService } from '@ngx-translate/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
+import { MatDialog } from '@angular/material/dialog';
+import { FilterSalidaComponent } from '../components/filter-salida/filter-salida.component';
 
 @Component({
   selector: 'app-register-parking',
@@ -14,6 +16,7 @@ export class RegisterParkingComponent implements OnInit {
   parking: any[] = [];
 
   constructor(
+    public dialog: MatDialog,
     private apiUserService: ApiUserService,
     private translate: TranslateService,
     private fb: FormBuilder,
@@ -89,4 +92,16 @@ export class RegisterParkingComponent implements OnInit {
     }
   }
 
+  openDialog(): void {
+    const dialogRef = this.dialog.open(FilterSalidaComponent, {
+      width: '500px',
+      height: '300px',
+      data: { message: 'Confirma la salida del parking' }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('El modal se cerró');
+      console.log('Resultado:', result);
+    });
+  }
 }
