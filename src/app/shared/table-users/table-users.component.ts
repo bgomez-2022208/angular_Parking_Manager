@@ -49,28 +49,7 @@ export class TableUsersComponent {
   @Output() profileSelected = new EventEmitter<number>();
   @Output() profileDeleted = new EventEmitter<number>();
   @Input() totalElements: number = 0;
-  get displayedPages(): number[] {
-    const maxDisplayedPages = 3;
-    let startPage: number, endPage: number;
 
-    if (this.totalPages <= maxDisplayedPages) {
-      startPage = 1;
-      endPage = this.totalPages;
-    } else {
-      if (this.currentPage <= 2) {
-        startPage = 1;
-        endPage = maxDisplayedPages;
-      } else if (this.currentPage + 1 >= this.totalPages) {
-        startPage = this.totalPages - (maxDisplayedPages - 1);
-        endPage = this.totalPages;
-      } else {
-        startPage = this.currentPage - 1;
-        endPage = this.currentPage + 1;
-      }
-    }
-
-    return Array.from({ length: (endPage - startPage + 1) }, (_, i) => startPage + i);
-  }
 
 
   changePage(event: PageEvent): void {
@@ -96,11 +75,6 @@ export class TableUsersComponent {
     );
   }
 
-  openDeletetDialog(userId: number): void {
-
-
-
-  }
 
   loadUsers(page: number): void {
     this.apiUserService.getUsers(this.itemsPerPage, page, this.searchQuery).subscribe(
