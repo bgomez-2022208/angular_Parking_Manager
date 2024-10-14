@@ -72,6 +72,7 @@ export class FareComponent {
             Swal.fire('Success', 'Fare created successfully', 'success');
             this.resetForm();
             this.onFareUpdated();
+            window.location.reload();
           },
           (error) => {
             Swal.fire('Error', 'Failed to create fare', 'error');
