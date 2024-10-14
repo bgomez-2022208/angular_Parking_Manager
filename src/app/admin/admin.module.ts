@@ -48,6 +48,7 @@ import { HttpLoaderFactory } from '../app.module';
 import { FilterProfileComponent } from './maintenance/components/filter-profile/filter-profile.component';
 import { ReporteComponent } from './maintenance/reporte/reporte.component';
 import { RegisterParkingComponent } from './maintenance/register-parking/register-parking.component';
+import { FilterSalidaComponent } from './maintenance/components/filter-salida/filter-salida.component';
 
 const routes : Routes = [
   {
@@ -91,7 +92,9 @@ const routes : Routes = [
     UsersComponent,
     CardAuditoryComponent,
     DeleteUserConfirmComponent,
-    FilterProfileComponent
+    FilterProfileComponent,
+    FilterSalidaComponent,
+    RegisterParkingComponent
   ],
   imports: [
     CommonModule,

@@ -32,8 +32,6 @@ export function HttpLoaderFactory(http: HttpClient) {
   declarations: [
     AppComponent,
     ReporteComponent,
-    RegisterParkingComponent,
-    FilterSalidaComponent,
   ],
   imports: [
     BrowserModule,

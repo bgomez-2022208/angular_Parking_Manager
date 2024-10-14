@@ -1,16 +1,16 @@
-<h2 class="modal-title" mat-dialog-title>Ingresa la placa del vehículo</h2>
-
+<header><h1 class="modal-title" mat-dialog-title>{{ 'ADD_REGISTER_REGISTER.FORM.LABEL_Plate' | translate }}</h1></header>
 
 <form [formGroup]="parkingForm" (ngSubmit)="onSubmit()" class="modal-form">
   <div class="modal-content" mat-dialog-content>
     <mat-form-field class="input-small">
-      <mat-label>{{ 'ADD_USERS.FORM.LABEL_Plate' | translate }}</mat-label>
+      <mat-label>{{ 'ADD_REGISTER_REGISTER.FORM.LABEL_PLATE_INPUT' | translate }}</mat-label>
+      <mat-icon matPrefix class="icon-inputs">credit_card</mat-icon>
       <input class="escritos" matInput formControlName="plate" required />
-      <mat-error *ngIf="parkingForm.get('plate')?.invalid">{{getErrorMessage('plate')}}</mat-error>
+      <mat-error *ngIf="parkingForm.get('plate')?.invalid">{{ getErrorMessage('plate') }}</mat-error>
     </mat-form-field>
   </div>
   <div class="modal-actions" mat-dialog-actions>
-    <button mat-button (click)="onNoClick()" type="button">Cancelar</button>
-    <button mat-button cdkFocusInitial type="submit">Aceptar</button>
+    <button class="btnSubmit" (click)="onNoClick()" type="button">{{ 'ADD_REGISTER_REGISTER.FORM.BUTTON_Cancel' | translate }}</button>
+    <button class="btnSubmit" cdkFocusInitial type="submit">{{ 'ADD_REGISTER_REGISTER.FORM.BUTTON_Accept' | translate }}</button>
   </div>
 </form>

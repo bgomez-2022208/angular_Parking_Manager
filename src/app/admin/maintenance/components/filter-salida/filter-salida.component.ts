@@ -3,6 +3,7 @@ import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dial
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ApiUserService } from "../../../../user/services/user.service";
 import Swal from 'sweetalert2';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-filter-salida',
@@ -13,6 +14,7 @@ export class FilterSalidaComponent {
   parkingForm: FormGroup;
 
   constructor(
+    private translate: TranslateService,
     public dialogRef: MatDialogRef<FilterSalidaComponent>,
     private apiUserService: ApiUserService,
     private bb: FormBuilder,
@@ -32,20 +34,19 @@ export class FilterSalidaComponent {
   }
 
   onSubmit(): void {
-
     if (this.parkingForm.valid) {
       const placaData = {
         plate: this.parkingForm.value.plate
-
       };
-      console.log("probando falso submit", this.parkingForm.value.plate)
+      console.log("probando falso submit", this.parkingForm.value.plate);
+
       this.apiUserService.salidaParking(placaData).subscribe(
         (salidaParking) => {
           this.parkingForm.reset();
           Swal.fire({
             icon: 'success',
-            title: 'Éxito',
-            text: 'La salida del vehículo se registró correctamente.',
+            title: this.translate.instant('REGISTER_PARKING.ALERT_SUCCESS.TITLE'),
+            text: this.translate.instant('REGISTER_PARKING.ALERT_SUCCESS.MESSAGE_EXIT'),
             timer: 3000,
             showConfirmButton: false
           });
@@ -55,8 +56,8 @@ export class FilterSalidaComponent {
           if (error.status === 409) {
             Swal.fire({
               icon: 'warning',
-              title: 'Advertencia',
-              text: 'El vehículo ya está registrado.',
+              title: this.translate.instant('REGISTER_PARKING.ALERT_WARNING.TITLE'),
+              text: this.translate.instant('REGISTER_PARKING.ALERT_WARNING.MESSAGE_DUPLICATE'),
               timer: 3000,
               showConfirmButton: false
             });
@@ -64,8 +65,8 @@ export class FilterSalidaComponent {
             console.error("Error creando salida de parqueo", error);
             Swal.fire({
               icon: 'error',
-              title: 'Error',
-              text: 'Hubo un problema al registrar la salida.',
+              title: this.translate.instant('REGISTER_PARKING.ALERT_ERROR.TITLE'),
+              text: this.translate.instant('REGISTER_PARKING.ALERT_ERROR.MESSAGE_EXIT'),
               timer: 3000,
               showConfirmButton: false
             });
@@ -75,12 +76,13 @@ export class FilterSalidaComponent {
     }
   }
 
+
   getErrorMessage(controlName: string) {
     const control = this.parkingForm.get(controlName);
 
     if (control?.hasError('required')) {
-      return 'Este campo es requerido.'; // Mensaje de error genérico
+      return 'Este campo es requerido.';
     }
-    return ''; // Retorna vacío si no hay error
+    return '';
   }
 }

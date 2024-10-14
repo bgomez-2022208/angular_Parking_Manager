@@ -274,5 +274,61 @@
     "ALERT_DISABLE_USER_SUCCESS_TITLE": "Usuario Deshabilitado",
     "ALERT_DISABLE_USER_SUCCESS_MESSAGE": "El usuario ha sido deshabilitado exitosamente.",
     "LABEL_STATUS": "Status"
-  }
+  },
+
+  "_comment_Register_Parking": "filter-salida traduccions",
+  "ADD_REGISTER_REGISTER": {
+    "FORM": {
+      "LABEL_Plate": "Ingresa la placa del vehículo",
+      "BUTTON_Cancel": "Cancelar",
+      "BUTTON_Accept": "Aceptar",
+      "LABEL_PLATE_INPUT": "Placa"
+    }
+  },
+  "ERRORS_REGISTER": {
+    "ERROR_NAME_REQUIRED": "Este campo es obligatorio"
+  },
+  "ALERT_SUCCESS_REGISTER": {
+    "TITLE": "Éxito",
+    "MESSAGE": "La operación se completó exitosamente"
+  },
+  "ALERT_WARNING_REGISTER": {
+    "EMAIL_IN_USE_TITLE": "Advertencia",
+    "EMAIL_IN_USE_MESSAGE": "El correo electrónico ya está en uso"
+  },
+  "ALERT_ERROR_REGISTER": {
+    "TITLE": "Error",
+    "MESSAGE": "Ocurrió un error. Por favor, intenta nuevamente"
+  },
+
+
+  "REGISTER_PARKING": {
+    "HEADER": {
+      "TITLE_REGISTER": "Registrar Estacionamiento"
+    },
+    "FORM": {
+      "LABEL_PLATE": "Placa",
+      "LABEL_PARKING_ID": "Id de Estacionamiento",
+      "BUTTON_ENTRY": "Entrada Parking",
+      "BUTTON_EXIT": "Salida Parking"
+    },
+    "ERRORS": {
+      "REQUIRED_FIELD": "Este campo es obligatorio"
+    },
+    "ALERT_SUCCESS": {
+      "TITLE": "Éxito",
+      "MESSAGE": "La operación se completó exitosamente"
+    },
+    "ALERT_WARNING": {
+      "EMAIL_IN_USE_TITLE": "Advertencia",
+      "EMAIL_IN_USE_MESSAGE": "El correo electrónico ya está en uso"
+    },
+    "ALERT_ERROR": {
+      "TITLE": "Error",
+      "MESSAGE_EXIT": "Ocurrió un error. Por favor, intenta nuevamente"
+    }
+
+}
+
+
 }
