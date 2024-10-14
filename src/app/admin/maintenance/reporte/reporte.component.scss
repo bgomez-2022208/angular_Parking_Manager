@@ -98,10 +98,10 @@
 }
 
 .filter {
-  max-width: 30vh;
+
+  max-width: 20%;
   align-items: center;
   justify-content: center;
-  margin: 3vh;
 }
 
 .example-container {
@@ -127,6 +127,7 @@ mat-drawer-content {
 }
 
 .input-search{
+  margin: 1vh;
   max-width: 80%;
 }
 @media only screen and (max-width: 1150px) {
@@ -136,14 +137,13 @@ mat-drawer-content {
   }
   .nav {
     display: flex;
-    flex-direction: column;
+    //flex-direction: column;
     justify-content: center;
     align-items: center;
     margin: 0px;
 
     .filter{
-      max-width: 100%;
-      margin: 1vh;
+      max-width: 20%;
       .example-container {
         width: 90%;
         height: 80px;
@@ -170,7 +170,6 @@ mat-drawer-content {
 
     .filter {
       max-width: 100%;
-      margin: 1vh 0;
       .example-container {
         width: 100%;
         height: auto;

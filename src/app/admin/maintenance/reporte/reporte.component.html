@@ -4,7 +4,7 @@
 <div class="principal-container">
   <div class="nav">
     <div class="filter">
-      <mat-form-field class="profile-select">
+      <mat-form-field class="example-container input-search">
         <mat-icon matPrefix class="icon-inputs">garage_home</mat-icon>
         <mat-label>Id Parking</mat-label>
         <mat-select [(ngModel)]="selectedParkingId" required>
@@ -14,7 +14,6 @@
           </mat-option>
         </mat-select>
       </mat-form-field>
-      <p>ID de Parqueo Seleccionado: {{ selectedParkingId }}</p>
 
     </div>
 
@@ -36,7 +35,22 @@
       </mat-form-field>
     </div>
 
-    <button (click)="applyParkingAndDateRangeFilter()">Filtrar</button>
+    <div>
+      <button (click)="applyParkingAndDateRangeFilter()">
+        <mat-icon>
+          <span class="material-symbols-outlined">
+            search
+          </span>
+        </mat-icon>
+      </button>
+      <button (click)="generatePdfReport()">
+        <mat-icon>
+          <span class="material-symbols-outlined">
+            picture_as_pdf
+          </span>
+        </mat-icon>
+      </button>
+    </div>
 
   </div>
 

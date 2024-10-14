@@ -56,29 +56,11 @@ export class ReportService {
     console.log(this.http.get<any>(url));
     return this.http.get<any>(url);
   }
-/*
-  getReportsByDateRange(startDate: string, endDate: string, size: number, page: number): Observable<any> {
-    const url = `${this.apiUrl}/report/date-range`;
-    const body = {
-      startDate: startDate,
-      endDate: endDate
-    };
 
-    return this.http.post<any>(url, body, {
-      params: {
-        size: size.toString(),
-        page: page.toString()
-      }
-    }).pipe(
-      tap(reports => console.log('Auditorías recibidas:', reports)),
-      catchError(error => {
-        console.error('Error al obtener los reportes por rango de fechas:', error);
-        throw error;
-      })
-    );
-  }*/
-/*
-  postGeneratePDF(id:string,startDate:any,endDate:any){
-    const url = `${this.apiUrl}/registers/generatePDF/${id}/${startDate}/${}`
-  }*/
+  generatePdfReport(parkingId: number, startDate: string, endDate: string): Observable<Blob> {
+    const url = `${this.apiUrl}/registers/generatePDF/${parkingId}/${startDate}/${endDate}`;
+    const body = { parkingId, startDate, endDate }
+    return this.http.post<Blob>(url,body, { responseType: 'blob' as 'json' });
+  }
+
 }

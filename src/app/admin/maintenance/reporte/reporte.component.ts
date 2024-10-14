@@ -131,7 +131,42 @@ export class ReporteComponent implements AfterViewInit {
     }
   }
 
+  generatePdfReport(): void {
+    console.log('Generando PDF para el parqueo:', this.selectedParkingId);
+    console.log('Fecha de Inicio:', this.startDate);
+    console.log('Fecha de Fin:', this.endDate);
 
+    if (this.selectedParkingId !== null && this.selectedParkingId > 0 && this.startDate && this.endDate) {
+      const formattedStartDate = this.datePipe.transform(this.startDate, 'yyyy-MM-dd');
+      const formattedEndDate = this.datePipe.transform(this.endDate, 'yyyy-MM-dd');
+
+      console.log('Formatted Start Date:', formattedStartDate);
+      console.log('Formatted End Date:', formattedEndDate);
+
+      if (formattedStartDate && formattedEndDate) {
+        this.reportService.generatePdfReport(this.selectedParkingId, formattedStartDate, formattedEndDate).subscribe(
+          (response: Blob) => {
+            const blob = new Blob([response], { type: 'application/pdf' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `report-${this.selectedParkingId}-${formattedStartDate}-${formattedEndDate}.pdf`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            console.log('PDF generado y descargado');
+          },
+          (error: any) => {
+            console.error('Error al generar el PDF:', error);
+          }
+        );
+      } else {
+        console.error('Error al formatear las fechas');
+      }
+    } else {
+      console.error('ID de parqueo o fechas no válidas');
+    }
+  }
 
 
 
@@ -197,6 +232,7 @@ export class ReporteComponent implements AfterViewInit {
     this.showCard = false;
   }
   changePage(event: PageEvent): void {
+
     this.loadRegister(event.pageIndex);
   }
 }
