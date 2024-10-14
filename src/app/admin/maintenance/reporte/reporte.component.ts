@@ -176,17 +176,19 @@ export class ReporteComponent implements AfterViewInit {
       (data: any) => {
         this.dataSource.data = data.content || [];
         this.totalElements = data.totalElements;
+        this.totalPages = data.totalPages;
 
         this.paginator.length = this.totalElements;
         this.paginator.pageIndex = page;
         this.currentPage = page;
 
-        console.log('Datos en la tabla:', page, this.dataSource.data);
         console.log('Total Elements:', this.totalElements);
-        console.log('Paginator Length:', this.currentPage);
+        console.log('Paginator Length:', this.paginator.length);
+        console.log('Datos en la tabla:', page, this.dataSource.data);
+        console.log('Total Pages:', this.totalPages);
       },
       (error: any) => {
-        console.error('Error al cargar auditorías:', error);
+        console.error('Error al cargar registros:', error);
       }
     );
   }
@@ -232,7 +234,6 @@ export class ReporteComponent implements AfterViewInit {
     this.showCard = false;
   }
   changePage(event: PageEvent): void {
-
     this.loadRegister(event.pageIndex);
   }
 }
