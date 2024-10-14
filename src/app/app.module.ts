@@ -10,7 +10,6 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { AdminModule } from './admin/admin.module';
 import { MatCardModule } from '@angular/material/card';
-import { ReporteComponent } from './admin/maintenance/reporte/reporte.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -30,7 +29,6 @@ export function HttpLoaderFactory(http: HttpClient) {
 @NgModule({
   declarations: [
     AppComponent,
-    ReporteComponent,
     RegisterParkingComponent,
   ],
   imports: [

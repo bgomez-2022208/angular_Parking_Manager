@@ -44,26 +44,26 @@
   width: 100%;
 }
 .app-card-auditory {
-  position: fixed;        
-  top: 50%;        
-  left: 50%;          
+  position: fixed;
+  top: 50%;
+  left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 1000;      
-  width: 80%;       
-  max-width: 600px;  
-  background: white;  
+  z-index: 1000;
+  width: 80%;
+  max-width: 600px;
+  background: white;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  padding: 20px;       
+  padding: 20px;
 }
 
 .overlay {
-  position: fixed; 
+  position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.5); 
-  z-index: 999;  
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
 }
 .table-container{
   width: 95%;
@@ -129,6 +129,26 @@ mat-drawer-content {
 .input-search{
   max-width: 80%;
 }
+
+.table-container {
+  overflow-x: auto; /* Permite desplazamiento horizontal */
+  max-width: 100%; /* Asegúrate de que la tabla no exceda el ancho del contenedor */
+}
+
+table {
+  width: 100%; /* Hace que la tabla use el 100% del ancho disponible */
+  table-layout: fixed;
+}
+
+.mat-header-cell {
+  white-space: nowrap; /* Evita que el texto se divida en múltiples líneas */
+}
+
+.mat-cell {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+}
 @media only screen and (max-width: 1150px) {
   .principal-container{
     align-items: center;
@@ -152,7 +172,7 @@ mat-drawer-content {
   }
 }
 
-@media only screen and (max-width: 570px) {
+@media only screen and (max-width: 600px) {
   .principal-container {
     align-items: center;
     width: 100%;
@@ -192,9 +212,45 @@ mat-drawer-content {
   }
 
   .mat-cell, .mat-header-cell {
-    white-space: nowrap; 
+    white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     flex-grow: 1;
+  }
+}
+
+@media only screen and (max-width: 530px) {
+
+  .principal-container {
+    align-items: center;
+    width: 100%;
+    padding: 0;
+  }
+
+  ng-container {
+    width: 10%;
+    font-size: 10px;
+  }
+
+  .mat-header-cell, .mat-cell {
+    font-size: 12px;
+    min-width: 10%;
+  }
+
+  table {
+    display: block;
+    overflow: auto;
+  }
+  .register{
+    font-size: 2px;
+  }
+}
+
+@media only screen and (max-width: 530px) {
+  .mat-header-cell, .mat-cell {
+    white-space: nowrap; /* Evitar el salto de línea */
+    overflow: hidden; /* Ocultar el contenido desbordado */
+    text-overflow: ellipsis; /* Mostrar puntos suspensivos */
+    min-width: 100px; /* Ancho mínimo para la columna Entity */
   }
 }

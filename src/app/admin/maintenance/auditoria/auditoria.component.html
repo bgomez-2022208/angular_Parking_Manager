@@ -3,16 +3,10 @@
 </div>
 <div class="principal-container">
   <div class="nav">
-    <div class="filter input-search">
-      <mat-form-field class="example-container input-search">
-        <mat-label>{{ 'FILTER' | translate }}</mat-label>
-        <input matInput (keyup)="applyFilter($event)" placeholder="{{ 'FILTER_BY_ENTITY' | translate }}" #input>
-      </mat-form-field>
-    </div>
     <div class="filter">
       <mat-form-field class="example-container input-search">
-        <mat-label>{{ 'Entity' | translate }}</mat-label>
-        <mat-select [(value)]="selected" (selectionChange)="applyFilter($event)">
+        <mat-label>{{ 'AUDIT.ENTITY' | translate }}</mat-label>
+        <mat-select [(value)]="selected" (selectionChange)="applyEntityFilter($event)">
           <mat-option value="">None</mat-option>
           <mat-option value="User">User</mat-option>
           <mat-option value="Profile">Profile</mat-option>
@@ -25,30 +19,22 @@
     </div>
     <div class="filter">
       <mat-form-field class="example-container input-search">
-        <mat-label>{{ 'Change' | translate }}</mat-label>
-        <mat-select [(value)]="selected" (selectionChange)="applyFilter($event)">
-          <mat-option value="">None</mat-option>
-          <mat-option value="GET">GET</mat-option>
-          <mat-option value="Read">READ</mat-option>
-          <mat-option value="CREATE">CREATE</mat-option>
-          <mat-option value="Delete	">DELETE	</mat-option>
-          <mat-option value="Update">UPDATE</mat-option>
-          <mat-option value="Role">Role</mat-option>
-        </mat-select>
+        <mat-label>{{ 'AUDIT.START_DATE' | translate }}</mat-label>
+        <input matInput [matDatepicker]="startPicker" (dateChange)="applyDateRangeFilter()" [(ngModel)]="startDate">
+        <mat-datepicker-toggle matIconSuffix [for]="startPicker"></mat-datepicker-toggle>
+        <mat-datepicker #startPicker></mat-datepicker>
       </mat-form-field>
     </div>
+
     <div class="filter">
       <mat-form-field class="example-container input-search">
-        <mat-label>Filter</mat-label>
-        <input matInput [matDatepicker]="picker" 
-              [min]="minDate" 
-              [max]="maxDate" 
-              (dateChange)="applyFilter($event.value)">
-        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-datepicker #picker></mat-datepicker>
+        <mat-label>{{ 'AUDIT.END_DATE' | translate }}</mat-label>
+        <input matInput [matDatepicker]="endPicker" (dateChange)="applyDateRangeFilter()" [(ngModel)]="endDate">
+        <mat-datepicker-toggle matIconSuffix [for]="endPicker"></mat-datepicker-toggle>
+        <mat-datepicker #endPicker></mat-datepicker>
       </mat-form-field>
     </div>
-    
+
   </div>
 
   <div class="table-container">
@@ -67,12 +53,6 @@
           <td mat-cell *matCellDef="let row"> {{row.startDate | date:'yyyy-MM-dd'}} </td>
         </ng-container>
 
-        <!-- Columna Descripción -->
-        <ng-container matColumnDef="description">
-          <th mat-header-cell *matHeaderCellDef>Description</th>
-          <td mat-cell *matCellDef="let row"> {{row.description}} </td>
-        </ng-container>
-
         <!-- Columna Operación -->
         <ng-container matColumnDef="operation">
           <th mat-header-cell *matHeaderCellDef>Operation</th>
@@ -88,23 +68,27 @@
         <!-- Columna Solicitud -->
         <ng-container matColumnDef="more">
           <th mat-header-cell *matHeaderCellDef>More</th>
-          <td mat-cell *matCellDef="let row"> 
-            <button mat-button mat-button (click)="onMoreClick(row.auditId)">More</button>
+          <td mat-cell *matCellDef="let row">
+            <button mat-button (click)="onMoreClick(row.auditId)">More</button>
           </td>
-
         </ng-container>
-
 
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 
-        <tr class="mat-row" *matNoDataRow>
-          <td class="mat-cell" colspan="4">{{ 'NO_DATA' | translate }} "{{input.value}}"</td>
-        </tr>
+        <!--<tr class="mat-row" *matNoDataRow>
+          <td class="mat-cell" colspan="6">{{ 'NO_DATA' | translate }} "{{input.value}}"</td>
+        </tr>-->
       </table>
-      <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" attr.aria-label="{{ 'PAGINATOR_ARIA_LABEL' | translate }}"></mat-paginator>
+      <mat-paginator
+        [length]="totalElements"
+        [pageSize]="itemsPerPage"
+        [pageIndex]="currentPage"
+        (page)="changePage($event)">
+      </mat-paginator>
     </div>
   </div>
+
 
   <app-card-auditory *ngIf="showCard" class="app-card-auditory" [data]="auditData" (closeCard)="closeCard()"></app-card-auditory>
 </div>

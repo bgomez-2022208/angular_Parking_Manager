@@ -157,7 +157,9 @@
         "ENTITY": "Entity",
         "CHANGE": "Change",
         "DATE": "Date",
-        "NO_DATA": "No data matching the filter"
+        "NO_DATA": "No data matching the filter",
+        "START_DATE": "Start date",
+        "END_DATE": "End Date"
     },
     "PLACEHOLDER": {
         "PASSWORD": "Enter your password",
@@ -218,7 +220,8 @@
     "CHANGE_LANGUAGE": "Change Language",
     "USERS": "Users",
     "PROFILES": "Profiles",
-    "REGISTER": "Parking registration"
+    "REGISTER": "Parking registration",
+    "FARES":"Fares"
   },
   "PROFILES_SECTION": {
     "TITLE": "Profiles",
@@ -257,5 +260,14 @@
     "ALERT_DISABLE_USER_SUCCESS_TITLE": "User Disabled",
     "ALERT_DISABLE_USER_SUCCESS_MESSAGE": "The user has been disabled successfully.",
     "LABEL_STATUS": "Status"
+  },
+  "FARE": {
+    "BUTTON_SAVE": "Save",
+    "BUTTON_CANCEL": "Cancel",
+    "NAME": "Name",
+    "PRICE": "Price",
+    "START_TIME": "Start time",
+    "END_TIME": "End time",
+    "ADD_FARE": "Add fare"
   }
 }

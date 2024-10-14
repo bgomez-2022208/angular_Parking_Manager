@@ -1,0 +1,47 @@
+<app-navbaruser title="Fare"></app-navbaruser>
+<div class="container-principal">
+    <div class="table-fare">
+        <app-fare-table (fareSelected)="onFareSelected($event)" ></app-fare-table>
+    </div>
+  <form class="form-fare" [formGroup]="fareForm" (ngSubmit)="onSubmit()">
+    <h2>{{ 'FARE.ADD_FARE' | translate}}</h2>
+    <div class="input-container">
+      <mat-form-field appearance="outline" class="input-small"  >
+        <mat-label>{{ 'FARE.NAME' | translate}}</mat-label>
+        <input  matInput placeholder="Enter name" formControlName="name" required class="escritos" />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="input-small">
+        <mat-label>{{ 'FARE.START_TIME' | translate}}</mat-label>
+        <input type="time" matInput placeholder="Enter start date" formControlName="startTime" required class="input-">
+      </mat-form-field>
+    </div>
+
+    <div class="input-container">
+      <mat-form-field appearance="outline" class="input-small">
+        <mat-label>{{ 'FARE.PRICE' | translate}}</mat-label>
+        <input type="number" matInput placeholder="Enter price" formControlName="price" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="input-small">
+        <mat-label>{{ 'FARE.END_TIME' | translate}}</mat-label>
+        <input type="time" matInput placeholder="Enter end date" formControlName="endTime" required class="escritos">
+      </mat-form-field>
+    </div>
+    <mat-slide-toggle *ngIf="fareSelected"
+                      (change)="onToggleChange($event, fareForm.value)"
+                      [checked]="fareForm.value.status">
+      {{ 'SPAKING.LABEL_STATUS' | translate }}
+    </mat-slide-toggle>
+    <div class="button-container" style="display: flex">
+      <button mat-raised-button color="primary" class="guardar" type="submit">
+        {{ 'FARE.BUTTON_SAVE' | translate }}
+      </button>
+      <button mat-raised-button color="primary" class="cancelar" (click)="CancelUpdate()">
+        {{ 'FARE.BUTTON_CANCEL' | translate }}
+      </button>
+    </div>
+  </form>
+
+
+</div>

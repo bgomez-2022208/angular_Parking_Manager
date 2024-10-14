@@ -35,19 +35,20 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import {MatNativeDateModule, MatOptionModule} from '@angular/material/core';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
-
+import { ProfilesComponent } from './maintenance/profiles/profiles.component';
 import {AuditoriaComponent} from "./maintenance/auditoria/auditoria.component";
 import {CardAuditoryComponent} from "./maintenance/components/card-auditory/card-auditory.component";
 import { SimpleNotificationsModule } from 'angular2-notifications';
 import { MatCardModule } from '@angular/material/card';
 import {DeleteUserConfirmComponent} from "./maintenance/components/delete-user-confirm/delete-user-confirm.component";
-import { ProfilesComponent } from './maintenance/profiles/profiles.component';
+import { FareComponent } from './maintenance/fare/fare.component';
 import { TableProfilesComponent } from '../shared/table-profiles/table-profiles.component';
 import { HttpClient } from '@angular/common/http';
 import { HttpLoaderFactory } from '../app.module';
 import { FilterProfileComponent } from './maintenance/components/filter-profile/filter-profile.component';
-import { ReporteComponent } from './maintenance/reporte/reporte.component';
 import { RegisterParkingComponent } from './maintenance/register-parking/register-parking.component';
+import { FareTableComponent } from './maintenance/components/fare-table/fare-table.component';
+import { DeleteFareComponent } from './maintenance/components/delete-fare/delete-fare.component';
 
 const routes : Routes = [
   {
@@ -63,14 +64,14 @@ const routes : Routes = [
     component: AuditoriaComponent
   },
   {
-    path:'reporte',
-    component: ReporteComponent
-  },
-  {
     path:'register',
     component: RegisterParkingComponent
   },
 
+  {
+    path: 'fares',
+    component: FareComponent
+  }
 
 ]
 
@@ -89,9 +90,12 @@ const routes : Routes = [
     AddUsersComponent,
     ProfilesComponent,
     UsersComponent,
+    FareComponent,
     CardAuditoryComponent,
     DeleteUserConfirmComponent,
-    FilterProfileComponent
+    FilterProfileComponent,
+    FareTableComponent,
+    DeleteFareComponent
   ],
   imports: [
     CommonModule,
@@ -106,9 +110,11 @@ const routes : Routes = [
     MatSelectModule,
     MatTableModule,
     MatPaginatorModule,
+    FormsModule,
     MatInputModule,
     MatSlideToggleModule,
     MatFormFieldModule,
+    FormsModule,
     MatFormFieldModule,
     MatInputModule,
     RouterModule.forChild(routes),

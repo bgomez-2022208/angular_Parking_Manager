@@ -149,7 +149,9 @@
         "ENTITY": "Entidad",
         "CHANGE": "Cambio",
         "DATE": "Fecha",
-        "NO_DATA": "No hay datos que coincidan con el filtro"
+        "NO_DATA": "No hay datos que coincidan con el filtro",
+        "START_DATE": "Fecha inicial",
+        "END_DATE": "Fecha final"
     },
     "PLACEHOLDER": {
         "PASSWORD": "Ingresa tu contraseña",
@@ -244,8 +246,9 @@
     "CHANGE_LANGUAGE": "Cambiar Idioma",
     "USERS": "Usuarios",
     "PROFILES": "Perfiles",
-    "REGISTER": "Registro de parqueo"
+    "REGISTER": "Registro de parqueo",
 
+    "FARES":"Tarifas"
   },
 
   "ALERT_SUCCESS": {
@@ -273,6 +276,17 @@
     "ALERT_DISABLE_USER_BUTTON_NO": "No",
     "ALERT_DISABLE_USER_SUCCESS_TITLE": "Usuario Deshabilitado",
     "ALERT_DISABLE_USER_SUCCESS_MESSAGE": "El usuario ha sido deshabilitado exitosamente.",
-    "LABEL_STATUS": "Status"
+    "LABEL_STATUS": "Status",
+    "PROFILES": "Perfiles",
+    "FARES":"Tarifas"
+  },
+  "FARE": {
+    "BUTTON_SAVE": "Guardar",
+    "BUTTON_CANCEL": "Cancelar",
+    "NAME": "Nombre",
+    "PRICE": "Precio",
+    "START_TIME": "Hora de inicio",
+    "END_TIME": "Hora de salida",
+    "ADD_FARE": "Agregar Tarifa"
   }
 }
