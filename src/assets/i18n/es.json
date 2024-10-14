@@ -149,7 +149,9 @@
         "ENTITY": "Entidad",
         "CHANGE": "Cambio",
         "DATE": "Fecha",
-        "NO_DATA": "No hay datos que coincidan con el filtro"
+        "NO_DATA": "No hay datos que coincidan con el filtro",
+        "START_DATE": "Fecha inicial",
+        "END_DATE": "Fecha final"
     },
     "PLACEHOLDER": {
         "PASSWORD": "Ingresa tu contraseña",
@@ -243,6 +245,16 @@
     "LOGOUT": "Cerrar Sesión",
     "CHANGE_LANGUAGE": "Cambiar Idioma",
     "USERS": "Usuarios",
-    "PROFILES": "Perfiles"
+    "PROFILES": "Perfiles",
+    "FARES":"Tarifas"
+  },
+  "FARE": {
+    "BUTTON_SAVE": "Guardar",
+    "BUTTON_CANCEL": "Cancelar",
+    "NAME": "Nombre",
+    "PRICE": "Precio",
+    "START_TIME": "Hora de inicio",
+    "END_TIME": "Hora de salida",
+    "ADD_FARE": "Agregar Tarifa"
   }
 }

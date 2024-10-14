@@ -157,7 +157,9 @@
         "ENTITY": "Entity",
         "CHANGE": "Change",
         "DATE": "Date",
-        "NO_DATA": "No data matching the filter"
+        "NO_DATA": "No data matching the filter",
+        "START_DATE": "Start date",
+        "END_DATE": "End Date"
     },
     "PLACEHOLDER": {
         "PASSWORD": "Enter your password",
@@ -217,7 +219,8 @@
     "LOGOUT": "Logout",
     "CHANGE_LANGUAGE": "Change Language",
     "USERS": "Users",
-    "PROFILES": "Profiles"
+    "PROFILES": "Profiles",
+    "FARES":"Fares"
   },
   "PROFILES_SECTION": {
     "TITLE": "Profiles",
@@ -229,5 +232,14 @@
   "CONFIGURATION": {
     "TITLE": "Configuration",
     "MANAGE_PERMISSIONS": "Manage Permissions"
+  },
+  "FARE": {
+    "BUTTON_SAVE": "Save",
+    "BUTTON_CANCEL": "Cancel",
+    "NAME": "Name",
+    "PRICE": "Price",
+    "START_TIME": "Start time",
+    "END_TIME": "End time",
+    "ADD_FARE": "Add fare"
   }
 }
