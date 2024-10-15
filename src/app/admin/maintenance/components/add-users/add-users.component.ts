@@ -146,7 +146,6 @@ export class AddUsersComponent implements OnInit {
         age: this.userForm.value.age,
         dpi: this.userForm.value.dpi,
         email: this.userForm.value.email,
-        password: this.userForm.value.password,
         status: true,
         profileId: this.userForm.value.profile
       };

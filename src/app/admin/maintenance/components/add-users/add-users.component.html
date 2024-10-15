@@ -42,11 +42,7 @@
 
         </mat-form-field>
 
-        <mat-form-field class="input-small">
-          <mat-label>{{ 'ADD_USERS.FORM.LABEL_PASSWORD' | translate }}</mat-label>
-          <input type="password" class="escritos" matInput formControlName="password" required />
-          <mat-error *ngIf="userForm.get('password')?.invalid">{{getErrorMessage('password')}}</mat-error>
-        </mat-form-field>
+
       </div>
 
         <mat-form-field class="profile-select">
