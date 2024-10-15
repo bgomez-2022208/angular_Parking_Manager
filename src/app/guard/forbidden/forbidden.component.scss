@@ -1,0 +1,109 @@
+@import "../../../assets/sass/variables";
+
+:host {
+    height: $host-param-height;
+    width: $host-param-width;
+    display: $host-display;
+    justify-content: $host-justify-content;
+    align-items: $host-align-items;
+    flex-direction: $host-flex-direction;
+}
+
+.container-main {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.body-container {
+    background-color: white;
+    border-radius: $card-border-radius;
+    width: 50%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    h1,
+    p,
+    button {
+        font-family: $font-primary;
+    }
+
+    h1{
+        color: red;
+        font-weight: $font-weight-button;
+    }
+
+    button {
+        text-decoration: none;
+        width: 30%;
+        background-color: $palette-color-three;
+        color: $palette-color-four;
+        border: $button-border;
+        font-weight: $font-weight-button;
+        font-size: $font-size-button;
+        padding: $button-padding;
+        line-height: $button-line-height;
+        border-radius: $button-radius;
+        transition: scale .2s ease-in-out;
+        margin-bottom: $button-mgb;
+        font-family: $font-primary;
+        margin-top: $button-mgt;
+    }
+
+    button:hover {
+        scale: 110%;
+        cursor: pointer;
+    }
+}
+
+img {
+    width: 90%;
+    height: 80%;
+}
+
+@media (max-width: 980px) {
+    .body-container{
+        width: 90%;
+        height: 70%;
+
+        h1{
+            font-size: 50px;
+        }
+
+        p,
+        button {
+            font-size: xx-large;
+            text-align: center;
+        }
+    }
+}
+
+@media (max-width: 640px){
+    .body-container button{
+        width: 50%;
+    }
+}
+
+@media (max-width: 400px){
+
+    img{
+        width: 100%;
+        height: 100%;
+    }
+
+    .body-container {
+        text-align: center;
+
+        p{
+            margin-top: 1rem;
+        }
+        button{
+            width: 85%;
+        }
+    }
+}

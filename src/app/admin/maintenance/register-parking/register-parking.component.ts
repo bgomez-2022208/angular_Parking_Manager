@@ -34,7 +34,7 @@ export class RegisterParkingComponent implements OnInit {
   }
 
   loadParkings() {
-    this.apiUserService.getParkings().subscribe(
+    this.apiUserService.getParkingsRegister().subscribe(
       (data: any) => {
         this.parking = data.content;
         console.log(this.parking)

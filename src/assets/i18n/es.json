@@ -1,181 +1,181 @@
 {
-    "LOGIN": {
-        "HEADER_TITLE": "Iniciar sesión",
-        "SUBTITLE_ONE": "O puedes ",
-        "SUBTITLE_TWO": "registrarte ahora",
-        "LABEL_EMAIL": "Correo electrónico",
-        "LABEL_PASSWORD": "Contraseña",
-        "REMEMBER_BUTTON_TITLE": "Recordar este dispositivo",
-        "FORGOT_PASSWORD": "¿Olvidaste tu contraseña?",
-        "BTN_LOGIN": "Iniciar sesión"
-    },
-    "REGISTER": {
-        "TITLE": "Registrarse",
-        "SUBTITLE": "Por favor, llena todos los campos para crear tu cuenta",
-        "LABEL_NAME": "Nombre",
-        "LABEL_SURNAME": "Apellido",
-        "LABEL_AGE": "Edad",
-        "LABEL_DPI": "DPI",
-        "LABEL_EMAIL": "Correo electrónico",
-        "LABEL_PASSWORD": "Contraseña",
-        "LABEL_CONFIRM_PASSWORD": "Confirmar contraseña",
-        "BTN_REGISTER": "Registrarse",
-        "TITLE_ADD": "Añadir Usuario",
-        "LABEL_PROFILE": "Perfil"
-    },
-    "PROFILES": {
-        "PROFILE_ADMIN": "Administrador",
-        "PROFILE_USER": "Usuario",
-        "PROFILE_GUEST": "Invitado",
-        "TITLE_PROFILE": "Perfil",
-        "TITLE_ROLES": "Roles"
-    },
-    "BUTTONS": {
-        "BTN_SAVE": "Guardar",
-        "BUTTON_SAVE": "Guardar",
-        "BTN_SAVE_PROFILE": "Guardar Perfil",
-        "BTN_UPDATE_PROFILE": "Actualizar Perfil"
-    },
-    "FORM": {
-        "TITLE_PARKING": "Formulario de Estacionamiento",
-        "LABEL_NAME": "Nombre",
-        "LABEL_SURNAME": "Apellido",
-        "LABEL_AGE": "Edad",
-        "LABEL_DPI": "DPI",
-        "LABEL_EMAIL": "Correo electrónico",
-        "LABEL_PASSWORD": "Contraseña",
-        "LABEL_PROFILE": "Perfil",
-        "LABEL_NAME_PARKING": "Nombre",
-        "LABEL_CAR_PARKING": "Nombre del Vehículo",
-        "LABEL_PLATE_PARKING": "Placa",
-        "BTN_SEND_PARKING": "Enviar"
-    },
-    "SEARCH": {
-        "SEARCH_BUTTON": "Buscar...",
-        "SEARCH_PLACEHOLDER": "Buscar..."
-    },
-    "CONFIRM_LOGOUT": {
-        "TITLE": "¿Estás seguro de que deseas cerrar sesión?",
-        "YES": "SÍ",
-        "NO": "NO"
-    },
-    "ERRORS": {
-        "ERROR_NAME_REQUIRED": "El nombre es obligatorio",
-        "ERROR_SURNAME_REQUIRED": "El apellido es obligatorio",
-        "ERROR_PASSWORD_REQUIRED": "La contraseña es obligatoria",
-        "ERROR_INVALID_CREDENTIALS": "Usuario o contraseña incorrectos",
-        "ERROR_EMAIL_REQUIRED": "El correo electrónico es obligatorio",
-        "ERROR_INVALID_EMAIL": "El correo electrónico no es válido",
-        "ERROR_NEW_PASSWORD_REQUIRED": "La nueva contraseña es obligatoria",
-        "ERROR_CONFIRM_PASSWORD_REQUIRED": "Por favor, vuelve a ingresar la nueva contraseña",
-        "ERROR_CODE_REQUIRED": "El código es obligatorio",
-        "ERROR_CODE_INVALID": "El código debe ser solo números",
-        "ERROR_PASSWORD_NOT_SAME": "Las contraseñas no coinciden",
-        "ERROR_SEND_CODE": "Ocurrió un error al enviar el código de seguridad",
-        "ERROR_AGE_REQUIRED": "La edad es obligatoria",
-        "ERROR_DPI_REQUIRED": "El DPI es obligatorio",
-        "ERROR_INVALID_PASSWORD": "La contraseña debe contener una letra mayúscula, una letra minúscula, un carácter especial, un número y tener al menos 8 dígitos",
-        "ERROR_INVALID_AGE": "La edad debe ser un número y debes ser mayor de edad",
-        "ERROR_INVALID_DPI": "El DPI debe ser un número y contener 13 dígitos",
-        "ERROR_INVALID_NAME": "El nombre debe contener solo letras",
-        "ERROR_INVALID_SURNAME": "El apellido debe contener solo letras",
-        "ERROR_UPDATE_PASSWORD": "Ocurrió un error al actualizar tu contraseña",
-        "ERROR_REGISTER": "Ocurrió un error durante el registro, por favor intenta más tarde",
-        "ERROR_LOGIN": "Usuario o contraseña incorrectos",
-        "ERROR_ADD_PROFILE": "El nombre del perfil es obligatorio"
-    },
-    "FORGOT_PASSWORD_EMAIL": {
-        "HEADER_TITLE": "Recupera tu contraseña",
-        "SUBTITLE": "Ingresa el correo electrónico asociado a tu cuenta para continuar",
-        "LABEL_EMAIL": "Correo electrónico",
-        "BTN_SEND": "Continuar"
-    },
-    "FORGOT_PASSWORD": {
-        "HEADER_TITLE": "Cambiar contraseña",
-        "SUBTITLE": "Ingresa tu nueva contraseña",
-        "LABEL_CODE": "Código de seguridad",
-        "LABEL_NEW_PASSWORD": "Nueva contraseña",
-        "LABEL_CONFIRM_PASSWORD": "Confirmar contraseña",
-        "BTN_CHANGE": "Cambiar contraseña"
-    },
-    "ALERT_CHANGE_PASSWORD": {
-        "TITLE": "Contraseña actualizada con éxito",
-        "TITLE_BAD": "Error al actualizar tu contraseña",
-        "MESSAGE": "Ahora puedes iniciar sesión con tu nueva contraseña"
-    },
-    "ALERT_SEND_CODE": {
-        "TITLE": "Código enviado con éxito",
-        "TITLE_BAD": "Error al enviar el código",
-        "MESSAGE": "Te hemos enviado un código de seguridad a tu correo"
-    },
-    "ALERT_REGISTER": {
-        "TITLE": "Registro exitoso",
-        "TITLE_BAD": "Error en el registro",
-        "MESSAGE": "Te has registrado con éxito. Usa las credenciales enviadas a tu correo para iniciar sesión."
-    },
-    "ALERT_LOGIN": {
-        "TITLE": "Inicio de sesión exitoso",
-        "TITLE_BAD": "Credenciales incorrectas",
-        "MESSAGE": "Has iniciado sesión con éxito."
-    },
-    "LANGUAGES": {
-        "SPANISH": "Español",
-        "ENGLISH": "Inglés",
-        "CACHIQUEL": "Cachiquel"
-    },
-    "MENU": {
-        "AUDITORIA": "Auditoría",
-        "LOGOUT": "Cerrar sesión",
-        "CHANGE_LANGUAGE": "Cambiar idioma"
-    },
-    "LOGOUT": {
-        "TITLE": "Cerrar sesión",
-        "MESSAGE": "¿Estás seguro de que deseas cerrar sesión?",
-        "BTN_YES": "Sí",
-        "BTN_NO": "NO"
-    },
-    "FILTERS": {
-        "FILTER": "Filtrar",
-        "FILTER_BY_ENTITY": "Filtrar por entidad",
-        "SELECT_OPTION": "Selecciona una opción",
-        "NONE": "Ninguno"
-    },
-    "PAGINATOR": {
-        "ARIA_LABEL": "Paginador"
-    },
-    "AUDIT": {
-        "WORKS": "¡La auditoría funciona!",
-        "ID": "ID",
-        "ENTITY": "Entidad",
-        "CHANGE": "Cambio",
-        "DATE": "Fecha",
-        "NO_DATA": "No hay datos que coincidan con el filtro",
-        "START_DATE": "Fecha inicial",
-        "END_DATE": "Fecha final"
-    },
-    "PLACEHOLDER": {
-        "PASSWORD": "Ingresa tu contraseña",
-        "EMAIL": "Ingresa tu correo electrónico",
-        "NEW_PASSWORD": "Ingresa tu nueva contraseña",
-        "CONFIRM_PASSWORD": "Confirma tu nueva contraseña",
-        "CODE": "Ingresa tu código de seguridad",
-        "NAME": "Ingresa tu nombre",
-        "SURNAME": "Ingresa tu apellido",
-        "AGE": "Ingresa tu edad",
-        "DPI": "Ingresa tu DPI",
-        "OLD_PASSWORD": "Ingresa tu contraseña actual"
-    },
-    "PROFILES_SECTION": {
-        "TITLE": "Perfiles",
-        "ADD_PROFILE": "Añadir perfil",
-        "EMAIL": "Correo electrónico",
-        "EMAIL_PLACEHOLDER": "correo@ejemplo.com",
-        "SAVE": "Guardar"
-    },
-    "CONFIGURATION": {
-        "TITLE": "Configuración",
-        "MANAGE_PERMISSIONS": "Administrar permisos"
-    },
+  "LOGIN": {
+    "HEADER_TITLE": "Iniciar sesión",
+    "SUBTITLE_ONE": "O puedes ",
+    "SUBTITLE_TWO": "registrarte ahora",
+    "LABEL_EMAIL": "Correo electrónico",
+    "LABEL_PASSWORD": "Contraseña",
+    "REMEMBER_BUTTON_TITLE": "Recordar este dispositivo",
+    "FORGOT_PASSWORD": "¿Olvidaste tu contraseña?",
+    "BTN_LOGIN": "Iniciar sesión"
+  },
+  "REGISTER": {
+    "TITLE": "Registrarse",
+    "SUBTITLE": "Por favor, llena todos los campos para crear tu cuenta",
+    "LABEL_NAME": "Nombre",
+    "LABEL_SURNAME": "Apellido",
+    "LABEL_AGE": "Edad",
+    "LABEL_DPI": "DPI",
+    "LABEL_EMAIL": "Correo electrónico",
+    "LABEL_PASSWORD": "Contraseña",
+    "LABEL_CONFIRM_PASSWORD": "Confirmar contraseña",
+    "BTN_REGISTER": "Registrarse",
+    "TITLE_ADD": "Añadir Usuario",
+    "LABEL_PROFILE": "Perfil"
+  },
+  "PROFILES": {
+    "PROFILE_ADMIN": "Administrador",
+    "PROFILE_USER": "Usuario",
+    "PROFILE_GUEST": "Invitado",
+    "TITLE_PROFILE": "Perfil",
+    "TITLE_ROLES": "Roles"
+  },
+  "BUTTONS": {
+    "BTN_SAVE": "Guardar",
+    "BTN_UPDATE": "Actualizar",
+    "BTN_CANCEL": "Cancelar",
+    "BTN_CONFIRM": "Si, estoy seguro",
+    "BTN_NO": "No, cancelar",
+    "BTN_BACK": "Volver al inicio"
+  },
+  "FORM": {
+    "TITLE_PARKING": "Formulario de Estacionamiento",
+    "LABEL_NAME": "Nombre",
+    "LABEL_SURNAME": "Apellido",
+    "LABEL_AGE": "Edad",
+    "LABEL_DPI": "DPI",
+    "LABEL_EMAIL": "Correo electrónico",
+    "LABEL_PASSWORD": "Contraseña",
+    "LABEL_PROFILE": "Perfil",
+    "LABEL_NAME_PARKING": "Nombre",
+    "LABEL_CAR_PARKING": "Nombre del Vehículo",
+    "LABEL_PLATE_PARKING": "Placa",
+    "BTN_SEND_PARKING": "Enviar"
+  },
+  "SEARCH": {
+    "SEARCH_BUTTON": "Buscar...",
+    "SEARCH_PLACEHOLDER": "Buscar..."
+  },
+  "CONFIRM_LOGOUT": {
+    "TITLE": "¿Estás seguro de que deseas cerrar sesión?",
+    "YES": "SÍ",
+    "NO": "NO"
+  },
+  "ERRORS": {
+    "ERROR_NAME_REQUIRED": "El nombre es obligatorio",
+    "ERROR_SURNAME_REQUIRED": "El apellido es obligatorio",
+    "ERROR_PASSWORD_REQUIRED": "La contraseña es obligatoria",
+    "ERROR_INVALID_CREDENTIALS": "Usuario o contraseña incorrectos",
+    "ERROR_EMAIL_REQUIRED": "El correo electrónico es obligatorio",
+    "ERROR_INVALID_EMAIL": "El correo electrónico no es válido",
+    "ERROR_NEW_PASSWORD_REQUIRED": "La nueva contraseña es obligatoria",
+    "ERROR_CONFIRM_PASSWORD_REQUIRED": "Por favor, vuelve a ingresar la nueva contraseña",
+    "ERROR_CODE_REQUIRED": "El código es obligatorio",
+    "ERROR_CODE_INVALID": "El código debe ser solo números",
+    "ERROR_PASSWORD_NOT_SAME": "Las contraseñas no coinciden",
+    "ERROR_SEND_CODE": "Ocurrió un error al enviar el código de seguridad",
+    "ERROR_AGE_REQUIRED": "La edad es obligatoria",
+    "ERROR_DPI_REQUIRED": "El DPI es obligatorio",
+    "ERROR_INVALID_PASSWORD": "La contraseña debe contener una letra mayúscula, una letra minúscula, un carácter especial, un número y tener al menos 8 dígitos",
+    "ERROR_INVALID_AGE": "La edad debe ser un número y debes ser mayor de edad",
+    "ERROR_INVALID_DPI": "El DPI debe ser un número y contener 13 dígitos",
+    "ERROR_INVALID_NAME": "El nombre debe contener solo letras",
+    "ERROR_INVALID_SURNAME": "El apellido debe contener solo letras",
+    "ERROR_UPDATE_PASSWORD": "Ocurrió un error al actualizar tu contraseña",
+    "ERROR_REGISTER": "Ocurrió un error durante el registro, por favor intenta más tarde",
+    "ERROR_LOGIN": "Usuario o contraseña incorrectos",
+    "ERROR_ADD_PROFILE": "El nombre del perfil es obligatorio"
+  },
+  "FORGOT_PASSWORD_EMAIL": {
+    "HEADER_TITLE": "Recupera tu contraseña",
+    "SUBTITLE": "Ingresa el correo electrónico asociado a tu cuenta para continuar",
+    "LABEL_EMAIL": "Correo electrónico",
+    "BTN_SEND": "Continuar"
+  },
+  "FORGOT_PASSWORD": {
+    "HEADER_TITLE": "Cambiar contraseña",
+    "SUBTITLE": "Ingresa tu nueva contraseña",
+    "LABEL_CODE": "Código de seguridad",
+    "LABEL_NEW_PASSWORD": "Nueva contraseña",
+    "LABEL_CONFIRM_PASSWORD": "Confirmar contraseña",
+    "BTN_CHANGE": "Cambiar contraseña"
+  },
+  "ALERT_CHANGE_PASSWORD": {
+    "TITLE": "Contraseña actualizada con éxito",
+    "TITLE_BAD": "Error al actualizar tu contraseña",
+    "MESSAGE": "Ahora puedes iniciar sesión con tu nueva contraseña"
+  },
+  "ALERT_SEND_CODE": {
+    "TITLE": "Código enviado con éxito",
+    "TITLE_BAD": "Error al enviar el código",
+    "MESSAGE": "Te hemos enviado un código de seguridad a tu correo"
+  },
+  "ALERT_REGISTER": {
+    "TITLE": "Registro exitoso",
+    "TITLE_BAD": "Error en el registro",
+    "MESSAGE": "Te has registrado con éxito. Usa las credenciales enviadas a tu correo para iniciar sesión."
+  },
+  "ALERT_LOGIN": {
+    "TITLE": "Inicio de sesión exitoso",
+    "TITLE_BAD": "Credenciales incorrectas",
+    "MESSAGE": "Has iniciado sesión con éxito."
+  },
+  "LANGUAGES": {
+    "SPANISH": "Español",
+    "ENGLISH": "Inglés",
+    "CACHIQUEL": "Cachiquel"
+  },
+  "MENU": {
+    "AUDITORIA": "Auditoría",
+    "LOGOUT": "Cerrar sesión",
+    "CHANGE_LANGUAGE": "Cambiar idioma"
+  },
+  "LOGOUT": {
+    "TITLE": "Cerrar sesión",
+    "MESSAGE": "¿Estás seguro de que deseas cerrar sesión?",
+    "BTN_YES": "Sí",
+    "BTN_NO": "NO",
+    "SUCCESS": "La sesión ha sido cerrada"
+  },
+  "FILTERS": {
+    "FILTER": "Filtrar",
+    "FILTER_BY_ENTITY": "Filtrar por entidad",
+    "SELECT_OPTION": "Selecciona una opción",
+    "NONE": "Ninguno"
+  },
+  "AUDIT": {
+    "WORKS": "¡La auditoría funciona!",
+    "ID": "ID",
+    "ENTITY": "Entidad",
+    "CHANGE": "Cambio",
+    "DATE": "Fecha",
+    "NO_DATA": "No hay datos que coincidan con el filtro",
+    "START_DATE": "Fecha inicial",
+    "END_DATE": "Fecha final"
+  },
+  "PLACEHOLDER": {
+    "PASSWORD": "Ingresa tu contraseña",
+    "EMAIL": "Ingresa tu correo electrónico",
+    "NEW_PASSWORD": "Ingresa tu nueva contraseña",
+    "CONFIRM_PASSWORD": "Confirma tu nueva contraseña",
+    "CODE": "Ingresa tu código de seguridad",
+    "NAME": "Ingresa tu nombre",
+    "SURNAME": "Ingresa tu apellido",
+    "AGE": "Ingresa tu edad",
+    "DPI": "Ingresa tu DPI",
+    "OLD_PASSWORD": "Ingresa tu contraseña actual"
+  },
+  "PROFILES_SECTION": {
+    "TITLE": "Perfiles",
+    "ADD_PROFILE": "Añadir perfil",
+    "EMAIL": "Correo electrónico",
+    "EMAIL_PLACEHOLDER": "correo@ejemplo.com",
+    "SAVE": "Guardar"
+  },
+  "CONFIGURATION": {
+    "TITLE": "Configuración",
+    "MANAGE_PERMISSIONS": "Administrar permisos"
+  },
   "TOGGLE": {
     "PROFILE": "Perfil",
     "USER": "Usuario",
@@ -215,7 +215,6 @@
       "BTN_SAVE": "Guardar",
       "BTN_CANCELAR": "Cancelar"
     }
-
   },
   "FILTER_USER": {
     "SEARCH_PLACEHOLDER": "Buscar"
@@ -246,11 +245,11 @@
     "CHANGE_LANGUAGE": "Cambiar Idioma",
     "USERS": "Usuarios",
     "PROFILES": "Perfiles",
-    "REGISTER": "Registro de parqueo",
-
-    "FARES":"Tarifas"
+    "REGISTER": "Registro de vehiculo",
+    "FARES": "Tarifas",
+    "PARKING": "Parqueos",
+    "REPORT": "Reporte"
   },
-
   "ALERT_SUCCESS": {
     "TITLE": "Éxito",
     "MESSAGE": "Usuario guardado correctamente"
@@ -278,7 +277,6 @@
     "ALERT_DISABLE_USER_SUCCESS_MESSAGE": "El usuario ha sido deshabilitado exitosamente.",
     "LABEL_STATUS": "Status"
   },
-
   "_comment_Register_Parking": "filter-salida traduccions",
   "ADD_REGISTER_REGISTER": {
     "FORM": {
@@ -303,8 +301,6 @@
     "TITLE": "Error",
     "MESSAGE": "Ocurrió un error. Por favor, intenta nuevamente"
   },
-
-
   "REGISTER_PARKING": {
     "HEADER": {
       "TITLE_REGISTER": "Registrar Estacionamiento"
@@ -330,10 +326,9 @@
       "TITLE": "Error",
       "MESSAGE_EXIT": "Ocurrió un error. Por favor, intenta nuevamente"
     },
-
     "LABEL_STATUS": "Status",
     "PROFILES": "Perfiles",
-    "FARES":"Tarifas"
+    "FARES": "Tarifas"
   },
   "FARE": {
     "BUTTON_SAVE": "Guardar",
@@ -343,5 +338,71 @@
     "START_TIME": "Hora de inicio",
     "END_TIME": "Hora de salida",
     "ADD_FARE": "Agregar Tarifa"
+  },
+  "PROFILE": {
+    "PROFILE_ADMIN": "Administrador",
+    "PROFILE_USER": "Usuario",
+    "PROFILE_GUEST": "Invitado",
+    "TITLE_PROFILE": "Perfil",
+    "TITLE_ROLES": "Roles",
+    "CLEAN_CONTROLS": "Limpiar controles",
+    "ERROR_WHITESPACES": "No se permiten solo espacios vacios.",
+    "ERROR_REQUIRED": "La descripción es obligaria.",
+    "ERROR_PATTERN": "Solo puede ingresar letras en este campo.",
+    "LABEL_DESCRIPTION": "Descripción",
+    "ALERT_ENABLED_PROFILE": "Perfil habilitado exitosamente."
+  },
+  "PARKING": {
+    "LABEL_NAME": "Nombre",
+    "LABEL_ADDRESS": "Dirección",
+    "LABEL_PHONE": "Teléfono",
+    "LABEL_SPACES": "Espacios",
+    "LABEL_USER": "Usuario",
+    "LABEL_STATUS": "Estado",
+    "PLACEHOLDER_NAME": "Ingresa el nombre del parqueo",
+    "PLACEHOLDER_ADDRESS": "Ingresa la dirección del parqueo",
+    "PLACEHOLDER_PHONE": "Ingresa el teléfono del parqueo",
+    "PLACEHOLDER_SPACES": "Ingresa el número de espacios del parqueo",
+    "PLACEHOLDER_USER": "Selecciona el correo del dueño del parqueo",
+    "ADD_PARKING": "Agregar",
+    "UPDATE_PARKING": "Actualizar",
+    "CANCEL_PARKING": "Cancelar",
+    "ERROR_NAME_PARKING_REQUIRED": "El nombre del parqueo es obligatorio",
+    "ERROR_NAME_PARKING_INVALID": "El nombre solo puede contener letras y no puede ser solo espacios en blanco",
+    "ERROR_ADDRESS_PARKING_REQUIRED": "La dirección del parqueo es obligatoria",
+    "ERROR_ADDRESS_PARKING_INVALID": "La dirección no puede contener solo espacios en blanco",
+    "ERROR_PHONE_PARKING_REQUIRED": "El teléfono del parqueo es obligatorio",
+    "ERROR_PHONE_PARKING_INVALID": "El teléfono debe contener exactamente 8 dígitos numéricos y no puede ser solo espacios en blanco",
+    "ERROR_SPACES_PARKING_REQUIRED": "El número de espacios es obligatorio",
+    "ERROR_SPACES_PARKING_INVALID": "El número de espacios debe ser numérico y no puede ser solo espacios en blanco",
+    "ERROR_USER_PARKING_REQUIRED": "El usuario del parqueo es obligatorio",
+    "ERROR_USER_PARKING_INVALID": "El usuario no puede ser solo espacios en blanco",
+    "NAME_TABLE": "Parqueo",
+    "STATUS_TABLE": "Estado",
+    "ALERT_SUCCESS_TITLE": "¡Parqueo agregado!",
+    "ALERT_SUCCESS_MESSAGE": "¡El parqueo se ha agregado con éxito!",
+    "ALERT_ERROR_TITLE": "Error al agregar parqueo",
+    "ALERT_ERROR_MESSAGE": "Ha ocurrido un error al agregar el parqueo, intente más tarde.",
+    "ALERT_UPDATE_TITLE": "¡Parqueo Actualizado!",
+    "ALERT_UPDATE_MESSAGE": "¡El parqueo ha sido actualizado con éxito!",
+    "ALERT_ERROR_UPDATE_TITLE": "Error al actualizar",
+    "ALERT_ERROR_UPDATE_MESSAGE": "Ha ocurrido un error al actualizar el parqueo, intente más tarde",
+    "ALERT_DISABLE_PARKING_TITLE": "Deshabilitar parqueo",
+    "ALERT_DISABLE_PARKING_MESSAGE": "¿Estas seguro de querer deshabilitar este parqueo?",
+    "ALERT_DISABLE_YES": "Si, estoy seguro",
+    "ALERT_DISABLE_NO": "No, cancelar",
+    "ALERT_DISABLED_PARKING": "¡Parqueo deshabilitado con éxito!",
+    "ALERT_ENABLED_PARKING": "¡Parqueo activado con éxito!"
+  },
+  "FORBIDDEN": {
+    "TITLE": "Acceso Prohibido",
+    "MESSAGE": "Lo sentimos, no tienes permisos para acceder a esta área del portal."
+  },
+  "PAGINATOR": {
+    "NEXT_PAGE_LABEL": "Siguiente página",
+    "PREVIOUS_PAGE_LABEL": "Página anterior",
+    "FIRST_PAGE_LABEL": "Primera página",
+    "LAST_PAGE_LABEL": "Última página",
+    "RANGE": "{{startIndex}} - {{endIndex}} de {{length}}"
   }
 }

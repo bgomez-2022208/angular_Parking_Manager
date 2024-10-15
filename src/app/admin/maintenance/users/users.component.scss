@@ -23,7 +23,7 @@
   .table-register{
     background-color: $color-white;
     padding: 4vh;
-    width: 20vh;
+    width: 30vh;
     height: 80%;
     margin-top: 20px;
     border-radius: 10px;
@@ -67,14 +67,14 @@
     font-size: 0.875rem; /* Aumentado */
     padding: 0.75rem 1rem;
     .table-register {
-      width: 12vh;
+      width: 15vh;
     }
   }
   @media (max-width: 880px) {
     font-size: 0.875rem;
     padding: 0.75rem 1rem;
     .table-register {
-      width: 11vh;
+      width: 14vh;
 
     }
     .table {
@@ -93,20 +93,18 @@
       height: auto;
     }
   }
-  @media (max-width: 760px) {
+  @media (max-width: 800px) {
     font-size: 0.75rem;
     padding: 0.75rem 1rem;
     .table-register {
-      width: 7vh;
+      width: 10vh;
     }
   }
   @media (max-width: 660px) {
     font-size: 0.42rem;
     padding: 0.75rem 1rem;
     .table-register {
-      width: 5vh;
+      width: 9vh;
     }
   }
 }
-
-

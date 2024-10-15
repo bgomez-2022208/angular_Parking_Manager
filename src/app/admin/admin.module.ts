@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import {CommonModule, DatePipe} from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 
 // Angular Material Modules
@@ -33,14 +33,14 @@ import { UsersComponent } from './maintenance/users/users.component';
 
 import { MatSortModule } from '@angular/material/sort';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import {MatNativeDateModule, MatOptionModule} from '@angular/material/core';
+import { MatNativeDateModule, MatOptionModule } from '@angular/material/core';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { ProfilesComponent } from './maintenance/profiles/profiles.component';
-import {AuditoriaComponent} from "./maintenance/auditoria/auditoria.component";
-import {CardAuditoryComponent} from "./maintenance/components/card-auditory/card-auditory.component";
+import { AuditoriaComponent } from "./maintenance/auditoria/auditoria.component";
+import { CardAuditoryComponent } from "./maintenance/components/card-auditory/card-auditory.component";
 import { SimpleNotificationsModule } from 'angular2-notifications';
 import { MatCardModule } from '@angular/material/card';
-import {DeleteUserConfirmComponent} from "./maintenance/components/delete-user-confirm/delete-user-confirm.component";
+import { DeleteUserConfirmComponent } from "./maintenance/components/delete-user-confirm/delete-user-confirm.component";
 import { FareComponent } from './maintenance/fare/fare.component';
 import { TableProfilesComponent } from '../shared/table-profiles/table-profiles.component';
 import { HttpClient } from '@angular/common/http';
@@ -52,33 +52,58 @@ import { FareTableComponent } from './maintenance/components/fare-table/fare-tab
 import { DeleteFareComponent } from './maintenance/components/delete-fare/delete-fare.component';
 import { ReporteComponent } from './maintenance/reporte/reporte.component';
 import { CardReporterComponent } from './maintenance/components/card-reporter/card-reporter.component';
+import { ParkingComponent } from './maintenance/parking/parking.component';
+import { CustomPaginatorIntl } from '../user/services/custom-paginator';
+import { ForbiddenComponent } from '../guard/forbidden/forbidden.component';
+import { AuthGuard } from '../guard/auth.guard.guard';
 
-const routes : Routes = [
+const routes: Routes = [
   {
-    path:'profiles',
-    component: ProfilesComponent
+    path: 'profiles',
+    component: ProfilesComponent,
+    canActivate: [AuthGuard],
+    data: {roles : ['ROLE_PROFILE']}
   },
   {
-    path:'users',
-    component: UsersComponent
+    path: 'users',
+    component: UsersComponent,
+    canActivate: [AuthGuard],
+    data: {roles : ['ROLE_USER']}
   },
   {
-    path:'auditory',
-    component: AuditoriaComponent
+    path: 'auditory',
+    component: AuditoriaComponent,
+    canActivate: [AuthGuard],
+    data: {roles : ['ROLE_AUDITH']}
   },
   {
     path: 'fares',
-    component: FareComponent
+    component: FareComponent,
+    canActivate: [AuthGuard],
+    data: {roles : ['ROLE_FARE']}
   },
   {
-  path:'register',
-  component: RegisterParkingComponent
+    path: 'register',
+    component: RegisterParkingComponent,
+    canActivate: [AuthGuard],
+    data: {roles : ['ROLE_REGISTER']}
   },
   {
-    path:'reporte',
-    component: ReporteComponent
+    path: 'reporte',
+    component: ReporteComponent,
+    canActivate: [AuthGuard],
+    data: {roles : ['ROLE_DETAILROLEPROFILE']}
   },
-
+  {
+    path: 'parking',
+    component: ParkingComponent,
+    canActivate: [AuthGuard],
+    data: {roles : ['ROLE_PARKING']}
+  },
+  {
+    path: 'forbidden',
+    component: ForbiddenComponent
+  }
 ]
 
 @NgModule({
@@ -92,8 +117,10 @@ const routes : Routes = [
     FormParkingComponent,
     TableUsersComponent,
     TableProfilesComponent,
+    ParkingComponent,
     NavbaruserComponent,
     FilterUserComponent,
+    ForbiddenComponent,
     AddUsersComponent,
     ProfilesComponent,
     UsersComponent,
@@ -160,7 +187,8 @@ const routes : Routes = [
     CardReporterComponent
   ],
   providers: [
-    DatePipe
+    DatePipe,
+    {provide: MatPaginatorModule, useClass: CustomPaginatorIntl}
   ],
 })
-export class AdminModule {}
+export class AdminModule { }

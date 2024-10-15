@@ -1,52 +1,62 @@
-<div class="content">
-  <div class="Navbar-container">
-    <app-navbaruser [title]="'PROFILES_SECTION.TITLE' | translate"></app-navbaruser>
+<app-navbaruser [title]="'PROFILES_SECTION.TITLE' | translate"></app-navbaruser>
+<div class="main-container">
+  <div class="table">
+    <mat-form-field>
+      <mat-icon matSuffix (click)="searchProfile()">search</mat-icon>
+      <input matInput type="text" [formControl]="searchControl" [placeholder]="'FILTER_USER.SEARCH_PLACEHOLDER' | translate">
+    </mat-form-field>
+    <table mat-table [dataSource]="profiles" class="mat-elevation-z8">
+      <ng-container matColumnDef="status">
+        <td mat-cell *matCellDef="let profile">
+          <mat-icon [ngClass]="{'active-icon': profile.status, 'inactive-icon': !profile.status}">
+            {{profile.statusIcon}}
+          </mat-icon>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="description">
+        <td mat-cell *matCellDef="let element" (click)="getPerfil(element.profileId)">{{element.description}}</td>
+      </ng-container>
+
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+
+    <mat-paginator [length]="totalItems" [pageSize]="pageSize" (page)="onPageChange($event)" [hidePageSize]="true"
+      [showFirstLastButtons]="true">
+    </mat-paginator>
   </div>
-  <div class="container">
-    <div class="table">
-      <app-filter-profile class="filter"></app-filter-profile>
-      <div class="container-list">
-        <app-table-profiles class="table-register" [profiles]="profiles" [totalPages]="totalPages" [currentPage]="currentPage"
-                         [itemsPerPageOptions]="availableItemsPerPage" (pageChange)="onPageChange($event)"
-                         (profileSelected)="getPerfil($event)" (profileDeleted)="onProfileDeleted($event)" [mostrarBoton]="mostrarBoton">>
-        </app-table-profiles>
-        </div>
+
+  <div class="profiles-form">
+    <form class="container-body" [formGroup]="form" (ngSubmit)="newProfile()">
+      <div class="container-inputs">
+        <mat-form-field>
+          <mat-label>{{'PROFILE.LABEL_DESCRIPTION' | translate}}</mat-label>
+          <input formControlName="description" matInput type="text" required>
+          <mat-error *ngIf="form.get('description')?.invalid">{{getErrorMessage('description')}}</mat-error>
+        </mat-form-field>
       </div>
-      <div class="container-form">
-        <form [formGroup]="form" (ngSubmit)="newProfile()">
-          <h1>{{'PROFILES.TITLE_PROFILE' | translate}}</h1>
-          <mat-form-field>
-            <mat-label>{{valornameProfile}}</mat-label>
-            <input formControlName="description" matInput type="text" required>
-            <mat-error *ngIf="form.get('description')?.invalid">{{getErrorMessage('description')}}</mat-error>
-          </mat-form-field>
-
-
-          <h1>{{'PROFILES.TITLE_ROLES' | translate}}</h1>
-          <div class="toggle-container">
-            <div>
-              <mat-slide-toggle (change)="onToggleRole(1, $event)"
-                                formControlName="profileControl">{{'TOGGLE.PROFILE' | translate}}</mat-slide-toggle>
-              <mat-slide-toggle (change)="onToggleRole(2, $event)" formControlName="usersControl">{{'TOGGLE.USER' | translate}}</mat-slide-toggle>
-              <mat-slide-toggle (change)="onToggleRole(3, $event)"
-                                formControlName="auditControl">{{'TOGGLE.AUDITH' | translate}}</mat-slide-toggle>
-              <mat-slide-toggle (change)="onToggleRole(4, $event)" formControlName="roleAndDetailsControl">{{'TOGGLE.ROLE_DETAIL' | translate}}</mat-slide-toggle>
-            </div>
-            <div>
-              <mat-slide-toggle (change)="onToggleRole(5, $event)"
-                                formControlName="parkingControl">{{'TOGGLE.PARKING' | translate}}</mat-slide-toggle>
-              <mat-slide-toggle (change)="onToggleRole(6, $event)" formControlName="fareControl">{{'TOGGLE.FARE' | translate}}</mat-slide-toggle>
-              <mat-slide-toggle (change)="onToggleRole(7, $event)"
-                                formControlName="registerControl">{{'TOGGLE.REGISTER' | translate}}</mat-slide-toggle>
-            </div>
-          </div>
-          <div class="buttom-container">
-            <button *ngIf="mostrarBoton" (click)="updateProfile()" [disabled]="!rolesChanged" class="btnUpdate">{{'BUTTONS.BTN_UPDATE_PROFILE' | translate}}</button>
-
-            <button *ngIf="mostrarBotonGuardar" class="btnUpdate" type="submit">{{'BUTTONS.BTN_SAVE_PROFILE' | translate}}</button>
-            <button (click)="resetForm()" class="btnUpdate" type="button">Cancelar</button>
-          </div>
-        </form>
-    </div>
+      <div class="container-inputs">
+        <mat-slide-toggle (change)="onToggleRole(1, $event)" formControlName="profileControl">{{'TOGGLE.PROFILE' |
+          translate}}</mat-slide-toggle>
+        <mat-slide-toggle (change)="onToggleRole(2, $event)" formControlName="usersControl">{{'TOGGLE.USER' |
+          translate}}</mat-slide-toggle>
+        <mat-slide-toggle (change)="onToggleRole(3, $event)" formControlName="auditControl">{{'TOGGLE.AUDITH' |
+          translate}}</mat-slide-toggle>
+        <mat-slide-toggle (change)="onToggleRole(4, $event)"
+          formControlName="roleAndDetailsControl">{{'TOGGLE.ROLE_DETAIL' | translate}}</mat-slide-toggle>
+        <mat-slide-toggle (change)="onToggleRole(5, $event)" formControlName="parkingControl">{{'TOGGLE.PARKING' |
+          translate}}</mat-slide-toggle>
+        <mat-slide-toggle (change)="onToggleRole(6, $event)" formControlName="fareControl">{{'TOGGLE.FARE' |
+          translate}}</mat-slide-toggle>
+        <mat-slide-toggle (change)="onToggleRole(7, $event)" formControlName="registerControl">{{'TOGGLE.REGISTER' |
+          translate}}</mat-slide-toggle>
+      </div>
+      <mat-slide-toggle *ngIf="profileIdSelected" (change)="onToggleChange($event)"
+        formControlName="status">Estado</mat-slide-toggle>
+      <div class="buttons">
+        <button *ngIf="!profileIdSelected" type="submit">{{'BUTTONS.BTN_SAVE' | translate}}</button>
+        <button type="button" [disabled]="form.pristine" *ngIf="profileIdSelected" (click)="updateProfile()">{{'BUTTONS.BTN_UPDATE' | translate}}</button>
+        <button type="button" class="cancel" (click)="resetForm()">{{'BUTTONS.BTN_CANCEL' | translate}}</button>
+      </div>
+    </form>
   </div>
 </div>

@@ -53,7 +53,7 @@ export class LoginComponent {
   getErrorMessage(controlName: string) {
     const control = this.form.get(controlName)
     if (control?.hasError('required')){
-      return controlName === 'email' ? this.translate.instant('ERRORS.ERROR_EMAIL_REQUIRED') : '' ||
+      return controlName === 'email' ? this.translate.instant('ERRORS.ERROR_EMAIL_REQUIRED') :
       controlName === 'password' ? this.translate.instant('ERRORS.ERROR_PASSWORD_REQUIRED') : ''
     } else if (control?.hasError('email')){
       return controlName === 'email' ? this.translate.instant('ERRORS.ERROR_INVALID_EMAIL') : ''
@@ -88,7 +88,7 @@ export class LoginComponent {
             title: this.translate.instant('ALERT_LOGIN.TITLE'),
             text: this.translate.instant('ALERT_LOGIN.MESSAGE')
           })
-          this.router.navigate(['/admin/profiles']);
+          this.router.navigate(['/admin/register']);
         },
         error: (error) => {
           Swal.fire({

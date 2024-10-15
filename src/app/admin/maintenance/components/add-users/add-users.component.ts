@@ -112,7 +112,7 @@ export class AddUsersComponent implements OnInit {
 
   loadProfiles() {
 
-    this.apiUserService.getProfiles().subscribe(
+    this.apiUserService.getProfilesUser().subscribe(
       (data: any) => {
         this.profiles = data.message;
         console.log(this.profiles)

@@ -1,258 +1,210 @@
 @import "../../../../assets/sass/variables";
 
-:host {
-  height: $host-param-height;
-  width: $host-param-width;
-  display: $host-display;
+.active-icon {
+  color: green;
 }
 
-.principal-container{
-  width: 100%;
+.inactive-icon {
+  color: red
 }
 
-.main-container{
+.main-container {
   display: flex;
   flex-direction: row;
-}
 
-.container-info{
-  width: 100%;
-}
-
-.input-profile{
-  width: 90%;
-}
-
-.container-body {
-  display: flex;
-  flex-direction: column;
-  width: 60%;
-  height: 100%;
-
-}
-
-.table{
-  display: flex;
-  margin-top: 1vh;
-  flex-direction: column;
-  margin-left: 1rem;
-  border-radius: 10px;
-
-  .container-list{
-    height: 70%;
-    margin-top: 1rem;
+  .profiles-form {
     display: flex;
+    width: 70%;
+    height: 650px;
     flex-direction: column;
-    border-radius: 10px;
-  }
-}
-
-.container-form{
-  border-radius: 10px;
-  width: 60%;
-  height: 90%;
-  background-color: $color-white;
-
-  max-width: 90%;
-  padding: 1rem 1rem 0;
-  margin-top: 10px;
-  margin-left: 10%;
-  margin-right: 10%;
-
-  mat-form-field{
-    width: 95%;
-    margin-bottom: 1rem;
-
-    mat-error{
-      margin-top:.5rem;
-    }
-  }
-  .btnUpdate{
-    background-color: $palette-color-one;
-    color: $palette-color-three;
-    width: auto;
-    font-size: 12px
-}
-  .buttom-container{
-    display: flex;
-    justify-content: 1vh;
+    background-color: white;
+    border-radius: $card-border-radius;
+    margin-right: 1rem;
     margin-top: 1rem;
-  }
-
-
-  .toggle-container{
-    display: flex;
-    flex-direction: column;
-
-
-    mat-slide-toggle{
-      margin: .8rem;
-    }
-  }
-
-  button{
-    width: 15%;
-    background-color: $palette-color-one;
-    color: $palette-color-three;
-    border: $button-border;
-    font-weight: $font-weight-button;
-    font-size: $font-size-button;
-    padding: $button-padding;
-    line-height: $button-line-height;
-    border-radius: $button-radius;
-    transition: $button-transition;
-    margin-bottom: $button-mgb;
     margin-left: 1rem;
-    font-family: $font-primary;
-    margin-top: $button-mgt;
-  }
-}
 
-
-@media only screen and (max-width: 760px) {
-  .principal-container {
-    .main-container {
-
-
-      .table {
-        width: 100%;
-        margin-top: 5vh;
-      }
-
-      .container {
-        flex-direction: column;
-        .form-container {
-          width: 100%;
-        }
-      }
-    }
-  }
-}
-
-
-
-@media only screen and (max-width: 300px) {
-  .principal-container{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    .main-container{
+    .buttons {
       display: flex;
-      flex-direction: column;
-      .form-container{
-        width: 98%;
+      align-items: center;
+      justify-content: right;
+      height: auto;
+      margin: 1rem;
+
+      button {
+        width: 15%;
+        background-color: $palette-color-three;
+        color: $palette-color-four;
+        border: $button-border;
+        font-weight: $font-weight-button;
+        font-size: $font-size-button;
+        padding: $button-padding;
+        line-height: $button-line-height;
+        border-radius: $button-radius;
+        transition: scale .2s ease-in-out;
+        margin-bottom: $button-mgb;
+        margin-left: 1rem;
+        font-family: $font-primary;
+        margin-top: $button-mgt;
       }
-      .form-row{
-        display: flex;
-        flex-direction: column;
+
+      button:hover {
+        scale: 110%;
+        cursor: pointer;
       }
-      .save-button{
-        margin: 2vh;
+
+      .cancel {
+        background-color: #A02334;
+        color: $palette-color-four;
+        border: $button-border;
+        font-weight: $font-weight-button;
+        font-size: $font-size-button;
+        padding: $button-padding;
+        line-height: $button-line-height;
+        border-radius: $button-radius;
+        transition: scale .2s ease-in-out;
+        margin-bottom: $button-mgb;
+        margin-left: 1rem;
+        font-family: $font-primary;
+        margin-top: $button-mgt;
+      }
+
+      .cancel:hover {
+        scale: 110%;
+        cursor: pointer;
+      }
+
+      button:disabled {
+        background-color: $palette-color-four;
+        color: $palette-color-three;
       }
     }
+
+    .container-body {
+      width: 100%;
+      margin-top: 1rem;
+
+      .container-inputs {
+        display: flex;
+        justify-content: left;
+        margin-bottom: 1rem;
+
+        mat-form-field {
+          margin: 1rem;
+          width: 50%;
+
+          mat-icon {
+            color: $palette-color-three;
+          }
+
+          mat-error {
+            margin-top: .5rem;
+          }
+        }
+
+      }
+
+      mat-slide-toggle {
+        margin: 1rem;
+        margin-left: 1rem;
+      }
+
+    }
   }
-}
-
-@import "../../../../assets/sass/variables";
-
-.content{
-  width: 100%;
-}
-
-.container {
-  display: flex;
-  padding: 0;
-  margin: 20px;
-  font-family: $font-primary;
-  width: 90%;
 
   .table {
-    display: flex;
-    flex-direction: column;
-    width: 50%;
-    height: 70%;
-  }
+    margin-left: 1rem;
+    margin-top: 1rem;
+    width: 30%;
+    height: 400px;
 
-  .table-register{
-    background-color: $color-white;
-    padding-left: 3vh;
-    width: 50%;
-    height: 55vh;
-    margin-top: 20px;
-    border-radius: 10px;
-
-  }
-  .filter{
-    width: 100%;
-    display: flex;
-  }
-
-  .Navbar-container {
-    width: 100%;
-    overflow: hidden;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-
-    app-navbaruser {
+    table {
       width: 100%;
-      box-sizing: border-box;
-      display: flex;
-      justify-content: space-between;
+      flex-grow: 1;
 
+      td:hover {
+        cursor: pointer;
+      }
+    }
+
+    mat-form-field {
+      width: 100%;
     }
   }
 }
-@media only screen and (max-width: 1600px) {
-  .table-register{
 
-  }
-  .container-form {
-    #height: 60%;
-  }
-}
-
-@media only screen and (max-width: 900px) {
-  .container-form {
-      #height: 80%;
-    }
-}
-@media only screen and (max-width: 800px) {
-  .container-form {
-      #height: 80%;
-    }
-}
-
-@media only screen and (max-width: 660px) {
-  .container-form {
-      border-radius: 10px;
-      #height: 80%;
-  }
-}
-@media only screen and (max-width: 647px) {
-  .container-form {
-      #height:80%;
-    width: 40%;
-  }
-  .buttom-container{
+@media (max-width: 980px) {
+  .main-container {
     display: flex;
-    flex-direction: column;
-    btnUpdate{
-      margin: 0;
+    flex-direction: row;
+
+    .profiles-form {
+      margin: 1rem;
+      height: 650px;
+    }
+
+    .container-body {
+      width: 40%;
+      margin-right: 1rem;
+      margin-left: 1rem;
+
+
+      .container-inputs {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        margin-top: 1rem;
+
+        mat-form-field {
+          margin: 1rem;
+          width: 90%;
+
+          mat-icon {
+            color: $palette-color-three;
+          }
+
+          mat-error {
+            margin-top: .5rem;
+          }
+        }
+      }
+
+
+      .buttons {
+        margin: 1rem;
+        margin-top: 1rem;
+        margin-right: 2rem;
+
+        button {
+          width: 30%;
+          font-size: $font-size-button-resposive;
+        }
+      }
+
+    }
+
+    .table {
+      width: 60%;
     }
   }
 }
 
-@media only screen and (max-width: 350px) {
-  .container-form {
-    #height:80%;
-    #width: 30%;
-    margin: 0;
+@media (max-width: 640px) {
+  .main-container{
+    flex-direction: column-reverse;
+
+    .profiles-form{
+      margin: 0;
+
+      .container-inputs{
+       width: 100%;
+      }
+    }
+
+    .table{
+      width: 100%;
+      margin: 0;
+      margin-top: 1rem;
+    }
   }
-  .container{
-    margin: 0;
-  }
-  .table{
-    margin-left: 0px;
-  }
+
 }
