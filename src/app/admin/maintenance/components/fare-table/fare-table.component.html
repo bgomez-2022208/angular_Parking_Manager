@@ -1,27 +1,34 @@
-<table class="table-bordered table-container">
-  <ul class="list-unstyled">
-    <li class="product-row" *ngFor="let far of fare">
-      <button class="update-users" (click)="getFareById(far.fareId)">
-        <span>
-          <mat-icon [ngClass]="{'active-icon': far.status, 'inactive-icon': !far.status}">
-            circle
-          </mat-icon>
-        </span>
-        <div class="fare-detail">
+<div class="table">
 
-          <strong>{{ far.name }}</strong>
-          <span>{{ far.price }}</span>
-        </div>
-      </button>
-    </li>
-  </ul>
-  <ul class="pagination">
-    <mat-paginator
-      class="paginator"
-      [length]="totalElements"
-      [pageSize]="itemsPerPage"
-      [pageIndex]="currentPage"
-      (page)="changePage($event)">
-    </mat-paginator>
-  </ul>
-</table>
+  <mat-form-field style="margin-top: 5px; width: 100%">
+    <mat-icon matSuffix (click)="searchFare()">search</mat-icon>
+    <input matInput type="text" [formControl]="searchControl" [placeholder]="'FILTER_USER.SEARCH_PLACEHOLDER' | translate">
+  </mat-form-field>
+  <table mat-table [dataSource]="fare" class="mat-elevation-z8">
+
+    <ng-container matColumnDef="status">
+      <td mat-cell *matCellDef="let far">
+        <mat-icon [ngClass]="{'active-icon': far.status, 'inactive-icon': !far.status}">
+          circle
+        </mat-icon>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="description">
+      <td mat-cell *matCellDef="let far" (click)="getFareById(far.fareId)">
+        {{ far.name }}
+      </td>
+    </ng-container>
+
+    <tr mat-row *matRowDef="let row; columns: ['status', 'description'];"></tr>
+  </table>
+
+  <mat-paginator
+    [length]="totalElements"
+    [pageSize]="itemsPerPage"
+    (page)="changePage($event)"
+    [hidePageSize]="true"
+    [showFirstLastButtons]="true">
+  </mat-paginator>
+</div>
+

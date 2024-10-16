@@ -53,6 +53,10 @@ export class FareService {
     const url = `${this.apiUrl}/fare/updateFare/${fareId}`;
     return this.http.put<any>(url, fareData);
   }
+  searchFare(description: string, page: number, size: number): Observable<any> {
+    const url = `${this.apiUrl}/fare?description=${description}&page=${page}&size=${size}`
+    return this.http.get<any>(url)
+  }
 /*
   disabledFare(status: boolean, fareId: number) {
     const body = { status }
