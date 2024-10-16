@@ -151,7 +151,7 @@ export class ApiUserService {
 
   //Parking
   getParkingsRegister(): Observable<any> {
-    const url = `${this.dataUrl}/parkings/namesAndStatus`;
+    const url = `${this.dataUrl}/parkings/active`;
     return this.http.get<any>(url);
   }
 

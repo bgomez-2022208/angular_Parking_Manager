@@ -33,18 +33,22 @@ export class RegisterParkingComponent implements OnInit {
     this.loadParkings();
   }
 
+
   loadParkings() {
     this.apiUserService.getParkingsRegister().subscribe(
       (data: any) => {
-        this.parking = data.content;
-        console.log(this.parking)
+        this.parking = data.map((item: any) => ({
+          name: item.name,
+          parkingId: item.id,
+          status: item.status
+        }));
+        console.log(this.parking);
       },
       (error: any) => {
         console.error("Error loading parkings", error);
       }
     );
   }
-
   onSubmit() {
     if (this.parkingForm.valid) {
       const formData = this.parkingForm.value;

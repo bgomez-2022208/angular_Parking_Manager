@@ -12,6 +12,13 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class FilterSalidaComponent {
   parkingForm: FormGroup;
+  salidaParking: any;
+  mostrarDatos = false;
+  mostrarBoton = false;
+  mostrarBotonEnviar = true;
+  mostrarBotonCancelar = true;
+  ocultarTitulo = true;
+  ocultarSubTitulo = false;
 
   constructor(
     private translate: TranslateService,
@@ -26,6 +33,8 @@ export class FilterSalidaComponent {
   }
 
   onNoClick(): void {
+    this.mostrarBotonEnviar = true;
+    this.mostrarBotonCancelar = true;
     this.dialogRef.close();
   }
 
@@ -38,11 +47,18 @@ export class FilterSalidaComponent {
       const placaData = {
         plate: this.parkingForm.value.plate
       };
-      console.log("probando falso submit", this.parkingForm.value.plate);
 
       this.apiUserService.salidaParking(placaData).subscribe(
         (salidaParking) => {
+          this.salidaParking = salidaParking;
           this.parkingForm.reset();
+          this.mostrarDatos = true;
+          this.mostrarBotonEnviar = false;
+          this.mostrarBoton = true;
+          this.mostrarBotonCancelar = false;
+          this.ocultarTitulo = false;
+          this.ocultarSubTitulo = true;
+
           Swal.fire({
             icon: 'success',
             title: this.translate.instant('REGISTER_PARKING.ALERT_SUCCESS.TITLE'),
@@ -50,7 +66,6 @@ export class FilterSalidaComponent {
             timer: 3000,
             showConfirmButton: false
           });
-          this.dialogRef.close();
         },
         (error) => {
           if (error.status === 409) {
@@ -75,7 +90,6 @@ export class FilterSalidaComponent {
       );
     }
   }
-
 
   getErrorMessage(controlName: string) {
     const control = this.parkingForm.get(controlName);
