@@ -3,6 +3,7 @@ import {User} from "../../model/user.model";
 import {ApiUserService} from "../../services/user.service";
 import { TranslateService } from '@ngx-translate/core';
 import { animate, state, style, transition, trigger } from '@angular/animations';
+import { ActivatedRoute } from '@angular/router';
 
 
 
@@ -39,13 +40,15 @@ export class UsersComponent implements OnInit {
 
 
 
-  constructor(private apiUserService: ApiUserService, private translate: TranslateService) {
+  constructor(private apiUserService: ApiUserService, private translate: TranslateService,private route: ActivatedRoute) {
     this.currentLanguage = this.currentLanguage === 'es' ? 'en' : 'es';
     this.translate.use(this.currentLanguage);
   }
 
   ngOnInit(): void {
-    this.loadUsers(0);
+    this.route.queryParams.subscribe(params => {
+      this.loadUsers(0);
+    });
   }
 
   loadUsers(page:number): void {
