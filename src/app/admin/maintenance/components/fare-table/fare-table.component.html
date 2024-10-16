@@ -4,8 +4,7 @@
     <mat-icon matSuffix (click)="searchFare()">search</mat-icon>
     <input matInput type="text" [formControl]="searchControl" [placeholder]="'FILTER_USER.SEARCH_PLACEHOLDER' | translate">
   </mat-form-field>
-  <table mat-table [dataSource]="fare" class="mat-elevation-z8">
-
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
     <ng-container matColumnDef="status">
       <td mat-cell *matCellDef="let far">
         <mat-icon [ngClass]="{'active-icon': far.status, 'inactive-icon': !far.status}">
@@ -22,6 +21,7 @@
 
     <tr mat-row *matRowDef="let row; columns: ['status', 'description'];"></tr>
   </table>
+
 
   <mat-paginator
     [length]="totalElements"
