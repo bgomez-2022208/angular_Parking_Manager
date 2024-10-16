@@ -3,7 +3,6 @@
 .container {
   display: flex;
   font-size: 0.95rem;
-  padding: 0.85rem 1rem;
   margin: 20px;
   font-family: $font-primary;
   flex-wrap: wrap;
@@ -30,7 +29,7 @@
     height: auto;
     margin-top: 20px;
     border-radius: 10px;
-    min-height: 50vh;
+    min-height: 630px;
     margin-right: 10px;
     flex: 1;
     max-width: calc(100% - 50px);

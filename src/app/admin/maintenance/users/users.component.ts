@@ -2,8 +2,8 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {User} from "../../model/user.model";
 import {ApiUserService} from "../../services/user.service";
 import { TranslateService } from '@ngx-translate/core';
-import {LanguageService} from "../../../user/services/languaje.service";
 import { animate, state, style, transition, trigger } from '@angular/animations';
+import { ActivatedRoute } from '@angular/router';
 
 
 
@@ -23,7 +23,6 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
   ]
 })
 export class UsersComponent implements OnInit {
-  title: string = 'Profile';
 
   users: User[] = [];
   selectedUser: User | null = null;
@@ -41,15 +40,15 @@ export class UsersComponent implements OnInit {
 
 
 
-  constructor(private apiUserService: ApiUserService, private translate: TranslateService) {
+  constructor(private apiUserService: ApiUserService, private translate: TranslateService,private route: ActivatedRoute) {
     this.currentLanguage = this.currentLanguage === 'es' ? 'en' : 'es';
     this.translate.use(this.currentLanguage);
   }
 
   ngOnInit(): void {
-    this.loadUsers(0);
-
-
+    this.route.queryParams.subscribe(params => {
+      this.loadUsers(0);
+    });
   }
 
   loadUsers(page:number): void {

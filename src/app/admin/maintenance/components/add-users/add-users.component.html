@@ -1,7 +1,7 @@
 <div class="main-container">
   <div class="list-container"></div>
 
-  <div class="container">
+  <div class="container-users">
     <simple-notifications></simple-notifications>
     <h2>{{ 'ADD_USERS.TITLE_ADD' | translate }}</h2>
     <form class="form-container" [formGroup]="userForm" (ngSubmit)="onSubmit()">
@@ -38,18 +38,14 @@
             <mat-error *ngIf="userForm.get('email')?.invalid">{{ getErrorMessage('email') }}</mat-error>
           </mat-form-field>
         </div>
+
         <div class="container-inputs">
         <mat-form-field class="input-small">
           <mat-label>{{ 'ADD_USERS.FORM.LABEL_DPI' | translate }}</mat-label>
           <input class="escritos" matInput formControlName="dpi" required />
           <mat-error *ngIf="userForm.get('dpi')?.invalid">{{getErrorMessage('dpi')}}</mat-error>
 
-        </mat-form-field>
-
-
-      </div>
-
-        <mat-form-field class="profile-select">
+        </mat-form-field><mat-form-field class="profile-select">
           <mat-label>{{ 'ADD_USERS.FORM.LABEL_PROFILE' | translate }}</mat-label>
           <mat-select formControlName="profile" required>
             <mat-option *ngFor="let message of profiles" [value]="message.profileId">
@@ -57,6 +53,10 @@
             </mat-option>
           </mat-select>
         </mat-form-field>
+
+      </div>
+
+
       </div>
       <mat-slide-toggle  class="toogle" *ngIf="userIdSelected" (change)="onToggleChange($event)" formControlName="status">{{ 'USER.LABEL_STATUS' | translate }}</mat-slide-toggle>
       <div class="container-buttons">
