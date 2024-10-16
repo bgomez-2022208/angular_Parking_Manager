@@ -1,11 +1,9 @@
 @import "../../../../../assets/sass/variables";
 
-.container {
+.container-users {
   padding-top: 2rem;
   border-radius: 8px;
-  max-width: 700px;
-  width: 100%;
-  margin: 0 auto;
+  width: 80%;
   margin-left: 70px;
   display: flex;
   flex-direction: column;
@@ -55,8 +53,8 @@ h2 {
 }
 
 .profile-select {
-  max-width: 100%;
-  width: 98%;
+  width: 50%;
+  margin: 10px 10px;
 }
 
 .full-width {
@@ -101,7 +99,7 @@ h2 {
   cursor: pointer;
 }
 @media only screen and (max-width: 1300px) {
-  .container {
+  .container-users {
     padding: 1rem;
     margin: 0 1rem;
   }
@@ -128,7 +126,7 @@ h2 {
 
   .profile-select {
     max-width: 100%;
-    width: 98%;
+    width: 50%;
   }
 
   .guardar {
@@ -153,7 +151,7 @@ h2 {
   }
 }
 @media only screen and (max-width: 1180px) {
-  .container {
+  .container-users {
     padding: 1rem;
     margin: 0 1rem;
   }
@@ -176,7 +174,7 @@ h2 {
 
   .profile-select {
     max-width: 100%;
-    width: 98%;
+    width: 50%;
    }
 
   .guardar {
@@ -195,7 +193,7 @@ h2 {
 }
 
 @media only screen and (max-width: 850px) {
-  .container {
+  .container-users {
     width: 80%;
     padding: 1rem;
     font-size: 1rem;
@@ -251,7 +249,7 @@ h2 {
 }
 
 @media only screen and (max-width: 600px) {
-  .container {
+  .container-users {
     padding: 0.5rem;
   }
 

@@ -2,7 +2,6 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {User} from "../../model/user.model";
 import {ApiUserService} from "../../services/user.service";
 import { TranslateService } from '@ngx-translate/core';
-import {LanguageService} from "../../../user/services/languaje.service";
 import { animate, state, style, transition, trigger } from '@angular/animations';
 
 
@@ -23,7 +22,6 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
   ]
 })
 export class UsersComponent implements OnInit {
-  title: string = 'Profile';
 
   users: User[] = [];
   selectedUser: User | null = null;
@@ -48,8 +46,6 @@ export class UsersComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadUsers(0);
-
-
   }
 
   loadUsers(page:number): void {

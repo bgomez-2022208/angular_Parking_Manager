@@ -41,7 +41,6 @@ export class AddUsersComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private translate: TranslateService,
-
   ) {
     this.userForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
@@ -67,17 +66,22 @@ export class AddUsersComponent implements OnInit {
     });
   }
 
+
   loadUsers() {
     this.userIdSelected = false;
     this.apiUserService.getUsers().subscribe(
       (data) => {
         this.users = data;
+        this.router.navigateByUrl('/dummy-route', { skipLocationChange: true }).then(() => {
+          this.router.navigate([this.router.url]);
+        });
       },
       (error) => {
         console.error("Error loading users", error);
       }
     );
   }
+
   getErrorMessage(controlName: string){
     const control = this.userForm.get(controlName);
 
@@ -109,7 +113,6 @@ export class AddUsersComponent implements OnInit {
 
 
   loadProfiles() {
-
     this.apiUserService.getProfilesUser().subscribe(
       (data: any) => {
         this.profiles = data.message;
