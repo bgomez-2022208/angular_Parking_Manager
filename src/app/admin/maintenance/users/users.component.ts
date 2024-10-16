@@ -54,11 +54,13 @@ export class UsersComponent implements OnInit {
 
   loadUsers(page:number): void {
     console.log("user.component")
-    this.apiUserService.getUsers(this.itemsPerPage , page, this.email).subscribe(
+    this.apiUserService.getUsers(this.itemsPerPage, page, this.email).subscribe(
       (data: any) => {
         this.users = data.users;
         this.totalUsers = data.totalElements;
         this.totalPages = data.totalPages;
+
+
 
         console.log(this.users);
       },
@@ -75,6 +77,7 @@ export class UsersComponent implements OnInit {
   }
 
   changePage(page: number): void {
+    this.currentPage = page;
     this.loadUsers(page);
   }
 
