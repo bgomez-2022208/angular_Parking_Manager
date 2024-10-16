@@ -4,7 +4,7 @@
   padding-top: 2rem;
   border-radius: 8px;
   max-width: 700px;
-  width: 60%;
+  width: 100%;
   margin: 0 auto;
   margin-left: 70px;
   display: flex;
@@ -36,6 +36,7 @@ h2 {
 .form-container {
   display: flex;
   flex-direction: column;
+  width: 100%;
   flex-grow: 1;
 }
 

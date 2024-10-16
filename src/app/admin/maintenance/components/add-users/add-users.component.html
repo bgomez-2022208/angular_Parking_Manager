@@ -27,12 +27,16 @@
 
         </mat-form-field>
 
-        <mat-form-field class="input-small">
-          <mat-label>{{ 'ADD_USERS.FORM.LABEL_EMAIL' | translate }}</mat-label>
-          <input class="escritos" matInput formControlName="email" required />
-          <mat-error *ngIf="userForm.get('email')?.invalid">{{getErrorMessage('email')}}</mat-error>
-
-        </mat-form-field>
+          <mat-form-field class="input-small">
+            <mat-label>{{ 'ADD_USERS.FORM.LABEL_EMAIL' | translate }}</mat-label>
+            <input
+              class="escritos"
+              matInput
+              formControlName="email"
+              required
+            />
+            <mat-error *ngIf="userForm.get('email')?.invalid">{{ getErrorMessage('email') }}</mat-error>
+          </mat-form-field>
         </div>
         <div class="container-inputs">
         <mat-form-field class="input-small">
@@ -60,7 +64,10 @@
         <button class="cancelar" type="button" (click)="CancelUpdate()">
         {{ 'ADD_USERS.BUTTONS.BTN_CANCELAR' | translate }}
       </button>
-      <button class="guardar" type="submit">
+        <button *ngIf="mostrarBoton" class="guardar" type="button" (click)="updateUser()">
+          Actualizar
+        </button>
+      <button class="guardar" *ngIf="mostrarBotonGuardar" type="submit">
         {{ 'ADD_USERS.BUTTONS.BTN_SAVE' | translate }}
       </button>
 
