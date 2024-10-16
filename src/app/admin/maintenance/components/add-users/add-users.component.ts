@@ -66,22 +66,13 @@ export class AddUsersComponent implements OnInit {
     });
   }
 
-
   loadUsers() {
     this.userIdSelected = false;
-    this.apiUserService.getUsers().subscribe(
-      (data) => {
-        this.users = data;
-        this.router.navigateByUrl('/dummy-route', { skipLocationChange: true }).then(() => {
-          this.router.navigate([this.router.url]);
-        });
-      },
-      (error) => {
-        console.error("Error loading users", error);
-      }
-    );
-  }
 
+    const timestamp = Math.floor(Date.now() / 1000);
+    this.router.navigate(['/admin/users'], {queryParams: {timestamp: timestamp}});
+
+  }
   getErrorMessage(controlName: string){
     const control = this.userForm.get(controlName);
 
@@ -114,8 +105,10 @@ export class AddUsersComponent implements OnInit {
 
   loadProfiles() {
     this.apiUserService.getProfilesUser().subscribe(
+
       (data: any) => {
         this.profiles = data.message;
+
         console.log(this.profiles)
       },
       (error: any) => {

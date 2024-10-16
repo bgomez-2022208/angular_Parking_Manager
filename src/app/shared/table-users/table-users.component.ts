@@ -53,7 +53,7 @@ export class TableUsersComponent {
 
   changePage(event: PageEvent): void {
     this.currentPage = event.pageIndex;
-    this.pageChange.emit(this.currentPage); // Emitir el evento con la página actual
+    this.pageChange.emit(this.currentPage);
   }
 
   deleteUser(userId: number): void {
