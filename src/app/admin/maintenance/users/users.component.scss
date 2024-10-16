@@ -58,22 +58,33 @@
     }
   }
 
-  @media (max-width: 500px) {
-    flex-direction: column;
+  @media (max-width: 565px) {
+    .container {
+      display: flex;
+      flex-direction: column;
+    }
 
     .table {
       width: 100%;
+    }
+
+    .main-container {
+      margin-top: 100px;
     }
 
     .table-usuarios {
       width: 100%;
       margin-bottom: 20px;
       margin-left: 0;
+      margin-top: 20px;
     }
 
     .table-register {
       width: 100%;
       margin-top: 0;
+      gap: 150px;
     }
   }
+
 }
+

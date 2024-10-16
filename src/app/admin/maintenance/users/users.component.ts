@@ -29,7 +29,7 @@ export class UsersComponent implements OnInit {
   selectedUser: User | null = null;
   isEditing: boolean = false;
   itemsPerPage: number = 10;
-  currentPage: number = 1;
+  currentPage: number = 0;
 
   totalUsers: number = 0;
   totalPages: number = 0;
@@ -47,14 +47,14 @@ export class UsersComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.loadUsers(1);
+    this.loadUsers(0);
 
 
   }
 
   loadUsers(page:number): void {
     console.log("user.component")
-    this.apiUserService.getUsers(this.itemsPerPage , page-1, this.email).subscribe(
+    this.apiUserService.getUsers(this.itemsPerPage , page, this.email).subscribe(
       (data: any) => {
         this.users = data.users;
         this.totalUsers = data.totalElements;
