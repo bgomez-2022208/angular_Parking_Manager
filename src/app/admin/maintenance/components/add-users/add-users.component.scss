@@ -4,7 +4,7 @@
   padding-top: 2rem;
   border-radius: 8px;
   max-width: 700px;
-  width: 60%;
+  width: 100%;
   margin: 0 auto;
   margin-left: 70px;
   display: flex;
@@ -14,7 +14,7 @@
   font-family: $font-primary;
 }
 .container-inputs{
-  width: 120%;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   min-height: 100%;
@@ -36,6 +36,7 @@ h2 {
 .form-container {
   display: flex;
   flex-direction: column;
+  width: 100%;
   flex-grow: 1;
 }
 
@@ -49,7 +50,7 @@ h2 {
 .mat-form-field {
   flex: 1;
   max-width: 100%;
-  width: 98%;
+  width: 100%;
   margin-bottom: 1rem;
 }
 
@@ -127,7 +128,7 @@ h2 {
 
   .profile-select {
     max-width: 100%;
-    width: 75%;
+    width: 98%;
   }
 
   .guardar {
@@ -175,7 +176,7 @@ h2 {
 
   .profile-select {
     max-width: 100%;
-    width: 75%;
+    width: 98%;
    }
 
   .guardar {
@@ -223,7 +224,7 @@ h2 {
   }
 
   .profile-select {
-    width: 75%;
+    width: 98%;
   }
 
   .guardar {
@@ -263,7 +264,7 @@ h2 {
   }
 
   .profile-select {
-    width: 75%;
+    width: 98%;
   }
 
   .guardar {

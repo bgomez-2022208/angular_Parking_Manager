@@ -29,7 +29,7 @@ import { MatPaginator, PageEvent } from '@angular/material/paginator';
 
 export class TableUsersComponent {
   @Input() users: User[] = [];
-  @Input() itemsPerPage: number = 0;
+  @Input() itemsPerPage: number = 10;
   @Output() pageChange = new EventEmitter<number>();
   @Input() totalPages: number = 0;
   searchQuery: string = "";
@@ -42,7 +42,7 @@ export class TableUsersComponent {
 
 
 
-  @Input() currentPage: number = 1;
+  @Input() currentPage: number = 0;
   @Input() profiles!: any[];
   @Input() itemsPerPageOptions!: number[];
   @Output() profileSelected = new EventEmitter<number>();
@@ -53,8 +53,7 @@ export class TableUsersComponent {
 
   changePage(event: PageEvent): void {
     this.currentPage = event.pageIndex;
-    console.log(event.pageIndex);
-    this.loadUsers(event.pageIndex);
+    this.pageChange.emit(this.currentPage); // Emitir el evento con la página actual
   }
 
   deleteUser(userId: number): void {
@@ -82,9 +81,9 @@ export class TableUsersComponent {
         this.totalElements = data.totalElements;
 
         this.totalPages = data.totalPages;
-        this.paginator.length = this.totalElements;
-        this.paginator.pageIndex = page;
-        this.currentPage = page;
+       // this.paginator.length = this.totalElements;
+        //this.paginator.pageIndex = page;
+        this.currentPage = data.currentPage;
         console.log(this.users);
       },
       (error: any) => {

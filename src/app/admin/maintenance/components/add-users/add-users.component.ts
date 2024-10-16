@@ -32,7 +32,8 @@ export class AddUsersComponent implements OnInit {
   isEditing = false;
   userId?: number;
   userIdSelected = false;
-
+  mostrarBotonGuardar = true;
+  mostrarBoton = false;
   constructor(
     private notifications: NotificationsService,
     private fb: FormBuilder,
@@ -49,22 +50,19 @@ export class AddUsersComponent implements OnInit {
       profile: ['', Validators.required],
       age: ['', [Validators.required, Validators.min(0)]],
       dpi: ['', [Validators.required, Validators.pattern(/^\d+$/)]],
-      password: ['', [Validators.required, Validators.minLength(10)]],
       status: [false, Validators.required]
     });
   }
 
   ngOnInit(): void {
     this.loadProfiles();
-
-
-
     this.route.queryParams.subscribe(params => {
       if (params['userId']) {
         this.isEditing = true;
         this.userId = +params['userId'];
         this.loadUserData(this.userId);
         this.userIdSelected = true;
+
       }
     });
   }
@@ -124,6 +122,11 @@ export class AddUsersComponent implements OnInit {
   }
 
   loadUserData(userId: number) {
+    this.mostrarBoton = true;
+    this.mostrarBotonGuardar = false;
+    this.userForm.get('email')?.disable();
+
+
     this.apiUserService.getUserById(userId).subscribe({
       next: (userData) => {
         this.userForm.patchValue({
@@ -139,7 +142,7 @@ export class AddUsersComponent implements OnInit {
   }
 
   onSubmit() {
-    if (this.userForm.valid) {
+    if (this.userForm) {
       const userData = {
         name: this.userForm.value.name,
         surname: this.userForm.value.surname,
@@ -150,86 +153,89 @@ export class AddUsersComponent implements OnInit {
         profileId: this.userForm.value.profile
       };
 
-      if (this.isEditing && this.userId) {
-        this.apiUserService.updateUser(this.userId, userData).subscribe(
-          (updatedUser) => {
-            Swal.fire({
-              icon: 'success',
-              title: this.translate.instant('ALERT_SUCCESS.TITLE'),
-              text: this.translate.instant('ALERT_SUCCESS.MESSAGE'),
-              timer: 3000,
-              showConfirmButton: false
-            });
-            this.loadUsers();
-            this.userForm.reset();
-            this.userId = undefined;
-            this.isEditing = false;
+      this.apiUserService.createUser(userData).subscribe(
+        (newUser) => {
+          this.loadUsers();
+          this.userForm.reset();
+          this.isEditing = false;
 
-          },
-          (error) => {
-            if (error.status === 409) {
-              Swal.fire({
-                icon: 'warning',
-                title: this.translate.instant('ALERT_WARNING.EMAIL_IN_USE_TITLE'),
-                text: this.translate.instant('ALERT_WARNING.EMAIL_IN_USE_MESSAGE'),
-                timer: 3000,
-                showConfirmButton: false
-              });
-            } else {
-              console.error("Error updating user", error);
-              Swal.fire({
-                icon: 'error',
-                title: this.translate.instant('ALERT_ERROR.TITLE'),
-                text: this.translate.instant('ALERT_ERROR.MESSAGE'),
-                timer: 3000,
-                showConfirmButton: false
-              });
-            }
-          }
-        );
-      } else {
-        this.apiUserService.createUser(userData).subscribe(
-          (newUser) => {
-            this.loadUsers();
-            this.userForm.reset();
-            this.isEditing = false;
+          Swal.fire({
+            icon: 'success',
+            title: this.translate.instant('ALERT_SUCCESS.TITLE'),
+            text: this.translate.instant('ALERT_SUCCESS.MESSAGE'),
+            timer: 3000,
+            showConfirmButton: false
+          });
+        },
+        (error) => {
+          this.handleError(error);
+        }
+      );
+    }
+  }
 
-            Swal.fire({
-              icon: 'success',
-              title: this.translate.instant('ALERT_SUCCESS.TITLE'),
-              text: this.translate.instant('ALERT_SUCCESS.MESSAGE'),
-              timer: 3000,
-              showConfirmButton: false
-            });
-          },
-          (error) => {
-            if (error.status === 409) {
-              Swal.fire({
-                icon: 'warning',
-                title: this.translate.instant('ALERT_WARNING.EMAIL_IN_USE_TITLE'),
-                text: this.translate.instant('ALERT_WARNING.EMAIL_IN_USE_MESSAGE'),
-                timer: 3000,
-                showConfirmButton: false
-              });
-            } else {
-              console.error("Error creating user", error);
-              Swal.fire({
-                icon: 'error',
-                title: this.translate.instant('ALERT_ERROR.TITLE'),
-                text: this.translate.instant('ALERT_ERROR.MESSAGE'),
-                timer: 3000,
-                showConfirmButton: false
-              });
-            }
-          }
-        );
-      }
+  updateUser() {
+    if (this.userForm.valid && this.isEditing && this.userId) {
+      const userData = {
+        name: this.userForm.value.name,
+        surname: this.userForm.value.surname,
+        age: this.userForm.value.age,
+        dpi: this.userForm.value.dpi,
+        status: true,
+        profileId: this.userForm.value.profile
+      };
+      this.userForm.get('email')?.enable();
+      this.mostrarBoton = false;
+      this.mostrarBotonGuardar = true;
+      this.apiUserService.updateUser(this.userId, userData).subscribe(
+        (updatedUser) => {
+          Swal.fire({
+            icon: 'success',
+            title: this.translate.instant('ALERT_SUCCESS.TITLE'),
+            text: this.translate.instant('ALERT_SUCCESS.MESSAGE'),
+            timer: 3000,
+            showConfirmButton: false
+          });
+          this.loadUsers();
+          this.userForm.reset();
+          this.userId = undefined;
+          this.isEditing = false;
+        },
+        (error) => {
+          this.handleError(error);
+        }
+      );
+    }
+  }
+
+  handleError(error: any) {
+    if (error.status === 409) {
+      Swal.fire({
+        icon: 'warning',
+        title: this.translate.instant('ALERT_WARNING.EMAIL_IN_USE_TITLE'),
+        text: this.translate.instant('ALERT_WARNING.EMAIL_IN_USE_MESSAGE'),
+        timer: 3000,
+        showConfirmButton: false
+      });
+    } else {
+      console.error("Error occurred", error);
+      Swal.fire({
+        icon: 'error',
+        title: this.translate.instant('ALERT_ERROR.TITLE'),
+        text: this.translate.instant('ALERT_ERROR.MESSAGE'),
+        timer: 3000,
+        showConfirmButton: false
+      });
     }
   }
 
 
+
   CancelUpdate() {
     this.userIdSelected = false;
+    this.mostrarBoton = false;
+    this.mostrarBotonGuardar = true;
+    this.userForm.get('email')?.enable();
     this.userForm.reset();
     this.router.navigate([], {
       relativeTo: this.route,

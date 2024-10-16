@@ -6,40 +6,41 @@
   padding: 0.85rem 1rem;
   margin: 20px;
   font-family: $font-primary;
-  flex-wrap: wrap; // Permite que los elementos se envuelvan cuando no hay suficiente espacio
+  flex-wrap: wrap;
 
   .table {
     display: flex;
     flex-direction: column;
     width: 30%;
     height: 100%;
-    max-width: 250px;
+    max-width: 435px;
     min-width: 20vh;
   }
 
   .table-usuarios {
     border-radius: 10px;
     background-color: $color-white;
-    margin-left: 10px; // Mueve la tabla de usuarios hacia la derecha
-    flex: 1; // Permite que esta tabla crezca según el espacio disponible
+    margin-left: 10px;
+    flex: 1;
   }
 
   .table-register {
     background-color: $color-white;
     padding: 4vh;
-    height: auto; // Ajusta la altura automáticamente
+    height: auto;
     margin-top: 20px;
     border-radius: 10px;
     min-height: 50vh;
-    margin-right: 10px; // Agrega un margen a la derecha para la separación deseada
-    flex: 1; // Permite que esta tabla también crezca según el espacio disponible
-    max-width: calc(100% - 50px); // Asegura que la tabla no exceda el ancho del contenedor menos el margen
+    margin-right: 10px;
+    flex: 1;
+    max-width: calc(100% - 50px);
   }
 
   .filter {
     width: 100%;
+    max-width: 450px;
     display: flex;
-    height: auto; // Asegúrate de que la altura se ajuste según el contenido
+    height: auto;
   }
 
   .Navbar-container {
@@ -57,23 +58,33 @@
     }
   }
 
-  // Media query para 500px o menos
-  @media (max-width: 500px) {
-    flex-direction: column;
+  @media (max-width: 565px) {
+    .container {
+      display: flex;
+      flex-direction: column;
+    }
 
     .table {
       width: 100%;
     }
 
+    .main-container {
+      margin-top: 100px;
+    }
+
     .table-usuarios {
       width: 100%;
       margin-bottom: 20px;
-      margin-left: 0; // Elimina el margen izquierdo en pantallas pequeñas
+      margin-left: 0;
+      margin-top: 20px;
     }
 
     .table-register {
       width: 100%;
       margin-top: 0;
+      gap: 150px;
     }
   }
+
 }
+

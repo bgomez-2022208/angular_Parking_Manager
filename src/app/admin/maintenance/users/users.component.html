@@ -16,10 +16,11 @@
     <div class="table">
       <app-filter-user class="filter" (searchChange)="changeSearch($event)"></app-filter-user>
       <app-table-users class="table-register"
-        [users]="users"
-        [itemsPerPage]="itemsPerPage"
-                       [totalPages]="totalPages"
-        (pageChange)="changePage($event)"
+                       [users]="users"
+                       [itemsPerPage]="itemsPerPage"
+                       [totalElements]="totalUsers"
+                       [currentPage]="currentPage"
+                       (pageChange)="changePage($event)">
       ></app-table-users>
 
 
