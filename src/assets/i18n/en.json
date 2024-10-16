@@ -274,9 +274,15 @@
   "ADD_REGISTER_REGISTER": {
     "FORM": {
       "LABEL_Plate": "Enter the vehicle's plate",
+      "SUBTITLE_PARKING": "Parking data",
       "BUTTON_Cancel": "Cancel",
-      "BUTTON_Accept": "Accept",
-      "LABEL_PLATE_INPUT": "Plate"
+      "BUTTON_Accept": "Continue",
+      "LABEL_PLATE_INPUT": "Plate",
+      "BUTTON_CERRAR_MODAL": "Close",
+      "TOTAL" : "Total",
+      "STARTDATE": "Start Date",
+      "ENDDATE": "End Date",
+      "PLATE": "Plate"
     }
   },
   "ERRORS_REGISTER": {
@@ -310,6 +316,7 @@
     },
     "ALERT_SUCCESS": {
       "TITLE": "Success",
+      "MESSAGE_EXIT": "The vehicle has left the parking lot",
       "MESSAGE": "The operation was completed successfully"
     },
     "ALERT_WARNING": {

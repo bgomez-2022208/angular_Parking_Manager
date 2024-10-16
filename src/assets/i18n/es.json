@@ -281,9 +281,15 @@
   "ADD_REGISTER_REGISTER": {
     "FORM": {
       "LABEL_Plate": "Ingresa la placa del vehículo",
+      "SUBTITLE_PARKING": "Datos de Parqueo:",
       "BUTTON_Cancel": "Cancelar",
-      "BUTTON_Accept": "Aceptar",
-      "LABEL_PLATE_INPUT": "Placa"
+      "BUTTON_Accept": "Continuar",
+      "BUTTON_CERRAR_MODAL": "Cerrar",
+      "LABEL_PLATE_INPUT": "Placa",
+      "TOTAL" : "Total",
+      "STARTDATE": "Fecha de inicio",
+      "ENDDATE": "Fecha de finalización",
+      "PLATE": "Placa"
     }
   },
   "ERRORS_REGISTER": {
@@ -316,7 +322,8 @@
     },
     "ALERT_SUCCESS": {
       "TITLE": "Éxito",
-      "MESSAGE": "La operación se completó exitosamente"
+      "MESSAGE": "La operación se completó exitosamente",
+      "MESSAGE_EXIT": "El vehículo ha salido del aparcamiento."
     },
     "ALERT_WARNING": {
       "EMAIL_IN_USE_TITLE": "Advertencia",
