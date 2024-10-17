@@ -202,6 +202,7 @@
   },
   "ADD_USERS": {
     "TITLE_ADD": "Agregar Usuario",
+    "TITLE_UPDATE": "Actualizar Usuario",
     "FORM": {
       "LABEL_NAME": "Nombre",
       "LABEL_SURNAME": "Apellido",
@@ -213,7 +214,8 @@
     },
     "BUTTONS": {
       "BTN_SAVE": "Guardar",
-      "BTN_CANCELAR": "Cancelar"
+      "BTN_CANCELAR": "Cancelar",
+      "BTN_UPDATE_PROFILE": "Actualizar"
     }
   },
   "FILTER_USER": {
@@ -269,12 +271,13 @@
     "MESSAGE_ERROR": "Hubo un error al eliminar el usuario. Inténtelo de nuevo."
   },
   "USER": {
-    "ALERT_DISABLE_USER_TITLE": "Deshabilitar Usuario",
+    "ALERT_DISABLE_USER_TITLE": "Usuario Desabilitado",
     "ALERT_DISABLE_USER_MESSAGE": "¿Estás seguro de que deseas deshabilitar a este usuario?",
     "ALERT_DISABLE_USER_BUTTON_YES": "Sí",
     "ALERT_DISABLE_USER_BUTTON_NO": "No",
     "ALERT_DISABLE_USER_SUCCESS_TITLE": "Usuario Deshabilitado",
     "ALERT_DISABLE_USER_SUCCESS_MESSAGE": "El usuario ha sido deshabilitado exitosamente.",
+    "ALERT_ACTIVATE_USER_SUCCESS_MESSAGE": "El usuario ha sido habilitado exitosamente.",
     "LABEL_STATUS": "Status"
   },
   "_comment_Register_Parking": "filter-salida traduccions",

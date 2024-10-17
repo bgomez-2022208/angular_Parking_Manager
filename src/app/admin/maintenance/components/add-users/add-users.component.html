@@ -3,7 +3,9 @@
 
   <div class="container-users">
     <simple-notifications></simple-notifications>
-    <h2>{{ 'ADD_USERS.TITLE_ADD' | translate }}</h2>
+    <h2 *ngIf="showTitle" >{{ 'ADD_USERS.TITLE_ADD' | translate }}</h2>
+    <h2 *ngIf="showTitleUpdate" >{{ 'ADD_USERS.TITLE_UPDATE' | translate }}</h2>
+
     <form class="form-container" [formGroup]="userForm" (ngSubmit)="onSubmit()">
       <div class="form-group">
         <div class="container-inputs">
@@ -60,16 +62,16 @@
       </div>
       <mat-slide-toggle  class="toogle" *ngIf="userIdSelected" (change)="onToggleChange($event)" formControlName="status">{{ 'USER.LABEL_STATUS' | translate }}</mat-slide-toggle>
       <div class="container-buttons">
-
+        <button class="guardar" *ngIf="mostrarBotonGuardar" type="submit">
+          {{ 'ADD_USERS.BUTTONS.BTN_SAVE' | translate }}
+        </button>
         <button class="cancelar" type="button" (click)="CancelUpdate()">
         {{ 'ADD_USERS.BUTTONS.BTN_CANCELAR' | translate }}
       </button>
         <button *ngIf="mostrarBoton" class="guardar" type="button" (click)="updateUser()">
-          Actualizar
+          {{ 'ADD_USERS.BUTTONS.BTN_UPDATE_PROFILE' | translate }}
         </button>
-      <button class="guardar" *ngIf="mostrarBotonGuardar" type="submit">
-        {{ 'ADD_USERS.BUTTONS.BTN_SAVE' | translate }}
-      </button>
+
 
       </div>
     </form>

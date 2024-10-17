@@ -175,6 +175,7 @@
     },
     "ADD_USERS": {
       "TITLE_ADD": "Add User",
+      "TITLE_UPDATE": "Update User",
       "FORM": {
         "LABEL_NAME": "First Name",
         "LABEL_SURNAME": "Last Name",
@@ -188,7 +189,7 @@
         "BTN_SAVE": "Save",
         "BTN_CANCELAR": "Cancelar",
         "BTN_SAVE_PROFILE": "Guardar Perfil",
-        "BTN_UPDATE_PROFILE": "Actualizar Perfil"
+        "BTN_UPDATE_PROFILE": "Update"
       }
     },
     "FILTER_USER": {
@@ -259,6 +260,7 @@
     "ALERT_DISABLE_USER_BUTTON_NO": "No",
     "ALERT_DISABLE_USER_SUCCESS_TITLE": "User Disabled",
     "ALERT_DISABLE_USER_SUCCESS_MESSAGE": "The user has been disabled successfully.",
+    "ALERT_ACTIVATE_USER_SUCCESS_MESSAGE": "The user has been successfully enabled.",
     "LABEL_STATUS": "Status"
   },
   "FARE": {
