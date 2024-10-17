@@ -1,0 +1,333 @@
+{
+    "LOGIN": {
+        "HEADER_TITLE": "Login",
+        "SUBTITLE_ONE": "Or you can ",
+        "SUBTITLE_TWO": "sign up now",
+        "LABEL_EMAIL": "Email",
+        "LABEL_PASSWORD": "Password",
+        "REMEMBER_BUTTON_TITLE": "Remember this device",
+        "FORGOT_PASSWORD": "Forgot your password?",
+        "BTN_LOGIN": "Login"
+    },
+    "REGISTER": {
+        "TITLE": "Register",
+        "SUBTITLE": "Please fill out all fields to create your account",
+        "LABEL_NAME": "First name",
+        "LABEL_SURNAME": "Last name",
+        "LABEL_AGE": "Age",
+        "LABEL_DPI": "DPI",
+        "LABEL_EMAIL": "Email",
+        "LABEL_PASSWORD": "Password",
+        "LABEL_CONFIRM_PASSWORD": "Confirm password",
+        "BTN_REGISTER": "Sign up",
+        "TITLE_ADD": "Add User",
+        "LABEL_PROFILE": "Profile"
+    },
+    "PROFILES": {
+        "PROFILE_ADMIN": "Admin",
+        "PROFILE_USER": "User",
+        "PROFILE_GUEST": "Guest",
+      "TITLE_PROFILE": "Profile",
+      "TITLE_ROLES": "Roles"
+    },
+    "BUTTONS": {
+        "BTN_SAVE": "Save",
+        "BUTTON_SAVE": "Save",
+        "BTN_SAVE_PROFILE": "Save Profile",
+        "BTN_UPDATE_PROFILE": "Update Profile"
+    },
+  "TOGGLE": {
+    "PROFILE": "Profile",
+    "USER": "User",
+    "AUDITH": "Audit",
+    "ROLE_DETAIL": "Roles y Detalles",
+    "PARKING": "Parking",
+    "FARE": "Fee",
+    "REGISTER": "Register"
+  },
+    "FORM": {
+        "TITLE_PARKING": "Parking Form",
+        "LABEL_NAME": "Name",
+        "LABEL_SURNAME": "Surname",
+        "LABEL_AGE": "Age",
+        "LABEL_DPI": "DPI",
+        "LABEL_EMAIL": "Email",
+        "LABEL_PASSWORD": "Password",
+        "LABEL_PROFILE": "Profile",
+        "LABEL_NAME_PARKING": "Name",
+        "LABEL_CAR_PARKING": "Vehicle Name",
+        "LABEL_PLATE_PARKING": "Plate",
+        "BTN_SEND_PARKING": "Send"
+    },
+    "SEARCH": {
+        "SEARCH_BUTTON": "Search...",
+        "SEARCH_PLACEHOLDER": "Search..."
+    },
+    "CONFIRM_LOGOUT": {
+        "TITLE": "Are you sure you want to log out?",
+        "YES": "YES",
+        "NO": "NO"
+    },
+    "ERRORS": {
+        "ERROR_NAME_REQUIRED": "First name is required",
+        "ERROR_SURNAME_REQUIRED": "Last name is required",
+        "ERROR_PASSWORD_REQUIRED": "Password is required",
+        "ERROR_INVALID_CREDENTIALS": "Incorrect username or password",
+        "ERROR_EMAIL_REQUIRED": "Email is required",
+        "ERROR_INVALID_EMAIL": "Email is not valid",
+        "ERROR_NEW_PASSWORD_REQUIRED": "New password is required",
+        "ERROR_CONFIRM_PASSWORD_REQUIRED": "Please re-enter the new password",
+        "ERROR_CODE_REQUIRED": "Code is required",
+        "ERROR_CODE_INVALID": "The code must be numbers only",
+        "ERROR_PASSWORD_NOT_SAME": "Passwords do not match",
+        "ERROR_SEND_CODE": "An error occurred while sending the security code",
+        "ERROR_AGE_REQUIRED": "Age is required",
+        "ERROR_DPI_REQUIRED": "DPI is required",
+        "ERROR_INVALID_PASSWORD": "Password must contain an uppercase letter, lowercase letter, special character, number, and be at least 8 digits long",
+        "ERROR_INVALID_AGE": "Age must be a number and you must be of legal age",
+        "ERROR_INVALID_DPI": "DPI must be a number and contain 13 digits",
+        "ERROR_INVALID_NAME": "First name must contain letters only",
+        "ERROR_INVALID_SURNAME": "Last name must contain letters only",
+        "ERROR_UPDATE_PASSWORD": "An error occurred while updating your password",
+        "ERROR_REGISTER": "An error occurred during registration, please try again later",
+        "ERROR_LOGIN": "Incorrect username or password"
+    },
+    "FORGOT_PASSWORD_EMAIL": {
+        "HEADER_TITLE": "Recover your password",
+        "SUBTITLE": "Enter the email associated with your account to continue",
+        "LABEL_EMAIL": "Email",
+        "BTN_SEND": "Continue"
+    },
+    "FORGOT_PASSWORD": {
+        "HEADER_TITLE": "Change password",
+        "SUBTITLE": "Enter your new password",
+        "LABEL_CODE": "Security code",
+        "LABEL_NEW_PASSWORD": "New password",
+        "LABEL_CONFIRM_PASSWORD": "Confirm password",
+        "BTN_CHANGE": "Change password"
+    },
+    "ALERT_CHANGE_PASSWORD": {
+        "TITLE": "Password successfully updated",
+        "TITLE_BAD": "Error updating your password",
+        "MESSAGE": "You can now log in with your new password"
+    },
+    "ALERT_SEND_CODE": {
+        "TITLE": "Code successfully sent",
+        "TITLE_BAD": "Error sending the code",
+        "MESSAGE": "We have sent you a security code to your email"
+    },
+    "ALERT_REGISTER": {
+        "TITLE": "Registration successful",
+        "TITLE_BAD": "Registration error",
+        "MESSAGE": "You have successfully registered. Use the credentials sent to your email to log in."
+    },
+    "ALERT_LOGIN": {
+        "TITLE": "Login successful",
+        "TITLE_BAD": "Incorrect credentials",
+        "MESSAGE": "You have successfully logged in."
+    },
+    "LANGUAGES": {
+        "SPANISH": "Spanish",
+        "ENGLISH": "English",
+        "CACHIQUEL": "Cachiquel"
+    },
+    "MENU": {
+        "AUDITORIA": "Audit",
+        "LOGOUT": "Logout",
+        "CHANGE_LANGUAGE": "Change Language"
+    },
+    "LOGOUT": {
+    "TITLE": "Logout",
+    "MESSAGE": "Do you want to log out?",
+    "BTN_YES": "Yes",
+    "BTN_NO": "NO"
+   },
+    "FILTERS": {
+        "FILTER": "Filter",
+        "FILTER_BY_ENTITY": "Filter by entity",
+        "SELECT_OPTION": "Select an option",
+        "NONE": "None"
+    },
+    "PAGINATOR": {
+        "ARIA_LABEL": "Paginator"
+    },
+    "AUDIT": {
+        "WORKS": "Audit works!",
+        "ID": "ID",
+        "ENTITY": "Entity",
+        "CHANGE": "Change",
+        "DATE": "Date",
+        "NO_DATA": "No data matching the filter",
+        "START_DATE": "Start date",
+        "END_DATE": "End Date"
+    },
+    "PLACEHOLDER": {
+        "PASSWORD": "Enter your password",
+        "EMAIL": "Enter your email",
+        "NEW_PASSWORD": "Enter your new password",
+        "CONFIRM_PASSWORD": "Confirm your new password",
+        "CODE": "Enter your security code",
+        "NAME": "Enter your first name",
+        "SURNAME": "Enter your last name",
+        "AGE": "Enter your age",
+        "DPI": "Enter your DPI",
+        "OLD_PASSWORD": "Enter your current password"
+    },
+    "ADD_USERS": {
+      "TITLE_ADD": "Add User",
+      "TITLE_UPDATE": "Update User",
+      "FORM": {
+        "LABEL_NAME": "First Name",
+        "LABEL_SURNAME": "Last Name",
+        "LABEL_Año": "Age",
+        "LABEL_EMAIL": "Email",
+        "LABEL_DPI": "DPI",
+        "LABEL_PASSWORD": "Password",
+        "LABEL_PROFILE": "Profile"
+      },
+      "BUTTONS": {
+        "BTN_SAVE": "Save",
+        "BTN_CANCELAR": "Cancelar",
+        "BTN_SAVE_PROFILE": "Guardar Perfil",
+        "BTN_UPDATE_PROFILE": "Update"
+      }
+    },
+    "FILTER_USER": {
+    "SEARCH_PLACEHOLDER": "Search"
+   },
+    "FORM_PARKING": {
+      "TITLE": "Parking Form",
+      "NAME_PARKING": "Name",
+      "CAR_PARKING": "Car",
+      "PLATE_PARKING": "License Plate",
+      "SEND_PARKING": "Submit"
+    },
+  "FILTER": {
+    "SEARCH": "Search"
+  },
+  "LOGOUT_CONFIRM": {
+    "TITLE": "Confirm Logout",
+    "CONFIRM_YES": "Yes",
+    "CONFIRM_NO": "No"
+  },
+  "NAVBAR": {
+    "TITLE_PARKING_LOGOUT": "Parking Logout",
+    "MENU_AUDITORIA": "Audit",
+    "MENU_LOGOUT": "Logout"
+  },
+  "NAVBAR_USER": {
+    "AUDITORIA": "Audit",
+    "LOGOUT": "Logout",
+    "CHANGE_LANGUAGE": "Change Language",
+    "USERS": "Users",
+    "PROFILES": "Profiles",
+    "REGISTER": "Parking registration",
+    "FARES":"Fares"
+  },
+  "PROFILES_SECTION": {
+    "TITLE": "Profiles",
+    "ADD_PROFILE": "Add Profile",
+    "EMAIL": "Email",
+    "EMAIL_PLACEHOLDER": "email@example.com",
+    "SAVE": "Save"
+  },
+  "CONFIGURATION": {
+    "TITLE": "Configuration",
+    "MANAGE_PERMISSIONS": "Manage Permissions"
+  },
+  "ALERT_SUCCESS": {
+    "TITLE": "Success",
+    "MESSAGE": "User saved successfully"
+  },
+  "ALERT_WARNING": {
+    "EMAIL_IN_USE_TITLE": "Email in use",
+    "EMAIL_IN_USE_MESSAGE": "The email address is already registered. Please use another one."
+  },
+  "ALERT_ERROR": {
+    "TITLE": "Error",
+    "MESSAGE": "Could not update/save the user. Please try again."
+  },
+  "ALERT_DELETE": {
+    "TITLE": "User Deleted",
+    "MESSAGE": "The user has been deleted successfully.",
+    "TITLE_ERROR": "Delete Error",
+    "MESSAGE_ERROR": "There was an error deleting the user. Please try again."
+  },
+  "USER": {
+    "ALERT_DISABLE_USER_TITLE": "Disable User",
+    "ALERT_DISABLE_USER_MESSAGE": "Are you sure you want to disable this user?",
+    "ALERT_DISABLE_USER_BUTTON_YES": "Yes",
+    "ALERT_DISABLE_USER_BUTTON_NO": "No",
+    "ALERT_DISABLE_USER_SUCCESS_TITLE": "User Disabled",
+    "ALERT_DISABLE_USER_SUCCESS_MESSAGE": "The user has been disabled successfully.",
+    "ALERT_ACTIVATE_USER_SUCCESS_MESSAGE": "The user has been successfully enabled.",
+    "LABEL_STATUS": "Status"
+  },
+  "FARE": {
+    "BUTTON_SAVE": "Save",
+    "BUTTON_CANCEL": "Cancel",
+    "NAME": "Name",
+    "PRICE": "Price",
+    "START_TIME": "Start time",
+    "END_TIME": "End time",
+    "ADD_FARE": "Add fare"
+  },
+  "_comment_Register_Parking": "filter-salida traduccions",
+  "ADD_REGISTER_REGISTER": {
+    "FORM": {
+      "LABEL_Plate": "Enter the vehicle's plate",
+      "SUBTITLE_PARKING": "Parking data",
+      "BUTTON_Cancel": "Cancel",
+      "BUTTON_Accept": "Continue",
+      "LABEL_PLATE_INPUT": "Plate",
+      "BUTTON_CERRAR_MODAL": "Close",
+      "TOTAL" : "Total",
+      "STARTDATE": "Start Date",
+      "ENDDATE": "End Date",
+      "PLATE": "Plate"
+    }
+  },
+  "ERRORS_REGISTER": {
+    "ERROR_NAME_REQUIRED": "This field is required"
+  },
+  "ALERT_SUCCESS_REGISTER": {
+    "TITLE": "Success",
+    "MESSAGE": "The operation was completed successfully"
+  },
+  "ALERT_WARNING_REGISTER": {
+    "EMAIL_IN_USE_TITLE": "Warning",
+    "EMAIL_IN_USE_MESSAGE": "The email is already in use"
+  },
+  "ALERT_ERROR_REGISTER": {
+    "TITLE": "Error",
+    "MESSAGE": "An error occurred. Please try again"
+  },
+
+  "REGISTER_PARKING": {
+    "HEADER": {
+      "TITLE_REGISTER": "Register Parking"
+    },
+    "FORM": {
+      "LABEL_PLATE": "Plate",
+      "LABEL_PARKING_ID": "Parking ID",
+      "BUTTON_ENTRY": "Parking Entry",
+      "BUTTON_EXIT": "Parking Exit"
+    },
+    "ERRORS": {
+      "REQUIRED_FIELD": "This field is required"
+    },
+    "ALERT_SUCCESS": {
+      "TITLE": "Success",
+      "MESSAGE_EXIT": "The vehicle has left the parking lot",
+      "MESSAGE": "The operation was completed successfully"
+    },
+    "ALERT_WARNING": {
+      "EMAIL_IN_USE_TITLE": "Warning",
+      "EMAIL_IN_USE_MESSAGE": "The email is already in use"
+    },
+    "ALERT_ERROR": {
+      "TITLE": "Error",
+      "MESSAGE_EXIT": "An error occurred. Please try again"
+    }
+  }
+}

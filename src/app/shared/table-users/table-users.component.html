@@ -1,0 +1,32 @@
+
+<div class="parent-container">
+  <ol class="list-group px-0 table-register">
+    <li *ngFor="let user of users" class="list-group-item d-flex align-items-center p-0 px-1 user-item">
+      <div class="ms-auto d-flex align-items-center">
+        <!--<button class="delete-users" (click)="openDeletetDialog(user.userId)">
+             <mat-icon class="example-icon" aria-label="Delete user">
+               delete
+             </mat-icon>
+           </button>-->
+          <mat-icon [ngClass]="{'active-icon': user.status, 'inactive-icon': !user.status}">circle</mat-icon>
+
+         </div>
+         <button class="update-users" (click)="getUserById(user.userId)">
+           <div class="ms-2 me-auto">
+             <div class="fw-bold email-color">{{ user.email }}</div>
+             {{ user.name }}
+           </div>
+         </button>
+
+       </li>
+     </ol>
+   </div>
+
+<mat-paginator
+  class="paginator"
+  [length]="totalElements"
+  [pageSize]="itemsPerPage"
+  [pageIndex]="currentPage"
+  [hidePageSize] = "true"
+  (page)="changePage($event)">
+</mat-paginator>

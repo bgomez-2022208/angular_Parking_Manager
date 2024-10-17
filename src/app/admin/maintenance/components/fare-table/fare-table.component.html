@@ -1,0 +1,27 @@
+<table class="table-bordered table-container">
+  <ul class="list-unstyled">
+    <li class="product-row" *ngFor="let far of fare">
+      <button class="update-users" (click)="getFareById(far.fareId)">
+        <span>
+          <mat-icon [ngClass]="{'active-icon': far.status, 'inactive-icon': !far.status}">
+            circle
+          </mat-icon>
+        </span>
+        <div class="fare-detail">
+
+          <strong>{{ far.name }}</strong>
+          <span>{{ far.price }}</span>
+        </div>
+      </button>
+    </li>
+  </ul>
+  <ul class="pagination">
+    <mat-paginator
+      class="paginator"
+      [length]="totalElements"
+      [pageSize]="itemsPerPage"
+      [pageIndex]="currentPage"
+      (page)="changePage($event)">
+    </mat-paginator>
+  </ul>
+</table>

@@ -1,0 +1,68 @@
+<app-navbaruser [title]="'PROFILES_SECTION.TITLE' | translate"></app-navbaruser>
+<div class="main-container">
+    <div class="table">
+        <mat-form-field>
+            <mat-icon (click)="searchParking()" class="icon-search" matSuffix>search</mat-icon>
+            <input matInput [formControl]="searchControl" type="text" [placeholder]="'FILTER_USER.SEARCH_PLACEHOLDER' | translate">
+        </mat-form-field>
+        <table mat-table [dataSource]="parkings" class="mat-elevation-z8">
+
+            <ng-container matColumnDef="status">
+                <td mat-cell *matCellDef="let parking">
+                    <mat-icon [ngClass]="{'active-icon': parking.status, 'inactive-icon': !parking.status}">
+                        {{parking.statusIcon}}
+                    </mat-icon>
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="name">
+                <td mat-cell *matCellDef="let element" (click)="seleccionarParqueo(element.parkingId)">{{ element.name }}</td>
+            </ng-container>
+
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+
+        <mat-paginator [length]="totalItems" [pageSize]="pageSize" (page)="onPageChange($event)" [hidePageSize]="true" [showFirstLastButtons]="true">
+        </mat-paginator>
+    </div>
+    <div class="parking-form">
+        <form class="container-body" [formGroup]="form" (ngSubmit)="addParking()">
+            <div class="container-inputs">
+                <mat-form-field>
+                    <mat-label>{{'PARKING.LABEL_NAME' | translate}}</mat-label>
+                    <mat-icon matPrefix>local_parking</mat-icon>
+                    <input formControlName="name" matInput [placeholder]="'PARKING.PLACEHOLDER_NAME' | translate">
+                    <mat-error *ngIf="form.get('name')?.invalid">{{getErrorMessage('name')}}</mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>{{'PARKING.LABEL_ADDRESS' | translate}}</mat-label>
+                    <mat-icon matPrefix>location_on</mat-icon>
+                    <input formControlName="address" matInput [placeholder]="'PARKING.PLACEHOLDER_ADDRESS' | translate">
+                    <mat-error *ngIf="form.get('address')?.invalid">{{getErrorMessage('address')}}</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="container-inputs">
+                <mat-form-field>
+                    <mat-label>{{'PARKING.LABEL_SPACES'| translate}}</mat-label>
+                    <mat-icon matPrefix>garage</mat-icon>
+                    <input formControlName="spaces" matInput [placeholder]="'PARKING.PLACEHOLDER_SPACES' | translate">
+                    <mat-error *ngIf="form.get('spaces')?.invalid">{{getErrorMessage('spaces')}}</mat-error>
+                </mat-form-field>
+                <mat-form-field class="custom-input">
+                    <mat-label>{{'PARKING.LABEL_PHONE' | translate}}</mat-label>
+                    <mat-icon matPrefix>call</mat-icon>
+                    <input formControlName="phone" matInput [placeholder]="'PARKING.PLACEHOLDER_PHONE' | translate">
+                    <mat-error *ngIf="form.get('phone')?.invalid">{{getErrorMessage('phone')}}</mat-error>
+                </mat-form-field>
+            </div>
+            <mat-slide-toggle *ngIf="parkingIdSelected" (change)="onToggleChange($event)" formControlName="status">{{'PARKING.LABEL_STATUS' | translate}}</mat-slide-toggle>
+            <div class="buttons">
+                <button *ngIf="!parkingIdSelected" type="submit">{{'PARKING.ADD_PARKING' | translate}}</button>
+                <button type="button" [disabled]="form.pristine" *ngIf="parkingIdSelected" (click)="updateParking()">{{'PARKING.UPDATE_PARKING' |
+                    translate}}</button>
+    
+                <button class="cancel" type="button" (click)="resetForm()">{{'PARKING.CANCEL_PARKING' | translate}}</button>
+            </div>
+        </form>
+    </div>
+</div>

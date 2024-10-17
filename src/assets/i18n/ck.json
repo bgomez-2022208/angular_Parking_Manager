@@ -1,0 +1,94 @@
+{
+    "LOGIN": {
+        "HEADER_TITLE": "K’atzinel q'a",
+        "SUBTITLE_ONE": "Wa xq'a ",
+        "SUBTITLE_TWO": "yilan rik' saq",
+        "LABEL_EMAIL": "Tzijonem k'olaj",
+        "LABEL_PASSWORD": "Jolom q'a",
+        "REMEMBER_BUTTON_TITLE": "Ewaj k'axik q'a qas q’ale’",
+        "FORGOT_PASSWORD": "Na yilan rat jolom q'a?",
+        "BTN_LOGIN": "K’atzinel q'a"
+    },
+    "REGISTER": {
+        "TITLE": "Saqilaj",
+        "SUBTITLE": "Sa ewex loq’alaj tzij rech yilan katzi’ij",
+        "LABEL_NAME": "B’i'aj",
+        "LABEL_SURNAME": "A'aj",
+        "LABEL_AGE": "Yuwa'",
+        "LABEL_DPI": "DPI",
+        "LABEL_EMAIL": "Tzijonem k'olaj",
+        "LABEL_PASSWORD": "Jolom q'a",
+        "LABEL_CONFIRM_PASSWORD": "Sajoq’ jolom q'a",
+        "BTN_REGISTER": "Saqilaj"
+    },
+    "ERRORS": {
+        "ERROR_NAME_REQUIRED": "K’a b’i'aj e k’o na",
+        "ERROR_SURNAME_REQUIRED": "K’a a'aj e k’o na",
+        "ERROR_PASSWORD_REQUIRED": "Jolom q'a e k’o na",
+        "ERROR_INVALID_CREDENTIALS": "B’i'aj o jolom q'a k’o wi ma utz",
+        "ERROR_EMAIL_REQUIRED": "Tzijonem k’olaj e k’o na",
+        "ERROR_INVALID_EMAIL": "Tzijonem k’olaj e k’o wi ma utz",
+        "ERROR_NEW_PASSWORD_REQUIRED": "Jolom q'a rija' k’o na",
+        "ERROR_CONFIRM_PASSWORD_REQUIRED": "Sajoq' rija' jolom q'a",
+        "ERROR_CODE_REQUIRED": "K’a tzijinik e k’o na",
+        "ERROR_CODE_INVALID": "Tzijinik taqib’al e k’o wi nimaq'ij",
+        "ERROR_PASSWORD_NOT_SAME": "Jolom q'a ta k’o utz chuxoq",
+        "ERROR_SEND_CODE": "K’o wi k’amal ta jun tzijinik q'ale’",
+        "ERROR_AGE_REQUIRED": "Yuwa’ e k’o na",
+        "ERROR_DPI_REQUIRED": "DPI e k’o na",
+        "ERROR_INVALID_PASSWORD": "Jolom q’a k’o wi nimaq'ij chuch ki' chik, taq'uch nim, taq'uch tzijinik ka’ tzij kaq’alej",
+        "ERROR_INVALID_AGE": "Yuwa’ k’o wi tzijinik taqib’al, k’o wi aj kaqi’ utz",
+        "ERROR_INVALID_DPI": "DPI ta k’o utz ma kaq'il 13 tzijinik",
+        "ERROR_INVALID_NAME": "B’i'aj e k’o utz, k’a wi tzijinik",
+        "ERROR_INVALID_SURNAME": "A’aj e k’o utz, k’a wi tzijinik",
+        "ERROR_UPDATE_PASSWORD": "K’o wi k’amal ta maj wiloq’ jolom q'a q’ale’",
+        "ERROR_REGISTER": "K’o wi k’amal ta maj wil saqilaj, chuxoq katata jun rutzinik",
+        "ERROR_LOGIN": "B’i'aj o jolom q'a k’o wi ma utz"
+    },
+    "FORGOT_PASSWORD_EMAIL": {
+        "HEADER_TITLE": "Wil taj yilan rat jolom q'a",
+        "SUBTITLE": "Ok x yilan rat tzijonem k’olaj rech utz laj",
+        "LABEL_EMAIL": "Tzijonem k’olaj",
+        "BTN_SEND": "Q’ab’an"
+    },
+    "FORGOT_PASSWORD": {
+        "HEADER_TITLE": "Jal chuxoq jolom q'a",
+        "SUBTITLE": "Ok x yilan rat jolom q’a rija’",
+        "LABEL_CODE": "Tzijinik q’ale’",
+        "LABEL_NEW_PASSWORD": "Jun jolom q’a rija’",
+        "LABEL_CONFIRM_PASSWORD": "Sajoq’ rija’ jolom q’a",
+        "BTN_CHANGE": "Jal jolom q’a"
+    },
+    "ALERT_CHANGE_PASSWORD": {
+        "TITLE": "Jolom q’a maj wiloq' ch’aj raq",
+        "TITLE_BAD": "K’o wi k’amal ta maj wiloq’ rat jolom q’a",
+        "MESSAGE": "Ok x q’a wilin chuxoq rat jolom q’a rija’"
+    },
+    "ALERT_SEND_CODE": {
+        "TITLE": "Tzijinik maj wiloq' ch’aj raq",
+        "TITLE_BAD": "K’o wi k’amal ta maj wilin tzijinik q’ale’",
+        "MESSAGE": "Yilan rat jun tzijinik q'ale’ rech utz laj k’olaj"
+    },
+    "PLACEHOLDER": {
+        "PASSWORD": "Ok x yilan rat jolom q’a",
+        "EMAIL": "Ok x yilan rat tzijonem k’olaj",
+        "NEW_PASSWORD": "Ok x yilan rat jun jolom q’a rija’",
+        "CONFIRM_PASSWORD": "Ok x sajoq' rija' jolom q'a",
+        "CODE": "Ok x yilan rat tzijinik q’ale’",
+        "NAME": "Ok x yilan rat b’i'aj",
+        "SURNAME": "Ok x yilan rat a’aj",
+        "AGE": "Ok x yilan rat yuwa’",
+        "DPI": "Ok x yilan rat DPI",
+        "OLD_PASSWORD": "Ok x yilan rat jun jolom q’a rija’"
+    },
+    "ALERT_REGISTER": {
+        "TITLE": "Saqilaj ch’aj raq",
+        "TITLE_BAD": "K’o wi k’amal ta jun wil saqilaj",
+        "MESSAGE": "Maj wiloq’ ch’aj raq. Xap x jun tzijonem rech q’a wiloq’ q’ale’"
+    },
+    "ALERT_LOGIN": {
+        "TITLE": "K’atzinel q’a ch’aj raq",
+        "TITLE_BAD": "Tzijinik taqib’al k’o wi ma utz",
+        "MESSAGE": "Ok x k’atzinel q’a ch’aj raq"
+    }
+}

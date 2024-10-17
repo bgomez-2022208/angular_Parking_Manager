@@ -1,0 +1,89 @@
+@import "../../../../assets/sass/variables";
+
+.container {
+  display: flex;
+  font-size: 0.95rem;
+  margin: 20px;
+  font-family: $font-primary;
+  flex-wrap: wrap;
+
+  .table {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    height: 100%;
+    max-width: 435px;
+    min-width: 20vh;
+  }
+
+  .table-usuarios {
+    border-radius: 10px;
+    background-color: $color-white;
+    margin-left: 10px;
+    flex: 1;
+  }
+
+  .table-register {
+    background-color: $color-white;
+    padding: 4vh;
+    height: auto;
+    margin-top: 20px;
+    border-radius: 10px;
+    min-height: 630px;
+    margin-right: 10px;
+    flex: 1;
+    max-width: calc(100% - 50px);
+  }
+
+  .filter {
+    width: 100%;
+    max-width: 450px;
+    display: flex;
+    height: auto;
+  }
+
+  .Navbar-container {
+    width: 100%;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    app-navbaruser {
+      width: 100%;
+      box-sizing: border-box;
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  @media (max-width: 565px) {
+    .container {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .table {
+      width: 100%;
+    }
+
+    .main-container {
+      margin-top: 100px;
+    }
+
+    .table-usuarios {
+      width: 100%;
+      margin-bottom: 20px;
+      margin-left: 0;
+      margin-top: 20px;
+    }
+
+    .table-register {
+      width: 100%;
+      margin-top: 0;
+      gap: 150px;
+    }
+  }
+
+}
+
