@@ -33,6 +33,15 @@ export class RegisterParkingComponent implements OnInit {
     this.loadParkings();
   }
 
+  resetParkingForm(): void {
+    Object.keys(this.parkingForm.controls).forEach(key => {
+      const control = this.parkingForm.get(key);
+      control?.setErrors(null);
+      control?.markAsPristine();
+      control?.markAsUntouched();
+    });
+    this.parkingForm.updateValueAndValidity({ emitEvent: false });
+  }
 
   loadParkings() {
     this.apiUserService.getParkingsRegister().subscribe(
@@ -56,6 +65,7 @@ export class RegisterParkingComponent implements OnInit {
       this.apiUserService.createParking(formData).subscribe(
         () => {
           this.parkingForm.reset();
+          this.resetParkingForm();
           Swal.fire({
             icon: 'success',
             title: this.translate.instant('REGISTER_PARKING.ALERT_SUCCESS.TITLE'),

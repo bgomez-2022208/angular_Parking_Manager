@@ -4,7 +4,21 @@
   --mdc-filled-text-field-container-color: transparent;
   --mdc-filled-text-field-label-text-color: #76ABAE;
   --mdc-filled-text-field-label-text-fonr: "Cabin";
-  --mdc-filled-text-field-input-text-placeholder-color: #31363F;
+  --mdc-filled-text-field-input-text-placeholder-color:#31363F;
+}
+
+::ng-deep .mat-mdc-slide-toggle .mdc-form-field {
+  color: #76ABAE;
+  font-family: "Cabin", 'Courier New', Courier,monospace;
+}
+
+.mat-mdc-slide-toggle.mat-accent {
+  --mdc-switch-selected-track-color: #76ABAE;
+  --mdc-switch-selected-handle-color: #76ABAE;
+  --mdc-switch-selected-focus-handle-color: #76ABAE;
+  --mdc-switch-selected-hover-handle-color: #76ABAE;
+  --mdc-switch-selected-hover-track-color: #76ABAE;
+  --mdc-switch-selected-focus-track-color:#76ABAE;
 }
 .container-users {
   padding-top: 2rem;
