@@ -90,7 +90,11 @@
         "ERROR_INVALID_SURNAME": "Last name must contain letters only",
         "ERROR_UPDATE_PASSWORD": "An error occurred while updating your password",
         "ERROR_REGISTER": "An error occurred during registration, please try again later",
-        "ERROR_LOGIN": "Incorrect username or password"
+        "ERROR_LOGIN": "Incorrect username or password",
+        "ERROR_NAME_REQUIRED": "Name is required",
+        "ERROR_STARTTIME_REQUIRED": "Star time is required",
+        "ERROR_PRICE_REQUIRED": "Price is required",
+        "ERROR_ENDTIME_REQUIRED": "End time is required"
     },
     "FORGOT_PASSWORD_EMAIL": {
         "HEADER_TITLE": "Recover your password",
@@ -159,7 +163,21 @@
         "DATE": "Date",
         "NO_DATA": "No data matching the filter",
         "START_DATE": "Start date",
-        "END_DATE": "End Date"
+        "END_DATE": "End Date",
+        "OPERATION": "Operation",
+        "RESULT":"Result",
+        "MORE":"More",
+        "USER": "User",
+        "PROFILE": "Profile",
+        "FARE": "Fare",
+        "REGISTER": "Register",
+        "PARKING":"Parking",
+        "ROLE": "Role",
+        "ALL": "All",
+        "DESCRIPTION": "Description",
+        "REQUEST": "Request",
+        "EMAIL": "Email",
+        "RESPONSE": "Response"
     },
     "PLACEHOLDER": {
         "PASSWORD": "Enter your password",
@@ -320,5 +338,19 @@
       "TITLE": "Error",
       "MESSAGE_EXIT": "An error occurred. Please try again"
     }
+  },
+  "REPORT": {
+    "IDPARKING": "Id Parking",
+    "SPARKING": "Select a parking",
+    "PLATE": "PLATE",
+    "START_DATE": "Start date",
+    "END_DATE": "End date",
+    "MORE": "More",
+    "FARE":"Fare",
+    "REGISTER": "Register",
+    "PARKING": "Parking",
+    "CLOSE": "Close",
+    "SAVE": "Save",
+    "DETAILS": "Details for plate:"
   }
 }

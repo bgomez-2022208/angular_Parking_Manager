@@ -87,6 +87,30 @@ export class FareComponent {
     }
   }
 
+  getErrorMessage(controlName: string){
+    const control = this.fareForm.get(controlName);
+
+    if (control?.hasError('required')) {
+      switch (controlName) {
+        case 'name':
+          return this.translate.instant('ERRORS.ERROR_NAME_REQUIRED');
+        case 'startTime':
+          return this.translate.instant('ERRORS.ERROR_STARTTIME_REQUIRED');
+        case 'price':
+          return this.translate.instant('ERRORS.ERROR_PRICE_REQUIRED');
+        case 'endTime':
+          return this.translate.instant('ERRORS.ERROR_ENDTIME_REQUIRED');
+        default:
+          return '';
+      }
+    }
+
+    if (controlName === 'name' && control?.hasError('name')) {
+      return this.translate.instant('ERRORS.ERROR_INVALID_EMAIL');
+    }
+    return '';
+  }
+
   onFareUpdated() {
     this.fareTable.loadFares(this.fareTable.currentPage);
   }
