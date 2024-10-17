@@ -1,31 +1,35 @@
-<app-navbaruser title="Fare"></app-navbaruser>
+<app-navbaruser class="app-navbaruser" [title]="'NAVBAR_USER.FARES' | translate" style="width: 100%"></app-navbaruser>
 <div class="container-principal">
     <div class="table-fare">
-        <app-fare-table (fareSelected)="onFareSelected($event)" ></app-fare-table>
+      <app-fare-table (fareSelected)="onFareSelected($event)" ></app-fare-table>
     </div>
   <form class="form-fare" [formGroup]="fareForm" (ngSubmit)="onSubmit()">
     <h2>{{ 'FARE.ADD_FARE' | translate}}</h2>
     <div class="input-container">
-      <mat-form-field appearance="outline" class="input-small"  >
+      <mat-form-field class="input-small"  >
         <mat-label>{{ 'FARE.NAME' | translate}}</mat-label>
         <input  matInput placeholder="Enter name" formControlName="name" required class="escritos" />
+        <mat-error *ngIf="fareForm.get('name')?.invalid">{{getErrorMessage('name')}}</mat-error>
       </mat-form-field>
 
-      <mat-form-field appearance="outline" class="input-small">
+      <mat-form-field class="input-small">
         <mat-label>{{ 'FARE.START_TIME' | translate}}</mat-label>
         <input type="time" matInput placeholder="Enter start date" formControlName="startTime" required class="input-">
+        <mat-error *ngIf="fareForm.get('startTime')?.invalid">{{getErrorMessage('startTime')}}</mat-error>
       </mat-form-field>
     </div>
 
     <div class="input-container">
-      <mat-form-field appearance="outline" class="input-small">
+      <mat-form-field class="input-small">
         <mat-label>{{ 'FARE.PRICE' | translate}}</mat-label>
         <input type="number" matInput placeholder="Enter price" formControlName="price" required>
+        <mat-error *ngIf="fareForm.get('price')?.invalid">{{getErrorMessage('price')}}</mat-error>
       </mat-form-field>
 
-      <mat-form-field appearance="outline" class="input-small">
+      <mat-form-field class="input-small">
         <mat-label>{{ 'FARE.END_TIME' | translate}}</mat-label>
         <input type="time" matInput placeholder="Enter end date" formControlName="endTime" required class="escritos">
+        <mat-error *ngIf="fareForm.get('endTime')?.invalid">{{getErrorMessage('endTime')}}</mat-error>
       </mat-form-field>
     </div>
     <mat-slide-toggle *ngIf="fareSelected"

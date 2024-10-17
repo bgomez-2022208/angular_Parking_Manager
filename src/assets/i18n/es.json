@@ -84,7 +84,11 @@
     "ERROR_UPDATE_PASSWORD": "Ocurrió un error al actualizar tu contraseña",
     "ERROR_REGISTER": "Ocurrió un error durante el registro, por favor intenta más tarde",
     "ERROR_LOGIN": "Usuario o contraseña incorrectos",
-    "ERROR_ADD_PROFILE": "El nombre del perfil es obligatorio"
+    "ERROR_ADD_PROFILE": "El nombre del perfil es obligatorio",
+    "ERROR_NAME_REQUIRED": "El nombre de la tarifa es necesario",
+    "ERROR_STARTTIME_REQUIRED": "La hora inicial es necesaria",
+    "ERROR_PRICE_REQUIRED": "El precio es necesario",
+    "ERROR_ENDTIME_REQUIRED": "La hora de salida es necesaria"
   },
   "FORGOT_PASSWORD_EMAIL": {
     "HEADER_TITLE": "Recupera tu contraseña",
@@ -151,7 +155,21 @@
     "DATE": "Fecha",
     "NO_DATA": "No hay datos que coincidan con el filtro",
     "START_DATE": "Fecha inicial",
-    "END_DATE": "Fecha final"
+    "END_DATE": "Fecha final",
+    "OPERATION": "Operación",
+    "RESULT":"Resultado",
+    "MORE":"Más",
+    "USER": "Usuario",
+    "PROFILE": "Perfiles",
+    "FARE": "Tarifas",
+    "REGISTER": "Registro",
+    "PARKING":"Parqueo",
+    "ROLE": "Roles",
+    "ALL": "Todos",
+    "DESCRIPTION": "Descripción",
+    "REQUEST": "Pedido",
+    "EMAIL": "Correo",
+    "RESPONSE": "respuesta"
   },
   "PLACEHOLDER": {
     "PASSWORD": "Ingresa tu contraseña",
@@ -414,5 +432,19 @@
     "FIRST_PAGE_LABEL": "Primera página",
     "LAST_PAGE_LABEL": "Última página",
     "RANGE": "{{startIndex}} - {{endIndex}} de {{length}}"
+  },
+  "REPORT": {
+    "IDPARKING": "Id Parque",
+    "SPARKING": "Seleccione un parqueo",
+    "PLATE": "Placa",
+    "START_DATE": "Fecha inicial",
+    "END_DATE": "Fecha final",
+    "MORE": "Más",
+    "FARE":"Tarifa",
+    "REGISTER": "Registro",
+    "PARKING": "Parqueo",
+    "CLOSE": "Cerrar",
+    "SAVE": "Guardar",
+    "DETAILS": "Detalles para la placa:"
   }
 }

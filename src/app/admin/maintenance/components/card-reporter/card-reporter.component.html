@@ -1,30 +1,30 @@
 <div *ngIf="data" class="info-card">
   <mat-card>
     <mat-card-header>
-      <mat-card-title>Details for {{ data.plate }}</mat-card-title>
+      <mat-card-title>{{ 'REPORT.DETAILS' | translate }} {{ data.plate }}</mat-card-title>
     </mat-card-header>
     <mat-card-content>
       <p><strong>ID:</strong> {{ data.parkingId }}</p>
-      <p><strong>Id de tarifa:</strong> {{ data.fareId }}</p>
-      <p><strong>Id de registro:</strong> {{ data.registerId }}</p>
-      <p><strong>Id de parqueo:</strong> {{ data.parkingId }}</p>
+      <p><strong>{{ 'REPORT.FARE' | translate }}:</strong> {{ data.fareId }}</p>
+      <p><strong>{{ 'REPORT.REGISTER' | translate }}:</strong> {{ data.registerId }}</p>
+      <p><strong>{{ 'REPORT.PARKING' | translate }}:</strong> {{ data.parkingId }}</p>
       <p><strong>Total:</strong> {{ data.total }}</p>
-      <p><strong>Request:</strong></p>
+      <p><strong>{{ 'REPORT.START_DATE' | translate }}:</strong></p>
 
       <ng-container *ngIf="data">
-        <p>StartDate: {{ data.startDate }}</p>
+        <p>{{ data.startDate }}</p>
       </ng-container>
 
-      <p><strong>Response:</strong></p>
+      <p><strong>{{ 'REPORT.END_DATE' | translate }}:</strong></p>
       <ng-container *ngIf="data">
-       <p>User: {{ data.endDate }}</p>
+       <p>{{ data.endDate }}</p>
       </ng-container>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-button (click)="toggleCard(null)">Close</button>
+      <button mat-button (click)="toggleCard(null)">{{ 'REPORT.CLOSE' | translate }}</button>
     </mat-card-actions>
     <mat-card-actions>
-      <button mat-button (click)="convertpdf()">Save</button>
+      <button mat-button (click)="convertpdf()">{{ 'REPORT.SAVE' | translate }}</button>
     </mat-card-actions>
   </mat-card>
 </div>

@@ -5,11 +5,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { Router } from '@angular/router';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
-import { AuditData } from '../../../services/auditory.service';
-import { DeleteFareComponent } from '../delete-fare/delete-fare.component';
-import { MatSlideToggleChange } from '@angular/material/slide-toggle';
-import Swal from 'sweetalert2';
-import { error } from '@angular/compiler-cli/src/transformers/util';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-fare-table',
@@ -28,6 +24,11 @@ export class FareTableComponent {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @Output() selectedFareId = new EventEmitter<number>();
   @Output() fareSelected = new EventEmitter<FareData>();
+  displayedColumns: string[] = ['status', 'name'];
+  searchControl = new FormControl('');
+  totalItems: number = 0;
+  pageSize: number = 10;
+  fares = new MatTableDataSource<any>()
 
   constructor(private fareService: FareService,
               private dialog: MatDialog,
@@ -38,27 +39,25 @@ export class FareTableComponent {
   }
 
   @Input() currentPage: number = 1;
-  @Input() profiles!: any[];
+  @Input() faresSearch!: any[];
   @Input() itemsPerPageOptions!: number[];
   @Output() profileSelected = new EventEmitter<number>();
   @Output() profileDeleted = new EventEmitter<number>();
 
   ngOnInit(page: number): void {
-    this.loadFares(0)
+    this.loadFares(0);
   }
 
   loadFares(page: number): void {
     this.fareService.getAllFare(this.itemsPerPage, page).subscribe(
       (data: any) => {
         console.log('Datos recibidos:', data);
-        this.dataSource.data = data.users || [];
-        this.fare = this.dataSource.data;
+        this.dataSource.data = data.fares || [];
         this.totalElements = data.totalElements;
 
         this.paginator.length = this.totalElements;
         this.paginator.pageIndex = page;
         this.currentPage = page;
-
 
         console.log('Datos en la tabla:', page, this.dataSource.data);
         console.log('Total Elements:', this.totalElements);
@@ -70,19 +69,28 @@ export class FareTableComponent {
     );
   }
 
+
+  searchFare() {
+    const name = this.searchControl.value || '';
+    this.fareService.searchFare(name, this.currentPage, this.pageSize).subscribe({
+      next: (response) => {
+        const filledRows = response.fares || [];
+        this.dataSource.data = filledRows;
+        this.totalItems = response.totalElements;
+
+        console.log('Datos en la tabla después de búsqueda:', this.dataSource.data);
+      },
+      error: (error) => {
+        console.error('Error al buscar tarifas: ', error);
+      }
+    });
+  }
+
+
   changePage(event: PageEvent): void {
     this.loadFares(event.pageIndex);
   }
-/*
-  getFareById(fareId: number) {
-    const queryParams = {
-      fareId: fareId,
-    };
-    console.log("envios", queryParams)
-    this.router.navigate([], { queryParams });
-    this.selectedFareId.emit(fareId);
 
-  }*/
   getFareById(fareId: number) {
     this.fareService.getFareById(fareId).subscribe({
       next: (fare: FareData) => {
@@ -94,58 +102,4 @@ export class FareTableComponent {
     });
   }
 
-  openDeletetDialog(userId: number): void {
-    const dialogRef = this.dialog.open(DeleteFareComponent, {
-      width: '300px',
-      data: { userId: userId }
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      if (result) {
-        this.loadFares(this.currentPage);
-      }
-    });
-  }
-  /*onToggleChange(event: MatSlideToggleChange){
-    const status = event.checked;
-    if(!status){
-      Swal.fire({
-        icon:'warning',
-        title: this.translate.instant('FARE.ALERT_DISABLE_FARE_TITLE'),
-        text: this.translate.instant('FARE_ALERT_DISABLE_FARE_MESSAGE'),
-        confirmButtonText: this.translate.instant('FARE.ALERT_DISABLE_YES'),
-        cancelButtonText: this.translate.instant('FARE.ALERT_DISABLE_NO'),
-        showCancelButton: true,
-      }).then((result) => {
-        this.fareService.disabledFare(status, this.fareSelected).subscribe({
-          next: (response) => {
-            Swal.fire({
-              icon:'success',
-              title: this.translate.instant('FARE.ALERT_DISABLED_FARE')
-            })
-            //this.resetForm()
-            this.loadFares(this.currentPage)
-          },
-          error: (error) => {
-            console.log('Error al desactivar la tarifa:',error)
-          }
-        })
-        //this.resetForm()
-      })
-    } else {
-      this.fareService.disabledFare(status, this.fareId).subscribe({
-        next: (response) => {
-          Swal.fire({
-            icon: 'success',
-            title: this.translate.instant('FARE.ALERT_ENABLED_FARE')
-          })
-          //this.resetForm()
-          this.loadFares(this.currentPage)
-        },
-        error: (error) => {
-          console.log('Error al activar el registro:',error)
-        }
-      })
-    }
-  }*/
 }

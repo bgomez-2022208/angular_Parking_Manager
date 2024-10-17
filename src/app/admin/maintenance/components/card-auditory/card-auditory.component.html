@@ -5,18 +5,18 @@
       </mat-card-header>
       <mat-card-content>
         <p><strong>ID:</strong> {{ data.auditId }}</p>
-        <p><strong>Start Date:</strong> {{ data.startDate | date:'short' }}</p>
-        <p><strong>Description:</strong> {{ data.description }}</p>
-        <p><strong>Operation:</strong> {{ data.operation }}</p>
-        <p><strong>Result:</strong> {{ data.result }}</p>
-        <p><strong>Request:</strong></p>
+        <p><strong>{{ 'AUDIT.START_DATE' | translate }}:</strong> {{ data.startDate | date:'short' }}</p>
+        <p><strong>{{ 'AUDIT.DESCRIPTION' | translate }}:</strong> {{ data.description }}</p>
+        <p><strong>{{ 'AUDIT.OPERATION' | translate }}:</strong> {{ data.operation }}</p>
+        <p><strong>{{ 'AUDIT.RESULT' | translate }}:</strong> {{ data.result }}</p>
+        <p><strong>{{ 'AUDIT.REQUEST' | translate }}:</strong></p>
       <ng-container *ngIf="data.request">
-        <p>Email: {{ data.request.entity }}</p>
+        <p>{{ 'AUDIT.EMAIL' | translate }}: {{ data.request.entity }}</p>
       </ng-container>
 
-      <p><strong>Response:</strong></p>
+      <p><strong>{{ 'AUDIT.RESPONSE' | translate }}:</strong></p>
       <ng-container *ngIf="data.response">
-        <p>User: {{ data.response.user }}</p>
+        <p>{{ 'AUDIT.USER' | translate }}: {{ data.response.user }}</p>
       </ng-container>
       </mat-card-content>
       <mat-card-actions>

@@ -2,7 +2,7 @@ import { Component, EventEmitter, Input, Output, ViewChild } from '@angular/core
 import { MatTableDataSource } from '@angular/material/table';
 import { FareData, FareService } from '../../services/fare.service';
 import { DatePipe } from '@angular/common';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatSlideToggleChange } from '@angular/material/slide-toggle';
 import Swal from 'sweetalert2';
 import { FareTableComponent } from '../components/fare-table/fare-table.component';
@@ -21,6 +21,10 @@ export class FareComponent {
   private fareId: number = 0;
   @Output() fareUpdated = new EventEmitter<void>();
   @ViewChild(FareTableComponent) fareTable!: FareTableComponent;
+  searchControl = new FormControl('')
+  totalItems: number = 0;
+  currentPage: number = 0;
+  pageSize: number = 10;
 
 
   constructor(private datePipe: DatePipe, private fareService: FareService, private fb: FormBuilder,private router: Router,private route: ActivatedRoute,private translate: TranslateService) {
@@ -81,6 +85,30 @@ export class FareComponent {
         );
       }
     }
+  }
+
+  getErrorMessage(controlName: string){
+    const control = this.fareForm.get(controlName);
+
+    if (control?.hasError('required')) {
+      switch (controlName) {
+        case 'name':
+          return this.translate.instant('ERRORS.ERROR_NAME_REQUIRED');
+        case 'startTime':
+          return this.translate.instant('ERRORS.ERROR_STARTTIME_REQUIRED');
+        case 'price':
+          return this.translate.instant('ERRORS.ERROR_PRICE_REQUIRED');
+        case 'endTime':
+          return this.translate.instant('ERRORS.ERROR_ENDTIME_REQUIRED');
+        default:
+          return '';
+      }
+    }
+
+    if (controlName === 'name' && control?.hasError('name')) {
+      return this.translate.instant('ERRORS.ERROR_INVALID_EMAIL');
+    }
+    return '';
   }
 
   onFareUpdated() {
