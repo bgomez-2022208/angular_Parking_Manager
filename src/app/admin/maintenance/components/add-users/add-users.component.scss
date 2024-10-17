@@ -31,6 +31,7 @@
   height: 80%;
   font-family: $font-primary;
 }
+
 .container-inputs{
   width: 100%;
   display: flex;
@@ -44,6 +45,10 @@
 .input-small {
   width: 50%;
   margin: 10px 10px;
+
+  .icon-inputs {
+    color: $palette-color-three;
+  }
 }
 
 h2 {
@@ -75,6 +80,10 @@ h2 {
 .profile-select {
   width: 50%;
   margin: 10px 10px;
+
+  .icon-inputs {
+    color: $palette-color-three;
+  }
 }
 
 .full-width {
