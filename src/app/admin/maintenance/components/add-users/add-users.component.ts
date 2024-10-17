@@ -34,6 +34,9 @@ export class AddUsersComponent implements OnInit {
   userIdSelected = false;
   mostrarBotonGuardar = true;
   mostrarBoton = false;
+  showTitle = true;
+  showTitleUpdate = false;
+
   constructor(
     private notifications: NotificationsService,
     private fb: FormBuilder,
@@ -50,6 +53,15 @@ export class AddUsersComponent implements OnInit {
       age: ['', [Validators.required, Validators.min(0)]],
       dpi: ['', [Validators.required, Validators.pattern(/^\d+$/)]],
       status: [false, Validators.required]
+    });
+  }
+
+  resetUserFormState(): void {
+    Object.keys(this.userForm.controls).forEach(key => {
+      const control = this.userForm.get(key);
+      control?.setErrors(null);
+      control?.markAsPristine();
+      control?.markAsUntouched();
     });
   }
 
@@ -121,7 +133,8 @@ export class AddUsersComponent implements OnInit {
     this.mostrarBoton = true;
     this.mostrarBotonGuardar = false;
     this.userForm.get('email')?.disable();
-
+    this.showTitle = false;
+    this.showTitleUpdate = true;
 
     this.apiUserService.getUserById(userId).subscribe({
       next: (userData) => {
@@ -153,6 +166,7 @@ export class AddUsersComponent implements OnInit {
         (newUser) => {
           this.loadUsers();
           this.userForm.reset();
+          this.resetUserFormState();
           this.isEditing = false;
 
           Swal.fire({
@@ -196,6 +210,8 @@ export class AddUsersComponent implements OnInit {
           this.userForm.reset();
           this.userId = undefined;
           this.isEditing = false;
+          this.showTitle = true;
+          this.showTitleUpdate = false;
         },
         (error) => {
           this.handleError(error);
@@ -231,6 +247,8 @@ export class AddUsersComponent implements OnInit {
     this.userIdSelected = false;
     this.mostrarBoton = false;
     this.mostrarBotonGuardar = true;
+    this.showTitle = true;
+    this.showTitleUpdate = false;
     this.userForm.get('email')?.enable();
     this.userForm.reset();
     this.router.navigate([], {
@@ -247,8 +265,8 @@ export class AddUsersComponent implements OnInit {
         icon: 'warning',
         title: this.translate.instant('USER.ALERT_DISABLE_USER_TITLE'),
         text: this.translate.instant('USER.ALERT_DISABLE_USER_MESSAGE'),
-        confirmButtonText: this.translate.instant('USER.ALERT_DISABLE_YES'),
-        cancelButtonText: this.translate.instant('USER.ALERT_DISABLE_NO'),
+        confirmButtonText: this.translate.instant('USER.ALERT_DISABLE_USER_BUTTON_YES'),
+        cancelButtonText: this.translate.instant('USER.ALERT_DISABLE_USER_BUTTON_NO'),
         showCancelButton: true,
       }).then((result) => {
         if (result.isConfirmed) {
@@ -257,9 +275,10 @@ export class AddUsersComponent implements OnInit {
             next: (response) => {
               Swal.fire({
                 icon: 'success',
-                title: this.translate.instant('USER.ALERT_DISABLED_PARKING')
+                title: this.translate.instant('USER.ALERT_DISABLE_USER_SUCCESS_MESSAGE')
               });
               this.userForm.reset();
+              this.resetUserFormState();
               this.loadUsers();
             },
             error: (error) => {
@@ -269,6 +288,7 @@ export class AddUsersComponent implements OnInit {
           this.loadUsers();
         }
         this.userForm.reset();
+        this.resetUserFormState();
       });
     } else {
       this.userIdSelected = false;
@@ -276,7 +296,7 @@ export class AddUsersComponent implements OnInit {
         next: (response) => {
           Swal.fire({
             icon: 'success',
-            title: this.translate.instant('USER.ALERT_ENABLED_USER')
+            title: this.translate.instant('USER.ALERT_ACTIVATE_USER_SUCCESS_MESSAGE')
           });
           this.userForm.reset();
           this.loadUsers();

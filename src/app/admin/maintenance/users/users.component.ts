@@ -39,7 +39,6 @@ export class UsersComponent implements OnInit {
   @Output() searchChange = new EventEmitter<string>();
 
 
-
   constructor(private apiUserService: ApiUserService, private translate: TranslateService,private route: ActivatedRoute) {
     this.currentLanguage = this.currentLanguage === 'es' ? 'en' : 'es';
     this.translate.use(this.currentLanguage);
