@@ -31,24 +31,24 @@
   height: 80%;
   font-family: $font-primary;
 }
-
 .container-inputs{
   width: 100%;
   display: flex;
   justify-content: space-between;
   min-height: 100%;
+  .icon-inputs {
+    color: $palette-color-three;
+  }
 }
 .container-buttons{
   width: 100%;
   height: 100%;
+  display: flex;
+  justify-content: flex-end;
 }
 .input-small {
   width: 50%;
   margin: 10px 10px;
-
-  .icon-inputs {
-    color: $palette-color-three;
-  }
 }
 
 h2 {
@@ -67,7 +67,7 @@ h2 {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
-  width: 90%;
+  width: 100%;
 }
 
 .mat-form-field {
@@ -80,10 +80,6 @@ h2 {
 .profile-select {
   width: 50%;
   margin: 10px 10px;
-
-  .icon-inputs {
-    color: $palette-color-three;
-  }
 }
 
 .full-width {
@@ -105,7 +101,6 @@ h2 {
 .cancelar {
   background-color: #a02334;
   color: $palette-color-four;
-  margin-top: 10px;
   border: none;
   padding: 0.4rem 0.8rem;
   border-radius: 5px;
@@ -114,8 +109,6 @@ h2 {
   margin-left: 0;
   margin-right: 10px;
   align-self: flex-end;
-  margin-bottom: 100px;
-
 }
 
 .guardar:hover {
@@ -131,8 +124,8 @@ h2 {
     padding: 1rem;
     margin: 0 1rem;
   }
-  .container-buttons{
-    justify-content: space-between;
+  .container-buttons {
+    display: flex;
     height: 100%;
   }
 
@@ -160,7 +153,6 @@ h2 {
   .guardar {
     width: 35%;
     margin-left: 0;
-    margin-right: auto;
     align-self: flex-end;
   }
 
@@ -203,12 +195,11 @@ h2 {
   .profile-select {
     max-width: 100%;
     width: 50%;
-   }
+  }
 
   .guardar {
     width: 35%;
     margin-left: 0;
-    margin-right: auto;
     align-self: flex-end;
   }
 
@@ -218,9 +209,10 @@ h2 {
     margin-right: 10px;
     align-self: flex-end;
   }
+
 }
 
-@media only screen and (max-width: 850px) {
+@media only screen and (max-width: 930px) {
   .container-users {
     width: 80%;
     padding: 1rem;
@@ -238,6 +230,9 @@ h2 {
   }
   .container-buttons{
     flex-direction: column;
+    display: flex;
+    justify-content: flex-end;
+    height: 100%;
   }
 
   .form-group {
@@ -258,6 +253,7 @@ h2 {
     margin-left: 0;
     margin-right: auto;
     align-self: flex-end;
+    margin-bottom: 10px;
 
   }
   .cancelar {
@@ -317,6 +313,7 @@ h2 {
   .profile-select {
     max-width: 98%;
   }
+
 
   .guardar {
     padding: 0.4rem 0.8rem;

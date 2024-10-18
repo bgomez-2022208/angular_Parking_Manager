@@ -54,7 +54,6 @@
   background: transparent;
 }
 
-/* Lista */
 .list-group {
   width: calc(100% + 40px);
   margin-left: -25px;
@@ -77,7 +76,6 @@
       background-color: #f8f9fa;
     }
 
-    /* Media queries */
     @media (max-width: 3100px) {
       font-size: 0.95rem;
       padding: 0.85rem 1rem;

@@ -3,8 +3,8 @@
 ::ng-deep .mat-mdc-form-field {
   --mdc-filled-text-field-container-color: transparent;
   --mdc-filled-text-field-label-text-color: #76ABAE;
-  --mdc-filled-text-field-label-text-fonr: "Cabin";
-  --mdc-filled-text-field-input-text-placeholder-color:#31363F;
+  --mdc-filled-text-field-label-text-font: "Cabin";
+  --mdc-filled-text-field-input-text-placeholder-color: #31363F;
 }
 
 .content-register {
@@ -21,6 +21,12 @@
   left: 50%;
   transform: translate(-50%, -50%);
   padding-top: 2rem;
+
+  @media (max-width: 768px) {
+    width: 90%;
+    height: auto;
+    padding: 1rem;
+  }
 }
 
 .container-body {
@@ -40,7 +46,7 @@
     }
 
     mat-error {
-      margin-top: .5rem;
+      margin-top: 0.5rem;
     }
   }
 
@@ -66,52 +72,55 @@
   }
 }
 
-.buttons{
+.btnAgregarParqueo, .btnSalidaParqueo {
+  width: 40%;
+  justify-content: $button-justify;
+  align-items: $button-align;
+  border: $button-border;
+  padding: $button-padding;
+  border-radius: $button-radius;
+  transition: $button-transition;
+  font-family: $font-primary;
+  margin-top: $button-mgt;
+  margin-right: 1rem;
+
+  &.btnSalidaParqueo {
+    margin-right: 0;
+  }
+
+  mat-icon {
+    margin-left: $button-icon-mgl;
+  }
+
+  &.btnAgregarParqueo {
+    background-color: $palette-color-three;
+    color: $palette-color-four;
+  }
+
+  &.btnSalidaParqueo {
+    background-color: #a02334;
+    color: $palette-color-four;
+  }
+}
+
+.buttons {
   display: flex;
-  flex-direction: row;
+  justify-content: center;
   width: 50%;
-}
 
-.btnSubmit {
-  width: 100%;
-  background-color: $palette-color-three;
-  color: $palette-color-four;
-  border: $button-border;
-  font-weight: $font-weight-button;
-  font-size: $font-size-button;
-  padding: $button-padding;
-  line-height: $button-line-height;
-  border-radius: $button-radius;
-  transition: scale .2s ease-in-out;
-  margin-bottom: $button-mgb;
-  margin-left: 1rem;
-  font-family: $font-primary;
-  margin-top: $button-mgt;
-  line-height: 1;
-}
+  @media (max-width: 768px) {
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
 
-button:hover {
-  scale: 110%;
-  cursor: pointer;
-}
+    button {
+      margin-bottom: 1rem;
+      margin-right: 0;
+      width: 80%;
+    }
 
-.cancel {
-  background-color: #A02334;
-  color: $palette-color-four;
-  border: $button-border;
-  font-weight: $font-weight-button;
-  font-size: $font-size-button;
-  padding: $button-padding;
-  line-height: $button-line-height;
-  border-radius: $button-radius;
-  transition: scale .2s ease-in-out;
-  margin-bottom: $button-mgb;
-  margin-left: 1rem;
-  font-family: $font-primary;
-  margin-top: $button-mgt;
-}
-
-.cancel:hover {
-  scale: 110%;
-  cursor: pointer;
+    .btnSalidaParqueo {
+      margin-bottom: 0;
+    }
+  }
 }
