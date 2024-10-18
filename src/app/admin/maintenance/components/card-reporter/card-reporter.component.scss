@@ -1,3 +1,6 @@
+$palette-color-three: #76ABAEFF;
+$palette-color-four: #ffffff;
+
 .info-card {
   display: flex;
   justify-content: center;
@@ -7,6 +10,30 @@
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   background-color: #ffffff;
+}
+
+.guardar {
+  background-color: $palette-color-three;
+  color: $palette-color-four;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 5px;
+  text-transform: uppercase;
+  width: 20%;
+  align-self: center;
+  flex: 1;
+}
+
+.cancelar {
+  flex: 1;
+  background-color: #a02334;
+  color: $palette-color-four;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 5px;
+  text-transform: uppercase;
+  width: 20%;
+  align-self: center;
 }
 
 mat-card {

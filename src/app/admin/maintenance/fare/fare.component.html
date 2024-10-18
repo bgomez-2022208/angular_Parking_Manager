@@ -7,13 +7,18 @@
     <h2>{{ 'FARE.ADD_FARE' | translate}}</h2>
     <div class="input-container">
       <mat-form-field class="input-small"  >
-        <mat-label>{{ 'FARE.NAME' | translate}}</mat-label>
+        <mat-label>
+          <svg xmlns="http://www.w3.org/2000/svg" padding-buttom="10px" height="24px" viewBox="0 -960 960 960" width="24px" fill="#76ABAE"><path d="M360-280h240v-40l-40-20q33 0 56.5-23.5T640-420v-180q0-43-37-61.5T480-680q-83 0-121.5 19T320-600v180q0 33 23.5 56.5T400-340l-40 20v40Zm50-100q-13 0-21.5-8.5T380-410q0-13 8.5-21.5T410-440q13 0 21.5 8.5T440-410q0 13-8.5 21.5T410-380Zm140 0q-13 0-21.5-8.5T520-410q0-13 8.5-21.5T550-440q13 0 21.5 8.5T580-410q0 13-8.5 21.5T550-380ZM380-480v-120h200v120H380ZM160-160q-33 0-56.5-23.5T80-240v-135q0-11 7-19t18-10q24-8 39.5-29t15.5-47q0-26-15.5-47T105-556q-11-2-18-10t-7-19v-135q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v135q0 11-7 19t-18 10q-24 8-39.5 29T800-480q0 26 15.5 47t39.5 29q11 2 18 10t7 19v135q0 33-23.5 56.5T800-160H160Zm0-80h640v-102q-37-22-58.5-58.5T720-480q0-43 21.5-79.5T800-618v-102H160v102q37 22 58.5 58.5T240-480q0 43-21.5 79.5T160-342v102Zm320-240Z"/></svg>
+          {{ 'FARE.NAME' | translate}}
+        </mat-label>
         <input  matInput placeholder="Enter name" formControlName="name" required class="escritos" />
         <mat-error *ngIf="fareForm.get('name')?.invalid">{{getErrorMessage('name')}}</mat-error>
       </mat-form-field>
 
       <mat-form-field class="input-small">
-        <mat-label>{{ 'FARE.START_TIME' | translate}}</mat-label>
+        <mat-label>
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#76ABAE"><path d="m612-292 56-56-148-148v-184h-80v216l172 172ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-400Zm0 320q133 0 226.5-93.5T800-480q0-133-93.5-226.5T480-800q-133 0-226.5 93.5T160-480q0 133 93.5 226.5T480-160Z"/></svg>
+          {{ 'FARE.START_TIME' | translate}}</mat-label>
         <input type="time" matInput placeholder="Enter start date" formControlName="startTime" required class="input-">
         <mat-error *ngIf="fareForm.get('startTime')?.invalid">{{getErrorMessage('startTime')}}</mat-error>
       </mat-form-field>
@@ -21,13 +26,17 @@
 
     <div class="input-container">
       <mat-form-field class="input-small">
-        <mat-label>{{ 'FARE.PRICE' | translate}}</mat-label>
+        <mat-label>
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#76ABAE"><path d="M560-440q-50 0-85-35t-35-85q0-50 35-85t85-35q50 0 85 35t35 85q0 50-35 85t-85 35ZM280-320q-33 0-56.5-23.5T200-400v-320q0-33 23.5-56.5T280-800h560q33 0 56.5 23.5T920-720v320q0 33-23.5 56.5T840-320H280Zm80-80h400q0-33 23.5-56.5T840-480v-160q-33 0-56.5-23.5T760-720H360q0 33-23.5 56.5T280-640v160q33 0 56.5 23.5T360-400Zm440 240H120q-33 0-56.5-23.5T40-240v-440h80v440h680v80ZM280-400v-320 320Z"/></svg>
+          {{ 'FARE.PRICE' | translate}}</mat-label>
         <input type="number" matInput placeholder="Enter price" formControlName="price" required>
         <mat-error *ngIf="fareForm.get('price')?.invalid">{{getErrorMessage('price')}}</mat-error>
       </mat-form-field>
 
       <mat-form-field class="input-small">
-        <mat-label>{{ 'FARE.END_TIME' | translate}}</mat-label>
+        <mat-label>
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#76ABAE"><path d="m612-292 56-56-148-148v-184h-80v216l172 172ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-400Zm0 320q133 0 226.5-93.5T800-480q0-133-93.5-226.5T480-800q-133 0-226.5 93.5T160-480q0 133 93.5 226.5T480-160Z"/></svg>
+          {{ 'FARE.END_TIME' | translate}}</mat-label>
         <input type="time" matInput placeholder="Enter end date" formControlName="endTime" required class="escritos">
         <mat-error *ngIf="fareForm.get('endTime')?.invalid">{{getErrorMessage('endTime')}}</mat-error>
       </mat-form-field>

@@ -42,7 +42,7 @@ export class ReportService {
   }
 
   getParkings(): Observable<any> {
-    const url = `${this.apiUrl}/parkings/namesAndStatus`;
+    const url = `${this.apiUrl}/parkings/active`;
     return this.http.get<any>(url);
   }
 
