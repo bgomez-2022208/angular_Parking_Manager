@@ -20,11 +20,17 @@
        <p>{{ data.endDate }}</p>
       </ng-container>
     </mat-card-content>
-    <mat-card-actions>
-      <button mat-button (click)="toggleCard(null)">{{ 'REPORT.CLOSE' | translate }}</button>
-    </mat-card-actions>
-    <mat-card-actions>
-      <button mat-button (click)="convertpdf()">{{ 'REPORT.SAVE' | translate }}</button>
-    </mat-card-actions>
+    <div style="display: flex; align-items: center; justify-content: flex-end;">
+      <mat-card-actions>
+        <button mat-button class="cancelar" (click)="toggleCard(null)">
+          {{ 'REPORT.CLOSE' | translate }}
+        </button>
+      </mat-card-actions>
+      <mat-card-actions>
+        <button mat-button class="guardar" (click)="convertpdf()">
+          {{ 'REPORT.SAVE' | translate }}
+        </button>
+      </mat-card-actions>
+    </div>
   </mat-card>
 </div>

@@ -90,16 +90,16 @@
                 mat-form-field {
                     margin: 1rem;
                     width: 50%;
-    
+
                     mat-icon {
                         color: $palette-color-three;
                     }
-    
+
                     mat-error {
                         margin-top: .5rem;
                     }
                 }
-    
+
             }
             mat-slide-toggle {
                 margin-left: 1rem;
@@ -113,7 +113,7 @@
         margin-top: 1rem;
         width: 30%;
         height: 400px;
-    
+
         table {
             width: 100%;
             flex-grow: 1;

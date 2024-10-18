@@ -52,8 +52,16 @@ export class FareTableComponent {
     this.fareService.getAllFare(this.itemsPerPage, page).subscribe(
       (data: any) => {
         console.log('Datos recibidos:', data);
-        this.dataSource.data = data.fares || [];
         this.totalElements = data.totalElements;
+
+        const totalRows = 10;
+
+        const filledRows = [...(data.fares || [])];
+        while (filledRows.length < totalRows) {
+          filledRows.push({ isEmpty: true });
+        }
+
+        this.dataSource.data = filledRows;
 
         this.paginator.length = this.totalElements;
         this.paginator.pageIndex = page;
