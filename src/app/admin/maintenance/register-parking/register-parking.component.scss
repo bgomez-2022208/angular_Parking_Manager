@@ -3,9 +3,10 @@
 ::ng-deep .mat-mdc-form-field {
   --mdc-filled-text-field-container-color: transparent;
   --mdc-filled-text-field-label-text-color: #76ABAE;
-  --mdc-filled-text-field-label-text-fonr: "Cabin";
-  --mdc-filled-text-field-input-text-placeholder-color:#31363F;
+  --mdc-filled-text-field-label-text-font: "Cabin";
+  --mdc-filled-text-field-input-text-placeholder-color: #31363F;
 }
+
 .content-register {
   width: 60%;
   height: 70vh;
@@ -20,6 +21,12 @@
   left: 50%;
   transform: translate(-50%, -50%);
   padding-top: 2rem;
+
+  @media (max-width: 768px) {
+    width: 90%;
+    height: auto;
+    padding: 1rem;
+  }
 }
 
 .container-body {
@@ -39,7 +46,7 @@
     }
 
     mat-error {
-      margin-top: .5rem;
+      margin-top: 0.5rem;
     }
   }
 
@@ -64,25 +71,56 @@
     }
   }
 }
-.btnSubmit {
-  width: 100%;
+
+.btnAgregarParqueo, .btnSalidaParqueo {
+  width: 40%;
   justify-content: $button-justify;
   align-items: $button-align;
-  background-color: $palette-color-one;
-  color: $palette-color-three;
   border: $button-border;
   padding: $button-padding;
   border-radius: $button-radius;
   transition: $button-transition;
   font-family: $font-primary;
   margin-top: $button-mgt;
-  display: flex;
+  margin-right: 1rem;
+
+  &.btnSalidaParqueo {
+    margin-right: 0;
+  }
 
   mat-icon {
     margin-left: $button-icon-mgl;
   }
+
+  &.btnAgregarParqueo {
+    background-color: $palette-color-three;
+    color: $palette-color-four;
+  }
+
+  &.btnSalidaParqueo {
+    background-color: #a02334;
+    color: $palette-color-four;
+  }
 }
-.buttons{
+
+.buttons {
   display: flex;
+  justify-content: center;
   width: 50%;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+
+    button {
+      margin-bottom: 1rem;
+      margin-right: 0;
+      width: 80%;
+    }
+
+    .btnSalidaParqueo {
+      margin-bottom: 0;
+    }
+  }
 }

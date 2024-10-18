@@ -58,10 +58,7 @@
   }
 
   @media (max-width: 565px) {
-    .container {
-      display: flex;
-      flex-direction: column;
-    }
+    flex-direction: column-reverse;
 
     .table {
       width: 100%;
@@ -84,6 +81,5 @@
       gap: 150px;
     }
   }
-
 }
 

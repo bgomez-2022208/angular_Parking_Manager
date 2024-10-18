@@ -31,8 +31,9 @@
   </div>
 
   <div class="modal-actions" mat-dialog-actions>
-    <button *ngIf="mostrarBotonCancelar" class="btnSubmit" (click)="onNoClick()" type="button">{{ 'ADD_REGISTER_REGISTER.FORM.BUTTON_Cancel' | translate }}</button>
     <button *ngIf="mostrarBotonEnviar" class="btnSubmit" cdkFocusInitial type="submit">{{ 'ADD_REGISTER_REGISTER.FORM.BUTTON_Accept' | translate }}</button>
     <button *ngIf="mostrarBoton" class="btnSubmit" (click)="confirm()" type="button">{{ 'ADD_REGISTER_REGISTER.FORM.BUTTON_CERRAR_MODAL' | translate }}</button>
+    <button *ngIf="mostrarBotonCancelar" class="btnCancelar" (click)="onNoClick()" type="button">{{ 'ADD_REGISTER_REGISTER.FORM.BUTTON_Cancel' | translate }}</button>
+
   </div>
 </form>

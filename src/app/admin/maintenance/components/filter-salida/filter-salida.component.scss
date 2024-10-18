@@ -4,7 +4,7 @@
   --mdc-filled-text-field-container-color: transparent;
   --mdc-filled-text-field-label-text-color: #76ABAE;
   --mdc-filled-text-field-label-text-fonr: "Cabin";
-  --mdc-filled-text-field-input-text-placeholder-color:#31363F;
+  --mdc-filled-text-field-input-text-placeholder-color: #31363F;
 }
 
 .modal-title {
@@ -23,7 +23,10 @@
 .modal-actions {
   display: flex;
   justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
 }
+
 .search-input {
   width: 50%;
   padding: 8px;
@@ -32,18 +35,29 @@
   border-radius: 4px;
   font-size: 14px;
 }
+
 .icon-inputs {
   color: $palette-color-three;
 }
 
-.btnSubmit{
-  width: 40%;
-  color: $palette-color-three;
-  background-color: $palette-color-one;
+.btnSubmit,
+.btnCancelar {
+  width: 100%;
+  max-width: 200px;
+  background-color: $palette-color-three;
+  color: $palette-color-four;
   border: $button-border;
   border-radius: $button-radius;
   transition: $button-transition;
   font-family: $font-primary;
   margin-top: $button-mgt;
-  height: 30px;
+  height: 40px;
+
+  &.btnCancelar {
+    background-color: #a02334;
+  }
+
+  @media (min-width: 768px) {
+    width: 45%;
+  }
 }
