@@ -94,6 +94,14 @@ export class ProfilesComponent implements OnInit {
     this.selectRoles = [];
   }
 
+  activateFormValidation() {
+    Object.keys(this.form.controls).forEach(key => {
+      const control = this.form.get(key)
+      control?.markAsTouched()
+      control?.markAsDirty()
+      control?.updateValueAndValidity()
+    })
+  }
 
   obtenerPerfiles(page: number, items: number) {
     this.userService.getProfiles(page, items).subscribe({
@@ -258,31 +266,36 @@ export class ProfilesComponent implements OnInit {
   }
 
   newProfile() {
-    if (this.form.valid) {
-      const profile = {
-        description: this.form.value.description,
-        status: this.form.value.status === 'true'
-      }
-      const roles = this.selectRoles.join(',')
-      this.userService.addProfile(profile, roles).subscribe({
-        next: (response) => {
-          this.obtenerPerfiles(this.currentPage, this.pageSize)
-          Swal.fire({
-            title: this.translate.instant('ALERT_PROFILE.TITLE_ADD'),
-            text: this.translate.instant('ALERT_PROFILE.MESSAGE_SUCCESS'),
-            icon: 'success',
-          })
-          this.resetForm()
-        },
-        error: (error) => {
-          Swal.fire({
-            title: this.translate.instant('ALERT_PROFILE.TITLE_BAD_ADD'),
-            text: error,
-            icon: 'error',
-          })
-        }
-      })
+
+    this.activateFormValidation()
+    if (this.form.invalid) {
+      return
     }
+    const profile = {
+      description: this.form.value.description,
+      status: this.form.value.status === 'true'
+    }
+    const roles = this.selectRoles.join(',')
+    this.userService.addProfile(profile, roles).subscribe({
+      next: (response) => {
+        this.obtenerPerfiles(this.currentPage, this.pageSize)
+        Swal.fire({
+          title: this.translate.instant('ALERT_PROFILE.TITLE_ADD'),
+          text: this.translate.instant('ALERT_PROFILE.MESSAGE_SUCCESS'),
+          icon: 'success',
+        })
+        this.resetForm()
+        this.obtenerPerfiles(this.currentPage, this.pageSize)
+      },
+      error: (error) => {
+        Swal.fire({
+          title: this.translate.instant('ALERT_PROFILE.TITLE_BAD_ADD'),
+          text: error,
+          icon: 'error',
+        })
+        this.resetForm()
+      }
+    })
   }
 
   updateProfile() {

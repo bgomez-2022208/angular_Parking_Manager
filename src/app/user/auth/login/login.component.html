@@ -23,10 +23,6 @@
                 <mat-error *ngIf="form.get('password')?.invalid">{{getErrorMessage('password')}}</mat-error>
             </mat-form-field>
             <div class="container-options">
-                <label (click)="toggleCheckBox()">
-                    <mat-icon class="check">{{valueIconChecked}}</mat-icon>
-                    {{ 'LOGIN.REMEMBER_BUTTON_TITLE' | translate }}
-                </label>
                 <a routerLink="/security/forgot-password-email">{{ 'LOGIN.FORGOT_PASSWORD' | translate}}</a>
             </div>
             <button class="btnSubmit" type="submit">

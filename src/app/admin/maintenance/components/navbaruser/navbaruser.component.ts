@@ -18,6 +18,7 @@ export class NavbaruserComponent {
 
   languages: string[] = [];
   currentLanguage: string = '';
+  isLoading = false;
 
   constructor(private router: Router, private dialog: MatDialog, private translate: TranslateService, private languageService: LanguageService, private userService: ApiUserService) { }
 
@@ -47,8 +48,24 @@ export class NavbaruserComponent {
     this.languages = this.languageService.getAvailableLanguages()
     this.currentLanguage = this.languageService.getCurrentLanguage();
   }
+
   onLanguageChange(lang: string) {
-    this.languageService.changeLanguage(lang)
-    this.currentLanguage = lang
+    this.isLoading = true;
+  
+    // Cambiar el idioma
+    this.languageService.changeLanguage(lang).subscribe({
+      next: () => {
+        // Después de cambiar el idioma, espera 2 segundos para desactivar el loader
+        setTimeout(() => {
+          this.currentLanguage = lang
+          this.isLoading = false
+        }, 2000)
+      },
+      error: () => {
+        // Manejo de error, desactiva el loader de inmediato
+        console.error('Error al cambiar de idioma')
+        this.isLoading = false
+      }
+    })
   }
 }

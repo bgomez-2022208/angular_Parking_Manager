@@ -81,7 +81,7 @@ export class ParkingComponent implements OnInit {
       name: '',
       address: '',
       phone: '',
-      spaces: 0,
+      spaces: '',
       status: false
     }, { emitEvent: false })
   
@@ -93,6 +93,20 @@ export class ParkingComponent implements OnInit {
     })
     
     this.form.updateValueAndValidity({ emitEvent: false })
+  }
+
+  activateFormValidation(): void {
+    // Recorrer todos los controles del formulario
+    Object.keys(this.form.controls).forEach(key => {
+      const control = this.form.get(key)
+  
+      // Marcar cada control como tocado y sucio
+      control?.markAsTouched()
+      control?.markAsDirty()
+  
+      // Actualizar el valor y la validez para activar los mensajes de error si es necesario
+      control?.updateValueAndValidity()
+    })
   }
 
   obtenerParqueos(page: number, items: number): void {
@@ -190,29 +204,36 @@ export class ParkingComponent implements OnInit {
   }
 
   addParking() {
-    if (this.form.valid) {
-      const parking = this.form.value;
-      this.userService.newParking(parking).subscribe({
-        next: (response) => {
-          Swal.fire({
-            icon: 'success',
-            title: this.translate.instant('PARKING.ALERT_SUCCESS_TITLE'),
-            text: this.translate.instant('PARKING.ALERT_SUCCESS_MESSAGE'),
-          })
-          this.resetForm();
-          this.obtenerParqueos(this.currentPage, this.pageSize)
-        },
-        error: (error) => {
-          Swal.fire({
-            icon: 'error',
-            title: this.translate.instant('PARKING.ALERT_ERROR_TITLE'),
-            text: this.translate.instant('PARKING.ALERT_ERROR_MESSAGE'),
-          })
-          console.error(error)
-          this.resetForm();
-        }
-      })
+    // Activar validaciones antes de intentar guardar
+    this.activateFormValidation()
+  
+    if (this.form.invalid) {
+      // Si el formulario es inválido, detener la ejecución
+      return
     }
+  
+    // Si el formulario es válido, proceder con el guardado
+    const parking = this.form.value
+    this.userService.newParking(parking).subscribe({
+      next: (response) => {
+        Swal.fire({
+          icon: 'success',
+          title: this.translate.instant('PARKING.ALERT_SUCCESS_TITLE'),
+          text: this.translate.instant('PARKING.ALERT_SUCCESS_MESSAGE'),
+        })
+        this.resetForm()
+        this.obtenerParqueos(this.currentPage, this.pageSize)
+      },
+      error: (error) => {
+        Swal.fire({
+          icon: 'error',
+          title: this.translate.instant('PARKING.ALERT_ERROR_TITLE'),
+          text: this.translate.instant('PARKING.ALERT_ERROR_MESSAGE'),
+        })
+        console.error(error)
+        this.resetForm()
+      }
+    })
   }
 
   onToggleChange(event: MatSlideToggleChange) {

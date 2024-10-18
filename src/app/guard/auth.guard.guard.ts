@@ -21,7 +21,7 @@ export class AuthGuard implements CanActivate {
 
     const requiredRoles = route.data['roles'] as string[]
     if (requiredRoles && !this.apiUserService.hasRole(requiredRoles)) {
-      this.router.navigate(['/admin/forbidden'])  // Redirige si no tiene los roles requeridos
+      this.router.navigate(['/admin/forbidden'])
       return false
     }
 

@@ -6,6 +6,7 @@
   --mdc-filled-text-field-label-text-fonr: "Cabin";
   --mdc-filled-text-field-input-text-placeholder-color:#31363F;
 }
+
 .content-register {
   width: 60%;
   height: 70vh;
@@ -64,25 +65,53 @@
     }
   }
 }
-.btnSubmit {
-  width: 100%;
-  justify-content: $button-justify;
-  align-items: $button-align;
-  background-color: $palette-color-one;
-  color: $palette-color-three;
-  border: $button-border;
-  padding: $button-padding;
-  border-radius: $button-radius;
-  transition: $button-transition;
-  font-family: $font-primary;
-  margin-top: $button-mgt;
-  display: flex;
 
-  mat-icon {
-    margin-left: $button-icon-mgl;
-  }
-}
 .buttons{
   display: flex;
+  flex-direction: row;
   width: 50%;
+}
+
+.btnSubmit {
+  width: 100%;
+  background-color: $palette-color-three;
+  color: $palette-color-four;
+  border: $button-border;
+  font-weight: $font-weight-button;
+  font-size: $font-size-button;
+  padding: $button-padding;
+  line-height: $button-line-height;
+  border-radius: $button-radius;
+  transition: scale .2s ease-in-out;
+  margin-bottom: $button-mgb;
+  margin-left: 1rem;
+  font-family: $font-primary;
+  margin-top: $button-mgt;
+  line-height: 1;
+}
+
+button:hover {
+  scale: 110%;
+  cursor: pointer;
+}
+
+.cancel {
+  background-color: #A02334;
+  color: $palette-color-four;
+  border: $button-border;
+  font-weight: $font-weight-button;
+  font-size: $font-size-button;
+  padding: $button-padding;
+  line-height: $button-line-height;
+  border-radius: $button-radius;
+  transition: scale .2s ease-in-out;
+  margin-bottom: $button-mgb;
+  margin-left: 1rem;
+  font-family: $font-primary;
+  margin-top: $button-mgt;
+}
+
+.cancel:hover {
+  scale: 110%;
+  cursor: pointer;
 }

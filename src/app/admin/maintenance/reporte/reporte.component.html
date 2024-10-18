@@ -1,5 +1,5 @@
 <div class="Navbar-container">
-  <app-navbaruser class="app-nav" title="Report"></app-navbaruser>
+  <app-navbaruser class="app-nav" [title]="'NAVBAR_USER.REPORT'|translate"></app-navbaruser>
 </div>
 <div class="principal-container">
   <div class="nav">
@@ -95,6 +95,7 @@
         [length]="totalElements"
         [pageSize]="itemsPerPage"
         [pageIndex]="currentPage"
+        [hidePageSize]="true" [showFirstLastButtons]="true"
         (page)="changePage($event)">
       </mat-paginator>
     </div>

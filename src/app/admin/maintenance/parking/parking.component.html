@@ -1,4 +1,4 @@
-<app-navbaruser [title]="'PROFILES_SECTION.TITLE' | translate"></app-navbaruser>
+<app-navbaruser [title]="'NAVBAR_USER.PARKING' | translate"></app-navbaruser>
 <div class="main-container">
     <div class="table">
         <mat-form-field>
@@ -16,7 +16,7 @@
             </ng-container>
 
             <ng-container matColumnDef="name">
-                <td mat-cell *matCellDef="let element" (click)="seleccionarParqueo(element.parkingId)">{{ element.name }}</td>
+                <td mat-cell *matCellDef="let element" (click)="seleccionarParqueo(element.id)">{{ element.name }}</td>
             </ng-container>
 
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
@@ -31,13 +31,13 @@
                 <mat-form-field>
                     <mat-label>{{'PARKING.LABEL_NAME' | translate}}</mat-label>
                     <mat-icon matPrefix>local_parking</mat-icon>
-                    <input formControlName="name" matInput [placeholder]="'PARKING.PLACEHOLDER_NAME' | translate">
+                    <input formControlName="name" matInput [placeholder]="'PARKING.PLACEHOLDER_NAME' | translate" required>
                     <mat-error *ngIf="form.get('name')?.invalid">{{getErrorMessage('name')}}</mat-error>
                 </mat-form-field>
                 <mat-form-field>
                     <mat-label>{{'PARKING.LABEL_ADDRESS' | translate}}</mat-label>
                     <mat-icon matPrefix>location_on</mat-icon>
-                    <input formControlName="address" matInput [placeholder]="'PARKING.PLACEHOLDER_ADDRESS' | translate">
+                    <input formControlName="address" matInput [placeholder]="'PARKING.PLACEHOLDER_ADDRESS' | translate" required>
                     <mat-error *ngIf="form.get('address')?.invalid">{{getErrorMessage('address')}}</mat-error>
                 </mat-form-field>
             </div>
@@ -45,13 +45,13 @@
                 <mat-form-field>
                     <mat-label>{{'PARKING.LABEL_SPACES'| translate}}</mat-label>
                     <mat-icon matPrefix>garage</mat-icon>
-                    <input formControlName="spaces" matInput [placeholder]="'PARKING.PLACEHOLDER_SPACES' | translate">
+                    <input formControlName="spaces" matInput [placeholder]="'PARKING.PLACEHOLDER_SPACES' | translate" required>
                     <mat-error *ngIf="form.get('spaces')?.invalid">{{getErrorMessage('spaces')}}</mat-error>
                 </mat-form-field>
                 <mat-form-field class="custom-input">
                     <mat-label>{{'PARKING.LABEL_PHONE' | translate}}</mat-label>
                     <mat-icon matPrefix>call</mat-icon>
-                    <input formControlName="phone" matInput [placeholder]="'PARKING.PLACEHOLDER_PHONE' | translate">
+                    <input formControlName="phone" matInput [placeholder]="'PARKING.PLACEHOLDER_PHONE' | translate" required>
                     <mat-error *ngIf="form.get('phone')?.invalid">{{getErrorMessage('phone')}}</mat-error>
                 </mat-form-field>
             </div>

@@ -84,11 +84,7 @@
     "ERROR_UPDATE_PASSWORD": "Ocurrió un error al actualizar tu contraseña",
     "ERROR_REGISTER": "Ocurrió un error durante el registro, por favor intenta más tarde",
     "ERROR_LOGIN": "Usuario o contraseña incorrectos",
-    "ERROR_ADD_PROFILE": "El nombre del perfil es obligatorio",
-    "ERROR_NAME_REQUIRED": "El nombre de la tarifa es necesario",
-    "ERROR_STARTTIME_REQUIRED": "La hora inicial es necesaria",
-    "ERROR_PRICE_REQUIRED": "El precio es necesario",
-    "ERROR_ENDTIME_REQUIRED": "La hora de salida es necesaria"
+    "ERROR_ADD_PROFILE": "El nombre del perfil es obligatorio"
   },
   "FORGOT_PASSWORD_EMAIL": {
     "HEADER_TITLE": "Recupera tu contraseña",

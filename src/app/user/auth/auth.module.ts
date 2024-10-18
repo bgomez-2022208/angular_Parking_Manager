@@ -10,10 +10,11 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input'
 import { MatSelectModule } from '@angular/material/select';
 import { MatOptionModule } from "@angular/material/core";
+import { NoAuthGuard } from "src/app/guard/no-auth-guard/no-auth-guard.component";
 
 const routes: Routes = [
-    { path: 'login', component: LoginComponent },
-    { path: 'register', component: RegisterComponent }
+    { path: 'login', component: LoginComponent, canActivate: [NoAuthGuard] },
+    { path: 'register', component: RegisterComponent, canActivate: [NoAuthGuard] }
 ]
 
 @NgModule({

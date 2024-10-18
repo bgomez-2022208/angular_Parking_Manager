@@ -12,7 +12,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTableModule } from '@angular/material/table';
-import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatPaginatorIntl, MatPaginatorModule } from '@angular/material/paginator';
 
 // Components
 import { SearchComponent } from './maintenance/search/search.component';
@@ -34,7 +34,7 @@ import { UsersComponent } from './maintenance/users/users.component';
 import { MatSortModule } from '@angular/material/sort';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule, MatOptionModule } from '@angular/material/core';
-import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateModule } from '@ngx-translate/core';
 import { ProfilesComponent } from './maintenance/profiles/profiles.component';
 import { AuditoriaComponent } from "./maintenance/auditoria/auditoria.component";
 import { CardAuditoryComponent } from "./maintenance/components/card-auditory/card-auditory.component";
@@ -43,8 +43,6 @@ import { MatCardModule } from '@angular/material/card';
 import { DeleteUserConfirmComponent } from "./maintenance/components/delete-user-confirm/delete-user-confirm.component";
 import { FareComponent } from './maintenance/fare/fare.component';
 import { TableProfilesComponent } from '../shared/table-profiles/table-profiles.component';
-import { HttpClient } from '@angular/common/http';
-import { HttpLoaderFactory } from '../app.module';
 import { FilterProfileComponent } from './maintenance/components/filter-profile/filter-profile.component';
 import { RegisterParkingComponent } from './maintenance/register-parking/register-parking.component';
 import { FilterSalidaComponent } from './maintenance/components/filter-salida/filter-salida.component';
@@ -164,15 +162,7 @@ const routes: Routes = [
     MatOptionModule,
     TranslateModule,
     SimpleNotificationsModule.forRoot(),
-    MatCardModule,
-    TranslateModule.forChild({
-      loader: {
-        provide: TranslateLoader,
-        useFactory: HttpLoaderFactory,
-        deps: [HttpClient]
-      }
-    }),
-
+    MatCardModule
   ],
   exports: [
     NavbarComponent,
@@ -188,7 +178,7 @@ const routes: Routes = [
   ],
   providers: [
     DatePipe,
-    {provide: MatPaginatorModule, useClass: CustomPaginatorIntl}
+    {provide: MatPaginatorIntl, useClass: CustomPaginatorIntl}
   ],
 })
 export class AdminModule { }

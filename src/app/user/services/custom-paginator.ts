@@ -5,7 +5,7 @@ import { Subject } from 'rxjs'
 
 @Injectable()
 export class CustomPaginatorIntl extends MatPaginatorIntl {
-  // Observable que forza la actualización de los textos
+  
   override changes = new Subject<void>()
 
   constructor(private translate: TranslateService) {
@@ -13,7 +13,6 @@ export class CustomPaginatorIntl extends MatPaginatorIntl {
     this.getAndInitTranslations()
   }
 
-  // Función que obtiene las traducciones
   getAndInitTranslations() {
     this.translate.stream([
       'PAGINATOR.ITEMS_PER_PAGE',
@@ -28,11 +27,10 @@ export class CustomPaginatorIntl extends MatPaginatorIntl {
       this.previousPageLabel = translation['PAGINATOR.PREVIOUS_PAGE']
       this.firstPageLabel = translation['PAGINATOR.FIRST_PAGE']
       this.lastPageLabel = translation['PAGINATOR.LAST_PAGE']
-      this.changes.next()  // Notificar el cambio para actualizar el texto
+      this.changes.next()  
     })
   }
 
-  // Customiza el texto del rango de páginas
   override getRangeLabel = (page: number, pageSize: number, length: number): string => {
     if (length === 0 || pageSize === 0) {
       return this.translate.instant('PAGINATOR.RANGE', { startIndex: 0, endIndex: 0, length })

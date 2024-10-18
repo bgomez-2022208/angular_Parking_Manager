@@ -49,15 +49,13 @@ export class ForgotPasswordTwoComponent {
 
   getErrorMessage(controlName: string) {
     const control = this.form.get(controlName)
-    const password = this.form.get('newPassword')?.value
-    const confirmPassword = this.form.get('confirmPassword')?.value
 
     if (control?.hasError('required')) {
-      return controlName === 'newPassword' ? this.translate.instant('ERRORS.ERROR_NEW_PASSWORD_REQUIRED') : '' ||
-        controlName === 'confirmPassword' ? this.translate.instant('ERRORS.ERROR_CONFIRM_PASSWORD_REQUIRED') : '' ||
+      return controlName === 'newPassword' ? this.translate.instant('ERRORS.ERROR_NEW_PASSWORD_REQUIRED') :
+        controlName === 'confirmPassword' ? this.translate.instant('ERRORS.ERROR_CONFIRM_PASSWORD_REQUIRED') :
           controlName === 'verificationCode' ? this.translate.instant('ERRORS.ERROR_CODE_REQUIRED') : ''
     } else if (control?.hasError('pattern')) {
-      return controlName === 'verificationCode' ? this.translate.instant('ERRORS.ERROR_CODE_INVALID') : '' ||
+      return controlName === 'verificationCode' ? this.translate.instant('ERRORS.ERROR_CODE_INVALID') :
         controlName === 'newPassword' ? this.translate.instant('ERRORS.ERROR_INVALID_PASSWORD') : ''
 
     } else if (control?.hasError('mismatch')) {

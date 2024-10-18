@@ -52,15 +52,15 @@ export class RegisterComponent {
   getErrorMessage(controlName: string){
     const control = this.form.get(controlName);
     if (control?.hasError('required')){
-      return controlName === 'name'? this.translate.instant('ERRORS.ERROR_NAME_REQUIRED') : '' ||
-      controlName ==='surname'? this.translate.instant('ERRORS.ERROR_SURNAME_REQUIRED') : '' ||
-      controlName === 'email'? this.translate.instant('ERRORS.ERROR_EMAIL_REQUIRED') : '' ||
-      controlName === 'age'? this.translate.instant('ERRORS.ERROR_AGE_REQUIRED') : '' ||
+      return controlName === 'name'? this.translate.instant('ERRORS.ERROR_NAME_REQUIRED') :
+      controlName ==='surname'? this.translate.instant('ERRORS.ERROR_SURNAME_REQUIRED') :
+      controlName === 'email'? this.translate.instant('ERRORS.ERROR_EMAIL_REQUIRED') :
+      controlName === 'age'? this.translate.instant('ERRORS.ERROR_AGE_REQUIRED') :
       controlName === 'dpi'? this.translate.instant('ERRORS.ERROR_DPI_REQUIRED') : '';
     } else if (control?.hasError('pattern')){
-      return controlName === 'age'? this.translate.instant('ERRORS.ERROR_INVALID_AGE') : '' ||
-      controlName === 'dpi'? this.translate.instant('ERRORS.ERROR_INVALID_DPI') : '' ||
-      controlName === 'name'? this.translate.instant('ERRORS.ERROR_INVALID_NAME') : '' ||
+      return controlName === 'age'? this.translate.instant('ERRORS.ERROR_INVALID_AGE') :
+      controlName === 'dpi'? this.translate.instant('ERRORS.ERROR_INVALID_DPI') :
+      controlName === 'name'? this.translate.instant('ERRORS.ERROR_INVALID_NAME') :
       controlName ==='surname'? this.translate.instant('ERRORS.ERROR_INVALID_SURNAME') : '';
     } else if (control?.hasError('email')){
       return controlName === 'email'? this.translate.instant('ERRORS.ERROR_INVALID_EMAIL') : '' 

@@ -31,10 +31,12 @@
       "TITLE_ROLES": "Roles"
     },
     "BUTTONS": {
-        "BTN_SAVE": "Save",
-        "BUTTON_SAVE": "Save",
-        "BTN_SAVE_PROFILE": "Save Profile",
-        "BTN_UPDATE_PROFILE": "Update Profile"
+      "BTN_SAVE": "Save",
+      "BTN_UPDATE": "Update",
+      "BTN_CANCEL": "Cancel",
+      "BTN_CONFIRM": "Yes, I'm sure",
+      "BTN_NO": "No, cancel",
+      "BTN_BACK": "Back to Home"
     },
   "TOGGLE": {
     "PROFILE": "Profile",
@@ -152,9 +154,6 @@
         "SELECT_OPTION": "Select an option",
         "NONE": "None"
     },
-    "PAGINATOR": {
-        "ARIA_LABEL": "Paginator"
-    },
     "AUDIT": {
         "WORKS": "Audit works!",
         "ID": "ID",
@@ -239,8 +238,10 @@
     "CHANGE_LANGUAGE": "Change Language",
     "USERS": "Users",
     "PROFILES": "Profiles",
-    "REGISTER": "Parking registration",
-    "FARES":"Fares"
+    "REGISTER": "Vehicle Registration",
+    "FARES": "Fares",
+    "PARKING": "Parkings",
+    "REPORT": "Report"
   },
   "PROFILES_SECTION": {
     "TITLE": "Profiles",
@@ -361,5 +362,71 @@
     "CLOSE": "Close",
     "SAVE": "Save",
     "DETAILS": "Details for plate:"
+  },
+  "PROFILE": {
+    "PROFILE_ADMIN": "Administrator",
+    "PROFILE_USER": "User",
+    "PROFILE_GUEST": "Guest",
+    "TITLE_PROFILE": "Profile",
+    "TITLE_ROLES": "Roles",
+    "CLEAN_CONTROLS": "Clear controls",
+    "ERROR_WHITESPACES": "Only white spaces are not allowed.",
+    "ERROR_REQUIRED": "Description is required.",
+    "ERROR_PATTERN": "You can only enter letters in this field.",
+    "LABEL_DESCRIPTION": "Description",
+    "ALERT_ENABLED_PROFILE": "Profile enabled successfully."
+  },
+  "PARKING": {
+    "LABEL_NAME": "Name",
+    "LABEL_ADDRESS": "Address",
+    "LABEL_PHONE": "Phone",
+    "LABEL_SPACES": "Spaces",
+    "LABEL_USER": "User",
+    "LABEL_STATUS": "Status",
+    "PLACEHOLDER_NAME": "Enter the parking name",
+    "PLACEHOLDER_ADDRESS": "Enter the parking address",
+    "PLACEHOLDER_PHONE": "Enter the parking phone number",
+    "PLACEHOLDER_SPACES": "Enter the number of parking spaces",
+    "PLACEHOLDER_USER": "Select the owner's email",
+    "ADD_PARKING": "Add",
+    "UPDATE_PARKING": "Update",
+    "CANCEL_PARKING": "Cancel",
+    "ERROR_NAME_PARKING_REQUIRED": "Parking name is required",
+    "ERROR_NAME_PARKING_INVALID": "The name can only contain letters and cannot be just blank spaces",
+    "ERROR_ADDRESS_PARKING_REQUIRED": "Parking address is required",
+    "ERROR_ADDRESS_PARKING_INVALID": "The address cannot contain just blank spaces",
+    "ERROR_PHONE_PARKING_REQUIRED": "Parking phone number is required",
+    "ERROR_PHONE_PARKING_INVALID": "The phone number must contain exactly 8 numeric digits and cannot be just blank spaces",
+    "ERROR_SPACES_PARKING_REQUIRED": "Number of spaces is required",
+    "ERROR_SPACES_PARKING_INVALID": "The number of spaces must be numeric and cannot be just blank spaces",
+    "ERROR_USER_PARKING_REQUIRED": "Parking user is required",
+    "ERROR_USER_PARKING_INVALID": "User cannot be just blank spaces",
+    "NAME_TABLE": "Parking",
+    "STATUS_TABLE": "Status",
+    "ALERT_SUCCESS_TITLE": "Parking Added!",
+    "ALERT_SUCCESS_MESSAGE": "The parking has been successfully added!",
+    "ALERT_ERROR_TITLE": "Error adding parking",
+    "ALERT_ERROR_MESSAGE": "There was an error adding the parking, please try again later.",
+    "ALERT_UPDATE_TITLE": "Parking Updated!",
+    "ALERT_UPDATE_MESSAGE": "The parking has been successfully updated!",
+    "ALERT_ERROR_UPDATE_TITLE": "Error updating",
+    "ALERT_ERROR_UPDATE_MESSAGE": "There was an error updating the parking, please try again later.",
+    "ALERT_DISABLE_PARKING_TITLE": "Disable parking",
+    "ALERT_DISABLE_PARKING_MESSAGE": "Are you sure you want to disable this parking?",
+    "ALERT_DISABLE_YES": "Yes, I'm sure",
+    "ALERT_DISABLE_NO": "No, cancel",
+    "ALERT_DISABLED_PARKING": "Parking successfully disabled!",
+    "ALERT_ENABLED_PARKING": "Parking successfully enabled!"
+  },
+  "FORBIDDEN": {
+    "TITLE": "Forbidden Access",
+    "MESSAGE": "Sorry, you don't have permission to access this area of the portal."
+  },
+  "PAGINATOR": {
+    "NEXT_PAGE_LABEL": "Next page",
+    "PREVIOUS_PAGE_LABEL": "Previous page",
+    "FIRST_PAGE_LABEL": "First page",
+    "LAST_PAGE_LABEL": "Last page",
+    "RANGE": "{{startIndex}} - {{endIndex}} of {{length}}"
   }
 }

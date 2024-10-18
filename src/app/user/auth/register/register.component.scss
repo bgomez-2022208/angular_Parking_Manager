@@ -8,6 +8,14 @@
     align-items: $host-align-items;
 }
 
+::ng-deep .mat-mdc-form-field {
+    --mdc-filled-text-field-container-color: transparent;
+    --mdc-filled-text-field-label-text-color: #76ABAE;
+    --mdc-filled-text-field-label-text-fonr: "Cabin";
+    --mdc-filled-text-field-input-text-placeholder-color: #31363F;
+    
+}
+
 .container-main {
     width: $container-main-width;
 }
@@ -25,8 +33,8 @@
     width: $icon-width;
     height: $icon-height;
     border-radius: $icon-radius;
-    margin-top: $icon-mgt;
-    margin-bottom: $icon-mgb;
+    margin-top: .5rem;
+    margin-bottom: .5rem;
 
     .icon-title {
         color: $palette-color-one;
@@ -41,7 +49,7 @@
 }
 
 form {
-    height: 45rem;
+    height: 40rem;
     width: $form-width;
     display: $form-display;
     background-color: white;
@@ -78,25 +86,26 @@ form {
         display: $button-display;
         justify-content: $button-justify;
         align-items: $button-align;
-        background-color: $palette-color-one;
-        color: $palette-color-three;
+        background-color: $palette-color-three;
+        color: $palette-color-four;
         border: $button-border;
         font-weight: $font-weight-button;
         font-size: $font-size-button;
         padding: $button-padding;
         line-height: $button-line-height;
         border-radius: $button-radius;
-        transition: $button-transition;
+        transition: transform 0.2s ease-in-out;
         margin-bottom: $button-mgb;
         font-family: $font-primary;
-
+        margin-top: 0;
+    
         mat-icon {
             margin-left: $button-icon-mgl;
         }
     }
-
+    
     .btnSubmit:hover {
-        padding: $button-padding-hover;
+        transform: scale(110%);
         cursor: pointer;
     }
 }
@@ -161,6 +170,7 @@ form {
         }
 
         h3 {
+            text-align: center;
             font-size: $font-size-h3-responsive;
         }
     }
@@ -194,7 +204,7 @@ form {
 @media (max-width: 640px) {
     .container-main {
         width: 95%;
-        height: auto;
+        height: 100%;
         margin-bottom: .1rem;
 
     }

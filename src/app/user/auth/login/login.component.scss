@@ -9,6 +9,14 @@
     flex-direction: $host-flex-direction;
 }
 
+::ng-deep .mat-mdc-form-field {
+    --mdc-filled-text-field-container-color: transparent;
+    --mdc-filled-text-field-label-text-color: #76ABAE;
+    --mdc-filled-text-field-label-text-fonr: "Cabin";
+    --mdc-filled-text-field-input-text-placeholder-color: #31363F;
+    
+}
+
 .container-main {
     width: 100%;
     height: 100%;
@@ -24,13 +32,19 @@ header {
 
     h1,
     h3 {
-        color: $text-color-header;
+        color: $palette-color-three;
         margin: .5rem;
     }
 
     strong {
         cursor: pointer;
         color: $palette-color-one;
+        transition: font-size .2s ease-in-out, color .2s ease-in-out;
+    }
+
+    strong:hover{
+        color: $palette-color-three;
+        font-size: 20px;
     }
 }
 
@@ -44,10 +58,16 @@ header {
 
     mat-form-field {
         width: 95%;
+        background-color: transparent;
         margin-bottom: 1.5rem;
-
+        box-shadow: none;
+    
         .icon-inputs {
             color: $palette-color-three;
+        }
+
+        input{
+            background-color: transparent;
         }
 
         mat-error {
@@ -60,9 +80,7 @@ header {
     width: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 1rem;
+    justify-content: right;
 
     label {
         display: flex;
@@ -96,15 +114,15 @@ header {
     display: $button-display;
     justify-content: $button-justify;
     align-items: $button-align;
-    background-color: $palette-color-one;
-    color: $palette-color-three;
+    background-color: $palette-color-three;
+    color: $palette-color-four;
     border: $button-border;
     font-weight: $font-weight-button;
     font-size: $font-size-button;
     padding: $button-padding;
     line-height: $button-line-height;
     border-radius: $button-radius;
-    transition: $button-transition;
+    transition: transform 0.2s ease-in-out;
     margin-bottom: $button-mgb;
     font-family: $font-primary;
     margin-top: $button-mgt;
@@ -115,7 +133,7 @@ header {
 }
 
 .btnSubmit:hover {
-    padding: $button-padding-hover;
+    transform: scale(110%);
     cursor: pointer;
 }
 
@@ -132,10 +150,6 @@ header {
     .card {
         padding: 2rem;
         width: 80%;
-    }
-
-    mat-form-field {
-        padding: .5rem;
     }
 
     .responsive-input input {
@@ -183,16 +197,56 @@ header {
 
     h3 {
         font-size: $font-size-h3-responsive;
+    
+        strong:hover{
+            font-size: 32px;
+        }
     }
+
 }
 
-@media (max-width: 640px) {
-    .card {
-        padding: 1rem;
+
+
+@media (max-width: 400px) {
+    .card{
+        height: 100%;
         width: 100%;
     }
 
-    button {
-        font-size: $font-size-button-resposive;
+    header{
+        margin-top: 5rem;
+    }
+
+    .btnSubmit {
+        width: 70%;
+        margin-top: 5rem;
+    }
+
+    .container-options{
+        padding: .5rem;
+        margin-right: 1.5rem;
+    }
+
+    .container-body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin-top: 2rem;
+        width: 100%;
+    
+        mat-form-field {
+            width: 95%;
+            margin-bottom: 2rem;
+    
+            .icon-inputs {
+                color: $palette-color-three;
+            }
+    
+            mat-error {
+                margin-top: .5rem;
+                font-size: 22px;
+            }
+        }
     }
 }

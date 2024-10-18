@@ -7,10 +7,11 @@ import { MatIconModule } from "@angular/material/icon";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { RouterModule, Routes } from "@angular/router";
 import { TranslateModule } from "@ngx-translate/core";
+import { NoAuthGuard } from "src/app/guard/no-auth-guard/no-auth-guard.component";
 
 const routes: Routes = [
-  { path: 'forgot-password-email', component: ForgotPasswordEmailComponent },
-  { path: 'forgot-password-two/:email', component: ForgotPasswordTwoComponent }
+  { path: 'forgot-password-email', component: ForgotPasswordEmailComponent, canActivate: [NoAuthGuard] },
+  { path: 'forgot-password-two/:email', component: ForgotPasswordTwoComponent, canActivate: [NoAuthGuard] }
 
 ]
 

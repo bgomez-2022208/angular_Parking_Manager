@@ -3,7 +3,8 @@
   <div class="table">
     <mat-form-field>
       <mat-icon matSuffix (click)="searchProfile()">search</mat-icon>
-      <input matInput type="text" [formControl]="searchControl" [placeholder]="'FILTER_USER.SEARCH_PLACEHOLDER' | translate">
+      <input matInput type="text" [formControl]="searchControl"
+        [placeholder]="'FILTER_USER.SEARCH_PLACEHOLDER' | translate">
     </mat-form-field>
     <table mat-table [dataSource]="profiles" class="mat-elevation-z8">
       <ng-container matColumnDef="status">
@@ -24,12 +25,12 @@
       [showFirstLastButtons]="true">
     </mat-paginator>
   </div>
-
   <div class="profiles-form">
     <form class="container-body" [formGroup]="form" (ngSubmit)="newProfile()">
       <div class="container-inputs">
         <mat-form-field>
           <mat-label>{{'PROFILE.LABEL_DESCRIPTION' | translate}}</mat-label>
+          <mat-icon matPrefix>account_circle</mat-icon>
           <input formControlName="description" matInput type="text" required>
           <mat-error *ngIf="form.get('description')?.invalid">{{getErrorMessage('description')}}</mat-error>
         </mat-form-field>
@@ -54,7 +55,8 @@
         formControlName="status">Estado</mat-slide-toggle>
       <div class="buttons">
         <button *ngIf="!profileIdSelected" type="submit">{{'BUTTONS.BTN_SAVE' | translate}}</button>
-        <button type="button" [disabled]="form.pristine" *ngIf="profileIdSelected" (click)="updateProfile()">{{'BUTTONS.BTN_UPDATE' | translate}}</button>
+        <button type="button" [disabled]="form.pristine" *ngIf="profileIdSelected"
+          (click)="updateProfile()">{{'BUTTONS.BTN_UPDATE' | translate}}</button>
         <button type="button" class="cancel" (click)="resetForm()">{{'BUTTONS.BTN_CANCEL' | translate}}</button>
       </div>
     </form>
