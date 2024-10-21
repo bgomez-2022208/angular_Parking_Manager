@@ -49,7 +49,6 @@ import { ParkingComponent } from './maintenance/parking/parking.component';
 import { CustomPaginatorIntl } from '../user/services/custom-paginator';
 import { ForbiddenComponent } from '../guard/forbidden/forbidden.component';
 import { AuthGuard } from '../guard/auth.guard.guard';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 const routes: Routes = [
   {
@@ -122,7 +121,6 @@ const routes: Routes = [
     CardReporterComponent
   ],
   imports: [
-    BrowserAnimationsModule,
     TranslateModule,
     CommonModule,
     ReactiveFormsModule,
