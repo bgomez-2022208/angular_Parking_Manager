@@ -1,21 +1,44 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
+import { Router } from '@angular/router';
+import { ApiUserService } from '../../user/services/user.service';
+import { of } from 'rxjs';
+import { NoAuthGuard } from './no-auth-guard.component';
 
-import { NoAuthGuardComponent } from './no-auth-guard.component';
+// Clase mock para ApiUserService
+class MockApiUserService {
+  isLoggedIn() {
+    return false; // Cambia esto a true para probar la redirección
+  }
+}
 
-describe('NoAuthGuardComponent', () => {
-  let component: NoAuthGuardComponent;
-  let fixture: ComponentFixture<NoAuthGuardComponent>;
+describe('NoAuthGuard', () => {
+  let guard: NoAuthGuard;
+  let router: Router;
 
   beforeEach(() => {
+    const mockRouter = {
+      navigate: jasmine.createSpy('navigate')
+    };
+
     TestBed.configureTestingModule({
-      declarations: [NoAuthGuardComponent]
+      providers: [
+        NoAuthGuard,
+        { provide: Router, useValue: mockRouter },
+        { provide: ApiUserService, useClass: MockApiUserService }
+      ]
     });
-    fixture = TestBed.createComponent(NoAuthGuardComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+
+    guard = TestBed.inject(NoAuthGuard);
+    router = TestBed.inject(Router);
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('should allow the route when not logged in', () => {
+    expect(guard.canActivate()).toBeTrue();
+  });
+
+  it('should redirect when logged in', () => {
+    spyOn(MockApiUserService.prototype, 'isLoggedIn').and.returnValue(true);
+    guard.canActivate();
+    expect(router.navigate).toHaveBeenCalledWith(['/admin/register']);
   });
 });

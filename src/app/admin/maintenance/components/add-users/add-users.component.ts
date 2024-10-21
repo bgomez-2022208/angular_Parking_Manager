@@ -2,7 +2,6 @@ import { Component, OnInit, Output, EventEmitter } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { ApiUserService } from "../../../../user/services/user.service";
 import { User } from "../../../model/user.model";
-import { NotificationsService } from "angular2-notifications";
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { animate, state, style, transition, trigger } from '@angular/animations';
@@ -38,7 +37,6 @@ export class AddUsersComponent implements OnInit {
   showTitleUpdate = false;
 
   constructor(
-    private notifications: NotificationsService,
     private fb: FormBuilder,
     private apiUserService: ApiUserService,
     private router: Router,
@@ -66,6 +64,7 @@ export class AddUsersComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
     this.loadProfiles();
     this.route.queryParams.subscribe(params => {
       if (params['userId']) {

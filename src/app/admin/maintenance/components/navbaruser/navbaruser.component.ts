@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { LogoutConfirmComponent } from "../logout-confirm/logout-confirm.component";
 import { MatDialog } from "@angular/material/dialog";
 import { TranslateService } from '@ngx-translate/core';
 import { LanguageService } from 'src/app/user/services/languaje.service';
@@ -51,18 +50,15 @@ export class NavbaruserComponent {
 
   onLanguageChange(lang: string) {
     this.isLoading = true;
-  
-    // Cambiar el idioma
+
     this.languageService.changeLanguage(lang).subscribe({
       next: () => {
-        // Después de cambiar el idioma, espera 2 segundos para desactivar el loader
         setTimeout(() => {
           this.currentLanguage = lang
           this.isLoading = false
         }, 2000)
       },
       error: () => {
-        // Manejo de error, desactiva el loader de inmediato
         console.error('Error al cambiar de idioma')
         this.isLoading = false
       }

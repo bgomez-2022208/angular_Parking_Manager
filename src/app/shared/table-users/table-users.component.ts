@@ -3,9 +3,6 @@ import {User} from "../../admin/model/user.model";
 import {ApiUserService} from "../../admin/services/user.service";
 import {MatDialog} from "@angular/material/dialog";
 import {TranslateService} from "@ngx-translate/core";
-import {
-  DeleteUserConfirmComponent
-} from "../../admin/maintenance/components/delete-user-confirm/delete-user-confirm.component";
 import {Router} from "@angular/router";
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
