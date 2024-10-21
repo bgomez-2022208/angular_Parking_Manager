@@ -1,9 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { LogoutConfirmComponent } from '../logout-confirm/logout-confirm.component';
-import { MatDialog } from '@angular/material/dialog';
+import { Component, Input } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { LanguageService } from 'src/app/user/services/languaje.service';
-import { MatSelectChange } from '@angular/material/select';
 import Swal from 'sweetalert2';
 import { ApiUserService } from 'src/app/user/services/user.service';
 import { Router } from '@angular/router';
@@ -21,11 +18,10 @@ export class NavbaruserComponent {
   isLoading = false;
 
   constructor(
-    private router: Router,
-    private dialog: MatDialog,
-    private translate: TranslateService,
-    private languageService: LanguageService,
-    private userService: ApiUserService
+    private readonly router: Router,
+    private readonly translate: TranslateService,
+    private readonly languageService: LanguageService,
+    private readonly  userService: ApiUserService
   ) {}
 
   openLogoutDialog() {
@@ -48,11 +44,6 @@ export class NavbaruserComponent {
         this.router.navigate(['/auth/login']);
       }
     });
-  }
-
-  ngOnInit() {
-    this.languages = this.languageService.getAvailableLanguages();
-    this.currentLanguage = this.languageService.getCurrentLanguage();
   }
 
   onLanguageChange(lang: string) {
