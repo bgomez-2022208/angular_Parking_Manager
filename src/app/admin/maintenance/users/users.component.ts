@@ -26,23 +26,19 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class UsersComponent implements OnInit {
   users: User[] = [];
-  selectedUser: User | null = null;
-  isEditing: boolean = false;
   itemsPerPage: number = 10;
   currentPage: number = 0;
 
   totalUsers: number = 0;
   totalPages: number = 0;
-  private pageChange: any;
   email: string = '';
-  languages: string[] = [];
   currentLanguage: string = '';
   @Output() searchChange = new EventEmitter<string>();
 
   constructor(
-    private apiUserService: ApiUserService,
-    private translate: TranslateService,
-    private route: ActivatedRoute
+    private readonly apiUserService: ApiUserService,
+    private readonly translate: TranslateService,
+    private readonly route: ActivatedRoute
   ) {
     this.currentLanguage = this.currentLanguage === 'es' ? 'en' : 'es';
     this.translate.use(this.currentLanguage);
@@ -68,12 +64,6 @@ export class UsersComponent implements OnInit {
         console.error('Error al cargar usuarios:', error);
       }
     );
-  }
-
-  get paginatedUsers(): User[] {
-    const startIndex = (this.currentPage - 1) * this.itemsPerPage;
-    const endIndex = startIndex + this.itemsPerPage;
-    return this.users.slice(startIndex, endIndex);
   }
 
   changePage(page: number): void {
