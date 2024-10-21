@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ApiUserService } from '../../../user/services/user.service';
 import { TranslateService } from '@ngx-translate/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -19,15 +19,13 @@ export class RegisterParkingComponent implements OnInit {
     public dialog: MatDialog,
     private apiUserService: ApiUserService,
     private translate: TranslateService,
-    private fb: FormBuilder,
-  ){
+    private fb: FormBuilder
+  ) {
     this.parkingForm = this.fb.group({
       plate: ['', [Validators.required]],
-      parkingId: ['', Validators.required],
-
+      parkingId: ['', Validators.required]
     });
   }
-
 
   ngOnInit(): void {
     this.loadParkings();
@@ -54,7 +52,7 @@ export class RegisterParkingComponent implements OnInit {
         console.log(this.parking);
       },
       (error: any) => {
-        console.error("Error loading parkings", error);
+        console.error('Error loading parkings', error);
       }
     );
   }
@@ -62,19 +60,19 @@ export class RegisterParkingComponent implements OnInit {
     if (this.parkingForm.valid) {
       const formData = this.parkingForm.value;
 
-      this.apiUserService.createParking(formData).subscribe(
-        () => {
-          this.parkingForm.reset();
-          this.resetParkingForm();
-          Swal.fire({
-            icon: 'success',
-            title: this.translate.instant('REGISTER_PARKING.ALERT_SUCCESS.TITLE'),
-            text: this.translate.instant('REGISTER_PARKING.ALERT_SUCCESS.MESSAGE'),
-            timer: 3000,
-            showConfirmButton: false
-          });
-        },
-      );
+      this.apiUserService.createParking(formData).subscribe(() => {
+        this.parkingForm.reset();
+        this.resetParkingForm();
+        Swal.fire({
+          icon: 'success',
+          title: this.translate.instant('REGISTER_PARKING.ALERT_SUCCESS.TITLE'),
+          text: this.translate.instant(
+            'REGISTER_PARKING.ALERT_SUCCESS.MESSAGE'
+          ),
+          timer: 3000,
+          showConfirmButton: false
+        });
+      });
     } else {
       Swal.fire({
         icon: 'warning',
@@ -85,7 +83,6 @@ export class RegisterParkingComponent implements OnInit {
       });
     }
   }
-
 
   openDialog(): void {
     const dialogRef = this.dialog.open(FilterSalidaComponent, {

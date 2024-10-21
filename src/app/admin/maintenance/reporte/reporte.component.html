@@ -5,96 +5,163 @@
   <div class="nav">
     <div class="filter">
       <mat-form-field class="example-container input-search">
-        <mat-icon matPrefix class="icon-inputs"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#76ABAEFF"><path d="M160-80q-33 0-56.5-23.5T80-160v-640q0-33 23.5-56.5T160-880h640q33 0 56.5 23.5T880-800v640q0 33-23.5 56.5T800-80H160Zm0-80h640v-640H160v640Zm200-240q-17 0-28.5-11.5T320-440q0-17 11.5-28.5T360-480q17 0 28.5 11.5T400-440q0 17-11.5 28.5T360-400Zm240 0q-17 0-28.5-11.5T560-440q0-17 11.5-28.5T600-480q17 0 28.5 11.5T640-440q0 17-11.5 28.5T600-400ZM200-516v264q0 14 9 23t23 9h16q14 0 23-9t9-23v-48h400v48q0 14 9 23t23 9h16q14 0 23-9t9-23v-264l-66-192q-5-14-16.5-23t-25.5-9H308q-14 0-25.5 9T266-708l-66 192Zm106-64 28-80h292l28 80H306ZM160-800v640-640Zm120 420v-120h400v120H280Z"/></svg></mat-icon>
+        <mat-icon matPrefix class="icon-inputs"
+          ><svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 -960 960 960"
+            width="24px"
+            fill="#76ABAEFF"
+          >
+            <path
+              d="M160-80q-33 0-56.5-23.5T80-160v-640q0-33 23.5-56.5T160-880h640q33 0 56.5 23.5T880-800v640q0 33-23.5 56.5T800-80H160Zm0-80h640v-640H160v640Zm200-240q-17 0-28.5-11.5T320-440q0-17 11.5-28.5T360-480q17 0 28.5 11.5T400-440q0 17-11.5 28.5T360-400Zm240 0q-17 0-28.5-11.5T560-440q0-17 11.5-28.5T600-480q17 0 28.5 11.5T640-440q0 17-11.5 28.5T600-400ZM200-516v264q0 14 9 23t23 9h16q14 0 23-9t9-23v-48h400v48q0 14 9 23t23 9h16q14 0 23-9t9-23v-264l-66-192q-5-14-16.5-23t-25.5-9H308q-14 0-25.5 9T266-708l-66 192Zm106-64 28-80h292l28 80H306ZM160-800v640-640Zm120 420v-120h400v120H280Z"
+            /></svg
+        ></mat-icon>
         <mat-label>{{ 'REPORT.IDPARKING' | translate }}</mat-label>
         <mat-select [(ngModel)]="selectedParkingId" required>
-          <mat-option value="" disabled>{{ 'REPORT.SPARKING' | translate }}</mat-option>
-          <mat-option *ngFor="let content of parking" [value]="content.parkingId">
+          <mat-option value="" disabled>{{
+            'REPORT.SPARKING' | translate
+          }}</mat-option>
+          <mat-option
+            *ngFor="let content of parking"
+            [value]="content.parkingId"
+          >
             {{ content.name | translate }}
           </mat-option>
         </mat-select>
       </mat-form-field>
-
     </div>
 
     <div class="filter">
       <mat-form-field class="example-container input-search">
         <mat-label>{{ 'REPORT.START_DATE' | translate }}</mat-label>
-        <input matInput [matDatepicker]="startPicker" (dateChange)="applyParkingAndDateRangeFilter()" [(ngModel)]="startDate">
+        <input
+          matInput
+          [matDatepicker]="startPicker"
+          (dateChange)="applyParkingAndDateRangeFilter()"
+          [(ngModel)]="startDate"
+        />
         <mat-icon matSuffix class="icon-inputs" (click)="startPicker.open()">
-          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#76ABAEFF">
-            <path d="M580-240q-42 0-71-29t-29-71q0-42 29-71t71-29q42 0 71 29t29 71q0 42-29 71t-71 29ZM200-80q-33 0-56.5-23.5T120-160v-560q0-33 23.5-56.5T200-800h40v-80h80v80h320v-80h80v80h40q33 0 56.5 23.5T840-720v560q0 33-23.5 56.5T760-80H200Zm0-80h560v-400H200v400Zm0-480h560v-80H200v80Zm0 0v-80 80Z"/>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 -960 960 960"
+            width="24px"
+            fill="#76ABAEFF"
+          >
+            <path
+              d="M580-240q-42 0-71-29t-29-71q0-42 29-71t71-29q42 0 71 29t29 71q0 42-29 71t-71 29ZM200-80q-33 0-56.5-23.5T120-160v-560q0-33 23.5-56.5T200-800h40v-80h80v80h320v-80h80v80h40q33 0 56.5 23.5T840-720v560q0 33-23.5 56.5T760-80H200Zm0-80h560v-400H200v400Zm0-480h560v-80H200v80Zm0 0v-80 80Z"
+            />
           </svg>
         </mat-icon>
         <mat-datepicker #startPicker></mat-datepicker>
       </mat-form-field>
     </div>
 
-
     <div class="filter">
       <mat-form-field class="example-container input-search">
         <mat-label>{{ 'AUDIT.END_DATE' | translate }}</mat-label>
-        <input matInput [matDatepicker]="endPicker" (dateChange)="applyParkingAndDateRangeFilter()" [(ngModel)]="endDate">
+        <input
+          matInput
+          [matDatepicker]="endPicker"
+          (dateChange)="applyParkingAndDateRangeFilter()"
+          [(ngModel)]="endDate"
+        />
         <mat-icon matSuffix class="icon-inputs" (click)="endPicker.open()">
-          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#76ABAEFF">
-            <path d="M580-240q-42 0-71-29t-29-71q0-42 29-71t71-29q42 0 71 29t29 71q0 42-29 71t-71 29ZM200-80q-33 0-56.5-23.5T120-160v-560q0-33 23.5-56.5T200-800h40v-80h80v80h320v-80h80v80h40q33 0 56.5 23.5T840-720v560q0 33-23.5 56.5T760-80H200Zm0-80h560v-400H200v400Zm0-480h560v-80H200v80Zm0 0v-80 80Z"/>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 -960 960 960"
+            width="24px"
+            fill="#76ABAEFF"
+          >
+            <path
+              d="M580-240q-42 0-71-29t-29-71q0-42 29-71t71-29q42 0 71 29t29 71q0 42-29 71t-71 29ZM200-80q-33 0-56.5-23.5T120-160v-560q0-33 23.5-56.5T200-800h40v-80h80v80h320v-80h80v80h40q33 0 56.5 23.5T840-720v560q0 33-23.5 56.5T760-80H200Zm0-80h560v-400H200v400Zm0-480h560v-80H200v80Zm0 0v-80 80Z"
+            />
           </svg>
         </mat-icon>
         <mat-datepicker #endPicker></mat-datepicker>
       </mat-form-field>
     </div>
 
-
     <div class="container-butons">
       <button (click)="applyParkingAndDateRangeFilter()" class="action">
-        <mat-icon style="width: auto; height: auto;">
+        <mat-icon style="width: auto; height: auto">
           <span class="material-symbols-outlined">
-            <svg xmlns="http://www.w3.org/2000/svg" height="28px" viewBox="0 -960 960 960" width="28px" fill="#76ABAEFF"><path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/></svg>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="28px"
+              viewBox="0 -960 960 960"
+              width="28px"
+              fill="#76ABAEFF"
+            >
+              <path
+                d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"
+              />
+            </svg>
           </span>
         </mat-icon>
       </button>
       <button (click)="generatePdfReport()" class="action">
-        <mat-icon style="width: auto; height: auto;">
+        <mat-icon style="width: auto; height: auto">
           <span class="material-symbols-outlined">
-            <svg xmlns="http://www.w3.org/2000/svg" height="28px" viewBox="0 -960 960 960" width="28px" fill="#76ABAEFF"><path d="M360-460h40v-80h40q17 0 28.5-11.5T480-580v-40q0-17-11.5-28.5T440-660h-80v200Zm40-120v-40h40v40h-40Zm120 120h80q17 0 28.5-11.5T640-500v-120q0-17-11.5-28.5T600-660h-80v200Zm40-40v-120h40v120h-40Zm120 40h40v-80h40v-40h-40v-40h40v-40h-80v200ZM320-240q-33 0-56.5-23.5T240-320v-480q0-33 23.5-56.5T320-880h480q33 0 56.5 23.5T880-800v480q0 33-23.5 56.5T800-240H320Zm0-80h480v-480H320v480ZM160-80q-33 0-56.5-23.5T80-160v-560h80v560h560v80H160Zm160-720v480-480Z"/></svg>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="28px"
+              viewBox="0 -960 960 960"
+              width="28px"
+              fill="#76ABAEFF"
+            >
+              <path
+                d="M360-460h40v-80h40q17 0 28.5-11.5T480-580v-40q0-17-11.5-28.5T440-660h-80v200Zm40-120v-40h40v40h-40Zm120 120h80q17 0 28.5-11.5T640-500v-120q0-17-11.5-28.5T600-660h-80v200Zm40-40v-120h40v120h-40Zm120 40h40v-80h40v-40h-40v-40h40v-40h-80v200ZM320-240q-33 0-56.5-23.5T240-320v-480q0-33 23.5-56.5T320-880h480q33 0 56.5 23.5T880-800v480q0 33-23.5 56.5T800-240H320Zm0-80h480v-480H320v480ZM160-80q-33 0-56.5-23.5T80-160v-560h80v560h560v80H160Zm160-720v480-480Z"
+              />
+            </svg>
           </span>
         </mat-icon>
       </button>
     </div>
-
   </div>
 
   <div class="table-container">
     <div class="mat-elevation-z8">
       <table mat-table [dataSource]="dataSource" matSort>
-
         <!-- Columna Plate -->
         <ng-container matColumnDef="plate">
-          <th mat-header-cell *matHeaderCellDef><mat-label>{{ 'REPORT.PLATE' | translate }}</mat-label></th>
-          <td mat-cell *matCellDef="let row"> {{row.plate}} </td>
+          <th mat-header-cell *matHeaderCellDef>
+            <mat-label>{{ 'REPORT.PLATE' | translate }}</mat-label>
+          </th>
+          <td mat-cell *matCellDef="let row">{{ row.plate }}</td>
         </ng-container>
 
         <!-- Columna StartDate -->
         <ng-container matColumnDef="startDate">
-          <th mat-header-cell *matHeaderCellDef><mat-label>{{ 'REPORT.START_DATE' | translate }}</mat-label></th>
-          <td mat-cell *matCellDef="let row"> {{row.startDate}} </td>
+          <th mat-header-cell *matHeaderCellDef>
+            <mat-label>{{ 'REPORT.START_DATE' | translate }}</mat-label>
+          </th>
+          <td mat-cell *matCellDef="let row">{{ row.startDate }}</td>
         </ng-container>
 
         <ng-container matColumnDef="endDate">
-          <th mat-header-cell *matHeaderCellDef>{{ 'REPORT.END_DATE' | translate }}</th>
-          <td mat-cell *matCellDef="let row"> {{row.endDate}} </td>
+          <th mat-header-cell *matHeaderCellDef>
+            {{ 'REPORT.END_DATE' | translate }}
+          </th>
+          <td mat-cell *matCellDef="let row">{{ row.endDate }}</td>
         </ng-container>
 
         <!-- Columna Solicitud -->
         <ng-container matColumnDef="more">
-          <th mat-header-cell *matHeaderCellDef>{{ 'REPORT.MORE' | translate }}</th>
+          <th mat-header-cell *matHeaderCellDef>
+            {{ 'REPORT.MORE' | translate }}
+          </th>
           <td mat-cell *matCellDef="let row">
-            <button mat-button (click)="onMoreClick(row.registerId)">{{ 'REPORT.MORE' | translate }}</button>
+            <button mat-button (click)="onMoreClick(row.registerId)">
+              {{ 'REPORT.MORE' | translate }}
+            </button>
           </td>
         </ng-container>
 
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
 
         <!--<tr class="mat-row" *matNoDataRow>
           <td class="mat-cell" colspan="6">{{ 'NO_DATA' | translate }} "{{input.value}}"</td>
@@ -105,11 +172,17 @@
         [length]="totalElements"
         [pageSize]="itemsPerPage"
         [pageIndex]="currentPage"
-        (page)="changePage($event)">
+        (page)="changePage($event)"
+      >
       </mat-paginator>
     </div>
   </div>
 
-<!---->
-  <app-card-reporter *ngIf="showCard" class="app-card-auditory" [data]="reportData" (closeCard)="closeCard()"></app-card-reporter>
+  <!---->
+  <app-card-reporter
+    *ngIf="showCard"
+    class="app-card-auditory"
+    [data]="reportData"
+    (closeCard)="closeCard()"
+  ></app-card-reporter>
 </div>

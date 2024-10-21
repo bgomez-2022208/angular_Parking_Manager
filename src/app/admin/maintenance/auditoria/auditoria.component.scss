@@ -1,23 +1,23 @@
-$palette-color-three: #76ABAEFF;
+$palette-color-three: #76abaeff;
 $palette-color-four: #ffffff;
 ::ng-deep .mat-mdc-form-field {
   --mdc-filled-text-field-container-color: transparent;
-  --mdc-filled-text-field-label-text-color: #76ABAE;
-  --mdc-filled-text-field-label-text-fonr: "Cabin";
-  --mdc-filled-text-field-input-text-placeholder-color: #31363F;
+  --mdc-filled-text-field-label-text-color: #76abae;
+  --mdc-filled-text-field-label-text-fonr: 'Cabin';
+  --mdc-filled-text-field-input-text-placeholder-color: #31363f;
 }
 ::ng-deep .mat-mdc-slide-toggle .mdc-form-field {
-  color: #76ABAE;
-  font-family: "Cabin", 'Courier New', Courier, monospace;
+  color: #76abae;
+  font-family: 'Cabin', 'Courier New', Courier, monospace;
 }
 
 .mat-mdc-slide-toggle.mat-accent {
-  --mdc-switch-selected-track-color: #76ABAE;
-  --mdc-switch-selected-handle-color: #76ABAE;
-  --mdc-switch-selected-focus-handle-color: #76ABAE;
-  --mdc-switch-selected-hover-handle-color: #76ABAE;
-  --mdc-switch-selected-hover-track-color: #76ABAE;
-  --mdc-switch-selected-focus-track-color: #76ABAE;
+  --mdc-switch-selected-track-color: #76abae;
+  --mdc-switch-selected-handle-color: #76abae;
+  --mdc-switch-selected-focus-handle-color: #76abae;
+  --mdc-switch-selected-hover-handle-color: #76abae;
+  --mdc-switch-selected-hover-track-color: #76abae;
+  --mdc-switch-selected-focus-track-color: #76abae;
 }
 .Navbar-container {
   width: 100%;
@@ -33,7 +33,6 @@ $palette-color-four: #ffffff;
     box-sizing: border-box;
     display: flex;
     justify-content: space-between;
-
   }
 }
 
@@ -54,8 +53,7 @@ $palette-color-four: #ffffff;
   height: auto;
 }
 
-
-.principal-container{
+.principal-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -85,36 +83,36 @@ $palette-color-four: #ffffff;
   background: rgba(0, 0, 0, 0.5);
   z-index: 999;
 }
-.table-container{
+.table-container {
   width: 95%;
   margin-top: 2vh;
-  .table-data{
+  .table-data {
     width: 80%;
   }
   table {
     width: 100%;
 
-    td, th {
+    td,
+    th {
       width: 15%;
       font-size: 12px;
     }
   }
 }
 
-
 .mat-mdc-form-field {
   font-size: 14px;
   width: 100%;
 }
 .nav {
-  border: 1px solid #76ABAE;
+  border: 1px solid #76abae;
   background-color: white;
   width: 95%;
   height: 10%;
   align-items: center;
   justify-content: center;
   display: flex;
-  flex-direction: row
+  flex-direction: row;
 }
 
 .filter {
@@ -138,15 +136,15 @@ mat-drawer-content {
 
 .menu {
   background-color: transparent;
-  border: 1px solid #76ABAE;
+  border: 1px solid #76abae;
   height: 7vh;
-  .menu-item :hover{
-    border: 1px solid #76ABAE;
+  .menu-item :hover {
+    border: 1px solid #76abae;
     height: 6vh;
   }
 }
 
-.input-search{
+.input-search {
   max-width: 80%;
 }
 
@@ -170,7 +168,7 @@ table {
   white-space: nowrap; /* Evita que el texto se divida en varias líneas */
 }
 @media only screen and (max-width: 1150px) {
-  .principal-container{
+  .principal-container {
     align-items: center;
     width: 100%;
   }
@@ -181,7 +179,7 @@ table {
     align-items: center;
     margin: 0px;
 
-    .filter{
+    .filter {
       max-width: 100%;
       margin: 1vh;
       .example-container {
@@ -227,11 +225,13 @@ table {
     min-width: 300px;
   }
 
-  .mat-column-id, .mat-column-entity {
+  .mat-column-id,
+  .mat-column-entity {
     display: none;
   }
 
-  .mat-cell, .mat-header-cell {
+  .mat-cell,
+  .mat-header-cell {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -240,7 +240,6 @@ table {
 }
 
 @media only screen and (max-width: 530px) {
-
   .principal-container {
     align-items: center;
     width: 100%;
@@ -252,7 +251,8 @@ table {
     font-size: 10px;
   }
 
-  .mat-header-cell, .mat-cell {
+  .mat-header-cell,
+  .mat-cell {
     font-size: 12px;
     min-width: 10%;
   }
@@ -261,13 +261,14 @@ table {
     display: block;
     overflow: auto;
   }
-  .register{
+  .register {
     font-size: 2px;
   }
 }
 
 @media only screen and (max-width: 530px) {
-  .mat-header-cell, .mat-cell {
+  .mat-header-cell,
+  .mat-cell {
     white-space: nowrap; /* Evitar el salto de línea */
     overflow: hidden; /* Ocultar el contenido desbordado */
     text-overflow: ellipsis; /* Mostrar puntos suspensivos */

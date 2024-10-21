@@ -1,4 +1,3 @@
-
 .Navbar-container {
   width: 100%;
   min-width: 400px;
@@ -13,11 +12,10 @@
     box-sizing: border-box;
     display: flex;
     justify-content: space-between;
-
   }
 }
 
-.action{
+.action {
   background-color: transparent;
   border: none;
   color: inherit;
@@ -40,8 +38,7 @@
   height: auto;
 }
 
-
-.principal-container{
+.principal-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -71,40 +68,39 @@
   background: rgba(0, 0, 0, 0.5);
   z-index: 999;
 }
-.table-container{
+.table-container {
   width: 95%;
   margin-top: 2vh;
-  .table-data{
+  .table-data {
     width: 80%;
   }
   table {
     width: 100%;
 
-    td, th {
+    td,
+    th {
       width: 15%;
       font-size: 12px;
     }
   }
 }
 
-
 .mat-mdc-form-field {
   font-size: 14px;
   width: 100%;
 }
 .nav {
-  border: 1px solid #76ABAE;
+  border: 1px solid #76abae;
   background-color: white;
   width: 95%;
   height: 10%;
   align-items: center;
   justify-content: center;
   display: flex;
-  flex-direction: row
+  flex-direction: row;
 }
 
 .filter {
-
   max-width: 20%;
   align-items: center;
   justify-content: center;
@@ -124,20 +120,20 @@ mat-drawer-content {
 
 .menu {
   background-color: transparent;
-  border: 1px solid #76ABAE;
+  border: 1px solid #76abae;
   height: 7vh;
-  .menu-item :hover{
-    border: 1px solid #76ABAE;
+  .menu-item :hover {
+    border: 1px solid #76abae;
     height: 6vh;
   }
 }
 
-.input-search{
+.input-search {
   margin: 1vh;
   max-width: 80%;
 }
 @media only screen and (max-width: 1150px) {
-  .principal-container{
+  .principal-container {
     align-items: center;
     width: 100%;
   }
@@ -148,7 +144,7 @@ mat-drawer-content {
     align-items: center;
     margin: 0px;
 
-    .filter{
+    .filter {
       max-width: 20%;
       .example-container {
         width: 90%;
@@ -192,11 +188,13 @@ mat-drawer-content {
     min-width: 300px;
   }
 
-  .mat-column-id, .mat-column-entity {
+  .mat-column-id,
+  .mat-column-entity {
     display: none;
   }
 
-  .mat-cell, .mat-header-cell {
+  .mat-cell,
+  .mat-header-cell {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;

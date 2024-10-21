@@ -3,8 +3,12 @@
   <div class="Contenedor">
     <h1>{{ 'Quieres borrar el usuario' | translate }}</h1>
     <div class="button-container">
-      <button class="confirm-button" (click)="deleteUser()">{{ 'LOGOUT_CONFIRM.CONFIRM_YES' | translate }}</button>
-      <button class="cancel-button" (click)="onNoClick()">{{ 'LOGOUT_CONFIRM.CONFIRM_NO' | translate }}</button>
+      <button class="confirm-button" (click)="deleteUser()">
+        {{ 'LOGOUT_CONFIRM.CONFIRM_YES' | translate }}
+      </button>
+      <button class="cancel-button" (click)="onNoClick()">
+        {{ 'LOGOUT_CONFIRM.CONFIRM_NO' | translate }}
+      </button>
     </div>
   </div>
 </div>

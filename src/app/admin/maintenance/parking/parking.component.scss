@@ -1,219 +1,215 @@
-@import "../../../../assets/sass/variables";
+@import '../../../../assets/sass/variables';
 
 ::ng-deep .mat-mdc-form-field {
-    --mdc-filled-text-field-container-color: transparent;
-    --mdc-filled-text-field-label-text-color: #76ABAE;
-    --mdc-filled-text-field-label-text-fonr: "Cabin";
-    --mdc-filled-text-field-input-text-placeholder-color: #31363F;
+  --mdc-filled-text-field-container-color: transparent;
+  --mdc-filled-text-field-label-text-color: #76abae;
+  --mdc-filled-text-field-label-text-fonr: 'Cabin';
+  --mdc-filled-text-field-input-text-placeholder-color: #31363f;
 }
 
 ::ng-deep .mat-mdc-slide-toggle .mdc-form-field {
-    color: #76ABAE;
-    font-family: "Cabin", 'Courier New', Courier, monospace;
+  color: #76abae;
+  font-family: 'Cabin', 'Courier New', Courier, monospace;
 }
 
 .mat-mdc-slide-toggle.mat-accent {
-    --mdc-switch-selected-track-color: #76ABAE;
-    --mdc-switch-selected-handle-color: #76ABAE;
-    --mdc-switch-selected-focus-handle-color: #76ABAE;
-    --mdc-switch-selected-hover-handle-color: #76ABAE;
-    --mdc-switch-selected-hover-track-color: #76ABAE;
-    --mdc-switch-selected-focus-track-color: #76ABAE;
+  --mdc-switch-selected-track-color: #76abae;
+  --mdc-switch-selected-handle-color: #76abae;
+  --mdc-switch-selected-focus-handle-color: #76abae;
+  --mdc-switch-selected-hover-handle-color: #76abae;
+  --mdc-switch-selected-hover-track-color: #76abae;
+  --mdc-switch-selected-focus-track-color: #76abae;
 }
 
 .active-icon {
-    color: green;
+  color: green;
 }
 
 .inactive-icon {
-    color: red
+  color: red;
 }
 
 .main-container {
+  display: flex;
+  flex-direction: row;
+
+  .parking-form {
     display: flex;
-    flex-direction: row;
+    width: 70%;
+    height: 650px;
+    flex-direction: column;
+    background-color: white;
+    border-radius: $card-border-radius;
+    margin-right: 1rem;
+    margin-top: 1rem;
+    margin-left: 1rem;
 
-    .parking-form {
-        display: flex;
-        width: 70%;
-        height: 650px;
-        flex-direction: column;
-        background-color: white;
-        border-radius: $card-border-radius;
-        margin-right: 1rem;
-        margin-top: 1rem;
+    .buttons {
+      display: flex;
+      align-items: center;
+      justify-content: right;
+      height: auto;
+      margin: 1rem;
+
+      button {
+        width: 15%;
+        background-color: $palette-color-three;
+        color: $palette-color-four;
+        border: $button-border;
+        font-weight: $font-weight-button;
+        font-size: $font-size-button;
+        padding: $button-padding;
+        line-height: $button-line-height;
+        border-radius: $button-radius;
+        transition: scale 0.2s ease-in-out;
+        margin-bottom: $button-mgb;
         margin-left: 1rem;
+        font-family: $font-primary;
+        margin-top: $button-mgt;
+      }
 
-        .buttons {
-            display: flex;
-            align-items: center;
-            justify-content: right;
-            height: auto;
-            margin: 1rem;
+      button:hover {
+        scale: 110%;
+        cursor: pointer;
+      }
 
-            button {
-                width: 15%;
-                background-color: $palette-color-three;
-                color: $palette-color-four;
-                border: $button-border;
-                font-weight: $font-weight-button;
-                font-size: $font-size-button;
-                padding: $button-padding;
-                line-height: $button-line-height;
-                border-radius: $button-radius;
-                transition: scale .2s ease-in-out;
-                margin-bottom: $button-mgb;
-                margin-left: 1rem;
-                font-family: $font-primary;
-                margin-top: $button-mgt;
-            }
+      .cancel {
+        background-color: #a02334;
+        color: $palette-color-four;
+        border: $button-border;
+        font-weight: $font-weight-button;
+        font-size: $font-size-button;
+        padding: $button-padding;
+        line-height: $button-line-height;
+        border-radius: $button-radius;
+        transition: scale 0.2s ease-in-out;
+        margin-bottom: $button-mgb;
+        margin-left: 1rem;
+        font-family: $font-primary;
+        margin-top: $button-mgt;
+      }
 
-            button:hover {
-                scale: 110%;
-                cursor: pointer;
-            }
+      .cancel:hover {
+        scale: 110%;
+        cursor: pointer;
+      }
 
-            .cancel {
-                background-color: #A02334;
-                color: $palette-color-four;
-                border: $button-border;
-                font-weight: $font-weight-button;
-                font-size: $font-size-button;
-                padding: $button-padding;
-                line-height: $button-line-height;
-                border-radius: $button-radius;
-                transition: scale .2s ease-in-out;
-                margin-bottom: $button-mgb;
-                margin-left: 1rem;
-                font-family: $font-primary;
-                margin-top: $button-mgt;
-            }
-
-            .cancel:hover {
-                scale: 110%;
-                cursor: pointer;
-            }
-
-            button:disabled {
-                background-color: $palette-color-four;
-                color: $palette-color-three;
-            }
-        }
-
-        .container-body {
-            width: 100%;
-            margin-top: 1rem;
-
-            .container-inputs {
-                display: flex;
-                justify-content: right;
-
-                mat-form-field {
-                    margin: 1rem;
-                    width: 50%;
-
-                    mat-icon {
-                        color: $palette-color-three;
-                    }
-
-                    mat-error {
-                        margin-top: .5rem;
-                    }
-                }
-
-            }
-
-            mat-slide-toggle {
-                margin-left: 1rem;
-            }
-
-        }
+      button:disabled {
+        background-color: $palette-color-four;
+        color: $palette-color-three;
+      }
     }
 
-    .table {
-        margin-left: 1rem;
-        margin-top: 1rem;
-        width: 30%;
-        height: 400px;
-        font-family: "Cabin", 'Courier New', Courier, monospace;
+    .container-body {
+      width: 100%;
+      margin-top: 1rem;
 
-        table {
-            width: 100%;
-            flex-grow: 1;
-
-            td:hover {
-                cursor: pointer;
-            }
-        }
+      .container-inputs {
+        display: flex;
+        justify-content: right;
 
         mat-form-field {
-            width: 100%;
+          margin: 1rem;
+          width: 50%;
+
+          mat-icon {
+            color: $palette-color-three;
+          }
+
+          mat-error {
+            margin-top: 0.5rem;
+          }
         }
+      }
+
+      mat-slide-toggle {
+        margin-left: 1rem;
+      }
     }
+  }
+
+  .table {
+    margin-left: 1rem;
+    margin-top: 1rem;
+    width: 30%;
+    height: 400px;
+    font-family: 'Cabin', 'Courier New', Courier, monospace;
+
+    table {
+      width: 100%;
+      flex-grow: 1;
+
+      td:hover {
+        cursor: pointer;
+      }
+    }
+
+    mat-form-field {
+      width: 100%;
+    }
+  }
 }
 
 @media (max-width: 980px) {
-    .main-container .parking-form {
-        width: 50%;
+  .main-container .parking-form {
+    width: 50%;
 
-        .container-body .container-inputs {
-            flex-direction: column;
+    .container-body .container-inputs {
+      flex-direction: column;
 
-            mat-form-field {
-                width: 80%;
-            }
-        }
-
-        .buttons {
-            button {
-                width: 35%;
-            }
-
-            button:disabled {
-                width: 40%;
-            }
-
-            .cancel {
-                width: 35%;
-            }
-        }
+      mat-form-field {
+        width: 80%;
+      }
     }
 
-    .main-container .table {
-        width: 50%;
+    .buttons {
+      button {
+        width: 35%;
+      }
+
+      button:disabled {
+        width: 40%;
+      }
+
+      .cancel {
+        width: 35%;
+      }
     }
+  }
+
+  .main-container .table {
+    width: 50%;
+  }
 }
 
 @media (max-width: 640px) {
-    .main-container {
-        flex-direction: column-reverse;
+  .main-container {
+    flex-direction: column-reverse;
 
-        .parking-form {
-            margin: 0;
-            width: 100%;
+    .parking-form {
+      margin: 0;
+      width: 100%;
 
-            .container-body .container-inputs {
-                flex-direction: column;
+      .container-body .container-inputs {
+        flex-direction: column;
 
-                mat-form-field {
-                    width: 90%;
-                }
-            }
-
-
-            .buttons {
-                button {
-                    width: 40%;
-                    font-size: 23px;
-                }
-            }
+        mat-form-field {
+          width: 90%;
         }
+      }
 
-
-        .table {
-            margin: 0;
-            margin-top: .5rem;
-            width: 100%;
+      .buttons {
+        button {
+          width: 40%;
+          font-size: 23px;
         }
+      }
     }
+
+    .table {
+      margin: 0;
+      margin-top: 0.5rem;
+      width: 100%;
+    }
+  }
 }

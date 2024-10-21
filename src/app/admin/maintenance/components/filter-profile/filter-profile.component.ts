@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-filter-profile',
@@ -15,9 +15,8 @@ export class FilterProfileComponent {
 
   onChange(event: any) {
     event.preventDefault();
-    console.log("texto de los querys", event.target.value)
+    console.log('texto de los querys', event.target.value);
 
     this.searchChange.emit(event.target.value);
   }
-
 }

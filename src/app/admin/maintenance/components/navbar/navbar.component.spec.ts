@@ -4,7 +4,7 @@ import { NavbarComponent } from './navbar.component';
 describe('NavbarComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [NavbarComponent],
+      imports: [NavbarComponent]
     }).compileComponents();
   });
 

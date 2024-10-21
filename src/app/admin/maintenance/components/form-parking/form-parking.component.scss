@@ -1,5 +1,5 @@
-$background-color-light: #EEEEEE;
-$background-color-header: #76ABAE;
+$background-color-light: #eeeeee;
+$background-color-header: #76abae;
 $text-color: #222831;
 $border-color: #ccc;
 $border-radius: 5px;
@@ -19,18 +19,18 @@ $box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.7);
     display: flex;
     flex-direction: column;
     gap: 20px;
-}
+  }
 
   label {
     color: $text-color;
-}
+  }
 
   input {
     padding: 10px;
     border: 1px solid $border-color;
     border-radius: $border-radius;
     width: 100%;
-}
+  }
 }
 
 .titulo {

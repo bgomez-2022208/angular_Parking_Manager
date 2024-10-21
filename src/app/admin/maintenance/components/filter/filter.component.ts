@@ -9,7 +9,5 @@ export class FilterComponent {
   searchQuery: any;
   applyFilter($event: KeyboardEvent) {}
 
-  onChange($event: Event) {
-
-  }
+  onChange($event: Event) {}
 }

@@ -19,7 +19,7 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 // Custom Components
 import { FareComponent } from './fare.component';
 import { NavbaruserComponent } from '../components/navbaruser/navbaruser.component';
-import { FareTableComponent} from '../components/fare-table/fare-table.component';
+import { FareTableComponent } from '../components/fare-table/fare-table.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { DatePipe } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
@@ -30,7 +30,7 @@ describe('FareComponent', () => {
   let fixture: ComponentFixture<FareComponent>;
 
   const mockMatDialog = {
-    open: jasmine.createSpy('open'),
+    open: jasmine.createSpy('open')
   };
 
   const mockActivatedRoute = {
@@ -38,18 +38,14 @@ describe('FareComponent', () => {
       paramMap: {
         get: (key: string) => {
           return null;
-        },
-      },
-    },
+        }
+      }
+    }
   };
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [
-        FareComponent,
-        NavbaruserComponent,
-        FareTableComponent
-      ],
+      declarations: [FareComponent, NavbaruserComponent, FareTableComponent],
       imports: [
         HttpClientTestingModule,
         TranslateModule.forRoot(),
@@ -64,13 +60,13 @@ describe('FareComponent', () => {
         MatMenuModule,
         MatTableModule,
         NoopAnimationsModule,
-        ReactiveFormsModule,
+        ReactiveFormsModule
       ],
       providers: [
         DatePipe,
         { provide: MatDialog, useValue: mockMatDialog },
-        { provide: ActivatedRoute, useValue: mockActivatedRoute }, 
-      ],
+        { provide: ActivatedRoute, useValue: mockActivatedRoute }
+      ]
     }).compileComponents();
   }));
 

@@ -1,26 +1,40 @@
 <div *ngIf="data" class="info-card">
   <mat-card>
     <mat-card-header>
-      <mat-card-title>{{ 'REPORT.DETAILS' | translate }} {{ data.plate }}</mat-card-title>
+      <mat-card-title
+        >{{ 'REPORT.DETAILS' | translate }} {{ data.plate }}</mat-card-title
+      >
     </mat-card-header>
     <mat-card-content>
       <p><strong>ID:</strong> {{ data.parkingId }}</p>
-      <p><strong>{{ 'REPORT.FARE' | translate }}:</strong> {{ data.fareId }}</p>
-      <p><strong>{{ 'REPORT.REGISTER' | translate }}:</strong> {{ data.registerId }}</p>
-      <p><strong>{{ 'REPORT.PARKING' | translate }}:</strong> {{ data.parkingId }}</p>
+      <p>
+        <strong>{{ 'REPORT.FARE' | translate }}:</strong> {{ data.fareId }}
+      </p>
+      <p>
+        <strong>{{ 'REPORT.REGISTER' | translate }}:</strong>
+        {{ data.registerId }}
+      </p>
+      <p>
+        <strong>{{ 'REPORT.PARKING' | translate }}:</strong>
+        {{ data.parkingId }}
+      </p>
       <p><strong>Total:</strong> {{ data.total }}</p>
-      <p><strong>{{ 'REPORT.START_DATE' | translate }}:</strong></p>
+      <p>
+        <strong>{{ 'REPORT.START_DATE' | translate }}:</strong>
+      </p>
 
       <ng-container *ngIf="data">
         <p>{{ data.startDate }}</p>
       </ng-container>
 
-      <p><strong>{{ 'REPORT.END_DATE' | translate }}:</strong></p>
+      <p>
+        <strong>{{ 'REPORT.END_DATE' | translate }}:</strong>
+      </p>
       <ng-container *ngIf="data">
-       <p>{{ data.endDate }}</p>
+        <p>{{ data.endDate }}</p>
       </ng-container>
     </mat-card-content>
-    <div style="display: flex; align-items: center; justify-content: flex-end;">
+    <div style="display: flex; align-items: center; justify-content: flex-end">
       <mat-card-actions>
         <button mat-button class="cancelar" (click)="toggleCard(null)">
           {{ 'REPORT.CLOSE' | translate }}

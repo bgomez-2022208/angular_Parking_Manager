@@ -1,10 +1,10 @@
-@import "../../../../assets/sass/variables";
+@import '../../../../assets/sass/variables';
 
 ::ng-deep .mat-mdc-form-field {
   --mdc-filled-text-field-container-color: transparent;
-  --mdc-filled-text-field-label-text-color: #76ABAE;
-  --mdc-filled-text-field-label-text-font: "Cabin";
-  --mdc-filled-text-field-input-text-placeholder-color: #31363F;
+  --mdc-filled-text-field-label-text-color: #76abae;
+  --mdc-filled-text-field-label-text-font: 'Cabin';
+  --mdc-filled-text-field-input-text-placeholder-color: #31363f;
 }
 
 .content-register {
@@ -14,7 +14,7 @@
   align-items: $host-align-items;
   flex-direction: $host-flex-direction;
   font-family: $font-primary;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   border-radius: 15px;
   position: absolute;
   top: 50%;
@@ -72,7 +72,8 @@
   }
 }
 
-.btnAgregarParqueo, .btnSalidaParqueo {
+.btnAgregarParqueo,
+.btnSalidaParqueo {
   width: 40%;
   justify-content: $button-justify;
   align-items: $button-align;

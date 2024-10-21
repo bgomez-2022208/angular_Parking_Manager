@@ -1,5 +1,5 @@
-import { Component, OnInit } from "@angular/core";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-form-parking',
@@ -9,13 +9,13 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 export class FormParkingComponent implements OnInit {
   public form: FormGroup = this.formBuilder.group({});
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder) {}
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
       name: ['', [Validators.required]],
       car: ['', Validators.required],
-      placa: ['', Validators.required],
+      placa: ['', Validators.required]
       //dateTime: ['', Validators.required]
     });
   }

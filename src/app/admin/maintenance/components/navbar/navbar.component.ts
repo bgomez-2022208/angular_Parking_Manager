@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';  // Importa solo MatDialog, no MatDialogModule
+import { MatDialog } from '@angular/material/dialog'; // Importa solo MatDialog, no MatDialogModule
 import { LogoutConfirmComponent } from '../logout-confirm/logout-confirm.component'; // Importa el componente del modal
 
 @Component({
@@ -8,12 +8,11 @@ import { LogoutConfirmComponent } from '../logout-confirm/logout-confirm.compone
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent {
-
   constructor(private dialog: MatDialog) {}
 
   openLogoutDialog() {
     this.dialog.open(LogoutConfirmComponent, {
-      width: '300px',
+      width: '300px'
     });
   }
 }

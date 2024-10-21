@@ -10,14 +10,12 @@ import { MatTableModule } from '@angular/material/table';
 import { MatInputModule } from '@angular/material/input';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
-
-
 describe('FareTableComponent', () => {
   let component: FareTableComponent;
   let fixture: ComponentFixture<FareTableComponent>;
 
   const mockMatDialog = {
-    open: jasmine.createSpy('open'),
+    open: jasmine.createSpy('open')
   };
 
   beforeEach(() => {
@@ -31,7 +29,7 @@ describe('FareTableComponent', () => {
         ReactiveFormsModule,
         MatTableModule,
         MatInputModule,
-        NoopAnimationsModule,
+        NoopAnimationsModule
       ],
       declarations: [FareTableComponent],
       providers: [{ provide: MatDialog, useValue: mockMatDialog }]

@@ -5,7 +5,4 @@ import { Component } from '@angular/core';
   templateUrl: './logout-confirm.component.html',
   styleUrls: ['./logout-confirm.component.scss']
 })
-export class LogoutConfirmComponent {
-
-
-}
+export class LogoutConfirmComponent {}

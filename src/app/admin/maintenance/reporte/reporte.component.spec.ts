@@ -29,7 +29,7 @@ describe('ReporteComponent', () => {
   let fixture: ComponentFixture<ReporteComponent>;
 
   const mockMatDialog = {
-    open: jasmine.createSpy('open'),
+    open: jasmine.createSpy('open')
   };
 
   class MockTranslateService {
@@ -58,12 +58,9 @@ describe('ReporteComponent', () => {
         TranslateModule.forRoot(),
         FormsModule,
         MatTableModule,
-        NoopAnimationsModule,
+        NoopAnimationsModule
       ],
-      declarations: [
-        ReporteComponent,
-        NavbaruserComponent
-      ],
+      declarations: [ReporteComponent, NavbaruserComponent],
       providers: [
         { provide: MatDialog, useValue: mockMatDialog },
         ReportService,

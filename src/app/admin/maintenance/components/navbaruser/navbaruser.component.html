@@ -2,46 +2,60 @@
   <span>{{ title }}</span>
   <span class="Nabvar"></span>
 
-  <button mat-icon-button [matMenuTriggerFor]="menu" title="Nabvar icon-button with options">
+  <button
+    mat-icon-button
+    [matMenuTriggerFor]="menu"
+    title="Nabvar icon-button with options"
+  >
     <mat-icon>menu</mat-icon>
   </button>
 
   <mat-menu #menu="matMenu">
     <button mat-menu-item routerLink="/admin/auditory">
-      <span><mat-icon>library_books</mat-icon>
-        {{ 'NAVBAR_USER.AUDITORIA' | translate }}</span>
+      <span
+        ><mat-icon>library_books</mat-icon>
+        {{ 'NAVBAR_USER.AUDITORIA' | translate }}</span
+      >
     </button>
     <button mat-menu-item routerLink="/admin/reporte">
-      <span><mat-icon>receipt_long</mat-icon>
-        {{ 'NAVBAR_USER.REPORT' | translate }}</span>
+      <span
+        ><mat-icon>receipt_long</mat-icon>
+        {{ 'NAVBAR_USER.REPORT' | translate }}</span
+      >
     </button>
 
     <button mat-menu-item routerLink="/admin/register">
-      <span><mat-icon>edit_document</mat-icon>
-        {{ 'NAVBAR_USER.REGISTER' | translate }}</span>
+      <span
+        ><mat-icon>edit_document</mat-icon>
+        {{ 'NAVBAR_USER.REGISTER' | translate }}</span
+      >
     </button>
 
     <button mat-menu-item routerLink="/admin/parking">
-      <span><mat-icon>garage_home</mat-icon>
-        {{ 'NAVBAR_USER.PARKING' | translate }}</span>
+      <span
+        ><mat-icon>garage_home</mat-icon>
+        {{ 'NAVBAR_USER.PARKING' | translate }}</span
+      >
     </button>
 
     <button mat-menu-item routerLink="/admin/profiles">
-      <span><mat-icon>group</mat-icon>
-        {{ 'NAVBAR_USER.PROFILES' | translate }}</span>
+      <span
+        ><mat-icon>group</mat-icon>
+        {{ 'NAVBAR_USER.PROFILES' | translate }}</span
+      >
     </button>
 
     <button mat-menu-item routerLink="/admin/users">
-      <span><mat-icon>person</mat-icon>
-        {{ 'NAVBAR_USER.USERS' | translate }}</span>
+      <span
+        ><mat-icon>person</mat-icon> {{ 'NAVBAR_USER.USERS' | translate }}</span
+      >
     </button>
     <button mat-menu-item routerLink="/admin/fares">
-  <span>
-    <mat-icon>corporate_fare</mat-icon>
-    {{ 'NAVBAR_USER.FARES' | translate }}
-  </span>
+      <span>
+        <mat-icon>corporate_fare</mat-icon>
+        {{ 'NAVBAR_USER.FARES' | translate }}
+      </span>
     </button>
-
 
     <button mat-menu-item (click)="openLogoutDialog()">
       <mat-icon>logout</mat-icon>
@@ -49,14 +63,24 @@
     </button>
   </mat-menu>
 
-  <button mat-icon-button [matMenuTriggerFor]="languageMenu" title="Language options">
+  <button
+    mat-icon-button
+    [matMenuTriggerFor]="languageMenu"
+    title="Language options"
+  >
     <mat-icon>language</mat-icon>
   </button>
 
   <mat-menu #languageMenu="matMenu">
-    <button mat-menu-item *ngFor="let option of languages" (click)="onLanguageChange(option)">
+    <button
+      mat-menu-item
+      *ngFor="let option of languages"
+      (click)="onLanguageChange(option)"
+    >
       {{ option }}
-      <mat-icon *ngIf="currentLanguage === option" class="check-icon">check</mat-icon>
+      <mat-icon *ngIf="currentLanguage === option" class="check-icon"
+        >check</mat-icon
+      >
     </button>
   </mat-menu>
 </mat-toolbar>

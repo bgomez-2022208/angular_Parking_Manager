@@ -13,7 +13,7 @@ import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { DatePipe } from '@angular/common';
 import { MatSelectChange } from '@angular/material/select';
-import { ReportService, ReporteData} from '../../services/reporte.service';
+import { ReportService, ReporteData } from '../../services/reporte.service';
 import jsPDF from 'jspdf';
 
 @Component({
@@ -21,10 +21,10 @@ import jsPDF from 'jspdf';
   templateUrl: './reporte.component.html',
   styleUrls: ['./reporte.component.scss'],
   providers: [DatePipe],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ReporteComponent implements AfterViewInit {
-  displayedColumns: string[] = ['plate', 'startDate','endDate','more'];
+  displayedColumns: string[] = ['plate', 'startDate', 'endDate', 'more'];
   expandedElement: any | null = null;
   reportData: ReporteData | null = null;
   dataSource: MatTableDataSource<ReporteData>;
@@ -36,15 +36,13 @@ export class ReporteComponent implements AfterViewInit {
   @Input() itemsPerPage: number = 8;
   @Output() pageChange = new EventEmitter<number>();
   @Input() totalPages: number = 1;
-  searchQuery: string = "";
+  searchQuery: string = '';
   currentPage: number = 0;
-  pageIndex=0;
+  pageIndex = 0;
   startDate: Date | null = null;
   selectedParkingId: number | null = null;
   endDate: Date | null = null;
   @Input() totalElements: number = 0;
-
-
 
   selectedDateControl = new FormControl();
 
@@ -53,7 +51,10 @@ export class ReporteComponent implements AfterViewInit {
   parking: any[] = [];
   @Input() report: ReporteData[] = [];
 
-  constructor(private datePipe: DatePipe,private reportService: ReportService) {
+  constructor(
+    private datePipe: DatePipe,
+    private reportService: ReportService
+  ) {
     const report: ReporteData[] = [];
 
     this.dataSource = new MatTableDataSource(report);
@@ -74,7 +75,10 @@ export class ReporteComponent implements AfterViewInit {
       filterValue = this.datePipe.transform(event, 'yyyy-MM-dd') || '';
     } else if (event instanceof MatSelectChange) {
       filterValue = event.value;
-    } else if (event.target && (event.target as HTMLInputElement).value !== undefined) {
+    } else if (
+      event.target &&
+      (event.target as HTMLInputElement).value !== undefined
+    ) {
       filterValue = (event.target as HTMLInputElement).value;
     }
 
@@ -97,41 +101,71 @@ export class ReporteComponent implements AfterViewInit {
         console.log(this.parking);
       },
       (error: any) => {
-        console.error("Error loading parkings", error);
+        console.error('Error loading parkings', error);
       }
     );
   }
-
-
 
   applyParkingAndDateRangeFilter(): void {
     console.log('ID de Parqueo:', this.selectedParkingId);
     console.log('Fecha de Inicio:', this.startDate);
     console.log('Fecha de Fin:', this.endDate);
 
-    if (this.selectedParkingId !== null && this.selectedParkingId > 0 && this.startDate && this.endDate) {
-      const formattedStartDate = this.datePipe.transform(this.startDate, 'yyyy-MM-dd');
-      const formattedEndDate = this.datePipe.transform(this.endDate, 'yyyy-MM-dd');
+    if (
+      this.selectedParkingId !== null &&
+      this.selectedParkingId > 0 &&
+      this.startDate &&
+      this.endDate
+    ) {
+      const formattedStartDate = this.datePipe.transform(
+        this.startDate,
+        'yyyy-MM-dd'
+      );
+      const formattedEndDate = this.datePipe.transform(
+        this.endDate,
+        'yyyy-MM-dd'
+      );
 
       console.log('Formatted Start Date:', formattedStartDate);
       console.log('Formatted End Date:', formattedEndDate);
 
       if (formattedStartDate && formattedEndDate) {
-        this.reportService.getReportsByParkingAndDateRange(this.selectedParkingId, formattedStartDate, formattedEndDate).subscribe(
-          (data: any) => {
-            console.log('Reportes filtrados por parqueo y rango de fechas:', data);
-            this.dataSource.data = data;
-          },
-          (error: any) => {
-            console.error('Error al cargar reportes por parqueo y rango de fechas:', error);
-          }
-        );
+        this.reportService
+          .getReportsByParkingAndDateRange(
+            this.selectedParkingId,
+            formattedStartDate,
+            formattedEndDate
+          )
+          .subscribe(
+            (data: any) => {
+              console.log(
+                'Reportes filtrados por parqueo y rango de fechas:',
+                data
+              );
+              this.dataSource.data = data;
+            },
+            (error: any) => {
+              console.error(
+                'Error al cargar reportes por parqueo y rango de fechas:',
+                error
+              );
+            }
+          );
       } else {
         console.error('Error al formatear las fechas');
       }
     } else {
       console.error('ID de parqueo o fechas no válidas');
-      console.log('id:', this.selectedParkingId, 'ID de Parqueo:', this.selectedParkingId, 'Fecha de Inicio:', this.startDate, 'Fecha de Fin:', this.endDate);
+      console.log(
+        'id:',
+        this.selectedParkingId,
+        'ID de Parqueo:',
+        this.selectedParkingId,
+        'Fecha de Inicio:',
+        this.startDate,
+        'Fecha de Fin:',
+        this.endDate
+      );
     }
   }
 
@@ -140,30 +174,47 @@ export class ReporteComponent implements AfterViewInit {
     console.log('Fecha de Inicio:', this.startDate);
     console.log('Fecha de Fin:', this.endDate);
 
-    if (this.selectedParkingId !== null && this.selectedParkingId > 0 && this.startDate && this.endDate) {
-      const formattedStartDate = this.datePipe.transform(this.startDate, 'yyyy-MM-dd');
-      const formattedEndDate = this.datePipe.transform(this.endDate, 'yyyy-MM-dd');
+    if (
+      this.selectedParkingId !== null &&
+      this.selectedParkingId > 0 &&
+      this.startDate &&
+      this.endDate
+    ) {
+      const formattedStartDate = this.datePipe.transform(
+        this.startDate,
+        'yyyy-MM-dd'
+      );
+      const formattedEndDate = this.datePipe.transform(
+        this.endDate,
+        'yyyy-MM-dd'
+      );
 
       console.log('Formatted Start Date:', formattedStartDate);
       console.log('Formatted End Date:', formattedEndDate);
 
       if (formattedStartDate && formattedEndDate) {
-        this.reportService.generatePdfReport(this.selectedParkingId, formattedStartDate, formattedEndDate).subscribe(
-          (response: Blob) => {
-            const blob = new Blob([response], { type: 'application/pdf' });
-            const url = window.URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = `report-${this.selectedParkingId}-${formattedStartDate}-${formattedEndDate}.pdf`;
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-            console.log('PDF generado y descargado');
-          },
-          (error: any) => {
-            console.error('Error al generar el PDF:', error);
-          }
-        );
+        this.reportService
+          .generatePdfReport(
+            this.selectedParkingId,
+            formattedStartDate,
+            formattedEndDate
+          )
+          .subscribe(
+            (response: Blob) => {
+              const blob = new Blob([response], { type: 'application/pdf' });
+              const url = window.URL.createObjectURL(blob);
+              const a = document.createElement('a');
+              a.href = url;
+              a.download = `report-${this.selectedParkingId}-${formattedStartDate}-${formattedEndDate}.pdf`;
+              document.body.appendChild(a);
+              a.click();
+              document.body.removeChild(a);
+              console.log('PDF generado y descargado');
+            },
+            (error: any) => {
+              console.error('Error al generar el PDF:', error);
+            }
+          );
       } else {
         console.error('Error al formatear las fechas');
       }
@@ -171,9 +222,6 @@ export class ReporteComponent implements AfterViewInit {
       console.error('ID de parqueo o fechas no válidas');
     }
   }
-
-
-
 
   loadRegister(page: number): void {
     this.reportService.getReporters(this.itemsPerPage, page).subscribe(
@@ -215,10 +263,9 @@ export class ReporteComponent implements AfterViewInit {
     }
   }
 
-
   ngOnInit() {
-    this.loadRegister(0)
-    this.loadParkings()
+    this.loadRegister(0);
+    this.loadParkings();
   }
   onMoreClick(id: string) {
     console.log('ID received:', id);
@@ -226,10 +273,10 @@ export class ReporteComponent implements AfterViewInit {
       next: (data: ReporteData) => {
         this.reportData = data;
         this.showCard = true;
-        console.log(this.reportData)
+        console.log(this.reportData);
         console.log('Report Data:', this.reportData);
       },
-      error: (err) => {
+      error: err => {
         console.error('Error al obtener la auditoría:', id);
       }
     });

@@ -16,6 +16,6 @@ export class CardAuditoryComponent {
   toggleCard(element: AuditData | null) {
     this.closeCard.emit();
     this.data = null;
-    this.showCard=false;
+    this.showCard = false;
   }
 }

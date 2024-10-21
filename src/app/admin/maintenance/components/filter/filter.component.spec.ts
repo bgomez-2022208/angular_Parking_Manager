@@ -8,10 +8,7 @@ describe('FilterComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [
-        FilterComponent,
-        BrowserAnimationsModule
-      ]
+      imports: [FilterComponent, BrowserAnimationsModule]
     });
     fixture = TestBed.createComponent(FilterComponent);
     component = fixture.componentInstance;

@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { ReactiveFormsModule } from '@angular/forms';  // Asegúrate de importar ReactiveFormsModule
+import { ReactiveFormsModule } from '@angular/forms'; // Asegúrate de importar ReactiveFormsModule
 import { FormParkingComponent } from './form-parking.component';
 
 describe('FormParkingComponent', () => {
@@ -8,8 +8,8 @@ describe('FormParkingComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ReactiveFormsModule],  // Asegúrate de incluir ReactiveFormsModule
-      declarations: [FormParkingComponent],
+      imports: [ReactiveFormsModule], // Asegúrate de incluir ReactiveFormsModule
+      declarations: [FormParkingComponent]
     }).compileComponents();
   });
 

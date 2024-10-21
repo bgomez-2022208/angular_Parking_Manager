@@ -1,24 +1,24 @@
-@import "../../../../assets/sass/variables";
+@import '../../../../assets/sass/variables';
 
 ::ng-deep .mat-mdc-form-field {
   --mdc-filled-text-field-container-color: transparent;
-  --mdc-filled-text-field-label-text-color: #76ABAE;
-  --mdc-filled-text-field-label-text-fonr: "Cabin";
-  --mdc-filled-text-field-input-text-placeholder-color: #31363F;
+  --mdc-filled-text-field-label-text-color: #76abae;
+  --mdc-filled-text-field-label-text-fonr: 'Cabin';
+  --mdc-filled-text-field-input-text-placeholder-color: #31363f;
 }
 
 ::ng-deep .mat-mdc-slide-toggle .mdc-form-field {
-  color: #76ABAE;
-  font-family: "Cabin", 'Courier New', Courier, monospace;
+  color: #76abae;
+  font-family: 'Cabin', 'Courier New', Courier, monospace;
 }
 
 .mat-mdc-slide-toggle.mat-accent {
-  --mdc-switch-selected-track-color: #76ABAE;
-  --mdc-switch-selected-handle-color: #76ABAE;
-  --mdc-switch-selected-focus-handle-color: #76ABAE;
-  --mdc-switch-selected-hover-handle-color: #76ABAE;
-  --mdc-switch-selected-hover-track-color: #76ABAE;
-  --mdc-switch-selected-focus-track-color: #76ABAE;
+  --mdc-switch-selected-track-color: #76abae;
+  --mdc-switch-selected-handle-color: #76abae;
+  --mdc-switch-selected-focus-handle-color: #76abae;
+  --mdc-switch-selected-hover-handle-color: #76abae;
+  --mdc-switch-selected-hover-track-color: #76abae;
+  --mdc-switch-selected-focus-track-color: #76abae;
 }
 
 .active-icon {
@@ -26,7 +26,7 @@
 }
 
 .inactive-icon {
-  color: red
+  color: red;
 }
 
 .main-container {
@@ -63,17 +63,15 @@
           }
 
           mat-error {
-            margin-top: .5rem;
+            margin-top: 0.5rem;
           }
         }
-
       }
 
       mat-slide-toggle {
         margin: 1rem;
         margin-left: 1rem;
       }
-
     }
 
     .buttons {
@@ -93,7 +91,7 @@
         padding: $button-padding;
         line-height: $button-line-height;
         border-radius: $button-radius;
-        transition: scale .2s ease-in-out;
+        transition: scale 0.2s ease-in-out;
         margin-bottom: $button-mgb;
         margin-left: 1rem;
         font-family: $font-primary;
@@ -106,7 +104,7 @@
       }
 
       .cancel {
-        background-color: #A02334;
+        background-color: #a02334;
         color: $palette-color-four;
         border: $button-border;
         font-weight: $font-weight-button;
@@ -114,7 +112,7 @@
         padding: $button-padding;
         line-height: $button-line-height;
         border-radius: $button-radius;
-        transition: scale .2s ease-in-out;
+        transition: scale 0.2s ease-in-out;
         margin-bottom: $button-mgb;
         margin-left: 1rem;
         font-family: $font-primary;
@@ -138,7 +136,7 @@
     margin-top: 1rem;
     width: 30%;
     height: 400px;
-    font-family: "Cabin", 'Courier New', Courier, monospace;
+    font-family: 'Cabin', 'Courier New', Courier, monospace;
 
     table {
       width: 100%;
@@ -218,7 +216,7 @@
 
     .table {
       margin: 0;
-      margin-top: .5rem;
+      margin-top: 0.5rem;
       width: 100%;
     }
   }

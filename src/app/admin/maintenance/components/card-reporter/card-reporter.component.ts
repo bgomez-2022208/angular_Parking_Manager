@@ -16,7 +16,7 @@ export class CardReporterComponent {
   toggleCard(reportData: ReporteData | null) {
     this.closeCard.emit();
     this.data = null;
-    this.showCard=false;
+    this.showCard = false;
   }
 
   convertpdf(): void {
@@ -36,5 +36,4 @@ export class CardReporterComponent {
       doc.save(`report-${data.plate}.pdf`);
     }
   }
-
 }
