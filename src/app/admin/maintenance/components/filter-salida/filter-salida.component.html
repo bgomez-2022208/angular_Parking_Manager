@@ -1,39 +1,79 @@
 <header>
-  <h1 *ngIf="ocultarTitulo" class="modal-title" mat-dialog-title>{{ 'ADD_REGISTER_REGISTER.FORM.LABEL_Plate' | translate }}</h1>
-  <h1 *ngIf="ocultarSubTitulo" class="modal-title" mat-dialog-title>{{ 'ADD_REGISTER_REGISTER.FORM.SUBTITLE_PARKING' | translate }}</h1>
+  <h1 *ngIf="ocultarTitulo" class="modal-title" mat-dialog-title>
+    {{ 'ADD_REGISTER_REGISTER.FORM.LABEL_Plate' | translate }}
+  </h1>
+  <h1 *ngIf="ocultarSubTitulo" class="modal-title" mat-dialog-title>
+    {{ 'ADD_REGISTER_REGISTER.FORM.SUBTITLE_PARKING' | translate }}
+  </h1>
 </header>
 
 <form [formGroup]="parkingForm" (ngSubmit)="onSubmit()" class="modal-form">
   <div class="modal-content" mat-dialog-content>
     <ng-container *ngIf="!mostrarDatos">
       <mat-form-field class="input-small">
-        <mat-label>{{ 'ADD_REGISTER_REGISTER.FORM.LABEL_PLATE_INPUT' | translate }}</mat-label>
+        <mat-label>{{
+          'ADD_REGISTER_REGISTER.FORM.LABEL_PLATE_INPUT' | translate
+        }}</mat-label>
         <mat-icon matPrefix class="icon-inputs">credit_card</mat-icon>
         <input class="escritos" matInput formControlName="plate" required />
-        <mat-error *ngIf="parkingForm.get('plate')?.invalid">{{ getErrorMessage('plate') }}</mat-error>
+        <mat-error *ngIf="parkingForm.get('plate')?.invalid">{{
+          getErrorMessage('plate')
+        }}</mat-error>
       </mat-form-field>
     </ng-container>
 
     <ng-container *ngIf="mostrarDatos">
       <div>
-        <label>{{ 'ADD_REGISTER_REGISTER.FORM.TOTAL' | translate }}: {{ salidaParking?.total }}</label>
+        <label
+          >{{ 'ADD_REGISTER_REGISTER.FORM.TOTAL' | translate }}:
+          {{ salidaParking?.total }}</label
+        >
       </div>
       <div>
-        <label>{{ 'ADD_REGISTER_REGISTER.FORM.STARTDATE' | translate }}: {{ salidaParking?.startDate }}</label>
+        <label
+          >{{ 'ADD_REGISTER_REGISTER.FORM.STARTDATE' | translate }}:
+          {{ salidaParking?.startDate }}</label
+        >
       </div>
       <div>
-        <label>{{ 'ADD_REGISTER_REGISTER.FORM.ENDDATE' | translate }}: {{ salidaParking?.endDate }}</label>
+        <label
+          >{{ 'ADD_REGISTER_REGISTER.FORM.ENDDATE' | translate }}:
+          {{ salidaParking?.endDate }}</label
+        >
       </div>
       <div>
-        <label>{{ 'ADD_REGISTER_REGISTER.FORM.PLATE' | translate }}: {{ salidaParking?.plate }}</label>
+        <label
+          >{{ 'ADD_REGISTER_REGISTER.FORM.PLATE' | translate }}:
+          {{ salidaParking?.plate }}</label
+        >
       </div>
     </ng-container>
   </div>
 
   <div class="modal-actions" mat-dialog-actions>
-    <button *ngIf="mostrarBotonEnviar" class="btnSubmit" cdkFocusInitial type="submit">{{ 'ADD_REGISTER_REGISTER.FORM.BUTTON_Accept' | translate }}</button>
-    <button *ngIf="mostrarBoton" class="btnSubmit" (click)="confirm()" type="button">{{ 'ADD_REGISTER_REGISTER.FORM.BUTTON_CERRAR_MODAL' | translate }}</button>
-    <button *ngIf="mostrarBotonCancelar" class="btnCancelar" (click)="onNoClick()" type="button">{{ 'ADD_REGISTER_REGISTER.FORM.BUTTON_Cancel' | translate }}</button>
-
+    <button
+      *ngIf="mostrarBotonEnviar"
+      class="btnSubmit"
+      cdkFocusInitial
+      type="submit"
+    >
+      {{ 'ADD_REGISTER_REGISTER.FORM.BUTTON_Accept' | translate }}
+    </button>
+    <button
+      *ngIf="mostrarBoton"
+      class="btnSubmit"
+      (click)="confirm()"
+      type="button"
+    >
+      {{ 'ADD_REGISTER_REGISTER.FORM.BUTTON_CERRAR_MODAL' | translate }}
+    </button>
+    <button
+      *ngIf="mostrarBotonCancelar"
+      class="btnCancelar"
+      (click)="onNoClick()"
+      type="button"
+    >
+      {{ 'ADD_REGISTER_REGISTER.FORM.BUTTON_Cancel' | translate }}
+    </button>
   </div>
 </form>

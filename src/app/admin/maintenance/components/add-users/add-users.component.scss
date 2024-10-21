@@ -1,24 +1,24 @@
-@import "../../../../../assets/sass/variables";
+@import '../../../../../assets/sass/variables';
 
 ::ng-deep .mat-mdc-form-field {
   --mdc-filled-text-field-container-color: transparent;
-  --mdc-filled-text-field-label-text-color: #76ABAE;
-  --mdc-filled-text-field-label-text-fonr: "Cabin";
-  --mdc-filled-text-field-input-text-placeholder-color:#31363F;
+  --mdc-filled-text-field-label-text-color: #76abae;
+  --mdc-filled-text-field-label-text-fonr: 'Cabin';
+  --mdc-filled-text-field-input-text-placeholder-color: #31363f;
 }
 
 ::ng-deep .mat-mdc-slide-toggle .mdc-form-field {
-  color: #76ABAE;
-  font-family: "Cabin", 'Courier New', Courier,monospace;
+  color: #76abae;
+  font-family: 'Cabin', 'Courier New', Courier, monospace;
 }
 
 .mat-mdc-slide-toggle.mat-accent {
-  --mdc-switch-selected-track-color: #76ABAE;
-  --mdc-switch-selected-handle-color: #76ABAE;
-  --mdc-switch-selected-focus-handle-color: #76ABAE;
-  --mdc-switch-selected-hover-handle-color: #76ABAE;
-  --mdc-switch-selected-hover-track-color: #76ABAE;
-  --mdc-switch-selected-focus-track-color:#76ABAE;
+  --mdc-switch-selected-track-color: #76abae;
+  --mdc-switch-selected-handle-color: #76abae;
+  --mdc-switch-selected-focus-handle-color: #76abae;
+  --mdc-switch-selected-hover-handle-color: #76abae;
+  --mdc-switch-selected-hover-track-color: #76abae;
+  --mdc-switch-selected-focus-track-color: #76abae;
 }
 .container-users {
   padding-top: 2rem;
@@ -31,7 +31,7 @@
   height: 80%;
   font-family: $font-primary;
 }
-.container-inputs{
+.container-inputs {
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -40,7 +40,7 @@
     color: $palette-color-three;
   }
 }
-.container-buttons{
+.container-buttons {
   width: 100%;
   height: 100%;
   display: flex;
@@ -162,7 +162,7 @@ h2 {
     margin-right: 10px;
     align-self: flex-end;
   }
-  .toogle{
+  .toogle {
     width: 50%;
     margin-left: 0;
     margin-right: auto;
@@ -209,7 +209,6 @@ h2 {
     margin-right: 10px;
     align-self: flex-end;
   }
-
 }
 
 @media only screen and (max-width: 930px) {
@@ -218,17 +217,17 @@ h2 {
     padding: 1rem;
     font-size: 1rem;
   }
-  .container-inputs{
+  .container-inputs {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     height: 100%;
     width: 100%;
-    .input-small{
-      width: 100%
+    .input-small {
+      width: 100%;
     }
   }
-  .container-buttons{
+  .container-buttons {
     flex-direction: column;
     display: flex;
     justify-content: flex-end;
@@ -254,7 +253,6 @@ h2 {
     margin-right: auto;
     align-self: flex-end;
     margin-bottom: 10px;
-
   }
   .cancelar {
     width: 50%;
@@ -263,7 +261,7 @@ h2 {
     align-self: flex-end;
     margin-bottom: 10px;
   }
-  .toogle{
+  .toogle {
     width: 50%;
     margin-left: 0;
     margin-right: auto;
@@ -301,7 +299,6 @@ h2 {
     margin-right: auto;
     align-self: flex-end;
     margin-bottom: 10px;
-
   }
 }
 
@@ -313,7 +310,6 @@ h2 {
   .profile-select {
     max-width: 98%;
   }
-
 
   .guardar {
     padding: 0.4rem 0.8rem;

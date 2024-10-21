@@ -1,18 +1,30 @@
 <div class="Navbar-container">
-  <app-navbaruser class="app-nav" [title]="'NAVBAR_USER.AUDITORIA' | translate"></app-navbaruser>
+  <app-navbaruser
+    class="app-nav"
+    [title]="'NAVBAR_USER.AUDITORIA' | translate"
+  ></app-navbaruser>
 </div>
 <div class="principal-container">
   <div class="nav">
     <div class="filter">
       <mat-form-field class="example-container input-search">
         <mat-label>{{ 'AUDIT.ENTITY' | translate }}</mat-label>
-        <mat-select [(value)]="selected" (selectionChange)="applyEntityFilter($event)">
+        <mat-select
+          [(value)]="selected"
+          (selectionChange)="applyEntityFilter($event)"
+        >
           <mat-option value="">{{ 'AUDIT.ALL' | translate }}</mat-option>
           <mat-option value="User">{{ 'AUDIT.USER' | translate }}</mat-option>
-          <mat-option value="Profile">{{ 'AUDIT.PROFILE' | translate }}</mat-option>
+          <mat-option value="Profile">{{
+            'AUDIT.PROFILE' | translate
+          }}</mat-option>
           <mat-option value="Fare">{{ 'AUDIT.FARE' | translate }}</mat-option>
-          <mat-option value="Register">{{ 'AUDIT.REGISTER' | translate }}</mat-option>
-          <mat-option value="Parking">{{ 'AUDIT.PARKING' | translate }}</mat-option>
+          <mat-option value="Register">{{
+            'AUDIT.REGISTER' | translate
+          }}</mat-option>
+          <mat-option value="Parking">{{
+            'AUDIT.PARKING' | translate
+          }}</mat-option>
           <mat-option value="Role">{{ 'AUDIT.ROLE' | translate }}</mat-option>
         </mat-select>
       </mat-form-field>
@@ -20,8 +32,25 @@
     <div class="filter">
       <mat-form-field class="example-container input-search">
         <mat-label>{{ 'AUDIT.START_DATE' | translate }}</mat-label>
-        <input matInput [matDatepicker]="startPicker" (dateChange)="applyDateRangeFilter()" [(ngModel)]="startDate">
-        <mat-datepicker-toggle matIconSuffix [for]="startPicker"></mat-datepicker-toggle>
+        <input
+          matInput
+          [matDatepicker]="startPicker"
+          (dateChange)="applyDateRangeFilter()"
+          [(ngModel)]="startDate"
+        />
+        <mat-icon matSuffix class="icon-inputs" (click)="startPicker.open()">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 -960 960 960"
+            width="24px"
+            fill="#76ABAEFF"
+          >
+            <path
+              d="M580-240q-42 0-71-29t-29-71q0-42 29-71t71-29q42 0 71 29t29 71q0 42-29 71t-71 29ZM200-80q-33 0-56.5-23.5T120-160v-560q0-33 23.5-56.5T200-800h40v-80h80v80h320v-80h80v80h40q33 0 56.5 23.5T840-720v560q0 33-23.5 56.5T760-80H200Zm0-80h560v-400H200v400Zm0-480h560v-80H200v80Zm0 0v-80 80Z"
+            />
+          </svg>
+        </mat-icon>
         <mat-datepicker #startPicker></mat-datepicker>
       </mat-form-field>
     </div>
@@ -29,52 +58,82 @@
     <div class="filter">
       <mat-form-field class="example-container input-search">
         <mat-label>{{ 'AUDIT.END_DATE' | translate }}</mat-label>
-        <input matInput [matDatepicker]="endPicker" (dateChange)="applyDateRangeFilter()" [(ngModel)]="endDate">
-        <mat-datepicker-toggle matIconSuffix [for]="endPicker"></mat-datepicker-toggle>
+        <input
+          matInput
+          [matDatepicker]="endPicker"
+          (dateChange)="applyDateRangeFilter()"
+          [(ngModel)]="endDate"
+        />
+        <mat-icon matSuffix class="icon-inputs" (click)="endPicker.open()">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 -960 960 960"
+            width="24px"
+            fill="#76ABAEFF"
+          >
+            <path
+              d="M580-240q-42 0-71-29t-29-71q0-42 29-71t71-29q42 0 71 29t29 71q0 42-29 71t-71 29ZM200-80q-33 0-56.5-23.5T120-160v-560q0-33 23.5-56.5T200-800h40v-80h80v80h320v-80h80v80h40q33 0 56.5 23.5T840-720v560q0 33-23.5 56.5T760-80H200Zm0-80h560v-400H200v400Zm0-480h560v-80H200v80Zm0 0v-80 80Z"
+            />
+          </svg>
+        </mat-icon>
         <mat-datepicker #endPicker></mat-datepicker>
       </mat-form-field>
-    </div>
 
+    </div>
   </div>
 
   <div class="table-container">
     <div class="mat-elevation-z8">
       <table mat-table [dataSource]="dataSource" matSort>
-
         <!-- Columna Entidad -->
         <ng-container matColumnDef="entity">
-          <th mat-header-cell *matHeaderCellDef>{{ 'AUDIT.ENTITY' | translate }}</th>
-          <td mat-cell *matCellDef="let row"> {{row.entity}} </td>
+          <th mat-header-cell *matHeaderCellDef>
+            {{ 'AUDIT.ENTITY' | translate }}
+          </th>
+          <td mat-cell *matCellDef="let row">{{ row.entity }}</td>
         </ng-container>
 
         <!-- Columna Fecha de Inicio -->
         <ng-container matColumnDef="startDate">
-          <th mat-header-cell *matHeaderCellDef>{{ 'AUDIT.START_DATE' | translate }}</th>
-          <td mat-cell *matCellDef="let row"> {{row.startDate | date:'yyyy-MM-dd'}} </td>
+          <th mat-header-cell *matHeaderCellDef>
+            {{ 'AUDIT.START_DATE' | translate }}
+          </th>
+          <td mat-cell *matCellDef="let row">
+            {{ row.startDate | date: 'yyyy-MM-dd' }}
+          </td>
         </ng-container>
 
         <!-- Columna Operación -->
         <ng-container matColumnDef="operation">
-          <th mat-header-cell *matHeaderCellDef>{{ 'AUDIT.OPERATION' | translate }}</th>
-          <td mat-cell *matCellDef="let row"> {{row.operation}} </td>
+          <th mat-header-cell *matHeaderCellDef>
+            {{ 'AUDIT.OPERATION' | translate }}
+          </th>
+          <td mat-cell *matCellDef="let row">{{ row.operation }}</td>
         </ng-container>
 
         <!-- Columna Resultado -->
         <ng-container matColumnDef="result">
-          <th mat-header-cell *matHeaderCellDef>{{ 'AUDIT.RESULT' | translate }}</th>
-          <td mat-cell *matCellDef="let row"> {{row.result}} </td>
+          <th mat-header-cell *matHeaderCellDef>
+            {{ 'AUDIT.RESULT' | translate }}
+          </th>
+          <td mat-cell *matCellDef="let row">{{ row.result }}</td>
         </ng-container>
 
         <!-- Columna Solicitud -->
         <ng-container matColumnDef="more">
-          <th mat-header-cell *matHeaderCellDef>{{ 'AUDIT.MORE' | translate }}</th>
+          <th mat-header-cell *matHeaderCellDef>
+            {{ 'AUDIT.MORE' | translate }}
+          </th>
           <td mat-cell *matCellDef="let row">
-            <button mat-button (click)="onMoreClick(row.auditId)">{{ 'AUDIT.MORE' | translate }}</button>
+            <button mat-button (click)="onMoreClick(row.auditId)">
+              {{ 'AUDIT.MORE' | translate }}
+            </button>
           </td>
         </ng-container>
 
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
 
         <!--<tr class="mat-row" *matNoDataRow>
           <td class="mat-cell" colspan="6">{{ 'NO_DATA' | translate }} "{{input.value}}"</td>
@@ -84,12 +143,18 @@
         [length]="totalElements"
         [pageSize]="itemsPerPage"
         [pageIndex]="currentPage"
-        [hidePageSize]="true" [showFirstLastButtons]="true"
-        (page)="changePage($event)">
+        [hidePageSize]="true"
+        [showFirstLastButtons]="true"
+        (page)="changePage($event)"
+      >
       </mat-paginator>
     </div>
   </div>
 
-
-  <app-card-auditory *ngIf="showCard" class="app-card-auditory" [data]="auditData" (closeCard)="closeCard()"></app-card-auditory>
+  <app-card-auditory
+    *ngIf="showCard"
+    class="app-card-auditory"
+    [data]="auditData"
+    (closeCard)="closeCard()"
+  ></app-card-auditory>
 </div>

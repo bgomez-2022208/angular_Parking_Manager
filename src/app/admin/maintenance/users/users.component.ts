@@ -1,11 +1,15 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {User} from "../../model/user.model";
-import {ApiUserService} from "../../services/user.service";
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { User } from '../../model/user.model';
+import { ApiUserService } from '../../services/user.service';
 import { TranslateService } from '@ngx-translate/core';
-import { animate, state, style, transition, trigger } from '@angular/animations';
+import {
+  animate,
+  state,
+  style,
+  transition,
+  trigger
+} from '@angular/animations';
 import { ActivatedRoute } from '@angular/router';
-
-
 
 @Component({
   selector: 'app-users',
@@ -16,14 +20,11 @@ import { ActivatedRoute } from '@angular/router';
       state('void', style({ opacity: 0, transform: 'scale(0.95)' })),
       state('*', style({ opacity: 1, transform: 'scale(1)' })),
 
-      transition('void => *', [
-        animate('400ms ease-out')
-      ])
+      transition('void => *', [animate('400ms ease-out')])
     ])
   ]
 })
 export class UsersComponent implements OnInit {
-
   users: User[] = [];
   selectedUser: User | null = null;
   isEditing: boolean = false;
@@ -33,13 +34,16 @@ export class UsersComponent implements OnInit {
   totalUsers: number = 0;
   totalPages: number = 0;
   private pageChange: any;
-  email: string = "";
-  languages: string[] = []
-  currentLanguage: string = ''
+  email: string = '';
+  languages: string[] = [];
+  currentLanguage: string = '';
   @Output() searchChange = new EventEmitter<string>();
 
-
-  constructor(private apiUserService: ApiUserService, private translate: TranslateService,private route: ActivatedRoute) {
+  constructor(
+    private apiUserService: ApiUserService,
+    private translate: TranslateService,
+    private route: ActivatedRoute
+  ) {
     this.currentLanguage = this.currentLanguage === 'es' ? 'en' : 'es';
     this.translate.use(this.currentLanguage);
   }
@@ -50,15 +54,13 @@ export class UsersComponent implements OnInit {
     });
   }
 
-  loadUsers(page:number): void {
-    console.log("user.component")
+  loadUsers(page: number): void {
+    console.log('user.component');
     this.apiUserService.getUsers(this.itemsPerPage, page, this.email).subscribe(
       (data: any) => {
         this.users = data.users;
         this.totalUsers = data.totalElements;
         this.totalPages = data.totalPages;
-
-
 
         console.log(this.users);
       },
@@ -86,9 +88,5 @@ export class UsersComponent implements OnInit {
 
   onUserCreated(newUser: User): void {
     this.users.push(newUser);
-
   }
-
-
-
 }

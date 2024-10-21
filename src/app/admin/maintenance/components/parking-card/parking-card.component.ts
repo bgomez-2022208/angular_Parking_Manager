@@ -5,6 +5,4 @@ import { Component } from '@angular/core';
   templateUrl: './parking-card.component.html',
   styleUrls: ['./parking-card.component.scss']
 })
-export class ParkingCardComponent {
-
-}
+export class ParkingCardComponent {}

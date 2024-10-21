@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { MatDialog } from "@angular/material/dialog";
+import { LogoutConfirmComponent } from '../logout-confirm/logout-confirm.component';
+import { MatDialog } from '@angular/material/dialog';
 import { TranslateService } from '@ngx-translate/core';
 import { LanguageService } from 'src/app/user/services/languaje.service';
 import { MatSelectChange } from '@angular/material/select';
@@ -19,7 +20,13 @@ export class NavbaruserComponent {
   currentLanguage: string = '';
   isLoading = false;
 
-  constructor(private router: Router, private dialog: MatDialog, private translate: TranslateService, private languageService: LanguageService, private userService: ApiUserService) { }
+  constructor(
+    private router: Router,
+    private dialog: MatDialog,
+    private translate: TranslateService,
+    private languageService: LanguageService,
+    private userService: ApiUserService
+  ) {}
 
   openLogoutDialog() {
     Swal.fire({
@@ -33,35 +40,34 @@ export class NavbaruserComponent {
       cancelButtonColor: '#d33',
     }).then((result) => {
       if (result.isConfirmed) {
-        this.userService.logout()
+        this.userService.logout();
         Swal.fire({
           title: this.translate.instant('LOGOUT.SUCCESS'),
           icon: 'success'
-        })
-        this.router.navigate(['/auth/login'])
+        });
+        this.router.navigate(['/auth/login']);
       }
-    })
+    });
   }
 
   ngOnInit() {
-    this.languages = this.languageService.getAvailableLanguages()
+    this.languages = this.languageService.getAvailableLanguages();
     this.currentLanguage = this.languageService.getCurrentLanguage();
   }
 
   onLanguageChange(lang: string) {
     this.isLoading = true;
-
     this.languageService.changeLanguage(lang).subscribe({
       next: () => {
         setTimeout(() => {
-          this.currentLanguage = lang
-          this.isLoading = false
-        }, 2000)
+          this.currentLanguage = lang;
+          this.isLoading = false;
+        }, 2000);
       },
       error: () => {
         console.error('Error al cambiar de idioma')
         this.isLoading = false
       }
-    })
+    });
   }
 }

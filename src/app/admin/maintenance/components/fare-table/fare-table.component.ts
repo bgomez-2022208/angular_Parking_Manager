@@ -1,5 +1,11 @@
-import { Component, Input, Output, EventEmitter, ViewChild } from '@angular/core';
-import { FareService, FareData} from '../../../services/fare.service';
+import {
+  Component,
+  Input,
+  Output,
+  EventEmitter,
+  ViewChild
+} from '@angular/core';
+import { FareService, FareData } from '../../../services/fare.service';
 import { MatDialog } from '@angular/material/dialog';
 import { TranslateService } from '@ngx-translate/core';
 import { Router } from '@angular/router';
@@ -18,7 +24,7 @@ export class FareTableComponent {
   @Output() pageChange = new EventEmitter<number>();
   @Input() totalPages: number = 0;
   @Input() itemsPerPage: number = 10;
-  searchQuery: string = "";
+  searchQuery: string = '';
   @Input() totalElements: number = 0;
   dataSource: MatTableDataSource<FareData>;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -28,14 +34,15 @@ export class FareTableComponent {
   searchControl = new FormControl('');
   totalItems: number = 0;
   pageSize: number = 10;
-  fares = new MatTableDataSource<any>()
+  fares = new MatTableDataSource<any>();
 
-  constructor(private fareService: FareService,
-              private dialog: MatDialog,
-              private translate: TranslateService,
-              private router: Router) {
+  constructor(
+    private fareService: FareService,
+    private dialog: MatDialog,
+    private translate: TranslateService,
+    private router: Router
+  ) {
     this.dataSource = new MatTableDataSource<FareData>(this.fare || []);
-
   }
 
   @Input() currentPage: number = 1;
@@ -77,27 +84,30 @@ export class FareTableComponent {
     );
   }
 
-
   searchFare() {
     const name = this.searchControl.value || '';
-    this.fareService.searchFare(name, this.currentPage, this.pageSize).subscribe({
-      next: (response) => {
-        const filledRows = response.fares || [];
-        const totalRows = 10;
-        while (filledRows.length < totalRows) {
-          filledRows.push({ isEmpty: true });
+    this.fareService
+      .searchFare(name, this.currentPage, this.pageSize)
+      .subscribe({
+        next: response => {
+          const filledRows = response.fares || [];
+          const totalRows = 10;
+          while (filledRows.length < totalRows) {
+            filledRows.push({ isEmpty: true });
+          }
+          this.dataSource.data = filledRows;
+          this.totalItems = response.totalElements;
+
+          console.log(
+            'Datos en la tabla después de búsqueda:',
+            this.dataSource.data
+          );
+        },
+        error: error => {
+          console.error('Error al buscar tarifas: ', error);
         }
-        this.dataSource.data = filledRows;
-        this.totalItems = response.totalElements;
-
-        console.log('Datos en la tabla después de búsqueda:', this.dataSource.data);
-      },
-      error: (error) => {
-        console.error('Error al buscar tarifas: ', error);
-      }
-    });
+      });
   }
-
 
   changePage(event: PageEvent): void {
     this.loadFares(event.pageIndex);
@@ -108,10 +118,9 @@ export class FareTableComponent {
       next: (fare: FareData) => {
         this.fareSelected.emit(fare);
       },
-      error: (err) => {
+      error: err => {
         console.error('Error fetching fare data', err);
       }
     });
   }
-
 }

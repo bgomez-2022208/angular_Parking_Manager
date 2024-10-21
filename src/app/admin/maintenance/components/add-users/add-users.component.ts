@@ -4,7 +4,13 @@ import { ApiUserService } from "../../../../user/services/user.service";
 import { User } from "../../../model/user.model";
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
-import { animate, state, style, transition, trigger } from '@angular/animations';
+import {
+  animate,
+  state,
+  style,
+  transition,
+  trigger
+} from '@angular/animations';
 import Swal from 'sweetalert2';
 import { MatSlideToggleChange } from '@angular/material/slide-toggle';
 
@@ -41,7 +47,7 @@ export class AddUsersComponent implements OnInit {
     private apiUserService: ApiUserService,
     private router: Router,
     private route: ActivatedRoute,
-    private translate: TranslateService,
+    private translate: TranslateService
   ) {
     this.userForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
@@ -64,7 +70,6 @@ export class AddUsersComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
     this.loadProfiles();
     this.route.queryParams.subscribe(params => {
       if (params['userId']) {
@@ -72,7 +77,6 @@ export class AddUsersComponent implements OnInit {
         this.userId = +params['userId'];
         this.loadUserData(this.userId);
         this.userIdSelected = true;
-
       }
     });
   }
@@ -81,10 +85,11 @@ export class AddUsersComponent implements OnInit {
     this.userIdSelected = false;
 
     const timestamp = Math.floor(Date.now() / 1000);
-    this.router.navigate(['/admin/users'], {queryParams: {timestamp: timestamp}});
-
+    this.router.navigate(['/admin/users'], {
+      queryParams: { timestamp: timestamp }
+    });
   }
-  getErrorMessage(controlName: string){
+  getErrorMessage(controlName: string) {
     const control = this.userForm.get(controlName);
 
     if (control?.hasError('required')) {
@@ -112,18 +117,14 @@ export class AddUsersComponent implements OnInit {
     return '';
   }
 
-
-
   loadProfiles() {
     this.apiUserService.getProfilesUser().subscribe(
-
       (data: any) => {
         this.profiles = data.message;
-
-        console.log(this.profiles)
+        console.log(this.profiles);
       },
       (error: any) => {
-        console.error("Error loading profiles", error);
+        console.error('Error loading profiles', error);
       }
     );
   }
@@ -136,7 +137,7 @@ export class AddUsersComponent implements OnInit {
     this.showTitleUpdate = true;
 
     this.apiUserService.getUserById(userId).subscribe({
-      next: (userData) => {
+      next: userData => {
         this.userForm.patchValue({
           ...userData.message,
           password: '',
@@ -229,7 +230,7 @@ export class AddUsersComponent implements OnInit {
         showConfirmButton: false
       });
     } else {
-      console.error("Error occurred", error);
+      console.error('Error occurred', error);
       Swal.fire({
         icon: 'error',
         title: this.translate.instant('ALERT_ERROR.TITLE'),
@@ -239,8 +240,6 @@ export class AddUsersComponent implements OnInit {
       });
     }
   }
-
-
 
   CancelUpdate() {
     this.userIdSelected = false;
@@ -252,7 +251,7 @@ export class AddUsersComponent implements OnInit {
     this.userForm.reset();
     this.router.navigate([], {
       relativeTo: this.route,
-      queryParams: {},
+      queryParams: {}
     });
   }
 
@@ -306,5 +305,4 @@ export class AddUsersComponent implements OnInit {
       });
     }
   }
-
 }

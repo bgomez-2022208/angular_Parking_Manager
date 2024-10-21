@@ -4,7 +4,13 @@ import { ApiUserService } from "../../../services/user.service";
 import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material/dialog";
 import { TranslateService } from "@ngx-translate/core";
 import Swal from 'sweetalert2';
-import { animate, state, style, transition, trigger } from '@angular/animations';
+import {
+  animate,
+  state,
+  style,
+  transition,
+  trigger
+} from '@angular/animations';
 
 @Component({
   selector: 'app-delete-user-confirm',
@@ -15,9 +21,7 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
       state('void', style({ opacity: 0, transform: 'scale(0.95)' })),
       state('*', style({ opacity: 1, transform: 'scale(1)' })),
 
-      transition('void => *', [
-        animate('400ms ease-out')
-      ])
+      transition('void => *', [animate('400ms ease-out')])
     ])
   ]
 })
@@ -27,9 +31,7 @@ export class DeleteUserConfirmComponent {
   totalPages: number = 0;
   currentPage: number = 1;
   totalUsers: number = 0;
-  searchQuery: string = "";
-
-
+  searchQuery: string = '';
 
   constructor(
 
@@ -70,9 +72,6 @@ export class DeleteUserConfirmComponent {
       }
     );
   }
-
-
-
 
   onNoClick(): void {
     this.dialogRef.close();

@@ -1,5 +1,11 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import {
+  AbstractControl,
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators
+} from '@angular/forms';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSlideToggleChange } from '@angular/material/slide-toggle';
 import { MatTableDataSource } from '@angular/material/table';
@@ -13,181 +19,231 @@ import Swal from 'sweetalert2';
   styleUrls: ['./parking.component.scss']
 })
 export class ParkingComponent implements OnInit {
-
   form: FormGroup;
   totalItems: number = 0;
   pageSize: number = 10;
   currentPage: number = 0;
-  displayedColumns: string[] = ['status', 'name']
+  displayedColumns: string[] = ['status', 'name'];
   parkingIdSelected: number = 0;
   parkingDataSelect: any = null;
-  parkings = new MatTableDataSource<any>()
-  searchControl = new FormControl('')
+  parkings = new MatTableDataSource<any>();
+  searchControl = new FormControl('');
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  constructor(private fb: FormBuilder, private translate: TranslateService, private userService: ApiUserService) {
+  constructor(
+    private fb: FormBuilder,
+    private translate: TranslateService,
+    private userService: ApiUserService
+  ) {
     this.form = this.fb.group({
-      name: ['', [Validators.required, this.noWhiteSpaceValidator, Validators.pattern(/^[A-Za-zÁÉÍÓÚáéíóúÑñ]+([ A-Za-zÁÉÍÓÚáéíóúÑñ]+)*$/)]], // Solo letras y no espacios en blanco
+      name: [
+        '',
+        [
+          Validators.required,
+          this.noWhiteSpaceValidator,
+          Validators.pattern(/^[A-Za-zÁÉÍÓÚáéíóúÑñ]+([ A-Za-zÁÉÍÓÚáéíóúÑñ]+)*$/)
+        ]
+      ], // Solo letras y no espacios en blanco
       address: ['', [Validators.required, this.noWhiteSpaceValidator]], // No solo espacios en blanco
-      phone: ['', [Validators.required, this.noWhiteSpaceValidator, Validators.pattern(/^[0-9]{8}$/)]], // Solo números, no espacios en blanco
-      spaces: ['', [Validators.required, this.noWhiteSpaceValidator, Validators.pattern(/^\d+$/)]], // Solo números, no espacios en blanco
+      phone: [
+        '',
+        [
+          Validators.required,
+          this.noWhiteSpaceValidator,
+          Validators.pattern(/^[0-9]{8}$/)
+        ]
+      ], // Solo números, no espacios en blanco
+      spaces: [
+        '',
+        [
+          Validators.required,
+          this.noWhiteSpaceValidator,
+          Validators.pattern(/^\d+$/)
+        ]
+      ], // Solo números, no espacios en blanco
       status: [true, Validators.required]
-    })
+    });
   }
 
-  noWhiteSpaceValidator(control: AbstractControl): { [key: string]: boolean } | null {
+  noWhiteSpaceValidator(
+    control: AbstractControl
+  ): { [key: string]: boolean } | null {
     const value = control.value;
 
     if (typeof value === 'string') {
-      const isWhitespace = (control.value || '').trim().length === 0
-      const isValid = !isWhitespace
-      return isValid ? null : { whitespace: true }
+      const isWhitespace = (control.value || '').trim().length === 0;
+      const isValid = !isWhitespace;
+      return isValid ? null : { whitespace: true };
     }
-    return null
+    return null;
   }
 
   getErrorMessage(controlName: string) {
-    const control = this.form.get(controlName)
+    const control = this.form.get(controlName);
 
     if (control?.hasError('required')) {
-      return controlName === 'name' ? this.translate.instant('PARKING.ERROR_NAME_PARKING_REQUIRED') :
-        controlName === 'address' ? this.translate.instant('PARKING.ERROR_ADDRESS_PARKING_REQUIRED') :
-          controlName === 'phone' ? this.translate.instant('PARKING.ERROR_PHONE_PARKING_REQUIRED') :
-            controlName === 'spaces' ? this.translate.instant('PARKING.ERROR_SPACES_PARKING_REQUIRED') : ''
+      return controlName === 'name'
+        ? this.translate.instant('PARKING.ERROR_NAME_PARKING_REQUIRED')
+        : controlName === 'address'
+          ? this.translate.instant('PARKING.ERROR_ADDRESS_PARKING_REQUIRED')
+          : controlName === 'phone'
+            ? this.translate.instant('PARKING.ERROR_PHONE_PARKING_REQUIRED')
+            : controlName === 'spaces'
+              ? this.translate.instant('PARKING.ERROR_SPACES_PARKING_REQUIRED')
+              : '';
     }
 
     if (control?.hasError('pattern')) {
-      return controlName === 'name' ? this.translate.instant('PARKING.ERROR_NAME_PARKING_INVALID') :
-        controlName === 'phone' ? this.translate.instant('PARKING.ERROR_PHONE_PARKING_INVALID') :
-          controlName === 'spaces' ? this.translate.instant('PARKING.ERROR_SPACES_PARKING_INVALID') :
-            controlName === 'address' ? this.translate.instant('PARKING.ERROR_ADDRESS_PARKING_INVALID') : ''
+      return controlName === 'name'
+        ? this.translate.instant('PARKING.ERROR_NAME_PARKING_INVALID')
+        : controlName === 'phone'
+          ? this.translate.instant('PARKING.ERROR_PHONE_PARKING_INVALID')
+          : controlName === 'spaces'
+            ? this.translate.instant('PARKING.ERROR_SPACES_PARKING_INVALID')
+            : controlName === 'address'
+              ? this.translate.instant('PARKING.ERROR_ADDRESS_PARKING_INVALID')
+              : '';
     }
 
     if (control?.hasError('whitespace')) {
-      return controlName === 'name' ? this.translate.instant('PARKING.ERROR_NAME_PARKING_INVALID') :
-        controlName === 'address' ? this.translate.instant('PARKING.ERROR_ADDRESS_PARKING_INVALID') :
-          controlName === 'phone' ? this.translate.instant('PARKING.ERROR_PHONE_PARKING_INVALID') :
-            controlName === 'spaces' ? this.translate.instant('PARKING.ERROR_SPACES_PARKING_INVALID') : ''
+      return controlName === 'name'
+        ? this.translate.instant('PARKING.ERROR_NAME_PARKING_INVALID')
+        : controlName === 'address'
+          ? this.translate.instant('PARKING.ERROR_ADDRESS_PARKING_INVALID')
+          : controlName === 'phone'
+            ? this.translate.instant('PARKING.ERROR_PHONE_PARKING_INVALID')
+            : controlName === 'spaces'
+              ? this.translate.instant('PARKING.ERROR_SPACES_PARKING_INVALID')
+              : '';
     }
 
-    return ''
+    return '';
   }
 
   resetForm(): void {
     this.parkingIdSelected = 0;
-    
-    this.form.reset({
-      name: '',
-      address: '',
-      phone: '',
-      spaces: '',
-      status: false
-    }, { emitEvent: false })
-  
+
+    this.form.reset(
+      {
+        name: '',
+        address: '',
+        phone: '',
+        spaces: '',
+        status: false
+      },
+      { emitEvent: false }
+    );
+
     Object.keys(this.form.controls).forEach(key => {
-      const control = this.form.get(key)
-      control?.setErrors(null)
-      control?.markAsPristine()
-      control?.markAsUntouched()
-    })
-    
-    this.form.updateValueAndValidity({ emitEvent: false })
+      const control = this.form.get(key);
+      control?.setErrors(null);
+      control?.markAsPristine();
+      control?.markAsUntouched();
+    });
+
+    this.form.updateValueAndValidity({ emitEvent: false });
   }
 
   activateFormValidation(): void {
     // Recorrer todos los controles del formulario
     Object.keys(this.form.controls).forEach(key => {
-      const control = this.form.get(key)
-  
+      const control = this.form.get(key);
+
       // Marcar cada control como tocado y sucio
-      control?.markAsTouched()
-      control?.markAsDirty()
-  
+      control?.markAsTouched();
+      control?.markAsDirty();
+
       // Actualizar el valor y la validez para activar los mensajes de error si es necesario
-      control?.updateValueAndValidity()
-    })
+      control?.updateValueAndValidity();
+    });
   }
 
   obtenerParqueos(page: number, items: number): void {
     this.userService.getParkings(page, items).subscribe({
-      next: (response) => {
+      next: response => {
         response.content.forEach((parking: any) => {
-          parking.statusIcon = parking.status ? 'circle' : 'circle'
-        })
-  
-        const totalRows = 10
-        const filledRows = [...response.content]
-  
+          parking.statusIcon = parking.status ? 'circle' : 'circle';
+        });
+
+        const totalRows = 10;
+        const filledRows = [...response.content];
+
         while (filledRows.length < totalRows) {
-          filledRows.push({ isEmpty: true })
+          filledRows.push({ isEmpty: true });
         }
-  
-        this.parkings = new MatTableDataSource(filledRows)
-        this.totalItems = response.totalElements
-        console.log(response)
+
+        this.parkings = new MatTableDataSource(filledRows);
+        this.totalItems = response.totalElements;
+        console.log(response);
       },
-      error: (error) => {
-        console.error('Error al obtener parqueos:', error)
+      error: error => {
+        console.error('Error al obtener parqueos:', error);
       }
-    })
+    });
   }
 
   searchParking() {
     const name = this.searchControl.value || '';
-    this.userService.searchParking(name, this.currentPage, this.pageSize).subscribe({
-      next: (response) => {
-        response.content.forEach((parking: any) => {
-          parking.statusIcon = parking.status ? 'circle' : 'circle'
-        })
-        const totalRows = 10
-        const filledRows = [...response.content]
-  
-        while (filledRows.length < totalRows) {
-          filledRows.push({ isEmpty: true })
+    this.userService
+      .searchParking(name, this.currentPage, this.pageSize)
+      .subscribe({
+        next: response => {
+          response.content.forEach((parking: any) => {
+            parking.statusIcon = parking.status ? 'circle' : 'circle';
+          });
+          const totalRows = 10;
+          const filledRows = [...response.content];
+
+          while (filledRows.length < totalRows) {
+            filledRows.push({ isEmpty: true });
+          }
+
+          this.parkings = new MatTableDataSource(filledRows);
+          this.totalItems = response.totalElements;
+          console.log(response);
+        },
+        error: error => {
+          console.error('Error al buscar parqueos:', error);
         }
-  
-        this.parkings = new MatTableDataSource(filledRows)
-        this.totalItems = response.totalElements
-        console.log(response)
-      },
-      error: (error) => {
-        console.error('Error al buscar parqueos:', error);
-      }
-    })
+      });
   }
 
   updateParking() {
-    const parking = this.form.value
+    const parking = this.form.value;
     if (this.parkingIdSelected && this.form.valid) {
-      this.userService.updateParking(parking, this.parkingIdSelected).subscribe({
-        next: (response) => {
-          Swal.fire({
-            icon: 'success',
-            title: this.translate.instant('PARKING.ALERT_UPDATE_TITLE'),
-            text: this.translate.instant('PARKING.ALERT_UPDATE_MESSAGE'),
-            timer: 3000
-          })
-          this.resetForm()
-          this.parkingIdSelected = 0;
-          this.obtenerParqueos(this.currentPage, this.pageSize)
-        },
-        error: (error) => {
-          Swal.fire({
-            icon: 'error',
-            title: this.translate.instant('PARKING.ALERT_ERROR_UPDATE_TITLE'),
-            text: this.translate.instant('PARKING.ALERT_ERROR_UPDATE_MESSAGE'),
-            timer: 3000
-          })
-        }
-      })
+      this.userService
+        .updateParking(parking, this.parkingIdSelected)
+        .subscribe({
+          next: response => {
+            Swal.fire({
+              icon: 'success',
+              title: this.translate.instant('PARKING.ALERT_UPDATE_TITLE'),
+              text: this.translate.instant('PARKING.ALERT_UPDATE_MESSAGE'),
+              timer: 3000
+            });
+            this.resetForm();
+            this.parkingIdSelected = 0;
+            this.obtenerParqueos(this.currentPage, this.pageSize);
+          },
+          error: error => {
+            Swal.fire({
+              icon: 'error',
+              title: this.translate.instant('PARKING.ALERT_ERROR_UPDATE_TITLE'),
+              text: this.translate.instant(
+                'PARKING.ALERT_ERROR_UPDATE_MESSAGE'
+              ),
+              timer: 3000
+            });
+          }
+        });
     }
   }
 
   seleccionarParqueo(id: number) {
     this.userService.getParking(id).subscribe({
-      next: (response) => {
-        this.parkingIdSelected = id
+      next: response => {
+        this.parkingIdSelected = id;
 
         this.form.setValue({
           name: response.name || '',
@@ -195,92 +251,97 @@ export class ParkingComponent implements OnInit {
           phone: response.phone || '',
           spaces: response.spaces || '',
           status: response.status || false
-        })
+        });
       },
-      error: (error) => {
-        console.error('Error al obtener parqueo:', error)
+      error: error => {
+        console.error('Error al obtener parqueo:', error);
       }
-    })
+    });
   }
 
   addParking() {
     // Activar validaciones antes de intentar guardar
-    this.activateFormValidation()
-  
+    this.activateFormValidation();
+
     if (this.form.invalid) {
       // Si el formulario es inválido, detener la ejecución
-      return
+      return;
     }
-  
+
     // Si el formulario es válido, proceder con el guardado
-    const parking = this.form.value
+    const parking = this.form.value;
     this.userService.newParking(parking).subscribe({
-      next: (response) => {
+      next: response => {
         Swal.fire({
           icon: 'success',
           title: this.translate.instant('PARKING.ALERT_SUCCESS_TITLE'),
-          text: this.translate.instant('PARKING.ALERT_SUCCESS_MESSAGE'),
-        })
-        this.resetForm()
-        this.obtenerParqueos(this.currentPage, this.pageSize)
+          text: this.translate.instant('PARKING.ALERT_SUCCESS_MESSAGE')
+        });
+        this.resetForm();
+        this.obtenerParqueos(this.currentPage, this.pageSize);
       },
-      error: (error) => {
+      error: error => {
         Swal.fire({
           icon: 'error',
           title: this.translate.instant('PARKING.ALERT_ERROR_TITLE'),
-          text: this.translate.instant('PARKING.ALERT_ERROR_MESSAGE'),
-        })
-        console.error(error)
-        this.resetForm()
+          text: this.translate.instant('PARKING.ALERT_ERROR_MESSAGE')
+        });
+        console.error(error);
+        this.resetForm();
       }
-    })
+    });
   }
 
   onToggleChange(event: MatSlideToggleChange) {
     const status = event.checked;
 
-    if(!status){
-
+    if (!status) {
       Swal.fire({
         icon: 'warning',
         title: this.translate.instant('PARKING.ALERT_DISABLE_PARKING_TITLE'),
         text: this.translate.instant('PARKING.ALERT_DISABLE_PARKING_MESSAGE'),
         confirmButtonText: this.translate.instant('PARKING.ALERT_DISABLE_YES'),
         cancelButtonText: this.translate.instant('PARKING.ALERT_DISABLE_NO'),
-        showCancelButton: true,
-      }).then((result) => {
+        showCancelButton: true
+      }).then(result => {
         if (result.isConfirmed) {
-          this.userService.disableParking(status, this.parkingIdSelected).subscribe({
-            next: (response) => {
-              Swal.fire({
-                icon: 'success',
-                title: this.translate.instant('PARKING.ALERT_DISABLED_PARKING')
-              })
-              this.resetForm()
-              this.obtenerParqueos(this.currentPage, this.pageSize);
-            },
-            error: (error) => {
-              console.error('Error al desactivar parqueo:', error)
-            }
-          })
+          this.userService
+            .disableParking(status, this.parkingIdSelected)
+            .subscribe({
+              next: response => {
+                Swal.fire({
+                  icon: 'success',
+                  title: this.translate.instant(
+                    'PARKING.ALERT_DISABLED_PARKING'
+                  )
+                });
+                this.resetForm();
+                this.obtenerParqueos(this.currentPage, this.pageSize);
+              },
+              error: error => {
+                console.error('Error al desactivar parqueo:', error);
+              }
+            });
           this.obtenerParqueos(this.currentPage, this.pageSize);
         }
-        this.resetForm()
-      })
+        this.resetForm();
+      });
     } else {
-      this.userService.disableParking(status, this.parkingIdSelected).subscribe({
-        next: (response)=>{
-          Swal.fire({
-            icon: 'success',
-            title: this.translate.instant('PARKING.ALERT_ENABLED_PARKING')
-          })
-          this.resetForm()
-          this.obtenerParqueos(this.currentPage, this.pageSize)
-        },
-        error: (error)=>{
-          console.error('Error al activar parqueo:', error)
-        }
-      })
+      this.userService
+        .disableParking(status, this.parkingIdSelected)
+        .subscribe({
+          next: response => {
+            Swal.fire({
+              icon: 'success',
+              title: this.translate.instant('PARKING.ALERT_ENABLED_PARKING')
+            });
+            this.resetForm();
+            this.obtenerParqueos(this.currentPage, this.pageSize);
+          },
+          error: error => {
+            console.error('Error al activar parqueo:', error);
+          }
+        });
     }
   }
 
@@ -299,7 +360,6 @@ export class ParkingComponent implements OnInit {
   }
 
   onSubmit() {
-    this.addParking()
+    this.addParking();
   }
-
 }

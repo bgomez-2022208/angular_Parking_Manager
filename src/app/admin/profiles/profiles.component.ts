@@ -1,22 +1,37 @@
-import { Component, inject, Input} from '@angular/core';
-import { FormControl, FormGroupDirective, NgForm, Validators } from '@angular/forms';
+import { Component, inject, Input } from '@angular/core';
+import {
+  FormControl,
+  FormGroupDirective,
+  NgForm,
+  Validators
+} from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
-  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
+  isErrorState(
+    control: FormControl | null,
+    form: FormGroupDirective | NgForm | null
+  ): boolean {
     const isSubmitted = form && form.submitted;
-    return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
+    return !!(
+      control &&
+      control.invalid &&
+      (control.dirty || control.touched || isSubmitted)
+    );
   }
 }
 
 @Component({
   selector: 'app-profiles',
   templateUrl: './profiles.component.html',
-  styleUrls: ['./profiles.component.scss'],
+  styleUrls: ['./profiles.component.scss']
 })
 export class ProfilesComponent {
   title: string = 'Profile';
-  emailFormControl = new FormControl('', [Validators.required, Validators.email]);
+  emailFormControl = new FormControl('', [
+    Validators.required,
+    Validators.email
+  ]);
   matcher = new MyErrorStateMatcher();
 
   usersControl = new FormControl(false);
@@ -25,7 +40,7 @@ export class ProfilesComponent {
 
   users = [
     { email: 'user1@example.com', name: 'User One' },
-    { email: 'user2@example.com', name: 'User Two' },
+    { email: 'user2@example.com', name: 'User Two' }
   ];
 
   onPageChange(newPage: number) {

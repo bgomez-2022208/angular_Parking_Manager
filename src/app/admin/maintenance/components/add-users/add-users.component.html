@@ -3,8 +3,8 @@
 
   <div class="container-users">
     <simple-notifications></simple-notifications>
-    <h2 *ngIf="showTitle" >{{ 'ADD_USERS.TITLE_ADD' | translate }}</h2>
-    <h2 *ngIf="showTitleUpdate" >{{ 'ADD_USERS.TITLE_UPDATE' | translate }}</h2>
+    <h2 *ngIf="showTitle">{{ 'ADD_USERS.TITLE_ADD' | translate }}</h2>
+    <h2 *ngIf="showTitleUpdate">{{ 'ADD_USERS.TITLE_UPDATE' | translate }}</h2>
 
     <form class="form-container" [formGroup]="userForm" (ngSubmit)="onSubmit()">
       <div class="form-group">
@@ -13,34 +13,52 @@
             <mat-label>{{ 'ADD_USERS.FORM.LABEL_NAME' | translate }}</mat-label>
             <mat-icon matPrefix class="icon-inputs">person</mat-icon>
             <input class="escritos" matInput formControlName="name" required />
-            <mat-error *ngIf="userForm.get('name')?.invalid">{{getErrorMessage('name')}}</mat-error>
+            <mat-error *ngIf="userForm.get('name')?.invalid">{{
+              getErrorMessage('name')
+            }}</mat-error>
           </mat-form-field>
 
           <mat-form-field class="input-small">
-            <mat-label>{{ 'ADD_USERS.FORM.LABEL_SURNAME' | translate }}</mat-label>
+            <mat-label>{{
+              'ADD_USERS.FORM.LABEL_SURNAME' | translate
+            }}</mat-label>
             <mat-icon matPrefix class="icon-inputs">person</mat-icon>
-            <input class="escritos" matInput formControlName="surname" required />
-            <mat-error *ngIf="userForm.get('surname')?.invalid">{{getErrorMessage('surname')}}</mat-error>
+            <input
+              class="escritos"
+              matInput
+              formControlName="surname"
+              required
+            />
+            <mat-error *ngIf="userForm.get('surname')?.invalid">{{
+              getErrorMessage('surname')
+            }}</mat-error>
           </mat-form-field>
         </div>
         <div class="container-inputs">
           <mat-form-field class="input-small">
             <mat-label>{{ 'ADD_USERS.FORM.LABEL_Año' | translate }}</mat-label>
             <mat-icon matPrefix class="icon-inputs">event</mat-icon>
-            <input type="number" class="escritos" matInput formControlName="age" required />
-            <mat-error *ngIf="userForm.get('age')?.invalid">{{getErrorMessage('age')}}</mat-error>
+            <input
+              type="number"
+              class="escritos"
+              matInput
+              formControlName="age"
+              required
+            />
+            <mat-error *ngIf="userForm.get('age')?.invalid">{{
+              getErrorMessage('age')
+            }}</mat-error>
           </mat-form-field>
 
           <mat-form-field class="input-small">
-            <mat-label>{{ 'ADD_USERS.FORM.LABEL_EMAIL' | translate }}</mat-label>
+            <mat-label>{{
+              'ADD_USERS.FORM.LABEL_EMAIL' | translate
+            }}</mat-label>
             <mat-icon matPrefix class="icon-inputs">mail</mat-icon>
-            <input
-              class="escritos"
-              matInput
-              formControlName="email"
-              required
-            />
-            <mat-error *ngIf="userForm.get('email')?.invalid">{{ getErrorMessage('email') }}</mat-error>
+            <input class="escritos" matInput formControlName="email" required />
+            <mat-error *ngIf="userForm.get('email')?.invalid">{{
+              getErrorMessage('email')
+            }}</mat-error>
           </mat-form-field>
         </div>
 
@@ -49,23 +67,32 @@
             <mat-label>{{ 'ADD_USERS.FORM.LABEL_DPI' | translate }}</mat-label>
             <mat-icon matPrefix class="icon-inputs">recent_actors</mat-icon>
             <input class="escritos" matInput formControlName="dpi" required />
-            <mat-error *ngIf="userForm.get('dpi')?.invalid">{{getErrorMessage('dpi')}}</mat-error>
-
-          </mat-form-field><mat-form-field class="profile-select">
-          <mat-label>{{ 'ADD_USERS.FORM.LABEL_PROFILE' | translate }}</mat-label>
-          <mat-icon matPrefix class="icon-inputs">group</mat-icon>
-          <mat-select formControlName="profile" required>
-            <mat-option *ngFor="let message of profiles" [value]="message.profileId">
-              {{ message.description | translate }}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
-
+            <mat-error *ngIf="userForm.get('dpi')?.invalid">{{
+              getErrorMessage('dpi')
+            }}</mat-error> </mat-form-field
+          ><mat-form-field class="profile-select">
+            <mat-label>{{
+              'ADD_USERS.FORM.LABEL_PROFILE' | translate
+            }}</mat-label>
+            <mat-icon matPrefix class="icon-inputs">group</mat-icon>
+            <mat-select formControlName="profile" required>
+              <mat-option
+                *ngFor="let message of profiles"
+                [value]="message.profileId"
+              >
+                {{ message.description | translate }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
         </div>
-
-
       </div>
-      <mat-slide-toggle  class="toogle" *ngIf="userIdSelected" (change)="onToggleChange($event)" formControlName="status">{{ 'USER.LABEL_STATUS' | translate }}</mat-slide-toggle>
+      <mat-slide-toggle
+        class="toogle"
+        *ngIf="userIdSelected"
+        (change)="onToggleChange($event)"
+        formControlName="status"
+        >{{ 'USER.LABEL_STATUS' | translate }}</mat-slide-toggle
+      >
       <div class="container-buttons">
         <button class="guardar" *ngIf="mostrarBotonGuardar" type="submit">
           {{ 'ADD_USERS.BUTTONS.BTN_SAVE' | translate }}
@@ -73,11 +100,14 @@
         <button class="cancelar" type="button" (click)="CancelUpdate()">
           {{ 'ADD_USERS.BUTTONS.BTN_CANCELAR' | translate }}
         </button>
-        <button *ngIf="mostrarBoton" class="guardar" type="button" (click)="updateUser()">
+        <button
+          *ngIf="mostrarBoton"
+          class="guardar"
+          type="button"
+          (click)="updateUser()"
+        >
           {{ 'ADD_USERS.BUTTONS.BTN_UPDATE_PROFILE' | translate }}
         </button>
-
-
       </div>
     </form>
   </div>

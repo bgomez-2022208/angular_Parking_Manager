@@ -6,7 +6,10 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "lint": "ng lint",
+    "sonar": "sonar-scanner",
+    "prepare": "husky install"
   },
   "private": true,
   "dependencies": {
@@ -33,9 +36,18 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "16.2.15",
+    "@angular-eslint/builder": "16.3.1",
+    "@angular-eslint/eslint-plugin": "16.3.1",
+    "@angular-eslint/eslint-plugin-template": "16.3.1",
+    "@angular-eslint/schematics": "16.3.1",
+    "@angular-eslint/template-parser": "16.3.1",
     "@angular/cli": "16.2.15",
     "@angular/compiler-cli": "16.2.0",
     "@types/jasmine": "4.3.0",
+    "@typescript-eslint/eslint-plugin": "5.62.0",
+    "@typescript-eslint/parser": "5.62.0",
+    "eslint": "^8.51.0",
+    "husky": "^8.0.3",
     "jasmine-core": "4.6.0",
     "karma": "6.4.0",
     "karma-chrome-launcher": "3.2.0",
@@ -43,6 +55,21 @@
     "karma-coverage-istanbul-reporter": "^3.0.3",
     "karma-jasmine": "5.1.0",
     "karma-jasmine-html-reporter": "2.1.0",
+    "karma-sonarqube-reporter": "^1.4.0",
+    "prettier": "^3.3.3",
+    "sonar-scanner": "^3.1.0",
     "typescript": "^5.1.6"
+  },
+  "lint-staged": {
+    "src/**{.ts,.html,.css}": [
+      "pretier --write",
+      "eslint --fix"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "pre-push": "npm run test"
+    }
   }
 }

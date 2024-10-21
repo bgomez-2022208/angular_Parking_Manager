@@ -4,13 +4,12 @@
   import { environment } from "../../../enviroments/environment";
   import {User} from "../model/user.model";
 
-  @Injectable({
-    providedIn: 'root'
-  })
-  export class ApiUserService {
-
-    private apiUrl = environment.apiUsers;
-    constructor(private http: HttpClient) { }
+@Injectable({
+  providedIn: 'root'
+})
+export class ApiUserService {
+  private apiUrl = environment.apiUsers;
+  constructor(private http: HttpClient) {}
 
     createUser(userData: any): Observable<any> {
       const url = `${this.apiUrl}/users/signup`;
@@ -32,6 +31,7 @@
         })
       );
     }
+
     deleteUser(userId: number): Observable<any> {
       const url = `${this.apiUrl}/users/${userId}`;
       return this.http.delete<any>(url);

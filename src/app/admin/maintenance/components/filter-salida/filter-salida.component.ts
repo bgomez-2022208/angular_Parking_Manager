@@ -1,7 +1,11 @@
 import { Component, Inject } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
+import {
+  MAT_DIALOG_DATA,
+  MatDialog,
+  MatDialogRef
+} from '@angular/material/dialog';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ApiUserService } from "../../../../user/services/user.service";
+import { ApiUserService } from '../../../../user/services/user.service';
 import Swal from 'sweetalert2';
 import { TranslateService } from '@ngx-translate/core';
 
@@ -49,7 +53,7 @@ export class FilterSalidaComponent {
       };
 
       this.apiUserService.salidaParking(placaData).subscribe(
-        (salidaParking) => {
+        salidaParking => {
           this.salidaParking = salidaParking;
           this.parkingForm.reset();
           this.mostrarDatos = true;
@@ -61,27 +65,39 @@ export class FilterSalidaComponent {
 
           Swal.fire({
             icon: 'success',
-            title: this.translate.instant('REGISTER_PARKING.ALERT_SUCCESS.TITLE'),
-            text: this.translate.instant('REGISTER_PARKING.ALERT_SUCCESS.MESSAGE_EXIT'),
+            title: this.translate.instant(
+              'REGISTER_PARKING.ALERT_SUCCESS.TITLE'
+            ),
+            text: this.translate.instant(
+              'REGISTER_PARKING.ALERT_SUCCESS.MESSAGE_EXIT'
+            ),
             timer: 3000,
             showConfirmButton: false
           });
         },
-        (error) => {
+        error => {
           if (error.status === 409) {
             Swal.fire({
               icon: 'warning',
-              title: this.translate.instant('REGISTER_PARKING.ALERT_WARNING.TITLE'),
-              text: this.translate.instant('REGISTER_PARKING.ALERT_WARNING.MESSAGE_DUPLICATE'),
+              title: this.translate.instant(
+                'REGISTER_PARKING.ALERT_WARNING.TITLE'
+              ),
+              text: this.translate.instant(
+                'REGISTER_PARKING.ALERT_WARNING.MESSAGE_DUPLICATE'
+              ),
               timer: 3000,
               showConfirmButton: false
             });
           } else {
-            console.error("Error creando salida de parqueo", error);
+            console.error('Error creando salida de parqueo', error);
             Swal.fire({
               icon: 'error',
-              title: this.translate.instant('REGISTER_PARKING.ALERT_ERROR.TITLE'),
-              text: this.translate.instant('REGISTER_PARKING.ALERT_ERROR.MESSAGE_EXIT'),
+              title: this.translate.instant(
+                'REGISTER_PARKING.ALERT_ERROR.TITLE'
+              ),
+              text: this.translate.instant(
+                'REGISTER_PARKING.ALERT_ERROR.MESSAGE_EXIT'
+              ),
               timer: 3000,
               showConfirmButton: false
             });

@@ -1,6 +1,6 @@
-@import "../../../../../assets/sass/variables";
+@import '../../../../../assets/sass/variables';
 
-.table-component{
+.table-component {
   color: #007bff;
   min-height: 100%;
 }
@@ -11,22 +11,23 @@
   min-height: 55vh;
 }
 
-.mat-row, .mat-header-row {
+.mat-row,
+.mat-header-row {
   display: table-row;
 }
 
-.mat-cell, .mat-header-cell {
+.mat-cell,
+.mat-header-cell {
   display: table-cell;
   vertical-align: top;
 }
-
 
 .active-icon {
   color: green;
 }
 
 .inactive-icon {
-  color: red
+  color: red;
 }
 
 .main-container {
@@ -61,7 +62,7 @@
         padding: $button-padding;
         line-height: $button-line-height;
         border-radius: $button-radius;
-        transition: scale .2s ease-in-out;
+        transition: scale 0.2s ease-in-out;
         margin-bottom: $button-mgb;
         margin-left: 1rem;
         font-family: $font-primary;
@@ -74,7 +75,7 @@
       }
 
       .cancel {
-        background-color: #A02334;
+        background-color: #a02334;
         color: $palette-color-four;
         border: $button-border;
         font-weight: $font-weight-button;
@@ -82,7 +83,7 @@
         padding: $button-padding;
         line-height: $button-line-height;
         border-radius: $button-radius;
-        transition: scale .2s ease-in-out;
+        transition: scale 0.2s ease-in-out;
         margin-bottom: $button-mgb;
         margin-left: 1rem;
         font-family: $font-primary;
@@ -118,17 +119,15 @@
           }
 
           mat-error {
-            margin-top: .5rem;
+            margin-top: 0.5rem;
           }
         }
-
       }
 
       mat-slide-toggle {
         margin: 1rem;
         margin-left: 1rem;
       }
-
     }
   }
 
@@ -168,7 +167,6 @@
       margin-right: 1rem;
       margin-left: 1rem;
 
-
       .container-inputs {
         width: 100%;
         display: flex;
@@ -184,11 +182,10 @@
           }
 
           mat-error {
-            margin-top: .5rem;
+            margin-top: 0.5rem;
           }
         }
       }
-
 
       .buttons {
         margin: 1rem;
@@ -200,7 +197,6 @@
           font-size: $font-size-button-resposive;
         }
       }
-
     }
 
     .table {
@@ -211,22 +207,21 @@
 }
 
 @media (max-width: 640px) {
-  .main-container{
+  .main-container {
     flex-direction: column-reverse;
 
-    .profiles-form{
+    .profiles-form {
       margin: 0;
 
-      .container-inputs{
+      .container-inputs {
         width: 100%;
       }
     }
 
-    .table{
+    .table {
       width: 100%;
       margin: 0;
       margin-top: 1rem;
     }
   }
-
 }

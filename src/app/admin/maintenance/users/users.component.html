@@ -1,36 +1,40 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Usuarios</title>
-</head>
-<body>
-<div class="content">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Usuarios</title>
+  </head>
+  <body>
+    <div class="content">
+      <div class="Navbar-container">
+        <app-navbaruser
+          [title]="'NAVBAR_USER.USERS' | translate"
+        ></app-navbaruser>
+      </div>
 
-  <div class="Navbar-container">
-    <app-navbaruser [title]="'NAVBAR_USER.USERS' | translate"></app-navbaruser>
-  </div>
+      <div class="container">
+        <div class="table">
+          <app-filter-user
+            class="filter"
+            (searchChange)="changeSearch($event)"
+          ></app-filter-user>
+          <app-table-users
+            class="table-register"
+            [users]="users"
+            [itemsPerPage]="itemsPerPage"
+            [totalElements]="totalUsers"
+            [currentPage]="currentPage"
+            (pageChange)="changePage($event)"
+          >
+            ></app-table-users
+          >
+        </div>
 
-  <div class="container">
-    <div class="table">
-      <app-filter-user class="filter" (searchChange)="changeSearch($event)"></app-filter-user>
-      <app-table-users class="table-register"
-                       [users]="users"
-                       [itemsPerPage]="itemsPerPage"
-                       [totalElements]="totalUsers"
-                       [currentPage]="currentPage"
-                       (pageChange)="changePage($event)">
-      ></app-table-users>
-
-
+        <div class="table-usuarios">
+          <app-add-users (userCreated)="onUserCreated($event)"></app-add-users>
+        </div>
+      </div>
     </div>
-
-    <div class="table-usuarios">
-      <app-add-users (userCreated)="onUserCreated($event)"></app-add-users>
-    </div>
-  </div>
-</div>
-
-</body>
+  </body>
 </html>

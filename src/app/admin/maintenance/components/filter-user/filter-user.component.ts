@@ -28,7 +28,7 @@ export class FilterUserComponent {
 
   onChange(event: any) {
     event.preventDefault();
-    console.log("Texto de los querys:", event.target.value);
+    console.log('texto de los querys', event.target.value);
 
     this.searchChange.emit(event.target.value);
   }

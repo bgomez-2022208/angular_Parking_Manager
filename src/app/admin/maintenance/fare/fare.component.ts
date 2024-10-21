@@ -1,8 +1,19 @@
-import { Component, EventEmitter, Input, Output, ViewChild } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+  ViewChild
+} from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { FareData, FareService } from '../../services/fare.service';
 import { DatePipe } from '@angular/common';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators
+} from '@angular/forms';
 import { MatSlideToggleChange } from '@angular/material/slide-toggle';
 import Swal from 'sweetalert2';
 import { FareTableComponent } from '../components/fare-table/fare-table.component';
@@ -21,13 +32,19 @@ export class FareComponent {
   private fareId: number = 0;
   @Output() fareUpdated = new EventEmitter<void>();
   @ViewChild(FareTableComponent) fareTable!: FareTableComponent;
-  searchControl = new FormControl('')
+  searchControl = new FormControl('');
   totalItems: number = 0;
   currentPage: number = 0;
   pageSize: number = 10;
 
-
-  constructor(private datePipe: DatePipe, private fareService: FareService, private fb: FormBuilder,private router: Router,private route: ActivatedRoute,private translate: TranslateService) {
+  constructor(
+    private datePipe: DatePipe,
+    private fareService: FareService,
+    private fb: FormBuilder,
+    private router: Router,
+    private route: ActivatedRoute,
+    private translate: TranslateService
+  ) {
     const fare: FareData[] = [];
     this.dataSource = new MatTableDataSource(fare);
 
@@ -36,7 +53,7 @@ export class FareComponent {
       startTime: ['', Validators.required],
       price: ['', Validators.required],
       endTime: ['', Validators.required],
-      status: [false,Validators.required]
+      status: [false, Validators.required]
     });
   }
 
@@ -65,7 +82,7 @@ export class FareComponent {
             this.resetForm();
             this.onFareUpdated();
           },
-          (error) => {
+          error => {
             Swal.fire('Error', 'Failed to update fare', 'error');
             console.error('Error updating fare:', error);
           }
@@ -78,7 +95,7 @@ export class FareComponent {
             this.onFareUpdated();
             window.location.reload();
           },
-          (error) => {
+          error => {
             Swal.fire('Error', 'Failed to create fare', 'error');
             console.error('Error creating fare:', error);
           }
@@ -87,7 +104,7 @@ export class FareComponent {
     }
   }
 
-  getErrorMessage(controlName: string){
+  getErrorMessage(controlName: string) {
     const control = this.fareForm.get(controlName);
 
     if (control?.hasError('required')) {
@@ -122,8 +139,6 @@ export class FareComponent {
     this.fareSelected = false;
   }
 
-
-
   onFareSelected(fare: FareData): void {
     console.log('Fare data received in FareComponent:', fare);
     this.isEditing = true;
@@ -141,59 +156,56 @@ export class FareComponent {
 
   CancelUpdate() {
     this.fareForm.reset();
-    this.fareSelected=false;
+    this.fareSelected = false;
     this.router.navigate([], {
       relativeTo: this.route,
-      queryParams: {},
+      queryParams: {}
     });
   }
 
-  onToggleChange(event: MatSlideToggleChange, fare: FareData){
+  onToggleChange(event: MatSlideToggleChange, fare: FareData) {
     const newStatus = event.checked;
     const updatedFareData: FareData = { ...fare, status: newStatus };
-    if(!newStatus){
+    if (!newStatus) {
       Swal.fire({
-        icon:'warning',
+        icon: 'warning',
         title: this.translate.instant('FARE.ALERT_DISABLE_FARE_TITLE'),
         text: this.translate.instant('FARE_ALERT_DISABLE_FARE_MESSAGE'),
         confirmButtonText: this.translate.instant('FARE.ALERT_DISABLE_YES'),
         cancelButtonText: this.translate.instant('FARE.ALERT_DISABLE_NO'),
-        showCancelButton: true,
-      }).then((result) => {
-        this.fareService.updateFare(this.fareId ,updatedFareData).subscribe({
-          next: (response) => {
+        showCancelButton: true
+      }).then(result => {
+        this.fareService.updateFare(this.fareId, updatedFareData).subscribe({
+          next: response => {
             Swal.fire({
-              icon:'success',
+              icon: 'success',
               title: this.translate.instant('FARE.ALERT_DISABLED_FARE')
-            })
-            this.resetForm()
-            this.onFareUpdated()
+            });
+            this.resetForm();
+            this.onFareUpdated();
           },
-          error: (error) => {
-            console.log('Error al desactivar la tarifa:',error)
+          error: error => {
+            console.log('Error al desactivar la tarifa:', error);
           }
-        })
-        this.resetForm()
-      })
+        });
+        this.resetForm();
+      });
     } else {
-      this.fareService.updateFare(this.fareId,updatedFareData).subscribe({
-        next: (response) => {
+      this.fareService.updateFare(this.fareId, updatedFareData).subscribe({
+        next: response => {
           Swal.fire({
             icon: 'success',
             title: this.translate.instant('FARE.ALERT_ENABLED_FARE')
-          })
-          this.resetForm()
-          this.onFareUpdated()
+          });
+          this.resetForm();
+          this.onFareUpdated();
         },
-        error: (error) => {
-          console.log('Error al activar el registro:',error)
+        error: error => {
+          console.log('Error al activar el registro:', error);
         }
-      })
+      });
     }
   }
 
-
-  ngOnInit() {
-
-  }
+  ngOnInit() {}
 }
