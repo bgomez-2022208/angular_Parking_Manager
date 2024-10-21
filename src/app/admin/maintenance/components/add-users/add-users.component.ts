@@ -1,8 +1,7 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ApiUserService } from '../../../../user/services/user.service';
-import { User } from '../../../model/user.model';
-import { NotificationsService } from 'angular2-notifications';
+import { Component, OnInit, Output, EventEmitter } from "@angular/core";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { ApiUserService } from "../../../../user/services/user.service";
+import { User } from "../../../model/user.model";
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import {
@@ -24,7 +23,9 @@ import { MatSlideToggleChange } from '@angular/material/slide-toggle';
       state('void', style({ opacity: 0, transform: 'scale(0.95)' })),
       state('*', style({ opacity: 1, transform: 'scale(1)' })),
 
-      transition('void => *', [animate('400ms ease-out')])
+      transition('void => *', [
+        animate('400ms ease-out')
+      ])
     ])
   ]
 })
@@ -42,7 +43,6 @@ export class AddUsersComponent implements OnInit {
   showTitleUpdate = false;
 
   constructor(
-    private notifications: NotificationsService,
     private fb: FormBuilder,
     private apiUserService: ApiUserService,
     private router: Router,
@@ -121,7 +121,6 @@ export class AddUsersComponent implements OnInit {
     this.apiUserService.getProfilesUser().subscribe(
       (data: any) => {
         this.profiles = data.message;
-
         console.log(this.profiles);
       },
       (error: any) => {
@@ -145,7 +144,7 @@ export class AddUsersComponent implements OnInit {
           profile: userData.message.idProfile.profileId
         });
       },
-      error: err => {
+      error: (err) => {
         console.error('Error loading user data:', err);
       }
     });
@@ -164,7 +163,7 @@ export class AddUsersComponent implements OnInit {
       };
 
       this.apiUserService.createUser(userData).subscribe(
-        newUser => {
+        (newUser) => {
           this.loadUsers();
           this.userForm.reset();
           this.resetUserFormState();
@@ -178,7 +177,7 @@ export class AddUsersComponent implements OnInit {
             showConfirmButton: false
           });
         },
-        error => {
+        (error) => {
           this.handleError(error);
         }
       );
@@ -199,7 +198,7 @@ export class AddUsersComponent implements OnInit {
       this.mostrarBoton = false;
       this.mostrarBotonGuardar = true;
       this.apiUserService.updateUser(this.userId, userData).subscribe(
-        updatedUser => {
+        (updatedUser) => {
           Swal.fire({
             icon: 'success',
             title: this.translate.instant('ALERT_SUCCESS.TITLE'),
@@ -214,7 +213,7 @@ export class AddUsersComponent implements OnInit {
           this.showTitle = true;
           this.showTitleUpdate = false;
         },
-        error => {
+        (error) => {
           this.handleError(error);
         }
       );
@@ -264,39 +263,26 @@ export class AddUsersComponent implements OnInit {
         icon: 'warning',
         title: this.translate.instant('USER.ALERT_DISABLE_USER_TITLE'),
         text: this.translate.instant('USER.ALERT_DISABLE_USER_MESSAGE'),
-        confirmButtonText: this.translate.instant(
-          'USER.ALERT_DISABLE_USER_BUTTON_YES'
-        ),
-        cancelButtonText: this.translate.instant(
-          'USER.ALERT_DISABLE_USER_BUTTON_NO'
-        ),
-        showCancelButton: true
-      }).then(result => {
+        confirmButtonText: this.translate.instant('USER.ALERT_DISABLE_USER_BUTTON_YES'),
+        cancelButtonText: this.translate.instant('USER.ALERT_DISABLE_USER_BUTTON_NO'),
+        showCancelButton: true,
+      }).then((result) => {
         if (result.isConfirmed) {
           this.userIdSelected = false;
-          this.apiUserService
-            .userDeleteStatus(
-              status,
-              this.userId,
-              this.userForm.value.dpi,
-              this.userForm.value.profile
-            )
-            .subscribe({
-              next: response => {
-                Swal.fire({
-                  icon: 'success',
-                  title: this.translate.instant(
-                    'USER.ALERT_DISABLE_USER_SUCCESS_MESSAGE'
-                  )
-                });
-                this.userForm.reset();
-                this.resetUserFormState();
-                this.loadUsers();
-              },
-              error: error => {
-                console.error('Error al desactivar usuario:', error);
-              }
-            });
+          this.apiUserService.userDeleteStatus(status, this.userId, this.userForm.value.dpi, this.userForm.value.profile).subscribe({
+            next: (response) => {
+              Swal.fire({
+                icon: 'success',
+                title: this.translate.instant('USER.ALERT_DISABLE_USER_SUCCESS_MESSAGE')
+              });
+              this.userForm.reset();
+              this.resetUserFormState();
+              this.loadUsers();
+            },
+            error: (error) => {
+              console.error('Error al desactivar usuario:', error);
+            }
+          });
           this.loadUsers();
         }
         this.userForm.reset();
@@ -304,28 +290,19 @@ export class AddUsersComponent implements OnInit {
       });
     } else {
       this.userIdSelected = false;
-      this.apiUserService
-        .userDeleteStatus(
-          status,
-          this.userId,
-          this.userForm.value.dpi,
-          this.userForm.value.profile
-        )
-        .subscribe({
-          next: response => {
-            Swal.fire({
-              icon: 'success',
-              title: this.translate.instant(
-                'USER.ALERT_ACTIVATE_USER_SUCCESS_MESSAGE'
-              )
-            });
-            this.userForm.reset();
-            this.loadUsers();
-          },
-          error: error => {
-            console.error('Error al activar usuario:', error);
-          }
-        });
+      this.apiUserService.userDeleteStatus(status, this.userId, this.userForm.value.dpi, this.userForm.value.profile).subscribe({
+        next: (response) => {
+          Swal.fire({
+            icon: 'success',
+            title: this.translate.instant('USER.ALERT_ACTIVATE_USER_SUCCESS_MESSAGE')
+          });
+          this.userForm.reset();
+          this.loadUsers();
+        },
+        error: (error) => {
+          console.error('Error al activar usuario:', error);
+        }
+      });
     }
   }
 }

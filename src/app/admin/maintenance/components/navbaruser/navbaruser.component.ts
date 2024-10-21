@@ -1,9 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { LogoutConfirmComponent } from '../logout-confirm/logout-confirm.component';
-import { MatDialog } from '@angular/material/dialog';
+import { Component, Input } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { LanguageService } from 'src/app/user/services/languaje.service';
-import { MatSelectChange } from '@angular/material/select';
 import Swal from 'sweetalert2';
 import { ApiUserService } from 'src/app/user/services/user.service';
 import { Router } from '@angular/router';
@@ -21,11 +18,10 @@ export class NavbaruserComponent {
   isLoading = false;
 
   constructor(
-    private router: Router,
-    private dialog: MatDialog,
-    private translate: TranslateService,
-    private languageService: LanguageService,
-    private userService: ApiUserService
+    private readonly router: Router,
+    private readonly translate: TranslateService,
+    private readonly languageService: LanguageService,
+    private readonly  userService: ApiUserService
   ) {}
 
   openLogoutDialog() {
@@ -37,8 +33,8 @@ export class NavbaruserComponent {
       confirmButtonColor: '#3085d6',
       confirmButtonText: this.translate.instant('LOGOUT.BTN_YES'),
       cancelButtonText: this.translate.instant('LOGOUT.BTN_NO'),
-      cancelButtonColor: '#d33'
-    }).then(result => {
+      cancelButtonColor: '#d33',
+    }).then((result) => {
       if (result.isConfirmed) {
         this.userService.logout();
         Swal.fire({
@@ -50,27 +46,18 @@ export class NavbaruserComponent {
     });
   }
 
-  ngOnInit() {
-    this.languages = this.languageService.getAvailableLanguages();
-    this.currentLanguage = this.languageService.getCurrentLanguage();
-  }
-
   onLanguageChange(lang: string) {
     this.isLoading = true;
-
-    // Cambiar el idioma
     this.languageService.changeLanguage(lang).subscribe({
       next: () => {
-        // Después de cambiar el idioma, espera 2 segundos para desactivar el loader
         setTimeout(() => {
           this.currentLanguage = lang;
           this.isLoading = false;
         }, 2000);
       },
       error: () => {
-        // Manejo de error, desactiva el loader de inmediato
-        console.error('Error al cambiar de idioma');
-        this.isLoading = false;
+        console.error('Error al cambiar de idioma')
+        this.isLoading = false
       }
     });
   }

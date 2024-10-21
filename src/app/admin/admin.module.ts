@@ -18,11 +18,6 @@ import {
 } from '@angular/material/paginator';
 
 // Components
-import { SearchComponent } from './maintenance/search/search.component';
-import { NavbarComponent } from './maintenance/components/navbar/navbar.component';
-import { LogoutConfirmComponent } from './maintenance/components/logout-confirm/logout-confirm.component';
-import { FilterComponent } from './maintenance/components/filter/filter.component';
-import { FormParkingComponent } from './maintenance/components/form-parking/form-parking.component';
 import { TableUsersComponent } from '../shared/table-users/table-users.component';
 import { NavbaruserComponent } from './maintenance/components/navbaruser/navbaruser.component';
 import { FilterUserComponent } from './maintenance/components/filter-user/filter-user.component';
@@ -45,7 +40,6 @@ import { MatCardModule } from '@angular/material/card';
 import { DeleteUserConfirmComponent } from './maintenance/components/delete-user-confirm/delete-user-confirm.component';
 import { FareComponent } from './maintenance/fare/fare.component';
 import { TableProfilesComponent } from '../shared/table-profiles/table-profiles.component';
-import { FilterProfileComponent } from './maintenance/components/filter-profile/filter-profile.component';
 import { RegisterParkingComponent } from './maintenance/register-parking/register-parking.component';
 import { FilterSalidaComponent } from './maintenance/components/filter-salida/filter-salida.component';
 import { FareTableComponent } from './maintenance/components/fare-table/fare-table.component';
@@ -55,6 +49,7 @@ import { ParkingComponent } from './maintenance/parking/parking.component';
 import { CustomPaginatorIntl } from '../user/services/custom-paginator';
 import { ForbiddenComponent } from '../guard/forbidden/forbidden.component';
 import { AuthGuard } from '../guard/auth.guard.guard';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 const routes: Routes = [
   {
@@ -109,11 +104,6 @@ const routes: Routes = [
   declarations: [
     ReporteComponent,
     AuditoriaComponent,
-    SearchComponent,
-    NavbarComponent,
-    LogoutConfirmComponent,
-    FilterComponent,
-    FormParkingComponent,
     TableUsersComponent,
     TableProfilesComponent,
     ParkingComponent,
@@ -126,14 +116,14 @@ const routes: Routes = [
     FareComponent,
     CardAuditoryComponent,
     DeleteUserConfirmComponent,
-    FilterProfileComponent,
     FilterSalidaComponent,
     RegisterParkingComponent,
     FareTableComponent,
-    FilterProfileComponent,
     CardReporterComponent
   ],
   imports: [
+    BrowserAnimationsModule,
+    TranslateModule,
     CommonModule,
     ReactiveFormsModule,
     MatToolbarModule,
@@ -142,14 +132,11 @@ const routes: Routes = [
     MatMenuModule,
     MatDialogModule,
     MatFormFieldModule,
-    MatInputModule,
     MatSelectModule,
     MatTableModule,
     MatPaginatorModule,
     FormsModule,
-    MatInputModule,
     MatSlideToggleModule,
-    MatInputModule,
     RouterModule.forChild(routes),
     MatInputModule,
     MatSelectModule,
@@ -165,14 +152,10 @@ const routes: Routes = [
     MatCardModule
   ],
   exports: [
-    NavbarComponent,
-    FilterComponent,
-    FormParkingComponent,
     TableUsersComponent,
     AddUsersComponent,
     FilterUserComponent,
     NavbaruserComponent,
-    FilterProfileComponent,
     CardAuditoryComponent,
     CardReporterComponent
   ],

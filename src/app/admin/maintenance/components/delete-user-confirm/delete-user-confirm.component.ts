@@ -1,9 +1,8 @@
-import { Component, Inject, OnInit } from '@angular/core';
-import { User } from '../../../model/user.model';
-import { ApiUserService } from '../../../services/user.service';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { TranslateService } from '@ngx-translate/core';
-import { NotificationsService } from 'angular2-notifications';
+import {Component, Inject, OnInit} from '@angular/core';
+import { User } from "../../../model/user.model";
+import { ApiUserService } from "../../../services/user.service";
+import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material/dialog";
+import { TranslateService } from "@ngx-translate/core";
 import Swal from 'sweetalert2';
 import {
   animate,
@@ -35,10 +34,9 @@ export class DeleteUserConfirmComponent {
   searchQuery: string = '';
 
   constructor(
-    private notifications: NotificationsService,
 
     private apiUserService: ApiUserService,
-    private dialogRef: MatDialogRef<DeleteUserConfirmComponent>,
+    public dialogRef: MatDialogRef<DeleteUserConfirmComponent>,
     @Inject(MAT_DIALOG_DATA) public data: { userId: number },
     private translate: TranslateService
   ) {}
