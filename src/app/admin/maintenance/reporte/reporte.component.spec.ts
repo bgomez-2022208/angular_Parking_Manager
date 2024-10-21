@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { of } from 'rxjs';
 
@@ -13,46 +13,39 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
+
+// Custom Components/Services
+import { ReporteComponent } from './reporte.component';
+import { ReportService } from '../../services/reporte.service';
+import { NavbaruserComponent } from '../components/navbaruser/navbaruser.component';
+import { TranslateModule } from '@ngx-translate/core';
+import { AuditoryService } from '../../services/auditory.service';
+import { FormsModule } from '@angular/forms';
 import { MatTableModule } from '@angular/material/table';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
-// Custom Components
-import { FareComponent } from './fare.component';
-import { NavbaruserComponent } from '../components/navbaruser/navbaruser.component';
-import { FareTableComponent} from '../components/fare-table/fare-table.component';
-import { TranslateModule } from '@ngx-translate/core';
-import { DatePipe } from '@angular/common';
-import { ActivatedRoute } from '@angular/router';
-import { ReactiveFormsModule } from '@angular/forms';
-
-describe('FareComponent', () => {
-  let component: FareComponent;
-  let fixture: ComponentFixture<FareComponent>;
+describe('ReporteComponent', () => {
+  let component: ReporteComponent;
+  let fixture: ComponentFixture<ReporteComponent>;
 
   const mockMatDialog = {
     open: jasmine.createSpy('open'),
   };
 
-  const mockActivatedRoute = {
-    snapshot: {
-      paramMap: {
-        get: (key: string) => {
-          return null;
-        },
-      },
-    },
-  };
+  class MockTranslateService {
+    instant(key: string): string {
+      return key;
+    }
+    get(key: string) {
+      return of(key);
+    }
+  }
 
-  beforeEach(waitForAsync(() => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [
-        FareComponent,
-        NavbaruserComponent,
-        FareTableComponent
-      ],
       imports: [
         HttpClientTestingModule,
-        TranslateModule.forRoot(),
+        MatDialogModule,
         MatFormFieldModule,
         MatInputModule,
         MatSelectModule,
@@ -62,20 +55,22 @@ describe('FareComponent', () => {
         MatToolbarModule,
         MatIconModule,
         MatMenuModule,
+        TranslateModule.forRoot(),
+        FormsModule,
         MatTableModule,
         NoopAnimationsModule,
-        ReactiveFormsModule,
+      ],
+      declarations: [
+        ReporteComponent,
+        NavbaruserComponent
       ],
       providers: [
-        DatePipe,
         { provide: MatDialog, useValue: mockMatDialog },
-        { provide: ActivatedRoute, useValue: mockActivatedRoute }, 
-      ],
-    }).compileComponents();
-  }));
-
-  beforeEach(() => {
-    fixture = TestBed.createComponent(FareComponent);
+        ReportService,
+        AuditoryService
+      ]
+    });
+    fixture = TestBed.createComponent(ReporteComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
